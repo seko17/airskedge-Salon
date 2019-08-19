@@ -6,25 +6,51 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { UserProvider } from '../providers/user/user';
+import { CreateAccountPage } from '../pages/create-account/create-account';
+import { LoginPage } from '../pages/login/login';
+import { SalonRegistrationpagePage } from '../pages/salon-registrationpage/salon-registrationpage';
+import { UserCreateProfilePage } from '../pages/user-create-profile/user-create-profile';
+import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
+import { Camera } from "@ionic-native/camera";
+import {  ImagePicker} from "@ionic-native/image-picker";
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    CreateAccountPage,
+    LoginPage,
+    SalonRegistrationpagePage,
+    UserCreateProfilePage,
+    ForgotPasswordPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    ReactiveFormsModule,
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    CreateAccountPage,
+    LoginPage,
+    SalonRegistrationpagePage,
+    UserCreateProfilePage,
+    ForgotPasswordPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UserProvider,
+    AuthServiceProvider,
+     Camera,
+     ImagePicker
   ]
 })
 export class AppModule {}

@@ -1,5 +1,7 @@
 {
   "name": "airskedge-Salon",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
