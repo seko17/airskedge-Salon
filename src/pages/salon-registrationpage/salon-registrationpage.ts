@@ -7,12 +7,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { HomePage } from '../home/home';
 import { LandingPage } from '../landing/landing';
 
-/**
- * Generated class for the SalonRegistrationpagePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({

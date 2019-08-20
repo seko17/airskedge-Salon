@@ -1,49 +1,55 @@
-<!--
-  Generated template for the LoginPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <ion-title>loginPage</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content padding>
-  <form [formGroup]="loginForm">
-    <ion-item>
-      <ion-label position="stacked">Email</ion-label>
-      <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!loginForm.controls['email'].valid &&
-      loginForm.controls['email'].touched">
-      </ion-input>
-    </ion-item>
-    <ion-item class="error-message" *ngIf="!loginForm.controls['email'].valid &&
-       loginForm.controls['email'].touched">
-      <ion-label>Please enter a valid email address.</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="stacked">Password</ion-label>
-      <ion-input formControlName="password" type="password" placeholder="Your password"
-        [class.invalid]="!loginForm.controls['password'].valid&& loginForm.controls['password'].touched">
-      </ion-input>
-    </ion-item>
-    <ion-item class="error-message" *ngIf="!loginForm.controls['password'].valid
-      && loginForm.controls['password'].touched">
-      <ion-label>Your password needs more than 6 characters.</ion-label>
-    </ion-item>
-
-    <button ion-button (click)="loginUser(loginForm)" expand="block" [disabled]="!loginForm.valid">
-      Log In
-    </button>
-  </form>
-
-  <button ion-button expand="block" fill="clear"  (click)="createAcc()">
-    Create a new account
-  </button>
-
-  <button ion-button expand="block" fill="clear" (click)="forgotpassword()">
-    I forgot my password 
-  </button>
+  <div class="container">
+      <div class="signin">
+          <h1>Sign-In</h1>
+        </div>
+        <div class="form">
+            <form [formGroup]="loginForm">
+                <ion-item>
+                  <!-- <ion-label position="stacked">Email</ion-label> -->
+                  <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!loginForm.controls['email'].valid &&
+                  loginForm.controls['email'].touched">
+                </ion-input>
+                </ion-item>
+                <ion-item class="error-message" *ngIf="!loginForm.controls['email'].valid &&
+                   loginForm.controls['email'].touched">
+                  <ion-label style="color:red;">Please enter a valid email address.</ion-label>
+                </ion-item>
+            
+                <ion-item>
+                  <!-- <ion-label position="stacked">Password</ion-label> -->
+                  <ion-input formControlName="password" type="password" placeholder="Your password"
+                    [class.invalid]="!loginForm.controls['password'].valid&& loginForm.controls['password'].touched">
+                  </ion-input>
+                </ion-item>
+                <ion-item class="error-message" *ngIf="!loginForm.controls['password'].valid
+                  && loginForm.controls['password'].touched">
+                  <ion-label style="color:red;">Your password needs more than 6 characters.</ion-label>
+                </ion-item>
+            
+                <button ion-button (click)="loginUser(loginForm)" expand="block" [disabled]="!loginForm.valid">
+                  Log In
+                </button>
+              </form>
+        </div>
+      
+      <div class="btns">
+          <button ion-button expand="block" clear  (click)="createAcc()">
+              Create a new account
+            </button>
+          <br>
+            <button ion-button expand="block" clear (click)="forgotpassword()">
+              I forgot my password 
+            </button>
+      </div>
+  </div>
+  
+ 
 </ion-content>
