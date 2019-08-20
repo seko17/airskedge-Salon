@@ -1,5 +1,8 @@
+
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Slides } from 'ionic-angular';
+import { LoginPage } from '../login/login';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 @Component({
   selector: 'page-home',
@@ -8,16 +11,14 @@ import { NavController, Slides } from 'ionic-angular';
 export class HomePage {
 @ViewChild(Slides) slides: Slides;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+    private authservice : AuthServiceProvider
+    ) {
 
   }
-
-  slideChanged(){
-    let currentIndex = this.slides.getActiveIndex();
-    console.log('Current index is', currentIndex)
-  }
-
-  gotologin(){
-    this.navCtrl.push('LoginPage')
-  }
+logout(){
+ this.authservice.logoutUser().then(() =>{
+   this.navCtrl.setRoot(LoginPage);
+ });
+}
 }
