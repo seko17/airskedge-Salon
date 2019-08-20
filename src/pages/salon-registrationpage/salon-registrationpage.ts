@@ -5,6 +5,7 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { HomePage } from '../home/home';
+import { LandingPage } from '../landing/landing';
 
 /**
  * Generated class for the SalonRegistrationpagePage page.
@@ -113,7 +114,7 @@ export class SalonRegistrationpagePage {
       const user = this.db.collection('SalonOwnerProfile').doc(this.authUser.getUser()).update(this.SalonOwnerProfile);
       // upon success...
       user.then( () => {
-        this.navCtrl.setRoot(HomePage)
+        this.navCtrl.setRoot(LandingPage)
         this.toastCtrl.create({
           message: 'User Profile added.',
           duration: 2000,
