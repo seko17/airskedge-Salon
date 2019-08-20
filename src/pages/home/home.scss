@@ -1,3 +1,27 @@
 page-home {
+  .slides {
+    .slide {
+      background: url('../../assets/imgs/onboarding.jpg');
+    }
+  }
 
+  .img {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .front {
+      position: absolute;
+      top: 10;
+      z-index: 1;
+      width: 600px;
+    }
+
+    .txt {
+      position: absolute;
+      bottom: 20px;
+    }
+  }
 }
