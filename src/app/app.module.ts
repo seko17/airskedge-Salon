@@ -17,6 +17,8 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
 import { Camera } from "@ionic-native/camera";
 import {  ImagePicker} from "@ionic-native/image-picker";
+import { AddSalonPage } from '../pages/add-salon/add-salon';
+import { LandingPage } from '../pages/landing/landing';
 @NgModule({
   declarations: [
     MyApp,
@@ -25,7 +27,9 @@ import {  ImagePicker} from "@ionic-native/image-picker";
     LoginPage,
     SalonRegistrationpagePage,
     UserCreateProfilePage,
-    ForgotPasswordPage
+    ForgotPasswordPage,
+    AddSalonPage,
+    LandingPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,9 @@ import {  ImagePicker} from "@ionic-native/image-picker";
     LoginPage,
     SalonRegistrationpagePage,
     UserCreateProfilePage,
-    ForgotPasswordPage
+    ForgotPasswordPage,
+    AddSalonPage,
+    LandingPage
   ],
   providers: [
     StatusBar,
