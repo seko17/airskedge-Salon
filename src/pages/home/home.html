@@ -1,17 +1,73 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <ion-title>
       Ionic Blank
     </ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-  <p>
-    <button ion-button (click) = "logout()" > logout</button>
-  </p>
+<ion-content>
+  
+  <ion-slides pager="true" (ionSlideDidChange)="slideChanged()">
+
+    <ion-slide>
+      <div class="img">
+        <div class="back">
+          <img src="../../assets/imgs/onboarding.jpg">
+        </div>
+        <div class="front">
+            <img src="../../assets/imgs/salon.png">
+        </div>
+
+        <div class="txt">
+            <p>Choose a salon from anywhere<br> around the country</p>
+        </div>
+  
+      </div>
+    <button ion-button clear>
+      skip
+    </button>
+    </ion-slide>
+  
+    <ion-slide>
+        <div class="img">
+            <div class="back">
+              <img src="../../assets/imgs/onboarding.jpg">
+            </div>
+            <div class="front">
+                <img src="../../assets/imgs/hair.png">
+            </div>
+    
+            <div class="txt">
+                <p>Choose a favourite hairstyle</p>
+            </div>
+      
+          </div>
+        <button ion-button clear>
+          skip
+        </button>
+    </ion-slide>
+  
+    <ion-slide>
+    
+        <div class="img">
+            <div class="back">
+              <img src="../../assets/imgs/onboarding.jpg">
+            </div>
+            <div class="front">
+                <img src="../../assets/imgs/booking.png">
+            </div>
+    
+            <div class="txt">
+                <p>Make your Booking</p>
+            </div>
+      
+          </div>
+        <button ion-button clear>
+         Get Star
+        </button>
+    </ion-slide>
+  
+  </ion-slides>
+
 </ion-content>
