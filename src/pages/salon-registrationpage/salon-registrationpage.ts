@@ -4,12 +4,7 @@ import * as firebase from 'firebase';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
-/**
- * Generated class for the SalonRegistrationpagePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
