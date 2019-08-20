@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, ToastController, LoadingController
 import * as firebase from 'firebase';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the SalonRegistrationpagePage page.
@@ -21,6 +23,7 @@ export class SalonRegistrationpagePage {
   storage = firebase.storage().ref();
   uid
   profileImage
+  profileForm : FormGroup;
   uploadprogress = 0;
   isuploading: false
   SalonOwnerProfile = {
@@ -35,10 +38,18 @@ export class SalonRegistrationpagePage {
     public navParams: NavParams,
     private authUser: AuthServiceProvider,
     public camera: Camera,
-    public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
-    this.uid = firebase.auth().currentUser.uid;
+    public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController,
+    private formBuilder: FormBuilder) {
 
+    this.uid = firebase.auth().currentUser.uid;
     this.authUser.setUser(this.uid);
+
+    this.profileForm = this.formBuilder.group({
+      ownername: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
+      ownerSurname: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
+      personalNumber: new  FormControl('', Validators.compose([Validators.required, Validators.minLength(10)])),
+      About: ['']
+    });
   }
 
   ionViewDidLoad() {
@@ -86,6 +97,64 @@ export class SalonRegistrationpagePage {
     })
 
   }
+ async createprofile(profileForm: FormGroup): Promise<void> {
+    if (!profileForm.valid) {
+      console.log(
+        'Need to complete the form, current value: ',
+        profileForm.value
+      );
+    } else {
+           // load the profile creation process
+           const load = this.loadingCtrl.create({
+            content: 'Creating Profile..'
+          });
+          load.present();
+      
+      const user = this.db.collection('SalonOwnerProfile').doc(this.authUser.getUser()).update(this.SalonOwnerProfile);
+      // upon success...
+      user.then( () => {
+        this.navCtrl.setRoot(HomePage)
+        this.toastCtrl.create({
+          message: 'User Profile added.',
+          duration: 2000,
+       
+        }).present();
+        // ...get the profile that just got created...
+        load.dismiss();
+      
+        // catch any errors.
+      }).catch( err=> {
+        this.toastCtrl.create({
+          message: 'Error creating Profile.',
+          duration: 2000
+        }).present();
+       
+        load.dismiss();
+      })
+    }
+  }
 
+  
+
+ validation_messages = {
+    'ownername': [
+      { type: 'required', message: 'Name is required.' },
+      { type: 'minlength', message: 'Name must be at least 4 characters long.' },
+      { type: 'maxlength', message: 'Name cannot be more than 25 characters long.' },
+      { type: 'pattern', message: 'Your Name must not contain numbers and special characters.' },
+      { type: 'validUsername', message: 'Your username has already been taken.' }
+    ],
+    'ownerSurname': [
+      { type: 'required', message: 'Surname is required.' },
+      { type: 'minlength', message: 'Surname must be at least 4 characters long.' },
+      { type: 'maxlength', message: 'Surname cannot be more than 25 characters long.' },
+      { type: 'pattern', message: 'Your Surname must not contain numbers and special characters.' },
+      { type: 'validUsername', message: 'Your username has already been taken.' }
+    ],
+    'phone': [
+      { type: 'required', message: 'Cellnumber is required.' }
+    ],
+    
+  };
   
 }
