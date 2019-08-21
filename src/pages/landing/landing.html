@@ -11,5 +11,16 @@
 </ion-header>
 
 <ion-content padding>
-<button (click)="logout()" ion-button> logout</button>
+  <div  *ngIf="!profile">
+ <p> Oops.. it looks like you dont have your profile set up yet please create profile <button (click)="createAccount()" ion-button > create profile </button></p>
+  </div>
+
+  
+  <div *ngIf="profile">
+      <button (click)="logout()" ion-button> logout</button>
+
+      <button (click)="manageSalon()" ion-button> Manage Salon </button>
+
+  </div>
+
 </ion-content>

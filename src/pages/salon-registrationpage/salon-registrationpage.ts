@@ -27,7 +27,8 @@ export class SalonRegistrationpagePage {
     ownername: '',
     ownerSurname: '',
     personalNumber: '',
-    About: ''
+    About: '',
+    uid: ''
 
   }
   constructor(public navCtrl: NavController,
@@ -39,7 +40,7 @@ export class SalonRegistrationpagePage {
 
     this.uid = firebase.auth().currentUser.uid;
     this.authUser.setUser(this.uid);
-
+this.SalonOwnerProfile.uid = this.uid
     this.profileForm = this.formBuilder.group({
       ownername: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
       ownerSurname: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
