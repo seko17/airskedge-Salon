@@ -1,86 +1,105 @@
-<!--
-  Generated template for the AddSalonPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <ion-title>addSalon</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <!-- input for salon cover image-->
-    <div *ngIf="profileImage" class="image">
-    
-        <img  src="{{SalonCoverImage}}">
-     </div>
-      <button *ngIf="!SalonCoverImage" ion-button clear large full (click)="selectImage()">Select Salon image</button>
-    <!-- input for salon logo-->
-      <div *ngIf="profileImage" class="image">
-    
-          <img  src="{{SalonLogoImage}}">
-       </div>
-        <button *ngIf="!SalonLogoImage" ion-button clear large full (click)="selectLogo()">Select Logo image</button>
- <form  [formGroup]="addSalonForm">
+<ion-content>
+<div class="container">
+ <!-- input for salon cover image *ngIf="profileImage"-->
+ <div class="backimage">
+    <div class="image">
+      <img src="{{SalonCoverImage}}">
+    </div>
+    <div class="btn">
+      <button *ngIf="!SalonCoverImage" ion-button color="dark"  (click)="selectImage()"><ion-icon name="camera"></ion-icon></button>
+    </div>
+  </div>
 
-<!-- input for salon name-->
-   <ion-item >
-     <ion-label >Salon name</ion-label>
-     <ion-input type="text" formControlName="salonName" [(ngModel)]="SalonNode.salonName" ngDefaultControl></ion-input>
-   </ion-item>
-   <div class="error" *ngFor="let validate of validation_messages.salonName">
-    <div class="messages" *ngIf="addSalonForm.get('salonName').hasError(validate.type) && (addSalonForm.get('salonName').dirty || addSalonForm.get('salonName').touched)">
-      {{validate.message}}
+  <!-- input for salon logo-->
+  <!-- <div class="logoimg">
+     <div class="images">
+
+    <img src="{{SalonLogoImage}}">
+  </div>
+
+  <div class="btn1">
+      <button *ngIf="!SalonLogoImage" ion-button color="dark" (click)="selectLogo()"> <ion-icon name="camera"></ion-icon>
+      </button>
+
+  </div>
+  </div> -->
+
+  <form [formGroup]="addSalonForm">
+
+    <!-- input for salon name-->
+    <ion-item>
+      <!-- <ion-label>Salon name</ion-label> -->
+      <ion-input type="text" formControlName="salonName" [(ngModel)]="SalonNode.salonName" ngDefaultControl placeholder="Salon Name"></ion-input>
+    </ion-item>
+    <div class="error" *ngFor="let validate of validation_messages.salonName">
+      <div class="messages"
+        *ngIf="addSalonForm.get('salonName').hasError(validate.type) && (addSalonForm.get('salonName').dirty || addSalonForm.get('salonName').touched)">
+        {{validate.message}}
+      </div>
     </div>
+    <!-- input for salon location/Address-->
+    <ion-item>
+      <!-- <ion-label> Salon Address</ion-label> -->
+      <ion-input type="text" formControlName="location" [(ngModel)]="SalonNode.location" ngDefaultControl placeholder="Salon Address"></ion-input>
+    </ion-item>
+    <div class="error" *ngFor="let validate of validation_messages.location">
+      <div class="messages"
+        *ngIf="addSalonForm.get('location').hasError(validate.type) && (addSalonForm.get('location').dirty || addSalonForm.get('location').touched)">
+        {{validate.message}}
+      </div>
     </div>
-<!-- input for salon location/Address-->
-    <ion-item >
-     <ion-label  >  Salon Address</ion-label>
-     <ion-input type="text"   formControlName="location"   [(ngModel)]="SalonNode.location" ngDefaultControl></ion-input>
-   </ion-item>
-   <div class="error" *ngFor="let validate of validation_messages.location">
-    <div class="messages" *ngIf="addSalonForm.get('location').hasError(validate.type) && (addSalonForm.get('location').dirty || addSalonForm.get('location').touched)">
-      {{validate.message}}
-    </div>
-    </div>
-<!-- input for salon contact number-->
-   <ion-item >
-     <ion-label > Salon contact number</ion-label>
-     <ion-input  type="tel" maxLength="10" formControlName="SalonContactNo"  [(ngModel)]="SalonNode.SalonContactNo" ngDefaultControl></ion-input>
-   </ion-item>
-   <div class="error" *ngFor="let validate of validation_messages.SalonContactNo">
-    <div class="messages" *ngIf="addSalonForm.get('SalonContactNo').hasError(validate.type) && (addSalonForm.get('SalonContactNo').dirty || addSalonForm.get('SalonContactNo').touched)">
-      {{validate.message}}
-    </div>
+    <!-- input for salon contact number-->
+    <ion-item>
+      <!-- <ion-label> Salon contact number</ion-label> -->
+      <ion-input type="tel" maxLength="10" formControlName="SalonContactNo" [(ngModel)]="SalonNode.SalonContactNo"
+        ngDefaultControl placeholder="Contact Number"></ion-input>
+    </ion-item>
+    <div class="error" *ngFor="let validate of validation_messages.SalonContactNo">
+      <div class="messages"
+        *ngIf="addSalonForm.get('SalonContactNo').hasError(validate.type) && (addSalonForm.get('SalonContactNo').dirty || addSalonForm.get('SalonContactNo').touched)">
+        {{validate.message}}
+      </div>
     </div>
     <!-- input for salon descriptions-->
-    <ion-item >
-     <ion-label > Salon Description </ion-label>
-     <ion-input  type="text" formControlName="SalonDesc"  [(ngModel)]="SalonNode.SalonDesc" ngDefaultControl></ion-input>
-   </ion-item>
-   <div class="error" *ngFor="let validate of validation_messages.SalonDesc">
-    <div class="messages" *ngIf="addSalonForm.get('SalonDesc').hasError(validate.type) && (addSalonForm.get('SalonDesc').dirty || addSalonForm.get('SalonDesc').touched)">
-      {{validate.message}}
+    <ion-item>
+      <!-- <ion-label> Salon Description </ion-label> -->
+      <ion-input type="text" formControlName="SalonDesc" [(ngModel)]="SalonNode.SalonDesc" ngDefaultControl placeholder="Description"></ion-input>
+    </ion-item>
+    <div class="error" *ngFor="let validate of validation_messages.SalonDesc">
+      <div class="messages"
+        *ngIf="addSalonForm.get('SalonDesc').hasError(validate.type) && (addSalonForm.get('SalonDesc').dirty || addSalonForm.get('SalonDesc').touched)">
+        {{validate.message}}
+      </div>
     </div>
+    <!-- input for salon number of hair dressers-->
+    <ion-item>
+      <!-- <ion-label> Number of hair dressers </ion-label> -->
+      <ion-input type="tel" maxLength="2" formControlName="numHairDressers" [(ngModel)]="SalonNode.numHairDressers"
+        ngDefaultControl placeholder="Number of Hairdressers"></ion-input>
+    </ion-item>
+    <div class="error" *ngFor="let validate of validation_messages.numHairDressers">
+      <div class="messages"
+        *ngIf="addSalonForm.get('numHairDressers').hasError(validate.type) && (addSalonForm.get('numHairDressers').dirty || addSalonForm.get('numHairDressers').touched)">
+        {{validate.message}}
+      </div>
     </div>
-<!-- input for salon number of hair dressers-->
-    <ion-item >
-        <ion-label > Number of hair dressers </ion-label>
-        <ion-input  type="tel" maxLength="2" formControlName="numHairDressers"  [(ngModel)]="SalonNode.numHairDressers" ngDefaultControl></ion-input>
-      </ion-item>
-      <div class="error" *ngFor="let validate of validation_messages.numHairDressers">
-       <div class="messages" *ngIf="addSalonForm.get('numHairDressers').hasError(validate.type) && (addSalonForm.get('numHairDressers').dirty || addSalonForm.get('numHairDressers').touched)">
-         {{validate.message}}
-       </div>
-       </div>
-   <br>
-   
+    <br>
+
 
     <div class="btn">
-      <button id="skip" (click)="createSalon(addSalonForm)"  type="submit" [disabled]="!addSalonForm.valid" ion-button clear  large style="color: #fff; width: 100%; letter-spacing: 3px; background: rgba(167, 122, 37, 1); font-size: 100%; padding: 7%; font-family:Georgia, 'Times New Roman', Times, serif;">Create my Profile </button>
+      <button id="skip" (click)="createSalon(addSalonForm)" type="submit" [disabled]="!addSalonForm.valid" ion-button
+        clear large
+        style="color: #fff; width: 100%; letter-spacing: 3px; background: rgba(167, 122, 37, 1); font-size: 100%; padding: 7%; font-family:Georgia, 'Times New Roman', Times, serif;">Create
+        my Profile </button>
 
- </div>
+    </div>
   </form>
+</div>
+ 
 </ion-content>

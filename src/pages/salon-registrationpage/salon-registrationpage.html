@@ -1,73 +1,77 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <ion-title>salonRegistrationpage</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content padding>
-  <div *ngIf="profileImage" class="image" id="img">
+<ion-content>
+  <div class="container">
+      <button *ngIf="!profileImage" ion-button clear large full (click)="selectImage()">Select Image</button>
+      <img src="{{profileImage}}">
+     
+      <!-- <div  class="image" id="img">
+     
+        </div> -->
 
-    <img src="{{profileImage}}">
+        <form [formGroup]="profileForm">
+          <ion-item>
+      
+            <ion-label> name</ion-label>
+            <ion-input type="text" formControlName="ownername" [(ngModel)]="SalonOwnerProfile.ownername" ngDefaultControl>
+            </ion-input>
+          </ion-item>
+          <div class="error" *ngFor="let validate of validation_messages.ownername">
+            <div class="messages"
+              *ngIf="profileForm.get('ownername').hasError(validate.type) && (profileForm.get('ownername').dirty || profileForm.get('ownername').touched)">
+              {{validate.message}}
+            </div>
+          </div>
+      
+          <ion-item>
+            <ion-label> surname</ion-label>
+            <ion-input type="text" formControlName="ownerSurname" [(ngModel)]="SalonOwnerProfile.ownerSurname"
+              ngDefaultControl></ion-input>
+          </ion-item>
+          <div class="error" *ngFor="let validate of validation_messages.ownerSurname">
+            <div class="messages"
+              *ngIf="profileForm.get('ownerSurname').hasError(validate.type) && (profileForm.get('ownerSurname').dirty || profileForm.get('ownerSurname').touched)">
+              {{validate.message}}
+            </div>
+          </div>
+      
+          <ion-item>
+            <ion-label> cellphone number</ion-label>
+            <ion-input type="tel" maxLength="10" formControlName="personalNumber"
+              [(ngModel)]="SalonOwnerProfile.personalNumber" ngDefaultControl></ion-input>
+          </ion-item>
+          <div class="error" *ngFor="let validate of validation_messages.personalNumber">
+            <div class="messages"
+              *ngIf="profileForm.get('personalNumber').hasError(validate.type) && (profileForm.get('personalNumber').dirty || profileForm.get('personalNumber').touched)">
+              {{validate.message}}
+            </div>
+          </div>
+      
+          <ion-item>
+            <ion-label> bio </ion-label>
+            <ion-input type="text" formControlName="About" [(ngModel)]="SalonOwnerProfile.About" ngDefaultControl></ion-input>
+          </ion-item>
+          <div class="error" *ngFor="let validate of validation_messages.About">
+            <div class="messages"
+              *ngIf="profileForm.get('About').hasError(validate.type) && (profileForm.get('About').dirty || profileForm.get('About').touched)">
+              {{validate.message}}
+            </div>
+          </div>
+          <br>
+      
+      
+          <div class="btn">
+            <button id="skip" (click)="createprofile(profileForm)" type="submit" [disabled]="!profileForm.valid" ion-button
+              clear large
+              style="color: #fff; width: 100%; letter-spacing: 3px; background: rgba(167, 122, 37, 1); font-size: 100%; padding: 7%; font-family:Georgia, 'Times New Roman', Times, serif;">Create
+              my Profile </button>
+      
+          </div>
+        </form>
   </div>
-  <button *ngIf="!profileImage" ion-button clear large full (click)="selectImage()">Select Image</button>
-
-  <form [formGroup]="profileForm">
-    <ion-item>
-
-      <ion-label> name</ion-label>
-      <ion-input type="text" formControlName="ownername" [(ngModel)]="SalonOwnerProfile.ownername" ngDefaultControl>
-      </ion-input>
-    </ion-item>
-    <div class="error" *ngFor="let validate of validation_messages.ownername">
-      <div class="messages"
-        *ngIf="profileForm.get('ownername').hasError(validate.type) && (profileForm.get('ownername').dirty || profileForm.get('ownername').touched)">
-        {{validate.message}}
-      </div>
-    </div>
-
-    <ion-item>
-      <ion-label> surname</ion-label>
-      <ion-input type="text" formControlName="ownerSurname" [(ngModel)]="SalonOwnerProfile.ownerSurname"
-        ngDefaultControl></ion-input>
-    </ion-item>
-    <div class="error" *ngFor="let validate of validation_messages.ownerSurname">
-      <div class="messages"
-        *ngIf="profileForm.get('ownerSurname').hasError(validate.type) && (profileForm.get('ownerSurname').dirty || profileForm.get('ownerSurname').touched)">
-        {{validate.message}}
-      </div>
-    </div>
-
-    <ion-item>
-      <ion-label> cellphone number</ion-label>
-      <ion-input type="tel" maxLength="10" formControlName="personalNumber"
-        [(ngModel)]="SalonOwnerProfile.personalNumber" ngDefaultControl></ion-input>
-    </ion-item>
-    <div class="error" *ngFor="let validate of validation_messages.personalNumber">
-      <div class="messages"
-        *ngIf="profileForm.get('personalNumber').hasError(validate.type) && (profileForm.get('personalNumber').dirty || profileForm.get('personalNumber').touched)">
-        {{validate.message}}
-      </div>
-    </div>
-
-    <ion-item>
-      <ion-label> bio </ion-label>
-      <ion-input type="text" formControlName="About" [(ngModel)]="SalonOwnerProfile.About" ngDefaultControl></ion-input>
-    </ion-item>
-    <div class="error" *ngFor="let validate of validation_messages.About">
-      <div class="messages"
-        *ngIf="profileForm.get('About').hasError(validate.type) && (profileForm.get('About').dirty || profileForm.get('About').touched)">
-        {{validate.message}}
-      </div>
-    </div>
-    <br>
-
-
-    <div class="btn">
-      <button id="skip" (click)="createprofile(profileForm)" type="submit" [disabled]="!profileForm.valid" ion-button
-        clear large
-        style="color: #fff; width: 100%; letter-spacing: 3px; background: rgba(167, 122, 37, 1); font-size: 100%; padding: 7%; font-family:Georgia, 'Times New Roman', Times, serif;">Create
-        my Profile </button>
-
-    </div>
-  </form>
+  
 </ion-content>

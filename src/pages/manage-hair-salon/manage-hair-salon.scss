@@ -64,5 +64,33 @@ page-manage-hair-salon {
           background: gray;
         }
       }
+
     
+    .msg{
+      font-size: 30px;
+      text-align: center;
+      position: relative;
+      top: 15%;
+      .icon{
+        font-size: 150px;
+      }
+    }
+
+    .profile{
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      .propic{
+        background: black;
+        color: white;
+        padding: 5px;
+        border-radius: 50%;
+      }
+      .name{
+        background: orangered;
+        color: white;
+        padding: 5px;
+        border-radius: 50%;
+      }
+    }
 }
