@@ -10,8 +10,52 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <ion-card>
+<ion-content>
+  <div class="container">
+    <div class="main">
+      <div class="image">
+        <img src="{{SalonOwnerProfile.ownerImage}}">
+      </div>
+
+      <div class="back">
+        <ion-icon name="arrow-back"></ion-icon>
+      </div>
+
+      <div class="details">
+        <div class="nm">
+          <p id="name">{{SalonOwnerProfile.ownername}} {{SalonOwnerProfile.ownerSurname}}</p>
+          <p>{{SalonOwnerProfile.About}}</p>
+        </div>
+        <div class="contacts">
+          <div class="em">
+            <p>{{SalonOwnerProfile.email}}</p>
+          </div>
+          <div class="phone">
+            {{SalonOwnerProfile.personalNumber}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="place">
+      <div class="location">
+        <p>
+          <ion-icon name="pin"></ion-icon>
+          Soweto
+        </p>
+      </div>
+
+      <div class="up">
+          <ion-icon name="create"></ion-icon>
+      </div>
+    </div>
+
+    <div class="">
+      
+    </div>
+  </div>
+  <!-- <ion-card>
 
         <img src="{{SalonOwnerProfile.ownerImage}}">
         <ion-fab right top>
@@ -41,5 +85,5 @@
           </button>
         </ion-item>
       
-      </ion-card>
+      </ion-card> -->
 </ion-content>
