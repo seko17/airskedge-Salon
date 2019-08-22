@@ -20,7 +20,7 @@ export class ViewUserPorfilePage {
   db = firebase.firestore();
   uid
   displayProfile
-  
+
   SalonOwnerProfile = {
     ownerImage: '',
     ownername: '',
@@ -47,18 +47,18 @@ export class ViewUserPorfilePage {
 
 
   getProfile(){
-    // load the process
+   
     let load = this.loadingCtrl.create({
-      content: 'Just a sec...',
+      content: 'Please wait...',
       spinner: 'bubbles'
     });
     load.present();
-    // create a reference to the collection of users...
+    
     let users = this.db.collection('SalonOwnerProfile');
-    // ...query the profile that contains the uid of the currently logged in user...
+
     let query = users.where("uid", "==", this.authUser.getUser());
     query.get().then(querySnapshot => {
-      // ...log the results of the document exists...
+    
       if (querySnapshot.empty !== true){
         console.log('Got data', querySnapshot);
         querySnapshot.forEach(doc => {
