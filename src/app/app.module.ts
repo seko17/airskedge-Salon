@@ -21,6 +21,7 @@ import { AddSalonPage } from '../pages/add-salon/add-salon';
 import { LandingPage } from '../pages/landing/landing';
 import { ManageHairSalonPage } from '../pages/manage-hair-salon/manage-hair-salon';
 import { ViewUserPorfilePage } from '../pages/view-user-porfile/view-user-porfile';
+import { AddhairStylePage } from '../pages/addhair-style/addhair-style';
 @NgModule({
   declarations: [
     MyApp,
@@ -33,7 +34,8 @@ import { ViewUserPorfilePage } from '../pages/view-user-porfile/view-user-porfil
     AddSalonPage,
     LandingPage,
     ManageHairSalonPage,
-    ViewUserPorfilePage
+    ViewUserPorfilePage,
+    AddhairStylePage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,8 @@ import { ViewUserPorfilePage } from '../pages/view-user-porfile/view-user-porfil
     AddSalonPage,
     LandingPage,
     ManageHairSalonPage,
-    ViewUserPorfilePage
+    ViewUserPorfilePage,
+    AddhairStylePage
   ],
   providers: [
     StatusBar,

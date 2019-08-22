@@ -1,0 +1,69 @@
+<!--
+  Generated template for the AddhairStylePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>addhairStyle</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <!-- input for salon cover image-->
+ <div *ngIf="profileImage" class="image">
+    
+    <img  src="{{styleImage}}">
+ </div>
+  <button *ngIf="!styleImage" ion-button clear large full (click)="selectImage()">Select hairstyle image</button>
+
+<form  [formGroup]="addhairStyleForm">
+
+<!-- input for hairstyle name-->
+<ion-item >
+ <ion-label >hairstyle Name</ion-label>
+ <ion-input type="text" formControlName="hairstyleName" [(ngModel)]="Styles.hairstyleName" ngDefaultControl></ion-input>
+</ion-item>
+<div class="error" *ngFor="let validate of validation_messages.hairstyleName">
+<div class="messages" *ngIf="addhairStyleForm.get('hairstyleName').hasError(validate.type) && (addhairStyleForm.get('hairstyleName').dirty || addhairStyleForm.get('hairstyleName').touched)">
+  {{validate.message}}
+</div>
+</div>
+<!-- input for hairstyle Description-->
+<ion-item >
+ <ion-label  > hairstyle Description </ion-label>
+ <ion-input type="text"   formControlName="hairstyleDesc"   [(ngModel)]="Styles.hairstyleDesc" ngDefaultControl></ion-input>
+</ion-item>
+<div class="error" *ngFor="let validate of validation_messages.hairstyleDesc">
+<div class="messages" *ngIf="addhairStyleForm.get('hairstyleDesc').hasError(validate.type) && (addhairStyleForm.get('hairstyleDesc').dirty || addhairStyleForm.get('hairstyleDesc').touched)">
+  {{validate.message}}
+</div>
+</div>
+<!-- input for hairstyle price-->
+<ion-item >
+ <ion-label > hairstyle price</ion-label>
+ <ion-input  type="tel" maxLength="4" formControlName="hairstylePrice"  [(ngModel)]="Styles.hairstylePrice" ngDefaultControl></ion-input>
+</ion-item>
+<div class="error" *ngFor="let validate of validation_messages.hairstylePrice">
+<div class="messages" *ngIf="addhairStyleForm.get('hairstylePrice').hasError(validate.type) && (addhairStyleForm.get('hairstylePrice').dirty || addhairStyleForm.get('hairstylePrice').touched)">
+  {{validate.message}}
+</div>
+</div>
+<!-- input for hairstyle gender options-->
+<ion-item>
+    <ion-label> Style gender</ion-label>
+    <ion-select formControlName="genderOptions" [(ngModel)]="Styles.genderOptions" >
+      <ion-option  *ngFor="let g of Gender" value="{{g}}">{{g}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+<br>
+
+
+<div class="btn">
+  <button id="skip" (click)="createStyle(addhairStyleForm)"  type="submit" [disabled]="!addhairStyleForm.valid" ion-button clear  large style="color: #fff; width: 100%; letter-spacing: 3px; background: rgba(167, 122, 37, 1); font-size: 100%; padding: 7%; font-family:Georgia, 'Times New Roman', Times, serif;">Add hair style </button>
+
+</div>
+</form>
+</ion-content>

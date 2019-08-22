@@ -4,6 +4,7 @@ import { AddSalonPage } from '../add-salon/add-salon';
 import * as firebase from 'firebase';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { ViewUserPorfilePage } from '../view-user-porfile/view-user-porfile';
+import { AddhairStylePage } from '../addhair-style/addhair-style';
 /**
  * Generated class for the ManageHairSalonPage page.
  *
@@ -54,21 +55,21 @@ addSalon(){
 }
 
 getHairSalon(){
-   // load the process
+ 
    let load = this.loadingCtrl.create({
-    content: 'Just a sec...',
-    spinner: 'bubbles'
+    content: 'Please wait...',
+    spinner: 'dots'
   });
   load.present();
-  // create a reference to the collection of users...
+  
   let users = this.db.collection('SalonNode');
-  // ...query the profile that contains the uid of the currently logged in user...
+  
   let query = users.where("userUID", "==", this.authService.getUser());
-  query.get().then(querySnapshot => {
-    // ...log the results of the document exists...
-    if (querySnapshot.empty !== true){
-      console.log('Got data', querySnapshot);
-      querySnapshot.forEach(doc => {
+  query.get().then( snap => {
+    
+    if (snap.empty !== true){
+      console.log('Got data', snap);
+      snap.forEach(doc => {
         console.log('Profile Document: ', doc.data())
         this.displayProfile = doc.data();
         this.SalonNode.salonName  = doc.data().salonName;
@@ -85,17 +86,20 @@ getHairSalon(){
       console.log('No data');
       this.isSalon = false;
     }
-    // dismiss the loading
+   
     load.dismiss();
   }).catch(err => {
-    // catch any errors that occur with the query.
+   
     console.log("Query Results: ", err);
-    // dismiss the loading
+  
     load.dismiss();
   })
 }
 
 ViewUserPorfilePage(){
   this.navCtrl.push(ViewUserPorfilePage);
+}
+addStyle(){
+  this.navCtrl.push(AddhairStylePage)
 }
 }

@@ -70,7 +70,8 @@ this.SalonOwnerProfile.uid = this.uid
       const image = `data:image/jpeg;base64,${res}`;
 
       this.profileImage = image;
-      let file = 'Salon-Profile/' + this.authUser.getUser() + '.jpg';
+      const filename = Math.floor(Date.now() / 1000);
+      let file = 'Salon-Profile/' + this.authUser.getUser() + filename +'.jpg';
       const UserImage = this.storage.child(file);
 
       const upload = UserImage.putString(image, 'data_url');
