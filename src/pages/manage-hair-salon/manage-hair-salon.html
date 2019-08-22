@@ -34,5 +34,14 @@
         <div class="line"></div>
         <div class="email"><p>{{displayProfile.numHairDressers}}</p></div>
       </div>
+
+      <div *ngIf="!isHairstyle">
+          <p> No record of hair Styles please add your hair styles</p>
+      </div>
+      <div>
+
+      </div>
+
+      <button (click)="addStyle()" ion-button > add hairstyle</button>
 </div>
 </ion-content>
