@@ -22,6 +22,8 @@ import { LandingPage } from '../pages/landing/landing';
 import { ManageHairSalonPage } from '../pages/manage-hair-salon/manage-hair-salon';
 import { ViewUserPorfilePage } from '../pages/view-user-porfile/view-user-porfile';
 import { AddhairStylePage } from '../pages/addhair-style/addhair-style';
+import { StyleviewpopoverComponent } from '../components/styleviewpopover/styleviewpopover';
+import { EditstylesPage } from '../pages/editstyles/editstyles';
 @NgModule({
   declarations: [
     MyApp,
@@ -35,7 +37,9 @@ import { AddhairStylePage } from '../pages/addhair-style/addhair-style';
     LandingPage,
     ManageHairSalonPage,
     ViewUserPorfilePage,
-    AddhairStylePage
+    AddhairStylePage,
+    StyleviewpopoverComponent,
+    EditstylesPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,9 @@ import { AddhairStylePage } from '../pages/addhair-style/addhair-style';
     LandingPage,
     ManageHairSalonPage,
     ViewUserPorfilePage,
-    AddhairStylePage
+    AddhairStylePage,
+    StyleviewpopoverComponent,
+    EditstylesPage
   ],
   providers: [
     StatusBar,

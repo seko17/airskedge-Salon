@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController, AlertController } from 'ionic-angular';
-
 import * as firebase from 'firebase';
-import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
-import { LandingPage } from '../landing/landing';
 import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
 /**
- * Generated class for the AddhairStylePage page.
+ * Generated class for the EditstylesPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -16,10 +14,10 @@ import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
 
 @IonicPage()
 @Component({
-  selector: 'page-addhair-style',
-  templateUrl: 'addhair-style.html',
+  selector: 'page-editstyles',
+  templateUrl: 'editstyles.html',
 })
-export class AddhairStylePage {
+export class EditstylesPage {
   storage = firebase.storage().ref();
   db = firebase.firestore();
   Gender : any = ['female','male'];
@@ -27,14 +25,7 @@ export class AddhairStylePage {
 styleImage
 uploadprogress
 isuploading: false
-  Styles = {
-    hairstyleName : '',
-    hairstyleDesc : '',
-    hairstylePrice : '',
-    genderOptions: '',
-    hairStyleImage: '',
-    uid : ''
-  }
+
   SalonNode = {
     salonName: '',
     salonImage: '',
@@ -44,28 +35,33 @@ isuploading: false
     SalonDesc: '',
     SalonContactNo: '',
     userUID: ''
-
-
   }
+  data = {} as Styles
+  salonName
+  salonm: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private formBuilder: FormBuilder,
     public camera: Camera,
     public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController,
-    private authService: AuthServiceProvider
-    ) {
-    this.addhairStyleForm = this.formBuilder.group({
-      hairstyleName: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
-      hairstyleDesc: new  FormControl('', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(50)])),
-      hairstylePrice: new  FormControl('', Validators.compose([Validators.required, Validators.minLength(1), Validators.maxLength(4)])),
-      genderOptions: ['']
-    });
+    private authService: AuthServiceProvider) {
+
+this.data = this.navParams.data
+console.log('check ',this.data.salonName);
+console.log('check x2', this.data.hairstyleName);
+
+      this.addhairStyleForm = this.formBuilder.group({
+        hairstyleName: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
+        hairstyleDesc: new  FormControl('', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(50)])),
+        hairstylePrice: new  FormControl('', Validators.compose([Validators.required, Validators.minLength(1), Validators.maxLength(4)])),
+        genderOptions: ['']
+      });
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddhairStylePage');
-    this.getHairSalon();
-  }
+  this.getHairSalon();
+ 
   
+  }
   async createStyle(addSalonForm: FormGroup): Promise<void> {
     if (!addSalonForm.valid) {
       console.log(
@@ -75,29 +71,25 @@ isuploading: false
     } else {
        
            const load = this.loadingCtrl.create({
-            content: 'Creating Salon..'
+            content: 'Editing Hairstyle..'
           });
           load.present();
-      
-      const user = this.db.collection('SalonNode').doc(this.SalonNode.salonName).collection('Styles').doc(this.Styles.hairstyleName).set(this.Styles);
-      // upon success...
+          
+      const user = this.db.collection('SalonNode').doc(this.data.salonName).collection('Styles').doc(this.data.hairstyleName).update(this.data);
       user.then( () => {
         this.navCtrl.push(ManageHairSalonPage)
         this.toastCtrl.create({
-          message: 'User Salon added.',
+          message: 'User Hairstyle edited.',
           duration: 2000,
-       
         }).present();
-        // ...get the profile that just got created...
         load.dismiss();
-      
-        // catch any errors.
       }).catch( err=> {
+        console.log(err);
+        
         this.toastCtrl.create({
-          message: 'Error creating Profile.',
+          message: 'Error editing Salon.',
           duration: 2000
         }).present();
-       
         load.dismiss();
       })
     }
@@ -131,7 +123,7 @@ isuploading: false
       }, err => {
       }, () => {
         upload.snapshot.ref.getDownloadURL().then(downUrl => {
-          this.Styles.hairStyleImage = downUrl;
+          this.data.hairStyleImage = downUrl;
           console.log('Image downUrl', downUrl);
 
 
@@ -163,7 +155,6 @@ isuploading: false
     ],
     
   };
-
   getHairSalon(){
  
     let load = this.loadingCtrl.create({
@@ -181,7 +172,7 @@ isuploading: false
        console.log('Got data', snap);
        snap.forEach(doc => {
          console.log('Profile Document: ', doc.data())
-        
+        this.salonm = doc.data()
          this.SalonNode.salonName  = doc.data().salonName;
          this.SalonNode.salonLogo  = doc.data().salonLogo;
          this.SalonNode.salonImage  = doc.data().salonImage;
@@ -205,4 +196,14 @@ isuploading: false
      load.dismiss();
    })
  }
+
+}
+export interface Styles {
+  hairstyleName : '',
+  hairstyleDesc : '',
+  hairstylePrice : '',
+  genderOptions: '',
+  hairStyleImage: '',
+  uid : '',
+  salonName : ''
 }
