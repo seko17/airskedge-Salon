@@ -1,38 +1,72 @@
 page-salon-registrationpage {
-    // .image{
-    //     position: relative;
-    //     width: 150px;
-    //     height: 150px;
-    //     // overflow: hidden;
-    //     margin: auto;
-    //     border-radius: 200px;
-    //     .del{
-    //       position: absolute;
-    //       bottom: 0;
-    //       right: 0;
-    //       z-index: 5;
-    //       background: red;
-    //       width: 50px;
-    //       height: 50px;
-    //       border-radius: 200px;
-    //       box-shadow: 0px 0px 10px rgba(37, 0, 0, 0.562);
-    //       display: grid;
-    //       align-items: center;
-    //       text-align: center;
-    //     }
-    //     img{
-    //       box-shadow: 0px -5px 10px rgba(37, 0, 0, 0.562);
-    //       box-shadow: inset 0px 5px 10px rgba(37, 0, 0, 0.712);
-    //       border-radius: 200px;
-    //       width: 100%;
-    //       height: 100%;
-    //       object-fit: cover;
-    //     }
 
-    #img{
-      width: 200px;
-      height: 200px;
-      background: grey;
+  .content {
+    background: linear-gradient(rgba(0, 0, 0, 0.644)), url('../../assets/imgs/hair.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .propic {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(rgba(128, 128, 128, 0.616)), url('../../assets/imgs/image.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: center;
+    border-bottom-right-radius: 70px;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-      
+
+    button {
+      position: absolute;
+      right: 10px;
+      bottom: -10px;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 25px;
+    }
+  }
+
+  .form1 {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    background: rgba(128, 128, 128, 0.432);
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+
+    .item {
+      background: transparent;
+      margin: 10px;
+      padding: 10px;
+      width: 45vh;
+    }
+  }
+
+  .btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 90%;
+
+    button {
+      border-top-left-radius: 40px;
+    }
+  }
 }

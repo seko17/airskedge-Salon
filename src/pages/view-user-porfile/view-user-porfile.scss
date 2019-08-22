@@ -1,3 +1,82 @@
 page-view-user-porfile {
+  .container {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: 100%;
+  }
 
+  .main {
+    width: 100%;
+    height: 85vh;
+    position: relative;
+
+    .image {
+      height: 85vh;
+      width: 100%;
+      background: black;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.5;
+      }
+    }
+
+    .back {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 5;
+
+      .icon {
+        font-size: 30px;
+        color: white;
+      }
+    }
+
+    .details {
+      position: absolute;
+      z-index: 3;
+      bottom: 30px;
+      left: 10px;
+      color: white;
+      font-family: sans-serif;
+      .nm {
+        #name {
+          font-size: 20px;
+
+       
+        }
+      }
+
+      .contacts {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        padding: 5px;
+      }
+    }
+  }
+
+  .place {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    height: 15vh;
+
+    .location {
+      font-size: 20px;
+      margin: 5px;
+    }
+
+    .up {
+      .icon {
+        margin: 5px;
+        font-size: 30px;
+        padding: 15px;
+      }
+    }
+  }
 }

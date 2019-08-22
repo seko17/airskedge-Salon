@@ -1,20 +1,26 @@
-<!--
-  Generated template for the ManageHairSalonPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <ion-title>manageHairSalon</ion-title>
   </ion-navbar>
-  <button (click)="ViewUserPorfilePage()" ion-button> profile </button>
 </ion-header>
 
-<ion-content >
-<div *ngIf="!isSalon">
-<p>you currentyly dont have a salon, please create a salon</p>
-<button (click)="addSalon()" ion-button > add</button>
+<ion-content padding>
+
+  <div class="profile">
+    <div class="name">
+      <p>Salon Owner Name</p>
+    </div>
+    <div class="propic" (click)="ViewUserPorfilePage()">
+      <p>Profile</p>
+    </div>
+  </div>
+<div class="msg" *ngIf="!isSalon">
+
+    <ion-icon name="warning"></ion-icon>
+
+<p>You currently don't <br> have a salon,<br> please create a salon</p>
+<button (click)="addSalon()" color="dark" full ion-button > add</button>
 </div>
 
 <div *ngIf="isSalon">
