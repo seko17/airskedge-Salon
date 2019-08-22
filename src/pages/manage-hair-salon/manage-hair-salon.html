@@ -1,8 +1,8 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <ion-title>manageHairSalon</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
 
@@ -44,23 +44,7 @@
 
 
     <div *ngIf="isHairstyle" class="cards">
-      <div class="image">
-        <img src="{{n.hairStyleImage}}">
-      </div>
-      <div class="details">
-        <ion-list *ngFor="let n of styles">
-          <ion-item>
-            <ion-thumbnail item-start>
-              <img src="{{n.hairStyleImage}}">
-            </ion-thumbnail>
-            <h2>{{n.hairstyleName}}</h2>
-            <p>R{{n.hairstylePrice}}</p>
-            <ion-icon (click)="Delete(n)" name="trash"></ion-icon>
-            <ion-icon (click)="edithairstlye(n)" name="create"></ion-icon>
-            <button (click)="viewStyle(n)" ion-button clear item-end>View</button>
-          </ion-item>
-        </ion-list>
-      </div>
+     
 
     </div>
 
