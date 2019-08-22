@@ -8,21 +8,34 @@ page-view-user-porfile {
 
   .main {
     width: 100%;
-    height: 85vh;
+    height: 90vh;
     position: relative;
 
     .image {
-      height: 85vh;
+      height: 90vh;
       width: 100%;
       background: black;
+      position: relative;
+
 
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        opacity: 0.5;
+
+      }
+
+      .gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 5;
+        background: linear-gradient(rgba(17, 17, 17, 0.459), rgb(12, 12, 12));
       }
     }
+
 
     .back {
       position: absolute;
@@ -38,16 +51,17 @@ page-view-user-porfile {
 
     .details {
       position: absolute;
-      z-index: 3;
+      z-index: 5;
       bottom: 30px;
       left: 10px;
-      color: white;
+      color: rgba(255, 255, 255, 0.753);
       font-family: sans-serif;
+
       .nm {
         #name {
-          font-size: 20px;
+          font-size: 30px;
 
-       
+
         }
       }
 
@@ -64,7 +78,7 @@ page-view-user-porfile {
     display: flex;
     flex-flow: row;
     justify-content: space-between;
-    height: 15vh;
+    height: 10vh;
 
     .location {
       font-size: 20px;
