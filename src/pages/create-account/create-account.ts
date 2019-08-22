@@ -28,7 +28,7 @@ export class CreateAccountPage {
         email: ['', Validators.compose([Validators.required, Validators.email])],
         password: [
           '',
-          Validators.compose([Validators.minLength(6), Validators.required])
+          Validators.compose([Validators.minLength(6), Validators.maxLength(15), Validators.required])
         ]
       });
   }

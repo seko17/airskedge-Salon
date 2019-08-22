@@ -5,6 +5,7 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { HomePage } from '../home/home';
+import { LandingPage } from '../landing/landing';
 
 
 
@@ -26,7 +27,8 @@ export class SalonRegistrationpagePage {
     ownername: '',
     ownerSurname: '',
     personalNumber: '',
-    About: ''
+    About: '',
+    uid: ''
 
   }
   constructor(public navCtrl: NavController,
@@ -38,7 +40,7 @@ export class SalonRegistrationpagePage {
 
     this.uid = firebase.auth().currentUser.uid;
     this.authUser.setUser(this.uid);
-
+this.SalonOwnerProfile.uid = this.uid
     this.profileForm = this.formBuilder.group({
       ownername: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
       ownerSurname: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
@@ -108,7 +110,7 @@ export class SalonRegistrationpagePage {
       const user = this.db.collection('SalonOwnerProfile').doc(this.authUser.getUser()).update(this.SalonOwnerProfile);
       // upon success...
       user.then( () => {
-        this.navCtrl.setRoot(HomePage)
+        this.navCtrl.setRoot(LandingPage)
         this.toastCtrl.create({
           message: 'User Profile added.',
           duration: 2000,

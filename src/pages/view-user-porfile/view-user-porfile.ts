@@ -1,15 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController, AlertController } from 'ionic-angular';
-
-import { LoginPage } from '../login/login';
-import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
 import * as firebase from 'firebase';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
-import { SalonRegistrationpagePage } from '../salon-registrationpage/salon-registrationpage';
 
 
 /**
- * Generated class for the LandingPage page.
+ * Generated class for the ViewUserPorfilePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -17,14 +13,14 @@ import { SalonRegistrationpagePage } from '../salon-registrationpage/salon-regis
 
 @IonicPage()
 @Component({
-  selector: 'page-landing',
-  templateUrl: 'landing.html',
+  selector: 'page-view-user-porfile',
+  templateUrl: 'view-user-porfile.html',
 })
-export class LandingPage {
+export class ViewUserPorfilePage {
   db = firebase.firestore();
   uid
-  profile = false;
   displayProfile
+  
   SalonOwnerProfile = {
     ownerImage: '',
     ownername: '',
@@ -35,26 +31,21 @@ export class LandingPage {
 
   }
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private authservice : AuthServiceProvider,
     public toastCtrl: ToastController,
-    public loadingCtrl: LoadingController, 
-    public alertCtrl: AlertController,) {
+     public loadingCtrl: LoadingController, 
+     public alertCtrl: AlertController,
+     private authUser: AuthServiceProvider,) {
 
-      this.uid = firebase.auth().currentUser.uid;
-      this.authservice.setUser(this.uid);
+      
+    this.uid = firebase.auth().currentUser.uid;
+    this.authUser.setUser(this.uid);
   }
 
   ionViewDidLoad() {
-   this.getProfile();
+   this.getProfile()
   }
-  logout(){
-    this.authservice.logoutUser().then(() =>{
-      this.navCtrl.setRoot(LoginPage);
-    });
-  }
-  manageSalon(){
-    this.navCtrl.push(ManageHairSalonPage)
-  }
+
+
   getProfile(){
     // load the process
     let load = this.loadingCtrl.create({
@@ -65,7 +56,7 @@ export class LandingPage {
     // create a reference to the collection of users...
     let users = this.db.collection('SalonOwnerProfile');
     // ...query the profile that contains the uid of the currently logged in user...
-    let query = users.where("uid", "==", this.authservice.getUser());
+    let query = users.where("uid", "==", this.authUser.getUser());
     query.get().then(querySnapshot => {
       // ...log the results of the document exists...
       if (querySnapshot.empty !== true){
@@ -78,12 +69,12 @@ export class LandingPage {
           this.SalonOwnerProfile.ownerSurname = doc.data().ownerSurname;
           this.SalonOwnerProfile.ownername = doc.data().ownername;
           this.SalonOwnerProfile.personalNumber = doc.data().personalNumber;
-        this.profile = true;
+        
         })
        
       } else {
         console.log('No data');
-      this.profile = false;
+      
       }
       // dismiss the loading
       load.dismiss();
@@ -93,8 +84,5 @@ export class LandingPage {
       // dismiss the loading
       load.dismiss();
     })
-  }
-  createAccount(){
-    this.navCtrl.setRoot(SalonRegistrationpagePage)
   }
 }

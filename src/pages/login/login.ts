@@ -5,6 +5,7 @@ import { CreateAccountPage } from '../create-account/create-account';
 import { ForgotPasswordPage } from '../forgot-password/forgot-password';
 import { HomePage } from '../home/home';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { LandingPage } from '../landing/landing';
 
 /**
  * Generated class for the LoginPage page.
@@ -52,7 +53,7 @@ this.navCtrl.push(CreateAccountPage)
     } else {
       this.authservice.loginUser(this.loginForm.value.email, this.loginForm.value.password)
       .then( authservice => {
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.setRoot(LandingPage);
       }, error => {
         this.loading.dismiss().then( () => {
           let alert = this.alertCtrl.create({

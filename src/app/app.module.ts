@@ -19,6 +19,8 @@ import { Camera } from "@ionic-native/camera";
 import {  ImagePicker} from "@ionic-native/image-picker";
 import { AddSalonPage } from '../pages/add-salon/add-salon';
 import { LandingPage } from '../pages/landing/landing';
+import { ManageHairSalonPage } from '../pages/manage-hair-salon/manage-hair-salon';
+import { ViewUserPorfilePage } from '../pages/view-user-porfile/view-user-porfile';
 @NgModule({
   declarations: [
     MyApp,
@@ -29,7 +31,9 @@ import { LandingPage } from '../pages/landing/landing';
     UserCreateProfilePage,
     ForgotPasswordPage,
     AddSalonPage,
-    LandingPage
+    LandingPage,
+    ManageHairSalonPage,
+    ViewUserPorfilePage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,9 @@ import { LandingPage } from '../pages/landing/landing';
     UserCreateProfilePage,
     ForgotPasswordPage,
     AddSalonPage,
-    LandingPage
+    LandingPage,
+    ManageHairSalonPage,
+    ViewUserPorfilePage
   ],
   providers: [
     StatusBar,
