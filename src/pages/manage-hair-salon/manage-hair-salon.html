@@ -1,11 +1,10 @@
-
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <ion-title>manageHairSalon</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content padding>
+<ion-content>
 
   <div class="profile">
     <div class="name">
@@ -19,15 +18,15 @@
         <p>staff</p>
       </div>
   </div>
-<div class="msg" *ngIf="!isSalon">
+  <div class="msg" *ngIf="!isSalon">
 
     <ion-icon name="warning"></ion-icon>
 
-<p>You currently don't <br> have a salon,<br> please create a salon</p>
-<button (click)="addSalon()" color="dark" full ion-button > add</button>
-</div>
+    <p>You currently don't <br> have a salon,<br> please create a salon</p>
+    <button (click)="addSalon()" color="dark" full ion-button> add</button>
+  </div>
 
-<div *ngIf="isSalon">
+  <div *ngIf="isSalon">
     <div class="Profimage">
          <img src="{{disp.salonImage}}">
          
@@ -37,32 +36,23 @@
            
          </div>
       </div>
-      <!-- <div class="contact">
+    </div>
+    <!-- <div class="contact">
         <div class="number"><p>{{displayProfile.SalonContactNo}}</p></div>
         <div class="line"></div>
         <div class="email"><p>{{displayProfile.numHairDressers}}</p></div>
       </div> -->
 
-      <div *ngIf="!isHairstyle">
-          <p> No record of hair Styles please add your hair styles</p>
-      </div>
+    <div *ngIf="!isHairstyle">
+      <p> No record of hair Styles please add your hair styles</p>
+    </div>
 
 
-      <div  *ngIf="isHairstyle">
-        <ion-list *ngFor = "let n of styles">
-          <ion-item>
-            <ion-thumbnail item-start>
-              <img src="{{n.hairStyleImage}}">
-            </ion-thumbnail>
-            <h2>{{n.hairstyleName}}</h2>
-            <p>R{{n.hairstylePrice}}</p>
-            <ion-icon  (click)="Delete(n)" name="trash"></ion-icon>
-            <ion-icon  (click)="edithairstlye(n)"  name="create"></ion-icon>
-            <button (click)="viewStyle(n)" ion-button clear item-end>View</button>
-          </ion-item>
-        </ion-list>
-      </div>
+    <div *ngIf="isHairstyle" class="cards">
+     
 
-      <button (click)="addStyle()" ion-button > add hairstyle</button>
-</div>
+    </div>
+
+    <button (click)="addStyle()" ion-button> add hairstyle</button>
+  </div>
 </ion-content>

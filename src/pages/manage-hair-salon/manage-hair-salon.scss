@@ -1,96 +1,140 @@
 page-manage-hair-salon {
-    .Profimage{
-        width: 100vw;
-        height: 40vh;
-        position: relative;
-        overflow: hidden;
+  .Profimage {
+    width: 100vw;
+    height: 40vh;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .butt {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+
+    }
+
+    .displayName {
+      color: white;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 5px;
+      width: 100vw;
+
+      h4 {
+        font-weight: normal;
+        font-size: 7vw;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  .contact {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.219);
+    background: #323268;
+    color: rgb(227, 228, 255);
+    overflow: hidden;
+    border-bottom: solid 2px #5657A4;
+
+    div {
+      width: 50%;
+      display: grid;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+      justify-items: center;
+      padding: 10px 0px;
+
+      p {
+        font-size: 110%;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .line {
+      width: 2px;
+      background: gray;
+    }
+  }
+
+
+  .msg {
+    font-size: 30px;
+    text-align: center;
+    position: relative;
+    top: 15%;
+
+    .icon {
+      font-size: 150px;
+    }
+  }
+
+  .profile {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+
+    .propic {
+      background: black;
+      color: white;
+      padding: 5px;
+      border-radius: 50%;
+    }
+
+    // .name{
+    //   background: orangered;
+    //   color: white;
+    //   padding: 5px;
+    //   border-radius: 50%;
+    // }
+  }
+
+  .cards {
+    .info {
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      margin: 10px;
+      border: 1px solid;
+
+      .image {
+        width: 100px;
+        height: 100px;
+        background: grey;
+        padding: 10px;
         img{
           width: 100%;
           height: 100%;
           object-fit: cover;
-        }
-        .butt{
-          position: absolute;
-          top: 10px;
-          left: 10px;
-    
-        }
-        .displayName{
-          color: white;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          padding: 5px;
-          width: 100vw;
-          h4{
-            font-weight: normal;
-            font-size: 7vw;
-            margin: 0;
-            padding: 0;
-          }
+          padding: 10px;
         }
       }
-      .contact{
-        width: 100%;
-        margin: auto;
+
+      .details {
         display: flex;
-        justify-content: center;
-        align-content: center;
-        justify-items: center;
-        text-align: center;
-        border-radius: 0px 0px 10px 10px;
-        box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.219);
-        background: #323268;
-          color: rgb(227, 228, 255);
-          overflow: hidden;
-          border-bottom: solid 2px #5657A4;
-        div{
-          width: 50%;
-          display: grid;
-          align-items: center;
-          align-content: center;
-          justify-content: center;
-          justify-items: center;
-          padding: 10px 0px;
-    
-          p{
-            font-size: 110%;
-            margin: 0;
-            padding: 0;
-          }
-        }
-        .line{
-          width: 2px;
-          background: gray;
-        }
+        flex-flow: row;
       }
 
-    
-    .msg{
-      font-size: 30px;
-      text-align: center;
-      position: relative;
-      top: 15%;
-      .icon{
-        font-size: 150px;
+      .icons {
+        font-size: 20px;
       }
     }
+  }
 
-    .profile{
-      display: flex;
-      flex-flow: row;
-      justify-content: space-between;
-      .propic{
-        background: black;
-        color: white;
-        padding: 5px;
-        border-radius: 50%;
-      }
-      // .name{
-      //   background: orangered;
-      //   color: white;
-      //   padding: 5px;
-      //   border-radius: 50%;
-      // }
-    }
+
 }

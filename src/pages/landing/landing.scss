@@ -1,3 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Teko|Abel|Anton|Dosis|Oxygen|Jura|Pacifico|Righteous|Roboto+Condensed|Ubuntu|Open+Sans+Condensed');
 page-landing {
+  .content {
+    background: linear-gradient(rgba(0, 0, 0, 0.685)), url('../../assets/imgs/hair.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .noprof {
+    display: flex;
+    flex-flow: column;
+
+    .icon {
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 30px;
+    }
+  }
+
+  .navs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    button {
+      width: 120px;
+      height: 120px;
+      box-shadow: 10px 10px #888888;
+      margin: 10px;
+      font-size: 40px;
+      background: rgba(83, 80, 80, 0.616);
+      cursor: pointer;
+    }
+  }
+
+  .profile1 {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    color: white;
+    position: absolute;
+    top: 20px;
+  }
+
+  .details {
+    text-align: center;
+    color: white;
+
+    .name {
+      p {
+        font-size: 40px;
+        font-family: 'Pacifico';
+      }
+    }
+  }
+
 
 }
