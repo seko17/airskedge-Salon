@@ -10,10 +10,14 @@
   <div class="profile">
     <div class="name">
       <p>Salon Owner Name</p>
+      {{displayProfile.ownername}} &nbsp; {{displayProfile.ownerSurname}}
     </div>
     <div class="propic" (click)="ViewUserPorfilePage()">
       <p>Profile</p>
     </div>
+    <div class="propic" (click)="viewstaff()">
+        <p>staff</p>
+      </div>
   </div>
 <div class="msg" *ngIf="!isSalon">
 
@@ -25,11 +29,11 @@
 
 <div *ngIf="isSalon">
     <div class="Profimage">
-         <img src="{{displayProfile.salonImage}}">
+         <img src="{{disp.salonImage}}">
          
          <div class="displayName">
  
-            <h4>{{displayProfile.salonName}} {{displayProfile.location}}  </h4>
+            <h4>{{disp.salonName}} {{disp.location}}  </h4>
            
          </div>
       </div>

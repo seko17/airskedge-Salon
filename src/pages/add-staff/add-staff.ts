@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController, AlertController } from 'ionic-angular';
-import * as firebase from 'firebase';
+import firebase from 'firebase';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Camera, CameraOptions } from '@ionic-native/camera';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
+
 /**
- * Generated class for the EditstylesPage page.
+ * Generated class for the AddStaffPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -14,18 +15,21 @@ import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
 
 @IonicPage()
 @Component({
-  selector: 'page-editstyles',
-  templateUrl: 'editstyles.html',
+  selector: 'page-add-staff',
+  templateUrl: 'add-staff.html',
 })
-export class EditstylesPage {
-  storage = firebase.storage().ref();
+export class AddStaffPage {
   db = firebase.firestore();
-  Gender : any = ['female','male'];
-  addhairStyleForm : FormGroup;
-styleImage
-uploadprogress
-isuploading: false
+  storage = firebase.storage().ref();
 
+  Staff = {
+    staffName: '',
+    staffSurname: '',
+    personalNumber: '',
+    staffImage: '',
+    uid: ''
+
+  }
   SalonNode = {
     salonName: '',
     salonImage: '',
@@ -35,61 +39,64 @@ isuploading: false
     SalonDesc: '',
     SalonContactNo: '',
     userUID: ''
+
+
   }
-  data = {} as Styles
-  salonName
-  salonm: any;
+  staffForm :FormGroup ;
+  profileImage: string;
+  uploadprogress;
+  isuploading = false
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private formBuilder: FormBuilder,
+    private authUser: AuthServiceProvider,
     public camera: Camera,
     public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController,
-    private authService: AuthServiceProvider) {
+    private formBuilder: FormBuilder) {
 
-this.data = this.navParams.data
-console.log('check ',this.data.salonName);
-console.log('check x2', this.data.hairstyleName);
-
-      this.addhairStyleForm = this.formBuilder.group({
-        hairstyleName: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
-        hairstyleDesc: new  FormControl('', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(50)])),
-        hairstylePrice: new  FormControl('', Validators.compose([Validators.required, Validators.minLength(1), Validators.maxLength(4)])),
-        genderOptions: ['']
-      });
+    this.staffForm = this.formBuilder.group({
+      staffName: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
+      staffSurname: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
+      personalNumber: new  FormControl('', Validators.compose([Validators.required, Validators.maxLength(10)])),
+   
+    });
   }
 
   ionViewDidLoad() {
-  this.getHairSalon();
- 
-  
+    this.getHairSalon();
   }
-  async createStyle(addSalonForm: FormGroup): Promise<void> {
-    if (!addSalonForm.valid) {
+  async createStyle(staffForm: FormGroup): Promise<void> {
+    if (!staffForm.valid) {
       console.log(
         'Need to complete the form, current value: ',
-        addSalonForm.value
+        staffForm.value
       );
     } else {
        
            const load = this.loadingCtrl.create({
-            content: 'Editing Hairstyle..'
+            content: 'Creating HairSalon..'
           });
           load.present();
-          
-      const user = this.db.collection('SalonNode').doc(this.data.salonName).collection('Styles').doc(this.data.hairstyleName).update(this.data);
+
+      let customStaffNumber = this.Staff.staffName +""+ 1000 + Math.floor(Math.random() * 10);    
+      this.Staff.uid = customStaffNumber;
+      const user = this.db.collection('SalonNode').doc(this.SalonNode.salonName).collection('Staff').doc(this.Staff.uid).set(this.Staff);
+      // upon success...
       user.then( () => {
         this.navCtrl.push(ManageHairSalonPage)
         this.toastCtrl.create({
-          message: 'User Hairstyle edited.',
+          message: 'User hair dresser added.',
           duration: 2000,
+       
         }).present();
+        // ...get the profile that just got created...
         load.dismiss();
+      
+        // catch any errors.
       }).catch( err=> {
-        console.log(err);
-        
         this.toastCtrl.create({
-          message: 'Error editing Salon.',
+          message: 'Error creating  hair dresser.',
           duration: 2000
         }).present();
+       
         load.dismiss();
       })
     }
@@ -108,14 +115,9 @@ console.log('check x2', this.data.hairstyleName);
       console.log(res);
       const image = `data:image/jpeg;base64,${res}`;
 
-      this.styleImage = image;
+      this.profileImage = image;
       const filename = Math.floor(Date.now() / 1000);
-      let load = this.loadingCtrl.create({
-        content: 'Please wait....',
-        duration: 5000
-      })
-      load.present();
-      let file = 'Salon-styles/' + this.authService.getUser() + '.jpg';
+      let file = 'Salon-styles/' + this.authUser.getUser() + '.jpg';
       const UserImage = this.storage.child(file);
 
       const upload = UserImage.putString(image, 'data_url');
@@ -125,12 +127,10 @@ console.log('check x2', this.data.hairstyleName);
         if (progress == 100) {
           this.isuploading = false;
         }
-        load.dismiss();
       }, err => {
       }, () => {
         upload.snapshot.ref.getDownloadURL().then(downUrl => {
-
-          this.data.hairStyleImage = downUrl;
+          this.Staff.staffImage = downUrl;
           console.log('Image downUrl', downUrl);
 
 
@@ -141,27 +141,27 @@ console.log('check x2', this.data.hairstyleName);
     })
 
   } 
-
   validation_messages = {
-    'hairstyleName': [
-      { type: 'required', message: 'Hairstyle name is required.' },
-      { type: 'minlength', message: 'Hairstyle Name must be at least 4 characters long.' },
-      { type: 'maxlength', message: ' Hairstyle Name cannot be more than 25 characters long.' },
-      { type: 'pattern', message: 'Your Hairstyle Name must not contain numbers and special characters.' },
+    'staffName': [
+      { type: 'required', message: 'Name is required.' },
+      { type: 'minlength', message: 'Name must be at least 4 characters long.' },
+      { type: 'maxlength', message: 'Name cannot be more than 25 characters long.' },
+      { type: 'pattern', message: 'Your Name must not contain numbers and special characters.' },
       { type: 'validUsername', message: 'Your username has already been taken.' }
     ],
-    'hairstyleDesc': [
-      { type: 'required', message: ' Hairstyle Description is required.' },
-      { type: 'minlength', message: 'Hairstyle Description must be at least 4 characters long.' },
-      { type: 'maxlength', message: 'Hairstyle Description cannot be more than 50 characters long.' },
-      { type: 'pattern', message: 'Your Hairstyle Description must not contain numbers and special characters.' },
+    'staffSurname': [
+      { type: 'required', message: 'Surname is required.' },
+      { type: 'minlength', message: 'Surname must be at least 4 characters long.' },
+      { type: 'maxlength', message: 'Surname cannot be more than 25 characters long.' },
+      { type: 'pattern', message: 'Your Surname must not contain numbers and special characters.' },
       { type: 'validUsername', message: 'Your username has already been taken.' }
     ],
-    'hairstylePrice': [
+    'personalNumber': [
       { type: 'required', message: 'Cellnumber is required.' }
     ],
     
   };
+
   getHairSalon(){
  
     let load = this.loadingCtrl.create({
@@ -172,14 +172,14 @@ console.log('check x2', this.data.hairstyleName);
    
    let users = this.db.collection('SalonNode');
    
-   let query = users.where("userUID", "==", this.authService.getUser());
+   let query = users.where("userUID", "==", this.authUser.getUser());
    query.get().then( snap => {
      
      if (snap.empty !== true){
        console.log('Got data', snap);
        snap.forEach(doc => {
          console.log('Profile Document: ', doc.data())
-        this.salonm = doc.data()
+        
          this.SalonNode.salonName  = doc.data().salonName;
          this.SalonNode.salonLogo  = doc.data().salonLogo;
          this.SalonNode.salonImage  = doc.data().salonImage;
@@ -204,13 +204,4 @@ console.log('check x2', this.data.hairstyleName);
    })
  }
 
-}
-export interface Styles {
-  hairstyleName : '',
-  hairstyleDesc : '',
-  hairstylePrice : '',
-  genderOptions: '',
-  hairStyleImage: '',
-  uid : '',
-  salonName : ''
 }

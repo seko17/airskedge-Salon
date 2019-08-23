@@ -24,6 +24,9 @@ import { ViewUserPorfilePage } from '../pages/view-user-porfile/view-user-porfil
 import { AddhairStylePage } from '../pages/addhair-style/addhair-style';
 import { StyleviewpopoverComponent } from '../components/styleviewpopover/styleviewpopover';
 import { EditstylesPage } from '../pages/editstyles/editstyles';
+import { ManageStaffPage } from '../pages/manage-staff/manage-staff';
+import { AddStaffPage } from '../pages/add-staff/add-staff';
+import { BookingsPage } from '../pages/bookings/bookings';
 @NgModule({
   declarations: [
     MyApp,
@@ -39,7 +42,10 @@ import { EditstylesPage } from '../pages/editstyles/editstyles';
     ViewUserPorfilePage,
     AddhairStylePage,
     StyleviewpopoverComponent,
-    EditstylesPage
+    EditstylesPage,
+    ManageStaffPage,
+    AddStaffPage,
+    BookingsPage
   ],
   imports: [
     BrowserModule,
@@ -62,7 +68,10 @@ import { EditstylesPage } from '../pages/editstyles/editstyles';
     ViewUserPorfilePage,
     AddhairStylePage,
     StyleviewpopoverComponent,
-    EditstylesPage
+    EditstylesPage,
+    ManageStaffPage,
+    AddStaffPage,
+    BookingsPage
   ],
   providers: [
     StatusBar,

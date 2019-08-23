@@ -113,7 +113,7 @@ this.SalonOwnerProfile.uid = this.uid
       user.then( () => {
         this.navCtrl.setRoot(LandingPage)
         this.toastCtrl.create({
-          message: 'User Profile added.',
+          message: 'Welcome' ,
           duration: 2000,
        
         }).present();

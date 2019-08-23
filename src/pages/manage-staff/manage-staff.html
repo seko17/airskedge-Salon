@@ -1,0 +1,18 @@
+<ion-content padding>
+  <ion-list *ngFor= " let n of staff ">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{n.staffImage}}">
+      </ion-avatar>
+      <h2>{{staffName}} &nbsp; {{n.staffSurname}}</h2>
+   
+    </ion-item>
+  </ion-list>
+  <ion-fab right bottom>
+    <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab ><ion-icon (click)="addperson()" name="person-add"></ion-icon></button>
+     
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

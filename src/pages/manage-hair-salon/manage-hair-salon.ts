@@ -7,6 +7,7 @@ import { ViewUserPorfilePage } from '../view-user-porfile/view-user-porfile';
 import { AddhairStylePage } from '../addhair-style/addhair-style';
 import { StyleviewpopoverComponent } from '../../components/styleviewpopover/styleviewpopover';
 import { EditstylesPage } from '../editstyles/editstyles';
+import { ManageStaffPage } from '../manage-staff/manage-staff';
 /**
  * Generated class for the ManageHairSalonPage page.
  *
@@ -25,6 +26,7 @@ export class ManageHairSalonPage {
   db = firebase.firestore();
   uid
   displayProfile = {}
+  disp = {}
   name
   styles = [];
   SalonNode = {
@@ -37,6 +39,15 @@ export class ManageHairSalonPage {
     SalonContactNo: '',
     userUID: ''
 
+
+  }
+  SalonOwnerProfile = {
+    ownerImage: '',
+    ownername: '',
+    ownerSurname: '',
+    personalNumber: '',
+    About: '',
+    uid: ''
 
   }
   constructor(public navCtrl: NavController, 
@@ -56,8 +67,15 @@ export class ManageHairSalonPage {
 
   ionViewDidLoad() {
     this.getHairSalon();
-    
+    this.getProfile();
+
   }
+
+  //function to go to manage staff page  
+  viewstaff(){
+    this.navCtrl.push( ManageStaffPage);
+  }
+  //Function to go to add Salon page only visisble when there's no availiable salon
 addSalon(){
   this.navCtrl.push(AddSalonPage)
 }
@@ -140,25 +158,24 @@ getHairSalon(){
       console.log('Got data', snap);
       snap.forEach(doc => {
         console.log('Profile Document: ', doc.data())
-        this.displayProfile = doc.data();
+        this.disp = doc.data();
         this.name = doc.data().salonName;
-
+      
+        this.SalonNode.salonImage = doc.data().salonImage;
+        this.SalonNode.salonImage = doc.data().salonName;
         this.db.collection('SalonNode').doc(doc.data().salonName).collection('Styles').get().then( res =>{
       res.forEach(doc =>{
 this.styles.push(doc.data());
         console.log('styles' , doc.data());
         this.isHairstyle = true;
       })
-      
       });
-   
       })
       this.isSalon = true;
     } else {
       console.log('No data');
       this.isSalon = false;
     }
-   
     load.dismiss();
   }).catch(err => {
    
@@ -167,17 +184,7 @@ this.styles.push(doc.data());
     load.dismiss();
   })
 }
-// gethairStyles(){
 
-
-// this.db.collection('SalonNode').doc(this.SalonNode.salonName).collection('Styles').get().then( res =>{
-// res.forEach(doc =>{
-//   console.log('styles' , doc.data());
-  
-// })
-// this.isHairstyle = true
-// });
-// }
 
 //Function to push to the user profile page
 ViewUserPorfilePage(){
@@ -186,5 +193,39 @@ ViewUserPorfilePage(){
 //Function to push to adding a new hairstyle
 addStyle(){
   this.navCtrl.push(AddhairStylePage)
+}
+
+getProfile(){
+  
+  let users = this.db.collection('SalonOwnerProfile');
+
+  let query = users.where("uid", "==", this.authService.getUser());
+  query.get().then(querySnapshot => {
+  
+    if (querySnapshot.empty !== true){
+      console.log('Got data', querySnapshot);
+      querySnapshot.forEach(doc => {
+        console.log('Profile Document: ', doc.data())
+        this.displayProfile = doc.data();
+        this.SalonOwnerProfile.About = doc.data().About;
+        this.SalonOwnerProfile.ownerImage = doc.data().ownerImage;
+        this.SalonOwnerProfile.ownerSurname = doc.data().ownerSurname;
+        this.SalonOwnerProfile.ownername = doc.data().ownername;
+        this.SalonOwnerProfile.personalNumber = doc.data().personalNumber;
+      
+      })
+     
+    } else {
+      console.log('No data');
+    
+    }
+    // dismiss the loading
+   
+  }).catch(err => {
+    // catch any errors that occur with the query.
+    console.log("Query Results: ", err);
+    // dismiss the loading
+  
+  })
 }
 }

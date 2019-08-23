@@ -6,6 +6,7 @@ import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
 import * as firebase from 'firebase';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { SalonRegistrationpagePage } from '../salon-registrationpage/salon-registrationpage';
+import { BookingsPage } from '../bookings/bookings';
 
 
 /**
@@ -52,13 +53,17 @@ export class LandingPage {
       this.navCtrl.setRoot(LoginPage);
     });
   }
+  bookings(){
+    this.navCtrl.push(BookingsPage)
+  }
+
   manageSalon(){
     this.navCtrl.push(ManageHairSalonPage)
   }
   getProfile(){
     // load the process
     let load = this.loadingCtrl.create({
-      content: 'Just a sec...',
+      content: 'Please wait...',
       spinner: 'bubbles'
     });
     load.present();

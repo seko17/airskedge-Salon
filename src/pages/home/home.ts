@@ -26,4 +26,7 @@ logout(){
 addSalon(){
   this.navCtrl.push(AddSalonPage);
 }
+home(){
+  this.navCtrl.setRoot(LoginPage)
+}
 }
