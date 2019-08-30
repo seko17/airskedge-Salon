@@ -28,6 +28,7 @@ import { ManageStaffPage } from '../pages/manage-staff/manage-staff';
 import { AddStaffPage } from '../pages/add-staff/add-staff';
 import { BookingsPage } from '../pages/bookings/bookings';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { NativeGeocoder } from '@ionic-native/native-geocoder';
 @NgModule({
   declarations: [
     MyApp,
@@ -53,7 +54,8 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
     IonicModule.forRoot(MyApp),
     ReactiveFormsModule,
     FormsModule,
-    GooglePlaceModule
+    GooglePlaceModule,
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -82,7 +84,8 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
     UserProvider,
     AuthServiceProvider,
      Camera,
-     ImagePicker
+     ImagePicker,
+     NativeGeocoder,
   ]
 })
 export class AppModule {}

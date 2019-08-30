@@ -7,6 +7,9 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { LandingPage } from '../landing/landing';
 import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
+import { NativeGeocoder,
+  NativeGeocoderReverseResult,
+  NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
 
 /**
  * Generated class for the AddSalonPage page.
@@ -50,7 +53,7 @@ SalonLogoImage;
   }
   constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthServiceProvider,
     public camera: Camera,
-    public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController,
+    public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController,private GEOCODE: NativeGeocoder,
     private formBuilder: FormBuilder) {
 
       //get logged user uid and set the uid
@@ -63,7 +66,7 @@ SalonLogoImage;
     //form builder validations
     this.addSalonForm = this.formBuilder.group({
       salonName: new FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
-      location: new FormControl('', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(30)])),
+      // location: new FormControl('', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(30)])),
       SalonContactNo: new FormControl('', Validators.compose([Validators.required, Validators.minLength(10)])),
       SalonDesc: [''],
       numHairDressers: ['']
@@ -75,7 +78,11 @@ SalonLogoImage;
     console.log(addres);
     this.SalonNode.coords.lat = addres.geometry.location.lat() ;
     this.SalonNode.coords.lng =addres.geometry.location.lng() ;
+    this.SalonNode.location = addres.formatted_address ;
+ 
+    
 }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddSalonPage');
   }

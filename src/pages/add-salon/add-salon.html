@@ -45,8 +45,9 @@
     </div>
     <!-- input for salon location/Address-->
     <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
-    <ion-item>
-      <!-- <ion-label> Salon Address</ion-label> -->
+
+    <!-- <ion-item>
+       <ion-label> Salon Address</ion-label> 
       <ion-input type="text" formControlName="location" [(ngModel)]="SalonNode.location" ngDefaultControl placeholder="Salon Address"></ion-input>
     </ion-item>
     <div class="error" *ngFor="let validate of validation_messages.location">
@@ -54,8 +55,10 @@
         *ngIf="addSalonForm.get('location').hasError(validate.type) && (addSalonForm.get('location').dirty || addSalonForm.get('location').touched)">
         {{validate.message}}
       </div>
-    </div>
+    </div> -->
     <!-- input for salon contact number-->
+
+    
     <ion-item>
       <!-- <ion-label> Salon contact number</ion-label> -->
       <ion-input type="tel" maxLength="10" formControlName="SalonContactNo" [(ngModel)]="SalonNode.SalonContactNo"
