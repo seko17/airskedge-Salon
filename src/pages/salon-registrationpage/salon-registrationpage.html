@@ -1,8 +1,8 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <ion-title>salonRegistrationpage</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
   <div class="container">
@@ -23,8 +23,8 @@
       <form [formGroup]="profileForm">
         <ion-item>
 
-          <ion-label> name</ion-label>
-          <ion-input type="text" formControlName="ownername" [(ngModel)]="SalonOwnerProfile.ownername" ngDefaultControl>
+          <!-- <ion-label> name</ion-label> -->
+          <ion-input type="text" placeholder="Name" formControlName="ownername" [(ngModel)]="SalonOwnerProfile.ownername" ngDefaultControl>
           </ion-input>
         </ion-item>
         <div class="error" *ngFor="let validate of validation_messages.ownername">
@@ -35,8 +35,8 @@
         </div>
 
         <ion-item>
-          <ion-label> surname</ion-label>
-          <ion-input type="text" formControlName="ownerSurname" [(ngModel)]="SalonOwnerProfile.ownerSurname"
+          
+          <ion-input type="text" placeholder="Surname" formControlName="ownerSurname" [(ngModel)]="SalonOwnerProfile.ownerSurname"
             ngDefaultControl></ion-input>
         </ion-item>
         <div class="error" *ngFor="let validate of validation_messages.ownerSurname">
@@ -47,8 +47,8 @@
         </div>
         <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
         <ion-item>
-          <ion-label> cellphone number</ion-label>
-          <ion-input type="tel" maxLength="10" formControlName="personalNumber"
+          
+          <ion-input type="tel" placeholder="Number" maxLength="10" formControlName="personalNumber"
             [(ngModel)]="SalonOwnerProfile.personalNumber" ngDefaultControl></ion-input>
         </ion-item>
         <div class="error" *ngFor="let validate of validation_messages.personalNumber">
@@ -59,8 +59,8 @@
         </div>
 
         <ion-item>
-          <ion-label> bio </ion-label>
-          <ion-input type="text" formControlName="About" [(ngModel)]="SalonOwnerProfile.About" ngDefaultControl>
+         
+          <ion-input type="text" placeholder="Tell Us About Yourself" formControlName="About" [(ngModel)]="SalonOwnerProfile.About" ngDefaultControl>
           </ion-input>
         </ion-item>
         <div class="error" *ngFor="let validate of validation_messages.About">

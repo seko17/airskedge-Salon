@@ -4,10 +4,13 @@
   </ion-navbar>
 </ion-header> -->
 
-<ion-content padding>
+<ion-content>
   <div class="container">
+      <div class="back" (click)="goback()">
+          <ion-icon name="arrow-back"></ion-icon>
+      </div>
     <div class="signin">
-      <h1>Sign-In</h1>
+      <h1>Welcome <br><span>Sign into your account to continue</span></h1>
     </div>
     <div class="form">
       <form [formGroup]="loginForm">
@@ -24,7 +27,7 @@
 
         <ion-item>
           <!-- <ion-label position="stacked">Password</ion-label> -->
-          <ion-input formControlName="password" type="password" placeholder="Your password"
+          <ion-input id="pass" formControlName="password" type="password" placeholder="Your password"
             [class.invalid]="!loginForm.controls['password'].valid&& loginForm.controls['password'].touched">
           </ion-input>
         </ion-item>
@@ -32,22 +35,26 @@
                   && loginForm.controls['password'].touched">
           <ion-label style="color:red; font-size: 10px">Your password needs more than 6 characters.</ion-label>
         </ion-item>
-
-        <button ion-button (click)="loginUser(loginForm)" expand="block" [disabled]="!loginForm.valid">
+<br><br>
+        <button ion-button (click)="loginUser(loginForm)" color="dark" [disabled]="!loginForm.valid">
           Log In
         </button>
+
+        <p (click)="forgotpassword()">Forgot password?</p>
 
       </form>
     </div>
 
     <div class="btns">
-      <button ion-button expand="block" clear (click)="createAcc()">
-        Create a new account
-      </button>
 
-      <button ion-button expand="block" clear (click)="forgotpassword()">
+      <p>Don't have an account? <span (click)="createAcc()">Sign-Up</span></p>
+      <!-- <button ion-button expand="block" clear (click)="createAcc()">
+        Create a new account
+      </button> -->
+
+      <!-- <button ion-button expand="block" clear (click)="forgotpassword()">
         Forgot password?
-      </button>
+      </button> -->
     </div>
   </div>
 

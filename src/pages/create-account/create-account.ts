@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController, AlertController
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { SalonRegistrationpagePage } from '../salon-registrationpage/salon-registrationpage';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the CreateAccountPage page.
@@ -65,5 +66,13 @@ export class CreateAccountPage {
       this.loading = await this.loadingCtrl.create();
       await this.loading.present();
     }
+  }
+
+  signin(){
+    this.navCtrl.push(LoginPage);
+  }
+
+  goback(){
+    this.navCtrl.pop()
   }
 }

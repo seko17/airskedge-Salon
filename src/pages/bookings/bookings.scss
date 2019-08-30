@@ -1,3 +1,28 @@
 page-bookings {
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
+  .container {
+    .time {
+      display: flex;
+      flex-flow: column;
+      background: rgba(150, 148, 148, 0.596);
+      margin: 15px;
+      border-radius: 10px;
+      box-shadow: 5px 10px #888888;
+      font-family: 'Manjari';
+
+      p {
+        padding: 5px;
+        margin: 5px;
+        font-size: 15px;
+      }
+
+      #date {
+        text-align: right;
+      }
+    }
+  }
 }

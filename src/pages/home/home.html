@@ -8,64 +8,50 @@
 
 <ion-content>
   
-  <ion-slides pager="true" (ionSlideDidChange)="slideChanged()">
+  <ion-slides pager="true">
 
-    <ion-slide>
-      <div class="img">
-        <div class="back">
-          <img src="../../assets/imgs/onboarding.jpg">
-        </div>
-        <div class="front">
-            <img src="../../assets/imgs/salon.png">
-        </div>
-
-        <div class="txt">
-            <p>Choose a salon from anywhere<br> around the country</p>
-        </div>
-  
+    <ion-slide id="onboard">
+      <div class="logo">
+        <img src="../../assets/imgs/Untitled-2.svg">
       </div>
-    <button (click)="home()" ion-button clear>
-      skip
-    </button>
+
+      <div class="title">
+        <h1>Welcome to <br><span>AirSkedge</span></h1>
+      </div>
+     <ion-buttons id="btn">
+      <button ion-button  (click)="home()" >Skip</button>
+     </ion-buttons>
+  
     </ion-slide>
   
-    <ion-slide>
-        <div class="img">
-            <div class="back">
-              <img src="../../assets/imgs/onboarding.jpg">
-            </div>
-            <div class="front">
-                <img src="../../assets/imgs/hair.png">
-            </div>
-    
-            <div class="txt">
-                <p>Choose a favourite hairstyle</p>
-            </div>
-      
+    <ion-slide id="onboard">
+
+        <div class="logo">
+            <img src="../../assets/imgs/Untitled-2.svg">
           </div>
-        <button (click)="home()" ion-button clear>
-          skip
-        </button>
+    
+          <div class="title">
+            <h1>Welcome to <br><span>AirSkedge</span></h1>
+          </div>
+         <ion-buttons id="btn">
+          <button ion-button  (click)="home()" >Skip</button>
+         </ion-buttons>
+        
     </ion-slide>
   
-    <ion-slide>
+    <ion-slide id="onboard">
     
-        <div class="img">
-            <div class="back">
-              <img src="../../assets/imgs/onboarding.jpg">
-            </div>
-            <div class="front">
-                <img src="../../assets/imgs/booking.png">
-            </div>
-    
-            <div class="txt">
-                <p>Make your Booking</p>
-            </div>
-      
+        <div class="logo">
+            <img src="../../assets/imgs/Untitled-2.svg">
           </div>
-        <button (click)="home()" ion-button clear>
-         Get Started
-        </button>
+    
+          <div class="title">
+            <h1>Welcome to <br><span>AirSkedge</span></h1>
+          </div>
+         <ion-buttons id="btn">
+          <button ion-button  (click)="home()" >Skip</button>
+         </ion-buttons>
+
     </ion-slide>
   
   </ion-slides>

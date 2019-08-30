@@ -70,7 +70,9 @@ export class ManageHairSalonPage {
     this.getProfile();
 
   }
-
+c(){
+  this.authService.logoutUser();
+}
   //function to go to manage staff page  
   viewstaff(){
     this.navCtrl.push( ManageStaffPage);

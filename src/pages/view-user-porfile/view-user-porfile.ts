@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController, AlertController } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { LoginPage } from '../login/login';
 
 
 /**
@@ -34,7 +35,8 @@ export class ViewUserPorfilePage {
     public toastCtrl: ToastController,
      public loadingCtrl: LoadingController, 
      public alertCtrl: AlertController,
-     private authUser: AuthServiceProvider,) {
+     private authUser: AuthServiceProvider,
+     private authservice : AuthServiceProvider,) {
 
       
     this.uid = firebase.auth().currentUser.uid;
@@ -43,6 +45,12 @@ export class ViewUserPorfilePage {
 
   ionViewDidLoad() {
    this.getProfile()
+  }
+
+  logout(){
+    this.authservice.logoutUser().then(() =>{
+      this.navCtrl.setRoot(LoginPage);
+    });
   }
 
 
@@ -84,5 +92,9 @@ export class ViewUserPorfilePage {
       // dismiss the loading
       load.dismiss();
     })
+  }
+
+  goback(){
+    this.navCtrl.pop()
   }
 }

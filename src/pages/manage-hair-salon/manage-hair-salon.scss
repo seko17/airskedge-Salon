@@ -1,14 +1,15 @@
 page-manage-hair-salon {
   .Profimage {
     width: 100vw;
-    height: 40vh;
+    height: 45vh;
     position: relative;
     overflow: hidden;
-
+background: black;
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      opacity: 0.5;
     }
 
     .butt {
@@ -28,9 +29,11 @@ page-manage-hair-salon {
 
       h4 {
         font-weight: normal;
-        font-size: 7vw;
+        font-size: 25px;
         margin: 0;
         padding: 0;
+        color: white;
+        font-family: 'Manjari';
       }
     }
   }
@@ -72,7 +75,6 @@ page-manage-hair-salon {
     }
   }
 
-
   .msg {
     font-size: 30px;
     text-align: center;
@@ -88,52 +90,30 @@ page-manage-hair-salon {
     display: flex;
     flex-flow: row;
     justify-content: space-between;
+    position: absolute;
+    z-index: 5;
+    padding: 10px;
 
     .propic {
-      background: black;
+      background: rgba(255, 166, 0, 0.699);
       color: white;
       padding: 5px;
       border-radius: 50%;
+      position: absolute;
+      left: 350px;
     }
 
-    // .name{
-    //   background: orangered;
-    //   color: white;
-    //   padding: 5px;
-    //   border-radius: 50%;
-    // }
+    .name{
+      color: white;
+      padding: 5px;
+     font-size: 20px;
+    }
   }
 
   .cards {
-    .info {
-      display: flex;
-      flex-flow: row;
-      justify-content: space-between;
-      margin: 10px;
-      border: 1px solid;
-
-      .image {
-        width: 100px;
-        height: 100px;
-        background: grey;
-        padding: 10px;
-        img{
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          padding: 10px;
-        }
-      }
-
-      .details {
-        display: flex;
-        flex-flow: row;
-      }
-
-      .icons {
-        font-size: 20px;
-      }
-    }
+    width: 200px;
+    display: flex;
+    flex-wrap: wrap;
   }
 
 
