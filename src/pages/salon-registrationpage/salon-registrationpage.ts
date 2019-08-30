@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController, AlertController } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
@@ -6,6 +6,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { HomePage } from '../home/home';
 import { LandingPage } from '../landing/landing';
+import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
+import { Address } from 'ngx-google-places-autocomplete/objects/address';
 
 
 
@@ -15,6 +17,11 @@ import { LandingPage } from '../landing/landing';
   templateUrl: 'salon-registrationpage.html',
 })
 export class SalonRegistrationpagePage {
+  @ViewChild("placesRef") placesRef : GooglePlaceDirective;
+  options={
+   
+   componentRestrictions: { country: 'ZA' }
+   };
   db = firebase.firestore();
   storage = firebase.storage().ref();
   uid
@@ -27,6 +34,7 @@ export class SalonRegistrationpagePage {
     ownername: '',
     ownerSurname: '',
     personalNumber: '',
+    coords: {lat:0,lng:0},
     About: '',
     uid: ''
 
@@ -47,6 +55,7 @@ this.SalonOwnerProfile.uid = this.uid
       personalNumber: new  FormControl('', Validators.compose([Validators.required, Validators.minLength(10)])),
       About: ['']
     });
+    
   }
 
   ionViewDidLoad() {
@@ -54,7 +63,12 @@ this.SalonOwnerProfile.uid = this.uid
 
     console.log('masibone', this.authUser.getUser())
   }
-
+  public handleAddressChange(addres: Address) {
+    // Do some stuff
+    console.log(addres);
+    this.SalonOwnerProfile.coords.lat = addres.geometry.location.lat() ;
+    this.SalonOwnerProfile.coords.lng =addres.geometry.location.lng() ;
+}
   //select image for the salon
   async selectImage() {
     let option: CameraOptions = {

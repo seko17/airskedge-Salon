@@ -45,7 +45,7 @@
             {{validate.message}}
           </div>
         </div>
-
+        <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
         <ion-item>
           <ion-label> cellphone number</ion-label>
           <ion-input type="tel" maxLength="10" formControlName="personalNumber"

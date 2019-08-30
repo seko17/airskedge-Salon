@@ -62,7 +62,7 @@ export class ManageHairSalonPage {
     this.authService.setUser(this.uid);
     console.log('check salon profile',this.displayProfile); 
     
-    console.log('check',this.styles)
+    console.log('check',this.styles)     
   }
 
   ionViewDidLoad() {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController, AlertController } from 'ionic-angular';
 
 import * as firebase from 'firebase';
@@ -7,6 +7,9 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { LandingPage } from '../landing/landing';
 import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
+import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
+import { Address } from 'ngx-google-places-autocomplete/objects/address';
+
 /**
  * Generated class for the AddhairStylePage page.
  *
@@ -20,6 +23,8 @@ import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
   templateUrl: 'addhair-style.html',
 })
 export class AddhairStylePage {
+
+
   storage = firebase.storage().ref();
   db = firebase.firestore();
   Gender : any = ['female','male'];
@@ -47,6 +52,8 @@ isuploading: false
 
 
   }
+  long;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private formBuilder: FormBuilder,
     public camera: Camera,
@@ -65,6 +72,8 @@ isuploading: false
     console.log('ionViewDidLoad AddhairStylePage');
     this.getHairSalon();
   }
+  
+
   
   async createStyle(addSalonForm: FormGroup): Promise<void> {
     if (!addSalonForm.valid) {

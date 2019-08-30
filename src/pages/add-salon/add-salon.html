@@ -44,6 +44,7 @@
       </div>
     </div>
     <!-- input for salon location/Address-->
+    <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
     <ion-item>
       <!-- <ion-label> Salon Address</ion-label> -->
       <ion-input type="text" formControlName="location" [(ngModel)]="SalonNode.location" ngDefaultControl placeholder="Salon Address"></ion-input>

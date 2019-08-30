@@ -27,6 +27,7 @@ import { EditstylesPage } from '../pages/editstyles/editstyles';
 import { ManageStaffPage } from '../pages/manage-staff/manage-staff';
 import { AddStaffPage } from '../pages/add-staff/add-staff';
 import { BookingsPage } from '../pages/bookings/bookings';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 @NgModule({
   declarations: [
     MyApp,
@@ -51,7 +52,8 @@ import { BookingsPage } from '../pages/bookings/bookings';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    GooglePlaceModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
