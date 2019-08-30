@@ -1,32 +1,20 @@
-<!--
-  Generated template for the LandingPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<!-- <ion-header>
-  <ion-navbar>
-    <ion-title>landingPage</ion-title>
-  </ion-navbar>
-</ion-header> -->
 
 <ion-content padding>
   <div class="container">
-    <div class="profile1">
-      <div class="name">name</div>
-      <div class="propic">Profile</div>
-    </div>
-
-
+  
     <div *ngIf="!profile" class="noprof">
       <ion-icon name="warning"></ion-icon>
 
-      <p> Oops.. it looks like you dont have your profile set up yet please create profile <button
-          (click)="createAccount()" ion-button> create profile </button></p>
+      <p> Oops.. it looks like you dont have your profile set up yet please create profile </p>
+      <button (click)="createAccount()" ion-button> Create Profile </button>
+      <button (click)="logout()" ion-button> Exit </button>
     </div>
 
-    <div class="main">
+    <div class="main" *ngIf="profile">
       <div class="details">
+        <div class="airlogo">
+          <img src="../../assets/imgs/Untitled-2.svg">
+        </div>
         <div class="name">
           <p>AirSkedge</p>
         </div>
@@ -40,9 +28,9 @@
       </div>
       <hr>
 
-      <div *ngIf="profile" class="navs">
+      <div  class="navs">
         <div class="">
-          <button (click)="logout()" ion-button> L</button>
+          <button (click)="viewprofile()" ion-button> <ion-icon name="person"></ion-icon></button>
         </div>
 
 
@@ -51,12 +39,12 @@
         </div>
 
         <div class="">
-          <button (click)="manageSalon()" ion-button> <ion-icon name="bookmark"></ion-icon>
+          <button (click)="bookings()" ion-button> <ion-icon name="bookmark"></ion-icon>
           </button>
         </div>
 
         <div class="">
-          <button (click)="manageSalon()" ion-button>   <ion-icon name="information-circle"></ion-icon>
+          <button (click)="info()" ion-button>   <ion-icon name="information-circle"></ion-icon>
           </button>
         </div>
 
@@ -65,8 +53,8 @@
       </div>
     </div>
 
-      <button (click)="manageSalon()" ion-button> Manage Salon </button>
-    <button  (click)="bookings()" ion-button> Bookings</button>
+      <!-- <button (click)="manageSalon()" ion-button> Manage Salon </button> -->
+    <!-- <button  (click)="bookings()" ion-button> Bookings</button> -->
   </div>
 
 

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Teko|Abel|Anton|Dosis|Oxygen|Jura|Pacifico|Righteous|Roboto+Condensed|Ubuntu|Open+Sans+Condensed');
+
 page-landing {
   .content {
     background: linear-gradient(rgba(0, 0, 0, 0.685)), url('../../assets/imgs/hair.jpg');
@@ -15,16 +16,31 @@ page-landing {
     height: 100%;
   }
 
+  .airlogo {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 30%;
+    top: 2%;
+  }
+
   .noprof {
     display: flex;
     flex-flow: column;
+    text-align: center;
 
     .icon {
-      font-size: 40px;
+      font-size: 100px;
+      color: red;
     }
 
     p {
-      font-size: 30px;
+      font-size: 20px;
+      color: white;
+    }
+
+    button{
+      background: rgba(0, 0, 0, 0.507);
     }
   }
 

@@ -1,9 +1,9 @@
-
+<!-- 
 <ion-header>
   <ion-navbar>
     <ion-title>viewUserPorfile</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
   <div class="container">
@@ -14,7 +14,13 @@
       </div>
 
       <div class="back">
-        <ion-icon name="arrow-back"></ion-icon>
+        
+        <div class="arowback">
+            <ion-icon name="arrow-back" (click)="goback()"></ion-icon>
+        </div>
+        <div class="exit">
+            <ion-icon name="exit" (click)="logout()"></ion-icon>
+        </div>
       </div>
 
       <div class="details">

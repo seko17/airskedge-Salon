@@ -7,6 +7,8 @@ import * as firebase from 'firebase';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { SalonRegistrationpagePage } from '../salon-registrationpage/salon-registrationpage';
 import { BookingsPage } from '../bookings/bookings';
+import { UserCreateProfilePage } from '../user-create-profile/user-create-profile';
+import { ViewUserPorfilePage } from '../view-user-porfile/view-user-porfile';
 
 
 /**
@@ -53,8 +55,17 @@ export class LandingPage {
       this.navCtrl.setRoot(LoginPage);
     });
   }
+
+  viewprofile(){
+    this.navCtrl.push( ViewUserPorfilePage)
+  }
   bookings(){
     this.navCtrl.push(BookingsPage)
+  }
+
+  info(){
+    this.navCtrl.push( UserCreateProfilePage)
+   
   }
 
   manageSalon(){
@@ -102,4 +113,6 @@ export class LandingPage {
   createAccount(){
     this.navCtrl.setRoot(SalonRegistrationpagePage)
   }
+
+
 }

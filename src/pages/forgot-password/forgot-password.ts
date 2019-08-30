@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { LoginPage } from '../login/login';
+import { CreateAccountPage } from '../create-account/create-account';
 
 /**
  * Generated class for the ForgotPasswordPage page.
@@ -62,5 +63,13 @@ export class ForgotPasswordPage {
         }
       );
     }
+  }
+
+  signup(){
+    this.navCtrl.push(CreateAccountPage);
+  }
+
+  goback(){
+    this.navCtrl.pop();
   }
 }
