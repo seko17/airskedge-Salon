@@ -6,8 +6,9 @@
 
 <ion-content>
 <div class="container">
+ 
   <div class="prof">
-    <h1>Create Your Profile</h1>
+    <h1>Add Your Salon</h1>
   </div>
  <!-- input for salon cover image *ngIf="profileImage"-->
  <div class="backimage">
@@ -41,7 +42,7 @@
       <ion-input type="text" formControlName="salonName" [(ngModel)]="SalonNode.salonName" ngDefaultControl placeholder="Salon Name"></ion-input>
     </ion-item>
     <div class="error" *ngFor="let validate of validation_messages.salonName">
-      <div class="messages"
+      <div class="messages" style="color:red"
         *ngIf="addSalonForm.get('salonName').hasError(validate.type) && (addSalonForm.get('salonName').dirty || addSalonForm.get('salonName').touched)">
         {{validate.message}}
       </div>
@@ -52,11 +53,11 @@
   
     <ion-item>
       <!-- <ion-label> Salon contact number</ion-label> -->
-      <ion-input type="tel" maxLength="10" formControlName="SalonContactNo" [(ngModel)]="SalonNode.SalonContactNo"
+      <ion-input type="tel"  maxLength="10" formControlName="SalonContactNo" [(ngModel)]="SalonNode.SalonContactNo"
         ngDefaultControl placeholder="Contact Number"></ion-input>
     </ion-item>
     <div class="error" *ngFor="let validate of validation_messages.SalonContactNo">
-      <div class="messages"
+      <div class="messages" style="color:red"
         *ngIf="addSalonForm.get('SalonContactNo').hasError(validate.type) && (addSalonForm.get('SalonContactNo').dirty || addSalonForm.get('SalonContactNo').touched)">
         {{validate.message}}
       </div>
@@ -67,7 +68,7 @@
       <ion-input type="text" formControlName="SalonDesc" [(ngModel)]="SalonNode.SalonDesc" ngDefaultControl placeholder="Description"></ion-input>
     </ion-item>
     <div class="error" *ngFor="let validate of validation_messages.SalonDesc">
-      <div class="messages"
+      <div class="messages" style="color:red"
         *ngIf="addSalonForm.get('SalonDesc').hasError(validate.type) && (addSalonForm.get('SalonDesc').dirty || addSalonForm.get('SalonDesc').touched)">
         {{validate.message}}
       </div>
@@ -79,7 +80,7 @@
         ngDefaultControl placeholder="Number of Hairdressers"></ion-input>
     </ion-item>
     <div class="error" *ngFor="let validate of validation_messages.numHairDressers">
-      <div class="messages"
+      <div class="messages" style="color:red"
         *ngIf="addSalonForm.get('numHairDressers').hasError(validate.type) && (addSalonForm.get('numHairDressers').dirty || addSalonForm.get('numHairDressers').touched)">
         {{validate.message}}
       </div>
@@ -88,10 +89,8 @@
 
     <div class="btn">
       <button id="skip" (click)="createSalon(addSalonForm)" type="submit" [disabled]="!addSalonForm.valid" ion-button
-        clear
-      
-        >
-        Save profile </button>
+        color="dark">
+        Save Salon </button>
 
     </div>
   </form>

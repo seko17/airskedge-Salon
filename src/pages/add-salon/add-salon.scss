@@ -6,19 +6,21 @@ page-add-salon {
     width: 100%;
     height: 100%;
     position: fixed;
+    
   }
 
-  .prof{
+  .prof {
     position: absolute;
     top: 2%;
   }
 
   #location {
-    width: 280px;
+    width: 300px;
     height: 30px;
     border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.192);
+    border-bottom: 1px solid rgba(185, 182, 182, 0.705);
     margin: 15px;
+    background: transparent;
   }
 
   .backimage {
@@ -31,6 +33,7 @@ page-add-salon {
     border-radius: 50%;
     position: relative;
     top: 90px;
+
     .btn {
 
       button {
@@ -42,7 +45,7 @@ page-add-salon {
       }
     }
 
-    .image{
+    .image {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -55,6 +58,11 @@ page-add-salon {
 
     .item {
       width: 40vh;
+      background: transparent;
+      color: grey;
+      .input{
+        color: grey;
+      }
     }
   }
 
@@ -63,8 +71,7 @@ page-add-salon {
     left: 15%;
     top: 100%;
     width: 200px;
-    font-size: 25px;
-    color: black;
+    color: grey;
     // box-shadow: 5px 5px 10px grey;
   }
 }

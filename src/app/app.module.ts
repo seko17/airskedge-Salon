@@ -16,7 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
 import { Camera } from "@ionic-native/camera";
-import {  ImagePicker} from "@ionic-native/image-picker";
+import { ImagePicker } from "@ionic-native/image-picker";
 import { AddSalonPage } from '../pages/add-salon/add-salon';
 import { LandingPage } from '../pages/landing/landing';
 import { ManageHairSalonPage } from '../pages/manage-hair-salon/manage-hair-salon';
@@ -51,7 +51,10 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      scrollPadding: true,
+      scrollAssist: false,
+    }),
     ReactiveFormsModule,
     FormsModule,
     GooglePlaceModule,
