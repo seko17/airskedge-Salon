@@ -8,6 +8,7 @@ import { HomePage } from '../home/home';
 import { LandingPage } from '../landing/landing';
 import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
+import { LoginPage } from '../login/login';
 
 
 
@@ -168,5 +169,10 @@ this.SalonOwnerProfile.uid = this.uid
     ],
     
   };
+  s(){
+    this.authUser.logoutUser().then(()=>{
+      this.navCtrl.setRoot(LoginPage)
+    })
+  }
   
 }

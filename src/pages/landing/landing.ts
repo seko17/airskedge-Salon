@@ -100,6 +100,7 @@ export class LandingPage {
       } else {
         console.log('No data');
       this.profile = false;
+	  this.navCtrl.setRoot(SalonRegistrationpagePage)
       }
       // dismiss the loading
       load.dismiss();
