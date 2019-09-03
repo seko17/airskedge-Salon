@@ -58,7 +58,8 @@
 
 <div class="hairdetails">
    <div *ngIf="isHairstyle" id="cards" >
-      
+      <h3>Your Hairstyles</h3>
+      <br><br>
          <ion-item *ngFor="let n of styles">
         <img src="{{n.hairStyleImage}}">
         <p>{{n.hairstyleName}}</p>
