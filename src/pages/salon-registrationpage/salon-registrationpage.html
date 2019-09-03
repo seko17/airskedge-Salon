@@ -6,83 +6,91 @@
 
 <ion-content>
   <div class="container">
-    <div class="propic">
-    
-      <img src="{{profileImage}}">
-    <div class="btnz">
-        <button *ngIf="!profileImage" ion-button color="dark" (click)="selectImage()">  <ion-icon name="camera"></ion-icon></button>
-    </div>
-    
-    </div>
-
-
-    <!-- <div  class="image" id="img">
-     
-        </div> -->
-    <div class="form1">
-      <form [formGroup]="profileForm">
-        <ion-item>
-
-          <!-- <ion-label> name</ion-label> -->
-          <ion-input type="text" placeholder="Name" formControlName="ownername" [(ngModel)]="SalonOwnerProfile.ownername" ngDefaultControl>
-          </ion-input>
-        </ion-item>
-        <div class="error" *ngFor="let validate of validation_messages.ownername">
-          <div class="messages"
-            *ngIf="profileForm.get('ownername').hasError(validate.type) && (profileForm.get('ownername').dirty || profileForm.get('ownername').touched)">
-            {{validate.message}}
+    <div class="back">
+        <div class="title">
+            <h1>Create Profile</h1>
           </div>
-        </div>
-
-        <ion-item>
-          
-          <ion-input type="text" placeholder="Surname" formControlName="ownerSurname" [(ngModel)]="SalonOwnerProfile.ownerSurname"
-            ngDefaultControl></ion-input>
-        </ion-item>
-        <div class="error" *ngFor="let validate of validation_messages.ownerSurname">
-          <div class="messages"
-            *ngIf="profileForm.get('ownerSurname').hasError(validate.type) && (profileForm.get('ownerSurname').dirty || profileForm.get('ownerSurname').touched)">
-            {{validate.message}}
-          </div>
-        </div>
-        <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
-        <ion-item>
-          
-          <ion-input type="tel" placeholder="Number" maxLength="10" formControlName="personalNumber"
-            [(ngModel)]="SalonOwnerProfile.personalNumber" ngDefaultControl></ion-input>
-        </ion-item>
-        <div class="error" *ngFor="let validate of validation_messages.personalNumber">
-          <div class="messages"
-            *ngIf="profileForm.get('personalNumber').hasError(validate.type) && (profileForm.get('personalNumber').dirty || profileForm.get('personalNumber').touched)">
-            {{validate.message}}
-          </div>
-        </div>
-
-        <ion-item>
+          <br>
+          <div class="propic">
          
-          <ion-input type="text" placeholder="Tell Us About Yourself" formControlName="About" [(ngModel)]="SalonOwnerProfile.About" ngDefaultControl>
-          </ion-input>
-        </ion-item>
-        <div class="error" *ngFor="let validate of validation_messages.About">
-          <div class="messages"
-            *ngIf="profileForm.get('About').hasError(validate.type) && (profileForm.get('About').dirty || profileForm.get('About').touched)">
-            {{validate.message}}
+            <img src="{{profileImage}}">
+         
+          <div class="btnz">
+              <button *ngIf="!profileImage" ion-button color="dark" (click)="selectImage()">  <ion-icon name="camera"></ion-icon></button>
           </div>
-        </div>
-        <br>
-
-
-      </form>
+          
+          </div>
+      
+      
+          <!-- <div  class="image" id="img">
+           
+              </div> -->
+          <div class="form1">
+            <form [formGroup]="profileForm">
+              <ion-item>
+      
+                <!-- <ion-label> name</ion-label> -->
+                <ion-input type="text" placeholder="Name" formControlName="ownername" [(ngModel)]="SalonOwnerProfile.ownername" ngDefaultControl>
+                </ion-input>
+              </ion-item>
+              <div class="error" *ngFor="let validate of validation_messages.ownername">
+                <div class="messages"
+                  *ngIf="profileForm.get('ownername').hasError(validate.type) && (profileForm.get('ownername').dirty || profileForm.get('ownername').touched)">
+                  {{validate.message}}
+                </div>
+              </div>
+      
+              <ion-item>
+                
+                <ion-input type="text" placeholder="Surname" formControlName="ownerSurname" [(ngModel)]="SalonOwnerProfile.ownerSurname"
+                  ngDefaultControl></ion-input>
+              </ion-item>
+              <div class="error" *ngFor="let validate of validation_messages.ownerSurname">
+                <div class="messages"
+                  *ngIf="profileForm.get('ownerSurname').hasError(validate.type) && (profileForm.get('ownerSurname').dirty || profileForm.get('ownerSurname').touched)">
+                  {{validate.message}}
+                </div>
+              </div>
+              <input id="location" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+              <ion-item>
+                
+                <ion-input type="tel" placeholder="Number" maxLength="10" formControlName="personalNumber"
+                  [(ngModel)]="SalonOwnerProfile.personalNumber" ngDefaultControl></ion-input>
+              </ion-item>
+              <div class="error" *ngFor="let validate of validation_messages.personalNumber">
+                <div class="messages"
+                  *ngIf="profileForm.get('personalNumber').hasError(validate.type) && (profileForm.get('personalNumber').dirty || profileForm.get('personalNumber').touched)">
+                  {{validate.message}}
+                </div>
+              </div>
+      
+              <ion-item>
+               
+                <ion-input type="text" placeholder="Tell Us About Yourself" formControlName="About" [(ngModel)]="SalonOwnerProfile.About" ngDefaultControl>
+                </ion-input>
+              </ion-item>
+              <div class="error" *ngFor="let validate of validation_messages.About">
+                <div class="messages"
+                  *ngIf="profileForm.get('About').hasError(validate.type) && (profileForm.get('About').dirty || profileForm.get('About').touched)">
+                  {{validate.message}}
+                </div>
+              </div>
+              <br>
+      
+      
+            </form>
+          </div>
+      
+          <div class="btn">
+              <button id="skip" (click)="createprofile(profileForm)" type="submit" [disabled]="!profileForm.valid" ion-button
+                color="dark" full large
+                >Create
+                my Profile </button>
+      
+            </div>
+      
     </div>
-
-    <div class="btn">
-        <button id="skip" (click)="createprofile(profileForm)" type="submit" [disabled]="!profileForm.valid" ion-button
-          color="dark" full large
-          >Create
-          my Profile </button>
-
-      </div>
-
+  
   </div>
 
 </ion-content>

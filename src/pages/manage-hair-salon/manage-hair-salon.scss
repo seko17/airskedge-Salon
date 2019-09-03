@@ -4,7 +4,8 @@ page-manage-hair-salon {
     height: 45vh;
     position: relative;
     overflow: hidden;
-background: black;
+    background: black;
+
     img {
       width: 100%;
       height: 100%;
@@ -17,6 +18,11 @@ background: black;
       top: 10px;
       left: 10px;
 
+    }
+
+    .container{
+      width: 100%;
+      height: 40vh;
     }
 
     .displayName {
@@ -103,17 +109,37 @@ background: black;
       left: 350px;
     }
 
-    .name{
+    .name {
       color: white;
       padding: 5px;
-     font-size: 20px;
+      font-size: 20px;
     }
   }
 
-  .cards {
-    width: 200px;
+  .hairdetails{
+    width: 100%;
+    height: 60vh;
+    overflow-y: auto;
+  }
+
+  #cards {
+    max-width: 100%;
+    height: 300px;
     display: flex;
     flex-wrap: wrap;
+    .item{
+      img{
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+    .item{
+      width: 200px;
+      height: 300px;
+    }
+
+
   }
 
 
