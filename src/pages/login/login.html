@@ -1,15 +1,62 @@
-<!--
-  Generated template for the LoginPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <ion-title>loginPage</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content padding>
+<ion-content>
+  <div class="container">
+      <div class="back" (click)="goback()">
+          <ion-icon name="arrow-back"></ion-icon>
+      </div>
+    <div class="signin">
+      <h1>Welcome <br><span>Sign into your account to continue</span></h1>
+    </div>
+    <div class="form">
+      <form [formGroup]="loginForm">
+        <ion-item>
+          <!-- <ion-label position="stacked">Email</ion-label> -->
+          <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!loginForm.controls['email'].valid &&
+                  loginForm.controls['email'].touched">
+          </ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!loginForm.controls['email'].valid &&
+                   loginForm.controls['email'].touched">
+          <ion-label style="color:red; font-size: 10px">Please enter a valid email address.</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <!-- <ion-label position="stacked">Password</ion-label> -->
+          <ion-input id="pass" formControlName="password" type="password" placeholder="Your password"
+            [class.invalid]="!loginForm.controls['password'].valid&& loginForm.controls['password'].touched">
+          </ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!loginForm.controls['password'].valid
+                  && loginForm.controls['password'].touched">
+          <ion-label style="color:red; font-size: 10px">Your password needs more than 6 characters.</ion-label>
+        </ion-item>
+<br><br>
+        <button ion-button (click)="loginUser(loginForm)" color="dark" [disabled]="!loginForm.valid">
+          Log In
+        </button>
+
+        <p (click)="forgotpassword()">Forgot password?</p>
+
+      </form>
+    </div>
+
+    <div class="btns">
+
+      <p>Don't have an account? <span (click)="createAcc()">Sign-Up</span></p>
+      <!-- <button ion-button expand="block" clear (click)="createAcc()">
+        Create a new account
+      </button> -->
+
+      <!-- <button ion-button expand="block" clear (click)="forgotpassword()">
+        Forgot password?
+      </button> -->
+    </div>
+  </div>
+
 
 </ion-content>

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>bookings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-item *ngFor = "let n of testArray">
+<pre>{{n.sessiontime}}
+{{n.sessionendtime}}
+{{n.estimatedtime}}
+<br>
+{{n.surname}}
+{{n.hairstyletype}}
+</pre>
+</ion-item> -->
+
+  <div class="container">
+    <div class="time" *ngFor="let n of testArray">
+      <p id="date">01/01/2000</p>
+      <p>Customer Name: {{n.surname}}</p>
+      <p>{{n.hairstyletype}} at {{n.sessiontime}}</p>
+      <p>{{n.estimatedtime}} minutes</p>
+    </div>
+  </div>
+</ion-content>

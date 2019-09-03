@@ -1,0 +1,104 @@
+page-view-user-porfile {
+  .container {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  .main {
+    width: 100%;
+    height: 90vh;
+    position: relative;
+
+    .image {
+      height: 90vh;
+      width: 100%;
+      background: black;
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 5;
+        background: linear-gradient(rgba(17, 17, 17, 0.459), rgb(12, 12, 12));
+      }
+    }
+
+    .back {
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 5;
+
+      .icon {
+        font-size: 30px;
+        color: white;
+      }
+
+      .exit{
+        position: absolute;
+        
+        left: 370px;
+      }
+    }
+
+    .details {
+      position: absolute;
+      z-index: 5;
+      bottom: 30px;
+      left: 10px;
+      color: rgba(255, 255, 255, 0.753);
+      font-family: sans-serif;
+
+      .nm {
+        #name {
+          font-size: 30px;
+        }
+      }
+
+      .contacts {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        padding: 5px;
+      }
+    }
+
+    .phone{
+      position: absolute;
+      left: 5px;
+    }
+  }
+
+  .place {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    height: 10vh;
+
+    .location {
+      font-size: 20px;
+      margin: 5px;
+    }
+
+    .up {
+      .icon {
+        margin: 5px;
+        font-size: 30px;
+        padding: 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+<!--
+  Generated template for the ManageStaffPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content >
+
+
+  <div class="container">
+      <div class="propic">
+      
+        <img src="{{profileImage}}">
+      <div class="btnz">
+          <button *ngIf="!profileImage" ion-button color="dark" (click)="selectImage()">  <ion-icon name="camera"></ion-icon></button>
+      </div>
+      
+      </div>
+  
+  
+      <!-- <div  class="image" id="img">
+       
+          </div> -->
+      <div class="form1">
+        <form [formGroup]="staffForm">
+          <ion-item>
+  
+            <ion-label> name</ion-label>
+            <ion-input type="text" formControlName="staffName" [(ngModel)]="Staff.staffName" ngDefaultControl>
+            </ion-input>
+          </ion-item>
+          <div class="error" *ngFor="let validate of validation_messages.staffName">
+            <div class="messages"
+              *ngIf="staffForm.get('staffName').hasError(validate.type) && (staffForm.get('staffName').dirty || staffForm.get('staffName').touched)">
+              {{validate.message}}
+            </div>
+          </div>
+  
+          <ion-item>
+            <ion-label> surname</ion-label>
+            <ion-input type="text" formControlName="staffSurname" [(ngModel)]="Staff.staffSurname"
+              ngDefaultControl></ion-input>
+          </ion-item>
+          <div class="error" *ngFor="let validate of validation_messages.staffSurname">
+            <div class="messages"
+              *ngIf="staffForm.get('staffSurname').hasError(validate.type) && (staffForm.get('staffSurname').dirty || staffForm.get('staffSurname').touched)">
+              {{validate.message}}
+            </div>
+          </div>
+  
+          <ion-item>
+            <ion-label> cellphone number</ion-label>
+            <ion-input type="tel" maxLength="10" formControlName="personalNumber"
+              [(ngModel)]="Staff.personalNumber" ngDefaultControl></ion-input>
+          </ion-item>
+          <div class="error" *ngFor="let validate of validation_messages.personalNumber">
+            <div class="messages"
+              *ngIf="staffForm.get('personalNumber').hasError(validate.type) && (staffForm.get('personalNumber').dirty || staffForm.get('personalNumber').touched)">
+              {{validate.message}}
+            </div>
+          </div>
+  
+  
+  
+        </form>
+      </div>
+  
+      <div class="btn">
+          <button id="skip" (click)="createStyle(staffForm)" type="submit" [disabled]="!staffForm.valid" ion-button
+            color="dark" full large
+            >Create staff member </button>
+  
+        </div>
+  
+    </div>
+</ion-content>
