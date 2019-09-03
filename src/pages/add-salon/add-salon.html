@@ -1,11 +1,14 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <ion-title>addSalon</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
 <div class="container">
+  <div class="prof">
+    <h1>Create Your Profile</h1>
+  </div>
  <!-- input for salon cover image *ngIf="profileImage"-->
  <div class="backimage">
     <div class="image">
@@ -44,21 +47,9 @@
       </div>
     </div>
     <!-- input for salon location/Address-->
-    <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
-
-    <!-- <ion-item>
-       <ion-label> Salon Address</ion-label> 
-      <ion-input type="text" formControlName="location" [(ngModel)]="SalonNode.location" ngDefaultControl placeholder="Salon Address"></ion-input>
-    </ion-item>
-    <div class="error" *ngFor="let validate of validation_messages.location">
-      <div class="messages"
-        *ngIf="addSalonForm.get('location').hasError(validate.type) && (addSalonForm.get('location').dirty || addSalonForm.get('location').touched)">
-        {{validate.message}}
-      </div>
-    </div> -->
-    <!-- input for salon contact number-->
-
-    
+    <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" id="location"
+    style="font-size: 17px"/>
+  
     <ion-item>
       <!-- <ion-label> Salon contact number</ion-label> -->
       <ion-input type="tel" maxLength="10" formControlName="SalonContactNo" [(ngModel)]="SalonNode.SalonContactNo"
@@ -97,9 +88,10 @@
 
     <div class="btn">
       <button id="skip" (click)="createSalon(addSalonForm)" type="submit" [disabled]="!addSalonForm.valid" ion-button
-        clear large
-        style="color: #fff; width: 100%; letter-spacing: 3px; background: rgba(167, 122, 37, 1); font-size: 100%; padding: 7%; font-family:Georgia, 'Times New Roman', Times, serif;">Create
-        my Profile </button>
+        clear
+      
+        >
+        Save profile </button>
 
     </div>
   </form>

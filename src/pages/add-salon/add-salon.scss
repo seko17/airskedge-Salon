@@ -1,102 +1,70 @@
 page-add-salon {
-  // .image{
-  //     position: relative;
-  //     width: 150px;
-  //     height: 150px;
-  //     // overflow: hidden;
-  //     margin: auto;
-  //     border-radius: 200px;
-  //     .del{
-  //       position: absolute;
-  //       bottom: 0;
-  //       right: 0;
-  //       z-index: 5;
-  //       background: red;
-  //       width: 50px;
-  //       height: 50px;
-  //       border-radius: 200px;
-  //       box-shadow: 0px 0px 10px rgba(37, 0, 0, 0.562);
-  //       display: grid;
-  //       align-items: center;
-  //       text-align: center;
-  //     }
-  //     img{
-  //       box-shadow: 0px -5px 10px rgba(37, 0, 0, 0.562);
-  //       box-shadow: inset 0px 5px 10px rgba(37, 0, 0, 0.712);
-  //       border-radius: 200px;
-  //       width: 100%;
-  //       height: 100%;
-  //       object-fit: cover;
-  //     }
-  //   }
-
   .container {
     display: flex;
     flex-flow: column;
-    justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+  }
+
+  .prof{
+    position: absolute;
+    top: 2%;
+  }
+
+  #location {
+    width: 280px;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.192);
+    margin: 15px;
   }
 
   .backimage {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     background: linear-gradient(rgba(128, 128, 128, 0.521)), url('../../assets/imgs/image.png');
+    border: 6px solid rgba(128, 128, 128, 0.897);
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 50%;
     position: relative;
-    margin: 25px 0px;
-
+    top: 90px;
     .btn {
+
       button {
         border-radius: 50%;
         position: absolute;
-        right: 10px;
-        bottom: 10px;
+        right: 8px;
+        bottom: -2px;
+
       }
+    }
+
+    .image{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 
-  // .logoimg {
-  //   width: 150px;
-  //   height: 150px;
-  //   background: black;
-  //   border-radius: 50%;
-  //   position: absolute;
-  //   z-index: 3;
-  //   bottom: 360px;
-  //   left: 10px;
-  //   .images {
-  //     width: 150px;
-  //     height: 150px;
-  //     border-radius: 50%;
-  //     overflow: hidden;
-  //     img {
-  //       width: 100%;
-  //       height: 100%;
-  //       object-fit: cover;
-  //     }
-  //   }
-  // }
-
-  // .btn1 {
-  //   width: 50px;
-  //   height: 50px;
-
-  //   button {
-  //     position: relative;
-  //     left: 110px;
-  //     top: 60px;
-  //     border-radius: 50%;
-  //   }
-
-  // }
-
   form {
     position: absolute;
-    bottom: 6%;
-    .item{
-      width: 50vh;
+    top: 50%;
+
+    .item {
+      width: 40vh;
     }
+  }
+
+  #skip {
+    position: absolute;
+    left: 15%;
+    top: 100%;
+    width: 200px;
+    font-size: 25px;
+    color: black;
+    // box-shadow: 5px 5px 10px grey;
   }
 }

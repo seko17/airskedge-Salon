@@ -6,9 +6,14 @@
 
 <ion-content>
   <div class="container">
+    <div class="title">
+      <h1>Create Profile</h1>
+    </div>
+    <br>
     <div class="propic">
-    
+   
       <img src="{{profileImage}}">
+   
     <div class="btnz">
         <button *ngIf="!profileImage" ion-button color="dark" (click)="selectImage()">  <ion-icon name="camera"></ion-icon></button>
     </div>
@@ -45,7 +50,7 @@
             {{validate.message}}
           </div>
         </div>
-        <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+        <input id="location" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
         <ion-item>
           
           <ion-input type="tel" placeholder="Number" maxLength="10" formControlName="personalNumber"
