@@ -147,9 +147,20 @@ userdate;
     console.log(this.hairdresser,this.userdate)
     this.getHairSalon()
   }
-  updatebooking(n)
+  updatebooking(x)
   {
-    console.log(n);
+    console.log(x);
+
+    console.log(x);
+
+console.log(this.hairdresser,this.userdate)
+    this.getHairSalon()
+x.status ="cancelled";
+firebase.firestore().collection('SalonNode').doc(x.salonname).collection('staff').doc(x.hairdresser).collection(x.userdate).doc(x.id).update({
+status2: 'cancelled'
+}).then(res=>{
+console.log(res)
+});
   }
 
 
