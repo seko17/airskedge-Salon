@@ -55,6 +55,16 @@
           {{validate.message}}
         </div>
         </div>
+        <!-- duration-->
+        <ion-item >
+          <!-- <ion-label  > hairstyle Description </ion-label> -->
+          <ion-input type="tel"  placeholder="Hairstyle Duration" formControlName="duration"   [(ngModel)]="Styles.duration" ngDefaultControl></ion-input>
+         </ion-item>
+         <div class="error" *ngFor="let validate of validation_messages.duration">
+         <div class="messages" *ngIf="addhairStyleForm.get('duration').hasError(validate.type) && (addhairStyleForm.get('duration').dirty || addhairStyleForm.get('duration').touched)">
+           {{validate.message}}
+         </div>
+         </div>
         <!-- input for hairstyle gender options-->
         <ion-item>
             <ion-label> Style gender</ion-label>

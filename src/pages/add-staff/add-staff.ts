@@ -23,7 +23,7 @@ export class AddStaffPage {
   storage = firebase.storage().ref();
 
   Staff = {
-    staffName: '',
+    name: '',
     staffSurname: '',
     personalNumber: '',
     staffImage: '',
@@ -76,9 +76,9 @@ export class AddStaffPage {
           });
           load.present();
 
-      let customStaffNumber = this.Staff.staffName +""+ 1000 + Math.floor(Math.random() * 10);    
+      let customStaffNumber = this.Staff.name +""+ 1000 + Math.floor(Math.random() * 10);    
       this.Staff.uid = customStaffNumber;
-      const user = this.db.collection('SalonNode').doc(this.SalonNode.salonName).collection('Staff').doc(this.Staff.uid).set(this.Staff);
+      const user = this.db.collection('SalonNode').doc(this.SalonNode.salonName).collection('staff').doc(this.Staff.uid).set(this.Staff);
       // upon success...
       user.then( () => {
         this.navCtrl.setRoot(ManageHairSalonPage)

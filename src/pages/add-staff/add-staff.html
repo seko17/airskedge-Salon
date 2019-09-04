@@ -18,11 +18,13 @@
       <div class="propic">
       
         <img src="{{profileImage}}">
-      <div class="btnz">
-          <button *ngIf="!profileImage" ion-button color="dark" (click)="selectImage()">  <ion-icon name="camera"></ion-icon></button>
-      </div>
+      
       
       </div>
+
+      <div class="btnz">
+        <button *ngIf="!profileImage" ion-button color="dark" (click)="selectImage()">  <ion-icon name="camera"></ion-icon></button>
+    </div>
 
       <!-- <div  class="image" id="img">
        
@@ -32,7 +34,7 @@
           <ion-item>
   
             <ion-label> name</ion-label>
-            <ion-input type="text" formControlName="staffName" [(ngModel)]="Staff.staffName" ngDefaultControl>
+            <ion-input type="text" formControlName="staffName" [(ngModel)]="Staff.name" ngDefaultControl>
             </ion-input>
           </ion-item>
           <div class="error" *ngFor="let validate of validation_messages.staffName">

@@ -24,6 +24,7 @@ page-add-staff {
       top:10%;
       border-radius: 50%;
       border: 5px solid grey;
+      overflow: hidden;
       img{
         width: 100%;
         height: 100%;
@@ -31,13 +32,16 @@ page-add-staff {
         border-radius: 50%;
       }
 
-      .btnz{
-        position: relative;
-        top: 100px;
-        left: 150px;
-        button{
-          border-radius: 50%;
-        }
+    
+    }
+
+    .btnz{
+      position: absolute;
+      z-index: 3;
+      top: 30%;
+      right:30%;
+      button{
+        border-radius: 50%;
       }
     }
 
