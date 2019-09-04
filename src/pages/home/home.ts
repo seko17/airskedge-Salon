@@ -4,6 +4,7 @@ import { NavController, Slides } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { AddSalonPage } from '../add-salon/add-salon';
+import { CreateAccountPage } from '../create-account/create-account';
 
 @Component({
   selector: 'page-home',
@@ -28,5 +29,10 @@ addSalon(){
 }
 home(){
   this.navCtrl.setRoot(LoginPage)
+}
+
+
+register(){
+  this.navCtrl.setRoot(CreateAccountPage);
 }
 }

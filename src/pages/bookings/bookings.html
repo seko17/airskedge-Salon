@@ -1,8 +1,4 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>bookings</ion-title>
-  </ion-navbar>
-</ion-header>
+
 
 <ion-content>
   <!-- <ion-item *ngFor = "let n of testArray">
@@ -15,12 +11,32 @@
 </pre>
 </ion-item> -->
 
-  <div class="container">
+<ion-item>
+        <ion-label >Hairdresser</ion-label>
+        <ion-select  okText="Okay" [(ngModel)]="hairdresser">
+          <ion-option *ngFor="let x of staff">{{x.name}}</ion-option>
+        </ion-select>  
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="stacked">Date</ion-label>
+          <ion-input clear placeholder="session time" type="date" displayFormat="DD/MM/YYYY" min='2019-01-01'
+            [(ngModel)]="userdate"></ion-input>
+        </ion-item>
+        <button ion-button (click) ="view()" >VIEW</button>
+  <div class="container" >
+
+
+    
     <div class="time" *ngFor="let n of testArray">
-      <p id="date">01/01/2000</p>
+      <p id="date">{{n.userdate}}</p>
       <p>Customer Name: {{n.surname}}</p>
       <p>{{n.hairstyletype}} at {{n.sessiontime}}</p>
+      <p>until {{n.sessionendtime}}</p>
       <p>{{n.estimatedtime}} minutes</p>
+      <p>{{n.status}}</p>
+      <button ion-button [disabled] ="validated" (click) = updatebooking(n)>RESPONSE</button>
+      
     </div>
   </div>
 </ion-content>

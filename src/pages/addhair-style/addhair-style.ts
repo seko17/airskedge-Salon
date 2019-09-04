@@ -91,7 +91,7 @@ isuploading: false
       const user = this.db.collection('SalonNode').doc(this.SalonNode.salonName).collection('Styles').doc(this.Styles.hairstyleName).set(this.Styles);
       // upon success...
       user.then( () => {
-        this.navCtrl.push(ManageHairSalonPage)
+        this.navCtrl.setRoot(ManageHairSalonPage)
         this.toastCtrl.create({
           message: 'User Salon added.',
           duration: 2000,

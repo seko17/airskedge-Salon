@@ -1,10 +1,15 @@
 <ion-content padding>
+    <div class="back" (click)="goback()">
+        <ion-icon name="arrow-back" style=" font-size: 20px;"></ion-icon>
+    </div>
+  <h1>Stylist Details</h1>
   <ion-list *ngFor= " let n of staff ">
     <ion-item>
       <ion-avatar item-start>
         <img src="{{n.staffImage}}">
       </ion-avatar>
-      <h2>{{staffName}} &nbsp; {{n.staffSurname}}</h2>
+      <h2>{{n.staffName}} &nbsp; {{n.staffSurname}}</h2>
+      <h2>Staff ID: {{n.uid}}</h2>
    
     </ion-item>
   </ion-list>

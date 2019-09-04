@@ -9,7 +9,8 @@
 
       <div class="profile">
           <div class="name">
-            {{displayProfile.ownername}} &nbsp; {{displayProfile.ownerSurname}}
+              <ion-icon name="arrow-back" style=" font-size: 20px;"></ion-icon> &nbsp;&nbsp;
+            <!-- {{displayProfile.ownername}} &nbsp; {{displayProfile.ownerSurname}} -->
           </div>
           <div class="propic" (click)="ViewUserPorfilePage()">
             <p>Profile</p>
@@ -45,7 +46,11 @@
           <div *ngIf="!isHairstyle">
               <p> No record of hair Styles please add your hair styles</p>
             </div>
-            <button (click)="addStyle()" ion-button> add hairstyle</button>
+            <div class="btnz">
+                <button (click)="addStyle()"ion-button color="dark"> Add Hairstyle</button>
+                <button (click)="viewstaff()" ion-button color="dark"> Manage Staff</button>
+            </div>
+           
           </div>
   </div>
 
@@ -63,7 +68,15 @@
         <img src="{{n.hairStyleImage}}">
         <p>{{n.hairstyleName}}</p>
         <p>{{n.hairstylePrice | currency:'&#82;'}}</p>
+
+        <ion-buttons slot="start">
+            <button ion-button color="danger" (click)="Delete(n)">
+             delete
+            </button>
+          </ion-buttons>
+       
       </ion-item>
+    
       
     </div>
 </div>

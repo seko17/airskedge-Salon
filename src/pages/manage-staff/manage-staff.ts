@@ -71,4 +71,9 @@ export class ManageStaffPage {
      load.dismiss();
    })
  }
+
+ goback(){
+  this.navCtrl.pop();
+}
+
 }

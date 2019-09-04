@@ -9,6 +9,12 @@
 
 
   <div class="container">
+      <div class="back" (click)="goback()">
+          <ion-icon name="arrow-back" style=" font-size: 20px;"></ion-icon>
+      </div>
+    <div class="title">
+<h1>Create Stylist</h1>
+    </div>
       <div class="propic">
       
         <img src="{{profileImage}}">
@@ -17,8 +23,7 @@
       </div>
       
       </div>
-  
-  
+
       <!-- <div  class="image" id="img">
        
           </div> -->
@@ -69,7 +74,7 @@
       <div class="btn">
           <button id="skip" (click)="createStyle(staffForm)" type="submit" [disabled]="!staffForm.valid" ion-button
             color="dark" full large
-            >Create staff member </button>
+            >Add Stylist </button>
   
         </div>
   
