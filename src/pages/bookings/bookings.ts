@@ -5,6 +5,7 @@ import { ViewUserPorfilePage } from '../view-user-porfile/view-user-porfile';
 import { AddhairStylePage } from '../addhair-style/addhair-style';
 import * as firebase from 'firebase';
 import { UserProvider } from '../../providers/user/user';
+import { IfObservable } from 'rxjs/observable/IfObservable';
 /**
  * Generated class for the BookingsPage page.
  *
@@ -36,7 +37,7 @@ validated =true;
  
    
   }
-
+  obj ={};
   ionViewDidLoad() {
     
   }
@@ -68,26 +69,31 @@ currentdate:Date;
      if (snap.empty !== true){
        console.log('Got data', snap);
        snap.forEach(doc => {
-         console.log('Profile Document: ', doc.data())
+        console.log('Profile Document: = ',doc.id, doc.data())
          
          let x1=new Date(doc.data().userdate) ;
          let x2=((new Date()).getFullYear()+'-'+(new Date().getMonth())+'-'+new Date().getDate());
        
-
-         console.log("date1",x1)
-         console.log("date2",x2)
+       this.obj ={id:doc.id}
+         this.testArray.push({...this.obj, ...doc.data()});
+         console.log(this.testArray)
+         //console.log("date1",x1)
+         //console.log("date2",x2)
          if(x1.getMonth() ==(new Date().getMonth()) && (new Date().getDate()) ==x1.getDate() )
          {
 this.validated =false;
-console.log("it worked = true")
+//console.log("it worked = true")
          }
          else
          {
           this.validated =true;
           console.log("it worked =false")
          }
-         this.testArray.push(doc.data());
-    
+         
+         console.log(this.obj)
+         this.staff.push(doc.data());
+      
+    console.log(this.staff)
        })
    
      } else {
@@ -123,15 +129,15 @@ events;
 d1;
 d2;
 d3;
- 
+
 
   staff =[];
   gethairdresser(x)
   {
    return this.db.collection('SalonNode').doc(this.salonname).collection('staff').get().then(val=>{
     val.forEach(stav=>{
-      
-this.staff.push(stav.data());
+      this.obj ={id:stav.id}
+this.staff.push({...this.obj, ...stav.data()});
 console.log(this.staff)
     })
   });
@@ -147,22 +153,87 @@ userdate;
     console.log(this.hairdresser,this.userdate)
     this.getHairSalon()
   }
-  updatebooking(x)
+  cancelbooking:boolean;
+  cancels(x)
   {
-    console.log(x);
+    console.log("This is user input =",x);
 
-    console.log(x);
+    
 
 console.log(this.hairdresser,this.userdate)
-    this.getHairSalon()
-x.status ="cancelled";
-firebase.firestore().collection('SalonNode').doc(x.salonname).collection('staff').doc(x.hairdresser).collection(x.userdate).doc(x.id).update({
-status2: 'cancelled'
-}).then(res=>{
-console.log(res)
-});
+    this.getHairSalon();
+
+
+
+
+    const prompt = this.alertCtrl.create({
+      title: 'Cancel!',
+      message: "Are you sure you want to cancel session with "+x.name+'?',
+      buttons: [
+        {
+          text: 'Yes',
+          handler: data => {
+            console.log('Cancel clicked');
+           this.cancelbooking =true;
+
+
+           firebase.firestore().collection('SalonNode').doc(x.salonname).collection('staff').doc(x.hairdresser).collection(x.userdate).doc(x.id).update({
+            status2: 'cancelled'
+            }).then(res=>{
+            console.log(res)
+            });
+          }
+        },
+        {
+          text: 'No',
+          handler: data => {
+            console.log(data);
+         this.cancelbooking =false;
+         console.log(this.cancelbooking)
+
+         
+          }
+        }
+      ]
+    });
+    prompt.present();
+
+   
+
+/////////////////////////////////////////////////////////////
+
   }
 
 
+  showPrompt() {
+    const prompt = this.alertCtrl.create({
+      title: 'Login',
+      message: "Enter a name for this new album you're so keen on adding",
+      inputs: [
+        {
+          name: 'title',
+          placeholder: 'Title'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Saved clicked');
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
 }
+
+
+
 

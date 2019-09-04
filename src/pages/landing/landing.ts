@@ -9,6 +9,7 @@ import { SalonRegistrationpagePage } from '../salon-registrationpage/salon-regis
 import { BookingsPage } from '../bookings/bookings';
 import { UserCreateProfilePage } from '../user-create-profile/user-create-profile';
 import { ViewUserPorfilePage } from '../view-user-porfile/view-user-porfile';
+import { UserProvider } from '../../providers/user/user';
 
 
 /**
@@ -37,7 +38,7 @@ export class LandingPage {
     uid: ''
 
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  constructor(public navCtrl: NavController, public navParams: NavParams,public userservice:UserProvider,
     private authservice : AuthServiceProvider,
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController, 
@@ -67,7 +68,7 @@ export class LandingPage {
     this.navCtrl.push( UserCreateProfilePage)
    
   }
-
+  obj ={};
   manageSalon(){
     this.navCtrl.push(ManageHairSalonPage)
   }
@@ -88,6 +89,8 @@ export class LandingPage {
         console.log('Got data', querySnapshot);
         querySnapshot.forEach(doc => {
           console.log('Profile Document: ', doc.data())
+          this.obj ={id:doc.id}
+this.userservice.userdata.push({...this.obj , ...doc.data()});
           this.displayProfile = doc.data();
           this.SalonOwnerProfile.About = doc.data().About;
           this.SalonOwnerProfile.ownerImage = doc.data().ownerImage;
@@ -97,10 +100,11 @@ export class LandingPage {
         this.profile = true;
         })
        
+        
       } else {
         console.log('No data');
       this.profile = false;
-	  this.navCtrl.setRoot(SalonRegistrationpagePage)
+	  // this.navCtrl.setRoot(SalonRegistrationpagePage)
       }
       // dismiss the loading
       load.dismiss();
