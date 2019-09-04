@@ -230,4 +230,8 @@ getProfile(){
   
   })
 }
+
+goback(){
+  this.navCtrl.pop();
+}
 }

@@ -1,62 +1,68 @@
 page-create-account {
-    .container {
-        display: flex;
-        flex-flow: column;
-        // justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        // background: black;
-      }
+  .container {
+    display: flex;
+    flex-flow: column;
+    // justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.678), black), url('../../assets/imgs/onboardingImage.svg');
+  position: fixed;
+  }
 
-      .back{
-        position: absolute;
-        left: 10px;
-        top: 10px;
+  .back {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+
+  .signin {
+    position: absolute;
+    top: 20%;
+    text-align: center;
+
+    h1 {
+      font-size: 35px;
+
+      span {
+        font-size: 15px;
       }
-    
-      .signin {
-      position: absolute;
-      top: 20%;
-        text-align: center;
-    
-        h1 {
-          font-size: 35px;
-    
-          span {
-            font-size: 15px;
-          }
-        }
+    }
+  }
+
+
+  .form {
+    position: absolute;
+    top: 50%;
+    text-align: center;
+
+    .item {
+      width: 300px;
+      text-align: center;
+      background: transparent;
+      color: grey;
+    }
+
+    button {
+      width: 300px;
+
+    }
+  }
+
+  .btns {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+
+    p {
+      span {
+        color: blue;
       }
-    
-    
-      .form {
-        position: absolute;
-        top: 50%;
-        text-align: center;
-        .item {
-          width: 300px;
-          text-align: center;
-        }
-    
-        button{
-          width: 300px;
-    
-        }
-      }
-    
-      .btns {
-        position: absolute;
-        bottom: 0;
-        display: flex;
-        flex-flow: row;
-        justify-content: space-evenly;
-        p{
-          span{
-            color: blue;
-          }
-        }
-      }
-    
-    
+    }
+  }
+
+
 }

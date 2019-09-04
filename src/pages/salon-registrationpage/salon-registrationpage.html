@@ -6,7 +6,6 @@
 
 <ion-content>
   <div class="container">
-    <div class="back">
         <div class="title">
             <h1>Create Profile</h1>
           </div>
@@ -86,22 +85,13 @@
                 color="dark" full large
                 >Create
                 my Profile </button>
+
+                <button id="skip" (click)="signout()" type="submit" ion-button
+                clear full large
+                style="color:black">Cancel </button>
+      
       
             </div>
-      
-    </div>
-
-    <div class="btn">
-        <button id="skip" (click)="createprofile(profileForm)" type="submit" [disabled]="!profileForm.valid" ion-button
-          color="dark" full large
-          >Create
-          my Profile </button>
-
       </div>
-      <button (click)="s()" ion-button
-      color="dark" full large
-      >log
-      my Profile </button>
-  </div>
 
 </ion-content>

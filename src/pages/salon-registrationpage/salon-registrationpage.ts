@@ -169,7 +169,7 @@ this.SalonOwnerProfile.uid = this.uid
     ],
     
   };
-  s(){
+  signout(){
     this.authUser.logoutUser().then(()=>{
       this.navCtrl.setRoot(LoginPage)
     })

@@ -59,11 +59,21 @@ page-home {
 
     #btn {
       .button {
-        width: 50%;
+        width: 70%;
         border-radius: 20px;
         position: relative;
-        top: 200px;
+        top: 120px;
         background: rgba(205, 207, 205, 0.322);
+      }
+    }
+
+    #btn1 {
+      .button {
+        width: 70%;
+        border-radius: 20px;
+        position: relative;
+        top: 120px;
+        background: rgba(110, 112, 110, 0.322);
       }
     }
   }

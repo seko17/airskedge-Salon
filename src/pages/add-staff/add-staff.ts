@@ -81,7 +81,7 @@ export class AddStaffPage {
       const user = this.db.collection('SalonNode').doc(this.SalonNode.salonName).collection('Staff').doc(this.Staff.uid).set(this.Staff);
       // upon success...
       user.then( () => {
-        this.navCtrl.push(ManageHairSalonPage)
+        this.navCtrl.setRoot(ManageHairSalonPage)
         this.toastCtrl.create({
           message: 'User hair dresser added.',
           duration: 2000,
@@ -203,5 +203,9 @@ export class AddStaffPage {
      load.dismiss();
    })
  }
+
+ goback(){
+  this.navCtrl.pop();
+}
 
 }
