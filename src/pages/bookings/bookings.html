@@ -34,8 +34,8 @@
       <p>{{n.hairstyletype}} at {{n.sessiontime}}</p>
       <p>until {{n.sessionendtime}}</p>
       <p>{{n.estimatedtime}} minutes</p>
-      <p>{{n.status}}</p>
-      <button ion-button [disabled] ="validated" (click) = updatebooking(n)>RESPONSE</button>
+      <p>Client {{n.status}}</p>
+      <button ion-button [disabled] ="validated" (click) = "cancel(n)">RESPONSE</button>
       
     </div>
   </div>
