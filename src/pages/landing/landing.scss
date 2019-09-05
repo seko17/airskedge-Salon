@@ -85,13 +85,11 @@ page-landing {
     .propic {
       width: 250px;
     }
-
-    .name {
-      p {
-        font-size: 40px;
-        font-family: 'Manjari';
-      }
+    #name{
+      font-size: 40px;
     }
+
+   
   }
 
   .main {
@@ -99,56 +97,6 @@ page-landing {
     flex-flow: row;
     justify-content: space-between;
   }
-
-  @media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 568px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-    .container{
-      width: 100vw;
-      height: 80%;
-      position: fixed;
-    }
-    
-    .details {
-      text-align: center;
-      color: white;
-      display: flex;
-      flex-flow: column;
-      position: absolute;
-      top: 70%;
-      left: 20px;
-    
-      .propic {
-        width: 150px;
-        #name{
-          font-size: 30px;
-        }
-    
-        #desc{
-          font-size: 13px;
-        }
-      }
-    }
-
-    .navs {
-      display: flex;
-      flex-flow: column;
-      position: absolute;
-      right: 15px;
-      top: 55%;
-      button {
-        width: 30px;
-        height: 50px;
-        margin: 10px;
-        font-size: 30px;
-        background: rgba(83, 80, 80, 0.712);
-        cursor: pointer;
-      }
-    }
-}
-
 
 
 }
