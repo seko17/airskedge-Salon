@@ -1,23 +1,32 @@
 <ion-content padding>
-    <div class="back" (click)="goback()">
-        <ion-icon name="arrow-back" style=" font-size: 20px;"></ion-icon>
-    </div>
+  <div class="back" (click)="goback()">
+    <ion-icon name="arrow-back" style=" font-size: 20px;"></ion-icon>
+  </div>
   <h1>Stylist Details</h1>
-  <ion-list *ngFor= " let n of staff ">
+  <p style="text-align: center">Lorem ipsum dolor sit amet, wisi
+    ante dui malesuada. Euismod feugiat maecenas amet
+    montes nam, vestibulum sapien, volutpat erat. Mollis
+    vestibulum malesuada enim imperdiet sem, suspendisse
+    vestibulum fringilla et quis.</p>
+  <ion-list *ngFor=" let n of staff ">
     <ion-item>
       <ion-avatar item-start>
         <img src="{{n.staffImage}}">
       </ion-avatar>
-      <h2>{{n.staffName}} &nbsp; {{n.staffSurname}}</h2>
+      <h2>{{n.staffName}} {{n.staffSurname}}</h2>
       <h2>Staff ID: {{n.uid}}</h2>
-   
+
     </ion-item>
   </ion-list>
   <ion-fab right bottom>
-    <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
-    <ion-fab-list side="left">
-      <button ion-fab ><ion-icon (click)="addperson()" name="person-add"></ion-icon></button>
-     
-    </ion-fab-list>
+    <button ion-fab color="dark" (click)="addperson()">
+      <ion-icon name="person-add"></ion-icon>
+    </button>
+    <!-- <ion-fab-list side="left" color="dark">
+      <button ion-fab>
+        <ion-icon (click)="addperson()" name="person-add" ></ion-icon>
+      </button>
+
+    </ion-fab-list> -->
   </ion-fab>
 </ion-content>
