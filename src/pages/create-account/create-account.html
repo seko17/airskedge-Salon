@@ -32,7 +32,7 @@
             && signupForm.controls['email'].touched">
             <ion-label style="color:red; font-size: 10px">Please enter a valid email.</ion-label>
           </ion-item>
-      
+      <br>
           <ion-item>
             <!-- <ion-label position="stacked">Password</ion-label> -->
             <ion-input formControlName="password" type="password" placeholder="Your password"
@@ -47,7 +47,7 @@
           </ion-item>
       <br>
       <br>
-          <button ion-button expand="block" color="dark" (click)="signupUser(signupForm)" [disabled]="!signupForm.valid">
+          <button ion-button round expand="block" color="dark" (click)="signupUser(signupForm)" [disabled]="!signupForm.valid">
             Create an Account
           </button>
         </form>

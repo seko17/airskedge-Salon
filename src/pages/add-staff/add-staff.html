@@ -24,14 +24,11 @@
       
       </div>
 
-      <!-- <div  class="image" id="img">
-       
-          </div> -->
       <div class="form1">
         <form [formGroup]="staffForm">
           <ion-item>
   
-            <ion-label> name</ion-label>
+            <ion-label> Name</ion-label>
             <ion-input type="text" formControlName="staffName" [(ngModel)]="Staff.staffName" ngDefaultControl>
             </ion-input>
           </ion-item>
@@ -43,7 +40,7 @@
           </div>
   
           <ion-item>
-            <ion-label> surname</ion-label>
+            <ion-label> Surname</ion-label>
             <ion-input type="text" formControlName="staffSurname" [(ngModel)]="Staff.staffSurname"
               ngDefaultControl></ion-input>
           </ion-item>
@@ -55,7 +52,7 @@
           </div>
   
           <ion-item>
-            <ion-label> cellphone number</ion-label>
+            <ion-label> Cellphone Number</ion-label>
             <ion-input type="tel" maxLength="10" formControlName="personalNumber"
               [(ngModel)]="Staff.personalNumber" ngDefaultControl></ion-input>
           </ion-item>
@@ -74,9 +71,17 @@
       <div class="btn">
           <button id="skip" (click)="createStyle(staffForm)" type="submit" [disabled]="!staffForm.valid" ion-button
             color="dark" full large
-            >Add Stylist </button>
+            round>Add Stylist </button>
   
         </div>
   
     </div>
+
+    <ion-item>
+        <ion-avatar item-start>
+     
+        </ion-avatar>
+      
+  
+      </ion-item>
 </ion-content>

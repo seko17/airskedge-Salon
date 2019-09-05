@@ -26,6 +26,8 @@
               </div> -->
           <div class="form1">
             <form [formGroup]="profileForm">
+
+                          <input id="location" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
               <ion-item>
       
                 <!-- <ion-label> name</ion-label> -->
@@ -50,7 +52,7 @@
                   {{validate.message}}
                 </div>
               </div>
-              <input id="location" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+  
               <ion-item>
                 
                 <ion-input type="tel" placeholder="Number" maxLength="10" formControlName="personalNumber"
@@ -79,13 +81,14 @@
       
             </form>
           </div>
-      
+          <br>
+          <br>
           <div class="btn">
               <button id="skip" (click)="createprofile(profileForm)" type="submit" [disabled]="!profileForm.valid" ion-button
-                color="dark" full large
+                color="dark" full large round
                 >Create
                 my Profile </button>
-
+            
                 <button id="skip" (click)="signout()" type="submit" ion-button
                 clear full large
                 style="color:black">Cancel </button>
@@ -93,5 +96,6 @@
       
             </div>
       </div>
+
 
 </ion-content>

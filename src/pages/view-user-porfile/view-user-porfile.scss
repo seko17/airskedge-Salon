@@ -53,7 +53,7 @@ page-view-user-porfile {
   .card{
     width: 100%;
 
-
+position: relative;
     background-color: #ebeef8;
     display: flex;
     flex-direction: column;
@@ -61,6 +61,11 @@ page-view-user-porfile {
     justify-content: center;
     // margin: 2rem 0;
     box-shadow: .5rem .5rem 3rem rgba(0,0,0,0.2);
+    .back{
+      top:50;
+      position: absolute;
+      color: red;
+    }
   }
   .card .card-img{
     width: 100%;
