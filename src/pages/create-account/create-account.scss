@@ -8,7 +8,16 @@ page-create-account {
     height: 100%;
     color: white;
     background: linear-gradient(rgba(0, 0, 0, 0.678), black), url('../../assets/imgs/onboardingImage.svg');
-  position: fixed;
+    position: fixed;
+    font-family: 'Manjari';
+  }
+
+  .logo {
+    position: absolute;
+    top: 5%;
+    width: 150px;
+    height: 150px;
+    opacity: 0.6;
   }
 
   .back {
@@ -16,6 +25,7 @@ page-create-account {
     left: 10px;
     top: 10px;
   }
+
   .item {
     background: rgb(199, 198, 198);
     box-shadow: 5px 5px 10px grey;
@@ -25,8 +35,9 @@ page-create-account {
 
   .signin {
     position: absolute;
-    top: 20%;
+    top: 30%;
     text-align: center;
+    opacity: 0.6;
 
     h1 {
       font-size: 35px;

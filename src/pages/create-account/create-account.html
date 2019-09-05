@@ -16,6 +16,9 @@
     <div class="back" (click)="goback()">
         <ion-icon name="arrow-back"></ion-icon>
     </div> -->
+    <div class="logo">
+        <img src="../../assets/imgs/Untitled-1.png">
+    </div>
       <div class="signin">
           <h1>Welcome <br><span>Sign-Up to continue</span></h1>
         </div>
@@ -47,8 +50,8 @@
           </ion-item>
       <br>
       <br>
-          <button ion-button round expand="block" color="dark" (click)="signupUser(signupForm)" [disabled]="!signupForm.valid">
-            Create an Account
+          <button ion-button round expand="block" color="light" (click)="signupUser(signupForm)" [disabled]="!signupForm.valid">
+            Create Account
           </button>
         </form>
   </div>
