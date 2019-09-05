@@ -1,7 +1,7 @@
 
 <ion-header>
   <ion-navbar>
-    <ion-title>addhairStyle</ion-title>
+    <ion-title></ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -23,7 +23,7 @@
  
   
 <div class="form">
-    <form  [formGroup]="addhairStyleForm">
+  
 
         <!-- input for hairstyle name-->
         <ion-item >
@@ -67,10 +67,10 @@
         
         
         <div class="btn">
-          <button id="skip" (click)="createStyle(addhairStyleForm)"  type="submit" [disabled]="!addhairStyleForm.valid" ion-button color="dark">Add hair style </button>
+          <button id="skip" (click)="createStyle(addhairStyleForm)"  type="submit" [disabled]="!addhairStyleForm.valid" ion-button color="dark" round>Add hair style </button>
         
         </div>
-        </form>
+      
 </div>
 
 </ion-content>

@@ -28,7 +28,7 @@
                    loginForm.controls['email'].touched">
           <ion-label style="color:red; font-size: 10px">Please enter a valid email address.</ion-label>
         </ion-item>
-
+        <br>
         <ion-item>
           <!-- <ion-label position="stacked">Password</ion-label> -->
           <ion-input id="pass" formControlName="password" type="password" placeholder="Your password"
@@ -40,7 +40,7 @@
           <ion-label style="color:red; font-size: 10px">Your password needs more than 6 characters.</ion-label>
         </ion-item>
 <br><br>
-        <button ion-button (click)="loginUser(loginForm)" color="dark" [disabled]="!loginForm.valid">
+        <button ion-button round (click)="loginUser(loginForm)" color="dark" [disabled]="!loginForm.valid">
           Log In
         </button>
 
