@@ -23,6 +23,7 @@ page-manage-hair-salon {
       width: 100%;
       height: 40vh;
       position: fixed;
+      font-family: 'Manjari';
     }
 
     .displayName {
@@ -58,6 +59,7 @@ page-manage-hair-salon {
     color: rgb(227, 228, 255);
     overflow: hidden;
     border-bottom: solid 2px #5657A4;
+    font-family: 'Manjari';
 
     div {
       width: 50%;
@@ -99,6 +101,7 @@ page-manage-hair-salon {
     position: absolute;
     z-index: 5;
     padding: 10px;
+    font-family: 'Manjari';
 
     .propic {
       background: rgba(255, 166, 0, 0.699);
@@ -113,6 +116,7 @@ page-manage-hair-salon {
       color: white;
       padding: 5px;
       font-size: 20px;
+      font-family: 'Manjari';
     }
   }
 
@@ -120,6 +124,7 @@ page-manage-hair-salon {
     width: 100%;
     height: 60vh;
     overflow-y: auto;
+    font-family: 'Manjari';
   }
 
   #cards {

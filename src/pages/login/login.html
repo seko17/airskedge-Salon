@@ -6,13 +6,10 @@
 
 <ion-content>
   <div class="container">
-      <!-- <div class="back" style="font-size: 20px" (click)="goback()">
-          <ion-icon name="arrow-back"></ion-icon>
-      </div> -->
+      <div class="logo">
+        <img src="../../assets/imgs/Untitled-1.svg">
+      </div>
 
-      <!-- <div class="logo">
-        <img src="../../assets/imgs/Untitled-3.svg">
-      </div> -->
     <div class="signin">
       <h1>Welcome <br><span>Sign into your account to continue</span></h1>
     </div>
@@ -40,7 +37,7 @@
           <ion-label style="color:red; font-size: 10px">Your password needs more than 6 characters.</ion-label>
         </ion-item>
 <br><br>
-        <button ion-button round (click)="loginUser(loginForm)" color="dark" [disabled]="!loginForm.valid">
+        <button ion-button round (click)="loginUser(loginForm)" color="light" [disabled]="!loginForm.valid">
           Log In
         </button>
 
