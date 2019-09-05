@@ -50,6 +50,9 @@ export class CreateAccountPage {
       this.authService.signupUser(email, password).then(
         () => {
           this.loading.dismiss().then(() => {
+
+
+            
           this.navCtrl.setRoot(SalonRegistrationpagePage)
           });
         },

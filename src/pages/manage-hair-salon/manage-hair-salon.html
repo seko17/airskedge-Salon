@@ -1,82 +1,105 @@
-
 <ion-content>
   <div class="container">
 
-      <div class="profile">
-          <div class="name">
-              <ion-icon name="arrow-back" style=" font-size: 20px;"></ion-icon> &nbsp;&nbsp;
-            <!-- {{displayProfile.ownername}} &nbsp; {{displayProfile.ownerSurname}} -->
-          </div>
-          <div class="propic" (click)="ViewUserPorfilePage()">
-            <p>Profile</p>
-          </div>
-          <!-- <div class="propic" (click)="viewstaff()">
+    <div class="profile">
+      <div class="name">
+        <ion-icon name="arrow-back" style=" font-size: 20px;"></ion-icon> &nbsp;&nbsp;
+        <!-- {{displayProfile.ownername}} &nbsp; {{displayProfile.ownerSurname}} -->
+      </div>
+      <!-- <div class="propic" (click)="ViewUserPorfilePage()">
+        <p>Profile</p>
+      </div> -->
+      <!-- <div class="propic" (click)="viewstaff()">
               <p>staff</p>
             </div> -->
+    </div>
+    <div class="msg" *ngIf="!isSalon">
+
+      <ion-icon name="warning"></ion-icon>
+      <!-- <button (click)="c()" ion-button> add hairstyle</button> -->
+      <p>You currently don't <br> have a salon,<br> please create a salon</p>
+      <button (click)="addSalon()" color="dark" full ion-button> add</button>
+    </div>
+
+    <div *ngIf="isSalon">
+      <div class="Profimage">
+        <img src="{{disp.salonImage}}">
+
+        <div class="displayName">
+
+          <h4>{{disp.salonName}} <br>{{disp.location}} </h4>
+
         </div>
-        <div class="msg" *ngIf="!isSalon">
-      
-          <ion-icon name="warning"></ion-icon>
-          <!-- <button (click)="c()" ion-button> add hairstyle</button> -->
-          <p>You currently don't <br> have a salon,<br> please create a salon</p>
-          <button (click)="addSalon()" color="dark" full ion-button> add</button>
-        </div>
-      
-        <div *ngIf="isSalon">
-          <div class="Profimage">
-               <img src="{{disp.salonImage}}">
-               
-               <div class="displayName">
-       
-                  <h4>{{disp.salonName}} <br>{{disp.location}}  </h4>
-                 
-               </div>
-                  <div class="contact">
-              <div class="number"><p>{{displayProfile.SalonContactNo}}</p></div>
-              <div class="line"></div>
-              <div class="email"><p>{{displayProfile.numHairDressers}}</p></div>
-            </div>
-            </div>
-            
-          <div *ngIf="!isHairstyle">
-              <p> No record of hair Styles please add your hair styles</p>
-            </div>
-            <div class="btnz">
-                <button (click)="addStyle()"ion-button color="dark"> Add Hairstyle</button>
-                <button (click)="viewstaff()" ion-button color="dark"> Manage Staff</button>
-            </div>
-           
+        <div class="contact">
+          <div class="number">
+            <p>{{displayProfile.SalonContactNo}}</p>
           </div>
+          <div class="line"></div>
+          <div class="email">
+            <p>{{displayProfile.numHairDressers}}</p>
+          </div>
+        </div>
+      </div>
 
-        
+      <div *ngIf="!isHairstyle">
+        <p> No record of hair Styles please add your hair styles</p>
+      </div>
+      <!-- <div class="btnz">
+        <button (click)="addStyle()" ion-button color="dark"> Add Hairstyle</button>
+        <button (click)="viewstaff()" ion-button color="dark"> Manage Staff</button>
+      </div> -->
 
-    
-    <!-- <div class="contact">
+    </div>
+  </div>
+
+
+  <!-- <div class="contact">
         <div class="number"><p>{{displayProfile.SalonContactNo}}</p></div>
         <div class="line"></div>
         <div class="email"><p>{{displayProfile.numHairDressers}}</p></div> | currency:'&#82;'
       </div> -->
 
-<div class="hairdetails">
-   <div *ngIf="isHairstyle" id="cards" >
+  <div class="hairdetails">
+    <div *ngIf="isHairstyle" id="cards">
 
-         <ion-item *ngFor="let n of styles">
+      <ion-item *ngFor="let n of styles">
         <img src="{{n.hairStyleImage}}">
         <p>{{n.hairstyleName}}</p>
         <p>{{n.hairstylePrice | currency:'&#82;'}}</p>
 
-        <ion-buttons slot="start">
-            <button ion-button color="danger" (click)="Delete(n)">
-             delete
-            </button>
-          </ion-buttons>
-       
+        <ion-buttons end style="position: absolute;
+          top: 6%;
+          left: 75%;
+          width: 40px;
+          height: 40px;">
+          <button ion-button color="dark" (click)="Delete(n)" style="border-radius: 50%;
+            width: 40px;
+            height: 40px;">
+            <ion-icon name="close"></ion-icon>
+          </button>
+        </ion-buttons>
+
       </ion-item>
-    
-      
+
+
     </div>
-</div>
-   
     
-    </div>
+
+  </div>
+
+  <ion-fab right bottom style="position: fixed">
+      <button ion-fab style="background: rgb(210, 105, 30)">
+        <ion-icon name="arrow-dropup"></ion-icon>
+      </button>
+      <ion-fab-list side="left" color="dark">
+        <button ion-fab color="dark">
+          <ion-icon (click)="viewstaff()"name="people"></ion-icon>
+        </button>
+
+        <button ion-fab  color="dark">
+            <ion-icon (click)="addStyle()" name="add"></ion-icon>
+          </button>
+      </ion-fab-list>
+    </ion-fab>
+
 </ion-content>

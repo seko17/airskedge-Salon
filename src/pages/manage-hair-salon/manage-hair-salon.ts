@@ -79,7 +79,7 @@ c(){
   }
   //Function to go to add Salon page only visisble when there's no availiable salon
 addSalon(){
-  this.navCtrl.push(AddSalonPage)
+  this.navCtrl.push(AddSalonPage);
 }
 //function to view style
 viewStyle(v){
@@ -194,7 +194,7 @@ ViewUserPorfilePage(){
 }
 //Function to push to adding a new hairstyle
 addStyle(){
-  this.navCtrl.push(AddhairStylePage)
+  this.navCtrl.push(AddhairStylePage);
 }
 
 getProfile(){
