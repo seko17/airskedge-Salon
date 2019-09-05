@@ -8,20 +8,26 @@ page-bookings {
     .time {
       display: flex;
       flex-flow: column;
-      background: rgba(150, 148, 148, 0.596);
+      background: rgba(255, 251, 251, 0.26);
       margin: 15px;
       border-radius: 10px;
-      box-shadow: 5px 10px #888888;
+      border: 1px solid grey;
       font-family: 'Manjari';
+      // height: 150px;
 
       p {
-        padding: 5px;
+
         margin: 5px;
-        font-size: 15px;
+
       }
 
       #date {
         text-align: right;
+      }
+
+      button {
+        width: 50px;
+     
       }
     }
   }
