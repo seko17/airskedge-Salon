@@ -9,9 +9,9 @@
 
 
   <div class="container">
-      <div class="back" (click)="goback()">
+      <!-- <div class="back" (click)="goback()">
           <ion-icon name="arrow-back" style=" font-size: 20px;"></ion-icon>
-      </div>
+      </div> -->
     <div class="title">
 <h1>Create Stylist</h1>
     </div>
@@ -38,7 +38,7 @@
               {{validate.message}}
             </div>
           </div>
-  
+  <br>
           <ion-item>
             <ion-label> Surname</ion-label>
             <ion-input type="text" formControlName="staffSurname" [(ngModel)]="Staff.staffSurname"
@@ -50,7 +50,7 @@
               {{validate.message}}
             </div>
           </div>
-  
+  <br>
           <ion-item>
             <ion-label> Cellphone Number</ion-label>
             <ion-input type="tel" maxLength="10" formControlName="personalNumber"
@@ -62,6 +62,7 @@
               {{validate.message}}
             </div>
           </div>
+          <br>
   
   
   
@@ -74,7 +75,8 @@
             round>Add Stylist </button>
   
         </div>
-  
+  <br>
+  <br>
     </div>
 
     <ion-item>
