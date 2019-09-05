@@ -6,6 +6,7 @@
 </ion-header> -->
 
 <ion-content>
+
   <!-- <div class="container">
     <div class="main">
       <div class="image">
@@ -91,13 +92,23 @@
 
       <section>
         <div class="container">
-      
+            
+         
           <div class="card-wrapper">
+             
             
             <div class="card">
-                <div class="back" style="font-size: 20px" (click)="goback()">
-                    <ion-icon name="arrow-back"></ion-icon>
-                </div>
+
+                <div class="back">
+        
+                    <div class="arrowback">
+                        <ion-icon  class="arowback" name="arrow-back" (click)="goback()"></ion-icon>
+                    </div>
+                    <div class="exit">
+                        <ion-icon class="exit" name="exit" (click)="logout()"></ion-icon>
+                    </div>
+                  </div>
+            
               <img src="https://images.unsplash.com/photo-1514483127413-f72f273478c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="card-background" class="card-img">
               <img src="https://images.unsplash.com/photo-1533778222324-be782ae129e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="profile image" class="profile-img">
               
