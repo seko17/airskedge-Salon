@@ -35,7 +35,7 @@
       <p>until {{n.sessionendtime}}</p>
       <p>{{n.estimatedtime}} minutes</p>
       <p>Client {{n.status}}</p>
-      <button ion-button [disabled] ="validated"  *ngIf= "n.status2=='Active'" (click) = "cancels(n)"><ion-icon name ="close"></ion-icon>Cancel</button>
+      <button ion-button [disabled] ="validated"  *ngIf= "n.status2=='Active' || n.status =='cancelled'" (click) = "cancels(n)"><ion-icon name ="close"></ion-icon>Cancel</button>
       
     </div>
   </div>

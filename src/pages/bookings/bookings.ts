@@ -91,7 +91,7 @@ this.validated =false;
          }
          
          console.log(this.obj)
-         this.staff.push(doc.data());
+        // this.staff.push(doc.data());
       
     console.log(this.staff)
        })
@@ -161,7 +161,7 @@ userdate;
     
 
 console.log(this.hairdresser,this.userdate)
-    this.getHairSalon();
+  
 
 
 
