@@ -2,7 +2,7 @@
 
 page-landing {
   .content {
-    background: linear-gradient(rgba(0, 0, 0, 0.685)), url('../../assets/imgs/hair.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.685)), url('../../assets/imgs/blackperson.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -14,6 +14,7 @@ page-landing {
     justify-content: center;
     align-items: center;
     height: 100%;
+    width: 100%;
   }
 
   .airlogo {
@@ -39,23 +40,26 @@ page-landing {
       color: white;
     }
 
-    button{
+    button {
       background: rgba(0, 0, 0, 0.507);
     }
   }
 
   .navs {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-flow: column;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    // justify-content: center;
 
     button {
-      width: 120px;
-      height: 120px;
-      box-shadow: 10px 10px #888888;
+      width: 50px;
+      height: 60px;
+      // box-shadow: 10px 10px #888888;
       margin: 10px;
-      font-size: 40px;
-      background: rgba(83, 80, 80, 0.616);
+      font-size: 30px;
+      background: rgba(83, 80, 80, 0.712);
       cursor: pointer;
     }
   }
@@ -72,13 +76,28 @@ page-landing {
   .details {
     text-align: center;
     color: white;
+    display: flex;
+    flex-flow: column;
+    position: absolute;
+    top: 60%;
+    left: 20px;
+
+    .propic {
+      width: 250px;
+    }
 
     .name {
       p {
         font-size: 40px;
-        font-family: 'Pacifico';
+        font-family: 'Manjari';
       }
     }
+  }
+
+  .main {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
   }
 
 

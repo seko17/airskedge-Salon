@@ -2,23 +2,25 @@
 <ion-content padding>
   <div class="container">
   
-  <!--  <div *ngIf="!profile" class="noprof">
+   <!-- <div *ngIf="!profile" class="noprof">
       <ion-icon name="warning"></ion-icon>
 
       <p> Oops.. it looks like you dont have your profile set up yet please create profile </p>
       <button (click)="createAccount()" ion-button> Create Profile </button>
       <button (click)="logout()" ion-button> Exit </button>
-    </div>-->
+    </div> -->
 
     <div class="main" *ngIf="profile">
       <div class="details">
-        <div class="airlogo">
+        <!-- <div class="airlogo">
           <img src="../../assets/imgs/Untitled-2.svg">
-        </div>
-        <div class="name">
+        </div> -->
+        <!-- <div class="name">
           <p>AirSkedge</p>
-        </div>
+        </div> -->
         <div class="propic">
+            <p style="  font-size: 40px;
+            font-family: 'Manjari';">AirSkedge</p>
           <p>Lorem ipsum dolor sit amet,
             turpis integer pharetra nunc ut,
             mauris taciti, turpis est.
@@ -28,14 +30,13 @@
       </div>
       <hr>
 
-      <div  class="navs">
+      <div class="navs">
         <div class="">
           <button (click)="viewprofile()" ion-button> <ion-icon name="person"></ion-icon></button>
         </div>
 
-
         <div class="">
-          <button (click)="manageSalon()" ion-button> M</button>
+          <button (click)="manageSalon()" ion-button><ion-icon name="build"></ion-icon></button>
         </div>
 
         <div class="">
@@ -47,8 +48,6 @@
           <button (click)="info()" ion-button>   <ion-icon name="information-circle"></ion-icon>
           </button>
         </div>
-
-
 
       </div>
     </div>
