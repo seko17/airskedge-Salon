@@ -25,7 +25,7 @@ export class AuthServiceProvider {
   signupUser(email: string, password: string): Promise<any> {
     return firebase.auth().createUserWithEmailAndPassword(email, password).then((newUserCredential: firebase.auth.UserCredential) => {
 this.uid = firebase.auth().currentUser.uid
-firebase.firestore().collection('salonAnalytics').doc(firebase.auth().currentUser.uid).collection('numbers').add({numberofbookings:0,numberofclicks:0,likes:0}).then(val=>{
+firebase.firestore().collection('salonAnalytics').doc(firebase.auth().currentUser.uid).collection('numbers').add({numberofbookings:0,numberofclicks:0,likes:0,usercancellations:0,saloncancellations:0}).then(val=>{
   console.log(val)
 })
 
