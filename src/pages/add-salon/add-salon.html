@@ -20,19 +20,7 @@
     </div>
   </div>
 
-  <!-- input for salon logo-->
-  <!-- <div class="logoimg">
-     <div class="images">
 
-    <img src="{{SalonLogoImage}}">
-  </div>
-
-  <div class="btn1">
-      <button *ngIf="!SalonLogoImage" ion-button color="dark" (click)="selectLogo()"> <ion-icon name="camera"></ion-icon>
-      </button>
-
-  </div>
-  </div> -->
 
   <form [formGroup]="addSalonForm">
 
@@ -89,7 +77,7 @@
 
     <div class="btn">
       <button id="skip" (click)="createSalon(addSalonForm)" type="submit" [disabled]="!addSalonForm.valid" ion-button
-        color="dark">
+        color="dark" round>
         Save Salon </button>
 
     </div>

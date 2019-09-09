@@ -1,171 +1,81 @@
 page-salon-registrationpage {
-body{
-  margin: 0px;
-  padding: 0px;
-  background: #f1f1f1;
 
-}
-.card-container{
-  width: 300px;
-  height: 430px;
-  background: #fff;
-  border-radius: 6px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  box-shadow: 0px 1px 10px 1px #000;
-}
+  html{
+    text-decoration: none;
+    color: #fff;
 
-.upper-container{
-  height: 150px;
-  background: #7f00ff;
-}
-.image-container{
-  background: #f1f1f1;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  padding: 5px;
-  transform: translate(100px, 100px);
-}
+  }
 
-.image-containe img{
-  background: #f1f1f1;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-}
-.lower-container{
-  height: 280px;
-background: coral;
+  .heading{
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    letter-spacing: 3px;
+    margin-right: -3pxx;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: #333;
+    position: relative;
 
-}
-//   .content{
 
-//     background-repeat: no-repeat;
-//     background-size: cover;
-//     background-position: center;
+  }
+  .heading::after{
+    content:"";
+    width:10rem;
+    height: .8rem;
+    background-color: #45e19f;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2rem;
 
-//   }
+  }
+  .item {
   
-
-//   .container {
-//     display: flex;
-//     flex-flow: column;
+       box-shadow: 5px 5px 10px rgb(180, 180, 180);
+        border-radius: 50px;
+        margin: 5px;
+        height: 20px;
+        width: 310px;
+        .input{
+          background: transparent;
+        }
+      }
+  .card-wrapper{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+  }
+  .card{
+    width: 100%;
+    background-color: #ebeef8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
    
-//     align-items: center;
-//     width: 100%;
-//     height: 100%;
-//     position: fixed;
-//     background-color: rgba(212, 212, 212, 0.267);
-//     color: black;
-// font-family: 'Manjari';
+    box-shadow: .5rem 3rem 3rem rgba(0,0,0,0.2);
 
-//   }
+  }
+  .card .card-img{
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
 
-//   .title {
-//     position: absolute;
-//     top: 3%;
-//     color: rgb(10, 10, 10);
-//     font-family: 'Manjari';
-//   }
+  }
+  .profile-img{
+    width: 20rem;
+    height: 15rem;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: -11rem;
+    z-index: 999;
+    border: 5px solid #ebeef8;
 
-//   .item {
-  
-//     // box-shadow: 5px 5px 10px rgb(180, 180, 180);
-//     border-radius: 50px;
-//     margin: 5px;
-//     height: 40px;
-//     width: 310px;
-//     .input{
-//       background: transparent;
-//     }
-//   }
-
-//   .propic {
-//     width: 200px;
-//     height: 200px;
-//     background: rgb(124, 121, 121);
-//     border: 8px solid rgba(255, 247, 247, 0.87);
-//     border-radius: 50%;
-//     position: absolute;
-//     top: 10%;
-//     overflow: hidden;
-//     img {
-//       width: 100%;
-//       height: 100%;
-//       object-fit: cover;
-//       border-radius: 50%;
-//     }
-//   }
-
-//   .btnz {
-//     position: absolute;
-//     top: 30%;
-//     left: 60%;
-//     border-radius: 2px solid rgb(8, 6, 6);
-
-//     button {
-//       border-radius: 50%;
-
-//     }
-//   }
-
-//   #location {
-//     width: 309px;
-//     height: 45px;
-//     border: none;
-//     border-radius: 50px;
-//     padding: 6px;
-//     border-bottom: 1px solid rgba(14, 13, 13, 0.37);
-//     margin: 9px;
-//     font-size: 16px;
-//     position: relative;
-//     bottom: -10px;
-//     right: 2px;
-//     opacity: 0.8;
-//     box-shadow: 5px 5px 10px rgb(175, 172, 172);
-//   }
-
-//   .form1 {
-//     position: absolute;
-//     top: 40%;
-
-//     .item {
-//       background: rgb(230, 230, 230);
-//       box-shadow: 5px 5px 10px rgb(190, 190, 190);
-//       border-radius: 50px;
-
-//       .input {
-//         margin: 5px;
-//         color: rgb(44, 43, 43);
-//         border-radius: 50px;
-//       }
-//     }
-//   }
-
-//   .btn {
-//     position: absolute;
-//     top: 80%;
-//     color: rgb(0, 0, 0);
+  }
  
 
-//     button {
-//       width: 250px;
-//       height: 40px;
-//       color: rgb(255, 255, 255);
-     
-
-
-//     }
-//   }
-
-//   .error {
-//     .messages {
-//       color: red;
-//     }
-//   }
 *{
   margin: 0;
   padding: 0;
@@ -188,6 +98,17 @@ html{
   position: relative;
 
 
+}
+.backimage {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(rgba(128, 128, 128, 0.521)), url('../../assets/imgs/image.png');
+  border: 6px solid rgba(128, 128, 128, 0.897);
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  position: relative;
+  top: 20px;
 }
 .heading::after{
   content:"";

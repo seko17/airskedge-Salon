@@ -36,6 +36,17 @@ page-addhair-style {
       font-size: 10px;
       background-color: green;
   }
+  .backimage {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(rgba(128, 128, 128, 0.521)), url('../../assets/imgs/image.png');
+    border: 6px solid rgba(128, 128, 128, 0.897);
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    position: relative;
+    top: 20px;
+  }
 
   .form{
       position: absolute;
