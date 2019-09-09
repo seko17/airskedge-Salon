@@ -1,4 +1,12 @@
 page-manage-hair-salon {
+
+  .header{
+    background: transparent;
+    .toolbar-background{
+      background: transparent;
+      border: none;
+    }
+  }
   .Profimage {
     width: 100vw;
     height: 55vh;
@@ -43,6 +51,13 @@ page-manage-hair-salon {
         font-family: 'Manjari';
       }
     }
+  }
+
+  #navbar{
+    background: transparent;
+    position: absolute;
+    top: 10%;
+    z-index: 3;
   }
 
   .contact {
