@@ -5,7 +5,8 @@ import { ViewUserPorfilePage } from '../view-user-porfile/view-user-porfile';
 import { AddhairStylePage } from '../addhair-style/addhair-style';
 import * as firebase from 'firebase';
 import { UserProvider } from '../../providers/user/user';
-import { IfObservable } from 'rxjs/observable/IfObservable';
+import { ValueTransformer } from '@angular/compiler/src/util';
+
 /**
  * Generated class for the BookingsPage page.
  *
@@ -182,6 +183,39 @@ console.log(this.hairdresser,this.userdate)
             }).then(res=>{
             console.log(res)
             });
+
+            firebase.firestore().collection('SalonNode').doc(x.salonname).collection('staff').doc(x.hairdresser).collection(x.userdate).doc(x.id).get().then(val=>{
+              console.log(val.data())
+            })
+
+
+
+
+            
+  let click = 1;
+  let v1;
+  let docid;
+  
+  firebase.firestore().collection('salonAnalytics').doc(x.salonuid).collection('numbers').get().then(val=>{
+    console.log("These are the numbers",val)
+    val.forEach(qu=> 
+  
+      {
+      docid =qu.id;
+      console.log(docid)
+      console.log(qu.data().saloncancellations)
+      v1 =qu.data().saloncancellations;
+  
+      firebase.firestore().collection('salonAnalytics').doc(x.salonuid).collection('numbers').doc(qu.id).update({"saloncancellations":v1+click}).then(zet=>{
+        console.log(zet)
+      })
+      })
+
+    })
+
+            
+            
+
           }
         },
         {

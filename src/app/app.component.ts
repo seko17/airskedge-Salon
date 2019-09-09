@@ -7,18 +7,22 @@ import { HomePage } from '../pages/home/home';
 import {firebaseConfig} from '../app/credentials';
 import { LoginPage } from '../pages/login/login';
 import { LandingPage } from '../pages/landing/landing';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage: any;
 
+
+
+  
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
     firebase.initializeApp(firebaseConfig);
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       if (!user) {
-        this.rootPage = HomePage;
+        this.rootPage = LoginPage;
         unsubscribe();
       } else {
         this.rootPage = LandingPage;

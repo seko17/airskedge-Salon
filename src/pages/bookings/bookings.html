@@ -26,7 +26,7 @@
                 <p>{{n.estimatedtime}} minutes</p>
                 <p>Client {{n.status}}</p>
                 <div class="buttz">
-                    <button ion-button [disabled]="validated" *ngIf="n.status2=='cancelled' || n.status =='cancelled'"
+                    <button ion-button [disabled]="validated" *ngIf="n.status2!='cancelled'"
                   (click)="cancels(n)">
                   <ion-icon name="close"></ion-icon>
                 </button>
@@ -39,6 +39,8 @@
       
     </ion-row>
   </ion-grid>
+
+
   <!-- <ion-item *ngFor = "let n of testArray">
 <pre>{{n.sessiontime}}
 {{n.sessionendtime}}
