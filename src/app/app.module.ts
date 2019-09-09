@@ -54,6 +54,7 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder';
     IonicModule.forRoot(MyApp,{
       scrollPadding: true,
       scrollAssist: false,
+      
     }),
     ReactiveFormsModule,
     FormsModule,

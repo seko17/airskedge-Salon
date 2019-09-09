@@ -7,7 +7,15 @@
 <ion-content padding>
   <h1 style="text-align: center">AirSkedge</h1>
   <p style="text-align: center">Verson 1.0</p>
-
+<ion-item *ngFor ="let x of analitics">
+  <p>
+Salon likes :&nbsp;{{x.likes}}<br>
+Number of views :&nbsp;{{x.numberofclicks}}<br>
+All bookings :&nbsp;{{x.numberofbookings}}<br>
+Salon booking cancellations:&nbsp;{{x.saloncancellations}}<br>
+User booking cancellations:&nbsp;{{x.usercancellations}}<br>
+</p>
+</ion-item>
   <h2>About Us</h2>
   <p>Lorem ipsum dolor sit amet, quis eget
     elementum maecenas metus donec. Ligula
