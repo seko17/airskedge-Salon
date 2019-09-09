@@ -11,7 +11,7 @@
   <ion-slides pager="true">
 
     <ion-slide id="onboard">
-      <div class="logo">
+      <!-- <div class="logo">
         <img src="../../assets/imgs/Untitled-2.svg">
       </div>
 
@@ -26,8 +26,57 @@
       </ion-buttons>
       <ion-buttons id="btn1">
         <button ion-button (click)="register()">Sign-Up</button>
-      </ion-buttons>
+      </ion-buttons> -->
 
+      <ion-grid>
+
+        <ion-row justify-content:start id="col1">
+          <ion-col>
+            <div class="appname">
+
+              <div class="logo">
+                <img src="../../assets/imgs/Untitled-1.svg">
+              </div>
+
+              <div class="air">
+                <p>AirSkedge</p>
+              </div>
+
+            </div>
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row>
+          <ion-col id="img">
+            <div class="imgz">
+              <div class="slidetitle">
+                First<br> Slide
+              </div>
+              <div class="slideimage">
+                <img src="../../assets/imgs/dark.svg">
+
+              </div>
+            </div>
+
+
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            1 of 3
+          </ion-col>
+          <ion-col>
+            2 of 3
+          </ion-col>
+          <ion-col>
+            3 of 3
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      Setting one column width
     </ion-slide>
 
     <ion-slide id="onboard">

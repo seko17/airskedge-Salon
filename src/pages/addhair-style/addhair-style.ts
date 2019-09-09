@@ -38,6 +38,7 @@ isuploading: false
     hairstylePrice : '',
     genderOptions: '',
     hairStyleImage: '',
+    duration: 0,
     uid : ''
   }
   SalonNode = {
@@ -64,7 +65,8 @@ isuploading: false
       hairstyleName: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
       hairstyleDesc: new  FormControl('', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(50)])),
       hairstylePrice: new  FormControl('', Validators.compose([Validators.required, Validators.minLength(1), Validators.maxLength(4)])),
-      genderOptions: ['']
+      genderOptions: [''],
+      duration: ['']
     });
   }
 
@@ -170,7 +172,9 @@ isuploading: false
     'hairstylePrice': [
       { type: 'required', message: 'Cellnumber is required.' }
     ],
-    
+    'duration': [
+      { type: 'required', message: 'duration is required.' }
+    ],
   };
 
   getHairSalon(){
