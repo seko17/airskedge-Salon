@@ -6,6 +6,11 @@
   </ion-header> 
 
 <ion-content padding>
+   
+
+<div class="exit">
+    <ion-icon class="exit" name="exit" (click)="logout()"></ion-icon>
+</div>
 
   <!-- <div class="container">
     <div class="main">
@@ -19,78 +24,16 @@
         <div class="arowback">
             <ion-icon  class="arowback" name="arrow-back" (click)="goback()"></ion-icon>
         </div>
-        <div class="exit">
+         <div class="exit">
             <ion-icon class="exit" name="exit" (click)="logout()"></ion-icon>
-        </div>
+        </div> 
       </div>
 
-      <div class="details">
-        <div class="nm">
-          <p id="name">{{SalonOwnerProfile.ownername}} {{SalonOwnerProfile.ownerSurname}}</p>
-          <p>{{SalonOwnerProfile.About}}</p>
-        </div>
-        <div class="contacts">
-          <div class="em">
-            <p>{{SalonOwnerProfile.email}}</p>
-          </div>
-          <div class="phone">
-            {{SalonOwnerProfile.personalNumber}}
-          </div>
-        </div>
-      </div>
-    </div>
 
 
-    <div class="place">
-      <div class="location">
-        <p>
-          <ion-icon name="pin"></ion-icon>
-          Soweto
-        </p>
-      </div>
-
-      <div class="up">
-          <ion-icon name="create"></ion-icon>
-      </div>
-    </div>
-
-    <div class="editprofile">
-
-    </div>
-  </div> -->
-  <!-- <ion-card>
-
-        <img src="{{SalonOwnerProfile.ownerImage}}">
-        <ion-fab right top>
-          <button ion-fab>
-            <ion-icon name="pin"></ion-icon>
-          </button>
-        </ion-fab>
       
-        <ion-item>
-          <ion-icon name="football" item-start large></ion-icon>
-          <h2>{{SalonOwnerProfile.ownername}}</h2>
-          <p></p>
-        </ion-item>
-      
-        <ion-item>
-          <ion-icon name="wine" item-start large ></ion-icon>
-          <h2>{{SalonOwnerProfile.ownerSurname}}</h2>
-          <p>14 S. Hop Avenue, Madison, WI 53703</p>
-        </ion-item>
-      
-        <ion-item>
-          <span item-start>18 min</span>
-          <span item-start>(2.6 mi)</span>
-          <button ion-button icon-start clear item-end>
-            <ion-icon name="navigate"></ion-icon>
-            Start
-          </button>
-        </ion-item>
-      
-      </ion-card> -->
 
-      <!-- <section>
+      <section>
         <div class="container">
             
          
@@ -100,9 +43,9 @@
             <div class="card">
 
                 <div class="back">
-         -->
-                    <!-- <div class="arrowback"> -->
-                        <!-- <ion-icon  class="arowback" name="arrow-back" (click)="goback()"></ion-icon> -->
+         
+                     <div class="arrowback"> 
+                         <ion-icon  class="arowback" name="arrow-back" (click)="goback()"></ion-icon> -->
                     <!-- </div> -->
                     <!-- <div class="exit">
                         <ion-icon class="exit" name="exit" (click)="logout()"></ion-icon>
@@ -123,7 +66,7 @@
      
           
             </div>
-            <button  class="arowback" name="arrow-back" (click)="logout()" ion-button full >Signout</button>
+           
           </div>
       
         </div>
@@ -133,8 +76,9 @@
       <ion-icon class="exit" name="exit" (click)="logout()"></ion-icon>
   </div>
      <div class="parent">
+        <ion-icon  class="arowback" name="arrow-back" (click)="logout()"></ion-icon>
         <img src="{{SalonOwnerProfile.ownerImage}}" style="border-radius: 20px" height="100%;">
-        <!-- <ion-icon  class="arowback" name="arrow-back" (click)="goback()"></ion-icon> -->
+        
         <div class="wrapper1">
           <div class="info1">
               <h1 >{{SalonOwnerProfile.ownername}} {{SalonOwnerProfile.ownerSurname}}</h1>
@@ -145,4 +89,5 @@
       
      </div>
    </div>
+  
 </ion-content>

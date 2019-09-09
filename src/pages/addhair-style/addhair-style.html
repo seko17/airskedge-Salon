@@ -20,6 +20,8 @@
        </div>
   </div>
 
+ 
+  
 <div class="form">
   
     <form [formGroup]="addhairStyleForm">
@@ -57,16 +59,14 @@
         <br>
         </div>
         <!-- duration-->
-       <ion-item >
-        <!-- <ion-label  > hairstyle Description </ion-label> -->
-        <ion-input type="tel"  placeholder="Hairstyle Duration" formControlName="duration"   [(ngModel)]="Styles.duration" ngDefaultControl></ion-input>
-       </ion-item>
-       <div class="error" *ngFor="let validate of validation_messages.duration">
-       <div class="messages" *ngIf="addhairStyleForm.get('duration').hasError(validate.type) && (addhairStyleForm.get('duration').dirty || addhairStyleForm.get('duration').touched)">
-         {{validate.message}}
-       </div>
+        <ion-item>
+          <ion-label> Duration</ion-label>
+          <ion-select formControlName="duration" [(ngModel)]="Styles.duration" >
+            <ion-option *ngFor="let g of Duration" [value]="g.value"> {{g.value}} &nbsp; {{g.label}}  </ion-option>
+          </ion-select>
+        </ion-item>
        <br>
-       </div>
+       
         <!-- input for hairstyle gender options-->
         <ion-item>
             <ion-label> Style gender</ion-label>
@@ -76,7 +76,8 @@
           </ion-item>
         
         <br>
-      
+        
+        
         <div class="btn">
           <button id="skip" (click)="createStyle(addhairStyleForm)"  type="submit" [disabled]="!addhairStyleForm.valid" ion-button color="dark" round>Add hair style </button>
         
