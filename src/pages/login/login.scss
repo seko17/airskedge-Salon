@@ -18,8 +18,8 @@ page-login {
   .logo {
     position: absolute;
     top: 5%;
-    width: 150px;
-    height: 150px;
+    width: 35%;
+    height: 50%;
     // opacity: 0.10;
   }
 
@@ -35,10 +35,10 @@ page-login {
     text-align: center;
     // opacity: 0.6;
     h1 {
-      font-size: 35px;
+      font-size: 3vw;
 
       span {
-        font-size: 15px;
+        font-size:2vw;
       }
     }
   }
@@ -48,9 +48,10 @@ page-login {
     position: absolute;
     top: 50%;
     text-align: center;
+    width: 80%;
 
     .item {
-      width: 350px;
+      width: 100%;
       text-align: center;
       box-shadow: 1px 3px 3px grey;
       border-radius: 50px;
@@ -59,7 +60,7 @@ page-login {
     }
 
     button {
-      width: 350px;
+      width:40vh;
 
     }
   }
