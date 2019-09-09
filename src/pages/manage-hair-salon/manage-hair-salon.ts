@@ -22,6 +22,8 @@ import { ManageStaffPage } from '../manage-staff/manage-staff';
 })
 export class ManageHairSalonPage {
   isSalon = false;
+  isnotSalon = false;
+
   isHairstyle = false;
   db = firebase.firestore();
   uid
@@ -172,9 +174,11 @@ this.styles.push(doc.data());
       });
       })
       this.isSalon = true;
+      this.isnotSalon = false;
     } else {
       console.log('No data');
       this.isSalon = false;
+      this.isnotSalon = true;
     }
     load.dismiss();
   }).catch(err => {
