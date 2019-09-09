@@ -28,6 +28,7 @@ export class AddhairStylePage {
   storage = firebase.storage().ref();
   db = firebase.firestore();
   Gender : any = ['female','male'];
+  Duration =  [30 , 60 ,120 ,180];
   addhairStyleForm : FormGroup;
 styleImage
 uploadprogress
@@ -180,7 +181,7 @@ isuploading: false
   getHairSalon(){
  
     let load = this.loadingCtrl.create({
-     content: 'Please wait...',
+     content: ' wait...',
      spinner: 'dots'
    });
    load.present();
