@@ -15,7 +15,8 @@ page-landing {
     align-items: center;
     height: 100%;
     width: 100%;
-    // font-family: 'Manjari';
+    position: fixed;
+    font-family: 'Manjari';
   }
 
   // .airlogo {
@@ -25,6 +26,8 @@ page-landing {
   //   left: 30%;
   //   top: 2%;
   // }
+
+
 
   .noprof {
     display: flex;
@@ -50,11 +53,13 @@ page-landing {
     display: flex;
     flex-flow: column;
     position: absolute;
-    right: -25%;
+    position: fixed;
+    right: -23%;
     top: 45%;
     // justify-content: center;
     width: 50%;
     height: 100%;
+    
 
     button {
       width: 5%;
@@ -82,11 +87,15 @@ page-landing {
     display: flex;
     flex-flow: column;
     position: absolute;
-    top: 60%;
-    left: 10%;
+    top: 55%;
+    left: 8%;
 
     .propic {
       width: 30vh;
+      #logo{
+        width: 40%;
+        height: 30%;
+      }
     }
     #name{
       font-size: 10vw;

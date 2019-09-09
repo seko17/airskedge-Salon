@@ -2,7 +2,7 @@
 
   <div class="container">
 
-   <div *ngIf="!profile" class="noprof">
+    <div *ngIf="!profile" class="noprof">
       <ion-icon name="warning"></ion-icon>
 
       <p> Oops.. it looks like you dont have your profile set up yet please create profile </p>
@@ -19,7 +19,8 @@
           <p>AirSkedge</p>
         </div> -->
         <div class="propic">
-            <p id="name">AirSkedge</p>
+          <!-- <img src="../../assets/imgs/Untitled-1.svg" id="logo"> -->
+          <p id="name">AirSkedge</p>
           <p id="desc">Lorem ipsum dolor sit amet,
             turpis integer pharetra nunc ut,
             mauris taciti, turpis est.
@@ -27,30 +28,36 @@
             Augue quis</p>
         </div>
       </div>
-     
+
       <div class="navs">
         <div class="">
-          <button (click)="viewprofile()" ion-button> <ion-icon name="person"></ion-icon></button>
-        </div>
-
-        <div class="">
-          <button (click)="manageSalon()" ion-button><ion-icon name="build"></ion-icon></button>
-        </div>
-
-        <div class="">
-          <button (click)="bookings()" ion-button> <ion-icon name="book"></ion-icon>
+          <button (click)="viewprofile()" ion-button>
+            <ion-icon name="person"></ion-icon>
           </button>
         </div>
 
         <div class="">
-          <button (click)="info()" ion-button>   <ion-icon name="information-circle"></ion-icon>
+          <button (click)="manageSalon()" ion-button>
+            <ion-icon name="build"></ion-icon>
+          </button>
+        </div>
+
+        <div class="">
+          <button (click)="bookings()" ion-button>
+            <ion-icon name="book"></ion-icon>
+          </button>
+        </div>
+
+        <div class="">
+          <button (click)="info()" ion-button>
+            <ion-icon name="information-circle"></ion-icon>
           </button>
         </div>
 
       </div>
     </div>
 
-      <!-- <button (click)="manageSalon()" ion-button> Manage Salon </button> -->
+    <!-- <button (click)="manageSalon()" ion-button> Manage Salon </button> -->
     <!-- <button  (click)="bookings()" ion-button> Bookings</button> -->
   </div>
 
