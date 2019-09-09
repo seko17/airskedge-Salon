@@ -1,4 +1,5 @@
 page-create-account {
+ 
   .container {
     display: flex;
     flex-flow: column;
@@ -7,9 +8,9 @@ page-create-account {
     width: 100%;
     height: 100%;
     color: white;
-    background: linear-gradient(rgba(0, 0, 0, 0.678), black), url('../../assets/imgs/onboardingImage.svg');
+    background: linear-gradient(rgba(56, 56, 56, 0.678), black), url('https://images.unsplash.com/photo-1520880178538-52017968d5d0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
     position: fixed;
-    font-family: 'Manjari';
+    // font-family: 'Manjari';
   }
 
   .logo {
@@ -17,7 +18,7 @@ page-create-account {
     top: 5%;
     width: 150px;
     height: 150px;
-    opacity: 0.6;
+    // opacity: 0.10;
   }
 
   .back {
@@ -26,19 +27,11 @@ page-create-account {
     top: 10px;
   }
 
-  .item {
-    background: rgb(199, 198, 198);
-    box-shadow: 5px 5px 5px grey;
-    border-radius: 50px;
-  }
-
-
   .signin {
     position: absolute;
-    top: 30%;
+    top: 25%;
     text-align: center;
-    opacity: 0.6;
-
+    // opacity: 0.6;
     h1 {
       font-size: 35px;
 
@@ -55,14 +48,16 @@ page-create-account {
     text-align: center;
 
     .item {
-      width: 300px;
+      width: 350px;
       text-align: center;
-      background: transparent;
-      color: rgb(255, 255, 255);
+      box-shadow: 1px 3px 3px grey;
+      border-radius: 50px;
+      // background: transparent;
+      color: rgb(0, 0, 0);
     }
 
     button {
-      width: 300px;
+      width: 350px;
 
     }
   }

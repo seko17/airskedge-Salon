@@ -2,7 +2,7 @@
 
 page-landing {
   .content {
-    background: linear-gradient(rgba(0, 0, 0, 0.479)), url('../../assets/imgs/afro.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.479)), url('../../assets/imgs/afro.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -15,16 +15,16 @@ page-landing {
     align-items: center;
     height: 100%;
     width: 100%;
-    font-family: 'Manjari';
+    // font-family: 'Manjari';
   }
 
-  .airlogo {
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    left: 30%;
-    top: 2%;
-  }
+  // .airlogo {
+  //   width: 20%;
+  //   height: 40%;
+  //   position: absolute;
+  //   left: 30%;
+  //   top: 2%;
+  // }
 
   .noprof {
     display: flex;
@@ -50,13 +50,15 @@ page-landing {
     display: flex;
     flex-flow: column;
     position: absolute;
-    right: 10px;
-    top: 50%;
+    right: -25%;
+    top: 45%;
     // justify-content: center;
+    width: 50%;
+    height: 100%;
 
     button {
-      width: 50px;
-      height: 60px;
+      width: 5%;
+      height: 9vh;
       // box-shadow: 10px 10px #888888;
       margin: 10px;
       font-size: 30px;
@@ -81,13 +83,13 @@ page-landing {
     flex-flow: column;
     position: absolute;
     top: 60%;
-    left: 20px;
+    left: 10%;
 
     .propic {
-      width: 250px;
+      width: 30vh;
     }
     #name{
-      font-size: 40px;
+      font-size: 10vw;
     }
 
    

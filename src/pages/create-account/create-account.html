@@ -19,8 +19,9 @@
     <div class="logo">
         <img src="../../assets/imgs/Untitled-1.svg">
     </div>
+    <br>
       <div class="signin">
-          <h1>Welcome <br><span>Sign-Up to continue</span></h1>
+        <h4>Sign-Up into your account to continue</h4>
         </div>
  
   <div class="form">
@@ -33,7 +34,7 @@
           </ion-item>
           <ion-item class="error-message" *ngIf="!signupForm.controls['email'].valid
             && signupForm.controls['email'].touched">
-            <ion-label style="color:red; font-size: 10px">Please enter a valid email.</ion-label>
+            <ion-label style="color:red; font-size: 13px">Please enter a valid email.</ion-label>
           </ion-item>
       <br>
           <ion-item>
@@ -44,9 +45,9 @@
           </ion-item>
           <ion-item class="error-message" *ngIf="!signupForm.controls['password'].valid  &&
             signupForm.controls['password'].touched">
-            <ion-label style="color:red; font-size: 10px">Your password needs more than 6 characters.</ion-label>
+            <ion-label style="color:red; font-size: 13px">Your password needs more than 6 characters.</ion-label>
             <br>
-            <ion-label style="color:red; font-size: 10px">Your password needs more than 15 characters.</ion-label>
+            <ion-label style="color:red; font-size: 13px">Your password needs more than 15 characters.</ion-label>
           </ion-item>
       <br>
       <br>
