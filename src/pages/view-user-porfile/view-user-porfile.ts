@@ -28,7 +28,8 @@ export class ViewUserPorfilePage {
     ownerSurname: '',
     personalNumber: '',
     About: '',
-    uid: ''
+    uid: '',
+    email:''
 
   }
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -77,6 +78,7 @@ export class ViewUserPorfilePage {
           this.SalonOwnerProfile.ownerSurname = doc.data().ownerSurname;
           this.SalonOwnerProfile.ownername = doc.data().ownername;
           this.SalonOwnerProfile.personalNumber = doc.data().personalNumber;
+          this.SalonOwnerProfile.email = doc.data().email;
         
         })
        

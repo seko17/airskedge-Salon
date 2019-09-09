@@ -6,15 +6,12 @@
 
 <ion-content>
   <div class="container">
-      <div class="back" style="font-size: 20px" (click)="goback()">
-          <ion-icon name="arrow-back"></ion-icon>
+      <div class="logo">
+        <img src="../../assets/imgs/Untitled-1.svg">
       </div>
-
-      <!-- <div class="logo">
-        <img src="../../assets/imgs/Untitled-3.svg">
-      </div> -->
+<br>
     <div class="signin">
-      <h1>Welcome <br><span>Sign into your account to continue</span></h1>
+      <h3>Sign-In into your account to continue</h3>
     </div>
     <div class="form">
       <form [formGroup]="loginForm">
@@ -26,9 +23,9 @@
         </ion-item>
         <ion-item class="error-message" *ngIf="!loginForm.controls['email'].valid &&
                    loginForm.controls['email'].touched">
-          <ion-label style="color:red; font-size: 10px">Please enter a valid email address.</ion-label>
+          <ion-label style="color:red; font-size: 13px">Please enter a valid email address.</ion-label>
         </ion-item>
-
+        <br>
         <ion-item>
           <!-- <ion-label position="stacked">Password</ion-label> -->
           <ion-input id="pass" formControlName="password" type="password" placeholder="Your password"
@@ -37,14 +34,14 @@
         </ion-item>
         <ion-item class="error-message" *ngIf="!loginForm.controls['password'].valid
                   && loginForm.controls['password'].touched">
-          <ion-label style="color:red; font-size: 10px">Your password needs more than 6 characters.</ion-label>
+          <ion-label style="color:red; font-size: 13px">Your password needs more than 6 characters.</ion-label>
         </ion-item>
 <br><br>
-        <button ion-button (click)="loginUser(loginForm)" color="dark" [disabled]="!loginForm.valid">
+        <button ion-button round (click)="loginUser(loginForm)" color="light" [disabled]="!loginForm.valid">
           Log In
         </button>
 
-        <p (click)="forgotpassword()">Forgot password?</p>
+        <p class="forgot1" (click)="forgotpassword()">Forgot password?</p>
 
       </form>
     </div>

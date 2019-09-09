@@ -1,12 +1,13 @@
-<!-- 
+ 
 <ion-header>
-  <ion-navbar>
-    <ion-title>viewUserPorfile</ion-title>
-  </ion-navbar>
-</ion-header> -->
+    <ion-navbar color="dark">
+      <ion-title></ion-title>
+    </ion-navbar>
+  </ion-header> 
 
-<ion-content>
-  <div class="container">
+<ion-content padding>
+
+  <!-- <div class="container">
     <div class="main">
       <div class="image">
         <div class="gradient"></div>
@@ -16,10 +17,10 @@
       <div class="back">
         
         <div class="arowback">
-            <ion-icon name="arrow-back" (click)="goback()"></ion-icon>
+            <ion-icon  class="arowback" name="arrow-back" (click)="goback()"></ion-icon>
         </div>
         <div class="exit">
-            <ion-icon name="exit" (click)="logout()"></ion-icon>
+            <ion-icon class="exit" name="exit" (click)="logout()"></ion-icon>
         </div>
       </div>
 
@@ -56,7 +57,7 @@
     <div class="editprofile">
 
     </div>
-  </div>
+  </div> -->
   <!-- <ion-card>
 
         <img src="{{SalonOwnerProfile.ownerImage}}">
@@ -88,4 +89,58 @@
         </ion-item>
       
       </ion-card> -->
+
+      <!-- <section>
+        <div class="container">
+            
+         
+          <div class="card-wrapper">
+             
+            
+            <div class="card">
+
+                <div class="back">
+         -->
+                    <!-- <div class="arrowback"> -->
+                        <!-- <ion-icon  class="arowback" name="arrow-back" (click)="goback()"></ion-icon> -->
+                    <!-- </div> -->
+                    <!-- <div class="exit">
+                        <ion-icon class="exit" name="exit" (click)="logout()"></ion-icon>
+                    </div> -->
+                  <!-- </div> -->
+<!--             
+              <img src="https://images.unsplash.com/photo-1514483127413-f72f273478c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="card-background" class="card-img">
+              <img src="{{SalonOwnerProfile.ownerImage}}" alt="profile image" class="profile-img">
+              
+              <h1>{{SalonOwnerProfile.ownername}} {{SalonOwnerProfile.ownerSurname}}</h1>
+
+              
+              <p class="job-title"> {{SalonOwnerProfile.personalNumber}} </p>
+              <p class="job-title">{{SalonOwnerProfile.email}}</p>
+              <p class="about">
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+              </p>
+     
+          
+            </div>
+            <button  class="arowback" name="arrow-back" (click)="logout()" ion-button full >Signout</button>
+          </div>
+      
+        </div>
+      </section>
+   -->
+   
+     <div class="parent">
+        <img src="{{SalonOwnerProfile.ownerImage}}" style="border-radius: 20px" height="100%;">
+        <!-- <ion-icon  class="arowback" name="arrow-back" (click)="goback()"></ion-icon> -->
+        <div class="wrapper1">
+          <div class="info1">
+              <h1 >{{SalonOwnerProfile.ownername}} {{SalonOwnerProfile.ownerSurname}}</h1>
+              <p class="job"> {{SalonOwnerProfile.personalNumber}} </p>
+              <p class="job">{{SalonOwnerProfile.email}}</p>
+          </div>
+ 
+      
+     </div>
+   </div>
 </ion-content>

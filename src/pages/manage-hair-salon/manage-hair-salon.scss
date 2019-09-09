@@ -1,7 +1,7 @@
 page-manage-hair-salon {
   .Profimage {
     width: 100vw;
-    height: 45vh;
+    height: 55vh;
     position: relative;
     overflow: hidden;
     background: black;
@@ -10,19 +10,20 @@ page-manage-hair-salon {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.5;
+      opacity: 0.6;
     }
 
     .butt {
       position: absolute;
       top: 10px;
       left: 10px;
-
     }
 
-    .container{
+    .container {
       width: 100%;
       height: 40vh;
+      position: fixed;
+      font-family: 'Manjari';
     }
 
     .displayName {
@@ -35,7 +36,7 @@ page-manage-hair-salon {
 
       h4 {
         font-weight: normal;
-        font-size: 25px;
+        font-size: 35px;
         margin: 0;
         padding: 0;
         color: white;
@@ -58,6 +59,7 @@ page-manage-hair-salon {
     color: rgb(227, 228, 255);
     overflow: hidden;
     border-bottom: solid 2px #5657A4;
+    font-family: 'Manjari';
 
     div {
       width: 50%;
@@ -99,6 +101,7 @@ page-manage-hair-salon {
     position: absolute;
     z-index: 5;
     padding: 10px;
+    font-family: 'Manjari';
 
     .propic {
       background: rgba(255, 166, 0, 0.699);
@@ -113,34 +116,42 @@ page-manage-hair-salon {
       color: white;
       padding: 5px;
       font-size: 20px;
+      font-family: 'Manjari';
     }
   }
 
-  .hairdetails{
+  .hairdetails {
     width: 100%;
     height: 60vh;
     overflow-y: auto;
+    font-family: 'Manjari';
   }
 
   #cards {
-    max-width: 100%;
-    height: 300px;
+    width: 100vw;
     display: flex;
     flex-wrap: wrap;
-    .item{
-      img{
+    margin: 6px;
+
+    .item {
+      width: 200px;
+      height: 300px;
+      
+
+      img {
         width: 200px;
         height: 200px;
+        box-shadow: 2px 2px 5px grey;
+      }
+
+      .buttons {
+
+        button {
+          position: absolute;
+          bottom: 20%;
+        }
       }
     }
 
-    .item{
-      width: 200px;
-      height: 300px;
-    }
-
-
   }
-
-
 }

@@ -2,7 +2,7 @@
 
 page-landing {
   .content {
-    background: linear-gradient(rgba(0, 0, 0, 0.685)), url('../../assets/imgs/hair.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.479)), url('../../assets/imgs/afro.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -14,15 +14,17 @@ page-landing {
     justify-content: center;
     align-items: center;
     height: 100%;
+    width: 100%;
+    // font-family: 'Manjari';
   }
 
-  .airlogo {
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    left: 30%;
-    top: 2%;
-  }
+  // .airlogo {
+  //   width: 20%;
+  //   height: 40%;
+  //   position: absolute;
+  //   left: 30%;
+  //   top: 2%;
+  // }
 
   .noprof {
     display: flex;
@@ -39,23 +41,28 @@ page-landing {
       color: white;
     }
 
-    button{
+    button {
       background: rgba(0, 0, 0, 0.507);
     }
   }
 
   .navs {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-flow: column;
+    position: absolute;
+    right: -25%;
+    top: 45%;
+    // justify-content: center;
+    width: 50%;
+    height: 100%;
 
     button {
-      width: 120px;
-      height: 120px;
-      box-shadow: 10px 10px #888888;
+      width: 5%;
+      height: 9vh;
+      // box-shadow: 10px 10px #888888;
       margin: 10px;
-      font-size: 40px;
-      background: rgba(83, 80, 80, 0.616);
+      font-size: 30px;
+      background: rgba(83, 80, 80, 0.712);
       cursor: pointer;
     }
   }
@@ -72,13 +79,26 @@ page-landing {
   .details {
     text-align: center;
     color: white;
+    display: flex;
+    flex-flow: column;
+    position: absolute;
+    top: 60%;
+    left: 10%;
 
-    .name {
-      p {
-        font-size: 40px;
-        font-family: 'Pacifico';
-      }
+    .propic {
+      width: 30vh;
     }
+    #name{
+      font-size: 10vw;
+    }
+
+   
+  }
+
+  .main {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
   }
 
 
