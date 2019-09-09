@@ -190,11 +190,11 @@ this.styles.push(doc.data());
 
 //Function to push to the user profile page
 ViewUserPorfilePage(){
-  this.navCtrl.push(ViewUserPorfilePage);
+  this.navCtrl.setRoot(ViewUserPorfilePage);
 }
 //Function to push to adding a new hairstyle
 addStyle(){
-  this.navCtrl.push(AddhairStylePage);
+  this.navCtrl.setRoot(AddhairStylePage);
 }
 
 getProfile(){

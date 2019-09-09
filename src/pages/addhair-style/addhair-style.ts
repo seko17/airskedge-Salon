@@ -95,7 +95,7 @@ isuploading: false
       user.then( () => {
         this.navCtrl.setRoot(ManageHairSalonPage)
         this.toastCtrl.create({
-          message: 'User Salon added.',
+          message: 'User hairStyle added',
           duration: 2000,
        
         }).present();
@@ -105,7 +105,7 @@ isuploading: false
         // catch any errors.
       }).catch( err=> {
         this.toastCtrl.create({
-          message: 'Error creating Profile.',
+          message: 'Error creating hairstyle.',
           duration: 2000
         }).present();
        

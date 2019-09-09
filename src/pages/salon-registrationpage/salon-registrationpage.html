@@ -5,7 +5,7 @@
 </ion-header> -->
 
 <ion-content>
-  <div class="container">
+   <!-- <div class="container">
     <div class="title">
       <h1>Create Profile</h1>
     </div>
@@ -26,7 +26,7 @@
           (onAddressChange)="handleAddressChange($event)" />
         <ion-item>
 
-          <!-- <ion-label> name</ion-label> -->
+          <ion-label> name</ion-label> 
           <ion-input type="text" placeholder="Name" formControlName="ownername"
             [(ngModel)]="SalonOwnerProfile.ownername" ngDefaultControl>
           </ion-input>
@@ -90,7 +90,65 @@
 
 
     </div>
-  </div>
-
+  </div> 
+ -->
+ <section>
+    <div class="container">
+        <div class="card-wrapper">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1521322714240-ee1d383eab62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="card-background" class="card-img">
+            <img src="https://images.unsplash.com/photo-1456327102063-fb5054efe647?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="profile image" class="profile-img">
+            <h1>Sibusiso Manana</h1>
+            <div class="form1">
+                <form [formGroup]="staffForm">
+                  <ion-item>
+          
+                    <ion-label> Name
+        
+                    </ion-label>
+                    <ion-input type="text" formControlName="staffName" [(ngModel)]="Staff.staffName" ngDefaultControl>
+                    </ion-input>
+                  </ion-item>
+                  <div class="error" *ngFor="let validate of validation_messages.staffName">
+                    <div class="messages"
+                      *ngIf="staffForm.get('staffName').hasError(validate.type) && (staffForm.get('staffName').dirty || staffForm.get('staffName').touched)">
+                      {{validate.message}}
+                    </div>
+                  </div>
+          <br>
+                  <ion-item>
+                    <ion-label> Surname</ion-label>
+                    <ion-input type="text" formControlName="staffSurname" [(ngModel)]="Staff.staffSurname"
+                      ngDefaultControl></ion-input>
+                  </ion-item>
+                  <div class="error" *ngFor="let validate of validation_messages.staffSurname">
+                    <div class="messages"
+                      *ngIf="staffForm.get('staffSurname').hasError(validate.type) && (staffForm.get('staffSurname').dirty || staffForm.get('staffSurname').touched)">
+                      {{validate.message}}
+                    </div>
+                  </div>
+          <br>
+                  <ion-item>
+                    <ion-label> Cellphone Number</ion-label>
+                    <ion-input type="tel" maxLength="10" formControlName="personalNumber"
+                      [(ngModel)]="Staff.personalNumber" ngDefaultControl></ion-input>
+                  </ion-item>
+                  <div class="error" *ngFor="let validate of validation_messages.personalNumber">
+                    <div class="messages"
+                      *ngIf="staffForm.get('personalNumber').hasError(validate.type) && (staffForm.get('personalNumber').dirty || staffForm.get('personalNumber').touched)">
+                      {{validate.message}}
+                    </div>
+                  </div>
+                  <br>
+          
+          
+          <button ion-button id="skip" (click)="createStyle(staffForm)" full round>ADD STYLIST</button>
+                </form>
+              </div>
+         
+          </div>
+        </div>
+      </div>
+ </section>
 
 </ion-content>

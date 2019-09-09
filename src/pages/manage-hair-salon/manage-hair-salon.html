@@ -77,12 +77,12 @@
       <button ion-fab style="background: rgb(210, 105, 30)">
         <ion-icon name="arrow-dropleft"></ion-icon>
       </button>
-      <ion-fab-list side="left" color="dark">
+      <ion-fab-list side="left" color="dark" (click)="viewstaff()">
         <button ion-fab color="dark">
-          <ion-icon (click)="viewstaff()"name="people"></ion-icon>
+          <ion-icon name="people"></ion-icon>
         </button>
 
-        <button ion-fab (click)="addStyle()" color="dark">
+        <button ion-fab  color="dark" (click)="addStyle()">
             <ion-icon  name="add"></ion-icon>
           </button>
       </ion-fab-list>

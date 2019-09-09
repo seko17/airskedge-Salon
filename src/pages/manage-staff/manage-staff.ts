@@ -6,6 +6,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import * as firebase from 'firebase';
 import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
 import { AddStaffPage } from '../add-staff/add-staff';
+import { LandingPage } from '../landing/landing';
 /**
  * Generated class for the ManageStaffPage page.
  *
@@ -73,7 +74,7 @@ export class ManageStaffPage {
  }
 
  goback(){
-  this.navCtrl.pop();
+  this.navCtrl.setRoot(ManageHairSalonPage);
 }
 
 }
