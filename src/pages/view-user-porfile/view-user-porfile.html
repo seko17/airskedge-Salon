@@ -1,11 +1,11 @@
-<!-- 
+ 
 <ion-header>
-  <ion-navbar>
-    <ion-title>viewUserPorfile</ion-title>
-  </ion-navbar>
-</ion-header> -->
+    <ion-navbar color="dark">
+      <ion-title></ion-title>
+    </ion-navbar>
+  </ion-header> 
 
-<ion-content>
+<ion-content padding>
 
   <!-- <div class="container">
     <div class="main">
@@ -90,7 +90,7 @@
       
       </ion-card> -->
 
-      <section>
+      <!-- <section>
         <div class="container">
             
          
@@ -100,15 +100,15 @@
             <div class="card">
 
                 <div class="back">
-        
+         -->
                     <!-- <div class="arrowback"> -->
-                        <ion-icon  class="arowback" name="arrow-back" (click)="goback()"></ion-icon>
+                        <!-- <ion-icon  class="arowback" name="arrow-back" (click)="goback()"></ion-icon> -->
                     <!-- </div> -->
                     <!-- <div class="exit">
                         <ion-icon class="exit" name="exit" (click)="logout()"></ion-icon>
                     </div> -->
-                  </div>
-            
+                  <!-- </div> -->
+<!--             
               <img src="https://images.unsplash.com/photo-1514483127413-f72f273478c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="card-background" class="card-img">
               <img src="{{SalonOwnerProfile.ownerImage}}" alt="profile image" class="profile-img">
               
@@ -128,6 +128,19 @@
       
         </div>
       </section>
-  
+   -->
    
+     <div class="parent">
+        <img src="{{SalonOwnerProfile.ownerImage}}" style="border-radius: 20px" height="100%;">
+        <!-- <ion-icon  class="arowback" name="arrow-back" (click)="goback()"></ion-icon> -->
+        <div class="wrapper">
+          <div class="info">
+              <h1 >{{SalonOwnerProfile.ownername}} {{SalonOwnerProfile.ownerSurname}}</h1>
+              <p class="job"> {{SalonOwnerProfile.personalNumber}} </p>
+              <p class="job">{{SalonOwnerProfile.email}}</p>
+          </div>
+ 
+      
+     </div>
+   </div>
 </ion-content>
