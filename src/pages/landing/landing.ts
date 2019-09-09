@@ -47,7 +47,7 @@ export class LandingPage {
       this.uid = firebase.auth().currentUser.uid;
       this.authservice.setUser(this.uid);
   }
-
+obj ={};
   ionViewDidLoad() {
    this.getProfile();
   }
@@ -68,7 +68,7 @@ export class LandingPage {
     this.navCtrl.push( UserCreateProfilePage)
    
   }
-  obj ={};
+  
   manageSalon(){
     this.navCtrl.push(ManageHairSalonPage)
   }

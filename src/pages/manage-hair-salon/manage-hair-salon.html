@@ -1,26 +1,11 @@
-<ion-header style="background: transparent">
-  <ion-navbar >
+<ion-header>
+  <ion-navbar id="navbar">
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <div class="container">
-
-    <div class="profile">
-      <div class="name">
-        <ion-icon name="arrow-back" style=" font-size: 20px;" (click)="goback()"></ion-icon> &nbsp;&nbsp;
-        <!-- {{displayProfile.ownername}} &nbsp; {{displayProfile.ownerSurname}} -->
-      </div>
-      <!-- <div class="propic" (click)="ViewUserPorfilePage()">
-        <p>Profile</p>
-      </div> -->
-      <!-- <div class="propic" (click)="viewstaff()">
-              <p>staff</p>
-            </div> -->
-    </div>
-    
     <div class="msg" *ngIf="!isSalon">
-
       <ion-icon name="warning"></ion-icon>
       <!-- <button (click)="c()" ion-button> add hairstyle</button> -->
       <p>You currently don't <br> have a salon,<br> please create a salon</p>
@@ -97,10 +82,41 @@
           <ion-icon (click)="viewstaff()"name="people"></ion-icon>
         </button>
 
-        <button ion-fab  color="dark">
-            <ion-icon (click)="addStyle()" name="add"></ion-icon>
+        <button ion-fab (click)="addStyle()" color="dark">
+            <ion-icon  name="add"></ion-icon>
           </button>
       </ion-fab-list>
     </ion-fab>
+    <!-- <div padding>
+      <ion-segment [(ngModel)]="pet">
+        <ion-segment-button value="kittens">
+          Kittens
+        </ion-segment-button>
+
+        <ion-segment-button value="puppies">
+            Puppies
+          </ion-segment-button>
+        
+      </ion-segment>
+    </div>
+    <div [ngSwitch]="pet">
+<ion-list *ngSwitchCase="'puppies'">
+  <ion-item>
+    <ion-thumbnail item-start>
+      <img src="../../assets/imgs/danai.jpg">
+    </ion-thumbnail> 
+    <h1>Ruby</h1>
+     </ion-item>
+</ion-list>
+
+<ion-list *ngSwitchCase="'kittens'">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="../../assets/imgs/image.png">
+      </ion-thumbnail> 
+      <h1>Oscar</h1>
+       </ion-item>
+  </ion-list>
+    </div> -->
 
 </ion-content>

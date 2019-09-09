@@ -23,7 +23,7 @@
         </ion-item>
         <ion-item class="error-message" *ngIf="!loginForm.controls['email'].valid &&
                    loginForm.controls['email'].touched">
-          <ion-label style="color:red; font-size: 13px">Please enter a valid email address.</ion-label>
+          <ion-label style="color:red; font-size: 16px">Please enter a valid email address.</ion-label>
         </ion-item>
         <br>
         <ion-item>
@@ -34,7 +34,7 @@
         </ion-item>
         <ion-item class="error-message" *ngIf="!loginForm.controls['password'].valid
                   && loginForm.controls['password'].touched">
-          <ion-label style="color:red; font-size: 13px">Your password needs more than 6 characters.</ion-label>
+          <ion-label style="color:red; font-size: 16px">Your password needs more than 6 characters.</ion-label>
         </ion-item>
 <br><br>
         <button ion-button round (click)="loginUser(loginForm)" color="light" [disabled]="!loginForm.valid">
