@@ -2,15 +2,8 @@
 
   <div class="container">
 
-   <div *ngIf="!profile" class="noprof">
-      <ion-icon name="warning"></ion-icon>
 
-      <p> Oops.. it looks like you dont have your profile set up yet please create profile </p>
-      <button (click)="createAccount()" ion-button round> Create Profile </button>
-      <button (click)="logout()" ion-button round> Exit </button>
-    </div>
-
-    <div class="main" *ngIf="profile">
+   
       <div class="details">
         <!-- <div class="airlogo">
           <img src="../../assets/imgs/Untitled-2.svg">
@@ -48,7 +41,7 @@
         </div>
 
       </div>
-    </div>
+    
 
       <!-- <button (click)="manageSalon()" ion-button> Manage Salon </button> -->
     <!-- <button  (click)="bookings()" ion-button> Bookings</button> -->

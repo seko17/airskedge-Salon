@@ -5,7 +5,7 @@
 </ion-header> -->
 
 <ion-content>
-   <!-- <div class="container">
+    <div class="container">
     <div class="title">
       <h1>Create Profile</h1>
     </div>
@@ -91,76 +91,5 @@
 
     </div>
   </div> 
- -->
- <section>
-    <div class="container">
-        <div class="card-wrapper">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1521322714240-ee1d383eab62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="card-background" class="card-img">
-            <img src="https://images.unsplash.com/photo-1456327102063-fb5054efe647?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="profile image" class="profile-img">
-            <br>
-            <div class="form1">
-                <form [formGroup]="profileForm">
-                    <input id="location" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places"
-                      (onAddressChange)="handleAddressChange($event)" />
-                    <ion-item>
-            
-                    
-                      <ion-input type="text" placeholder="Name" formControlName="ownername"
-                        [(ngModel)]="SalonOwnerProfile.ownername" ngDefaultControl>
-                      </ion-input>
-                    </ion-item>
-                    <div class="error" *ngFor="let validate of validation_messages.ownername">
-                      <div class="messages"
-                        *ngIf="profileForm.get('ownername').hasError(validate.type) && (profileForm.get('ownername').dirty || profileForm.get('ownername').touched)">
-                        {{validate.message}}
-                      </div>
-                    </div>
-            <br>
-                    <ion-item>
-                      <ion-input type="text" placeholder="Surname" formControlName="ownerSurname"
-                        [(ngModel)]="SalonOwnerProfile.ownerSurname" ngDefaultControl></ion-input>
-                    </ion-item>
-                    <div class="error" *ngFor="let validate of validation_messages.ownerSurname">
-                      <div class="messages"
-                        *ngIf="profileForm.get('ownerSurname').hasError(validate.type) && (profileForm.get('ownerSurname').dirty || profileForm.get('ownerSurname').touched)">
-                        {{validate.message}}
-                      </div>
-                    </div>
-            <br>
-                    <ion-item>
-            
-                      <ion-input type="tel" placeholder="Number" maxLength="10" formControlName="personalNumber"
-                        [(ngModel)]="SalonOwnerProfile.personalNumber" ngDefaultControl></ion-input>
-                    </ion-item>
-                    <div class="error" *ngFor="let validate of validation_messages.personalNumber">
-                      <div class="messages"
-                        *ngIf="profileForm.get('personalNumber').hasError(validate.type) && (profileForm.get('personalNumber').dirty || profileForm.get('personalNumber').touched)">
-                        {{validate.message}}
-                      </div>
-                    </div>
-            <br>
-                    <ion-item>
-            
-                      <ion-input type="text" placeholder="Tell Us About Yourself" formControlName="About"
-                        [(ngModel)]="SalonOwnerProfile.About" ngDefaultControl>
-                      </ion-input>
-                    </ion-item>
-                    <div class="error" *ngFor="let validate of validation_messages.About">
-                      <div class="messages"
-                        *ngIf="profileForm.get('About').hasError(validate.type) && (profileForm.get('About').dirty || profileForm.get('About').touched)">
-                        {{validate.message}}
-                      </div>
-                    </div>
-                    <br>
-            
-            
-                  </form>
-              </div>
-         
-          </div>
-        </div>
-      </div>
- </section>
 
 </ion-content>
