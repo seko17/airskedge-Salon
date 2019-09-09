@@ -5,7 +5,7 @@
 
 <ion-content>
   <div class="container">
-    <div class="msg" *ngIf="!isSalon">
+    <div class="msg" *ngIf="isnotSalon">
       <ion-icon name="warning"></ion-icon>
       <!-- <button (click)="c()" ion-button> add hairstyle</button> -->
       <p>You currently don't <br> have a salon,<br> please create a salon</p>
@@ -18,7 +18,7 @@
 
         <div class="displayName">
 
-          <h4>{{disp.salonName}} <br>{{disp.location}} </h4>
+          <h4>{{disp.salonName}} <br>{{disp.streetName}} </h4>
 
         </div>
         <div class="contact">
@@ -35,7 +35,7 @@
       <div *ngIf="!isHairstyle">
         <p> No record of hair Styles please add your hair styles</p>
       </div>
-      < <div class="btnz">
+       <div class="btnz">
         <button (click)="addStyle()" ion-button color="dark"> Add Hairstyle</button>
         <button (click)="viewstaff()" ion-button color="dark"> Manage Staff</button>
       </div> -->
@@ -72,6 +72,14 @@
       </ion-item>
     </div>
   </div>
+  <ion-fab right bottom>
+    <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button  (click)="addStyle()" ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button  (click)="viewstaff()" ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
 <!-- 
   <ion-fab right bottom style="position: fixed">
       <button ion-fab style="background: rgb(210, 105, 30)">
