@@ -5,10 +5,16 @@
   
 
 <ion-content>
-
+  <ion-calendar #calendar (onDaySelect)="onDaySelect($event)" (click)="view()"></ion-calendar>
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12">
+
+          <ion-item>
+              <ion-label position="stacked">Selected Date</ion-label>
+              <ion-input clear placeholder="session time" type="date" displayFormat="DD/MM/YYYY" min='2019-01-01'
+                [(ngModel)]="userdate" readonly></ion-input>
+            </ion-item>
         <ion-item>
           <ion-label>Hairdresser</ion-label>
           <ion-select okText="Okay" [(ngModel)]="hairdresser">
@@ -16,12 +22,8 @@
           </ion-select>
         </ion-item>
 
-        <ion-item>
-          <ion-label position="stacked">Date</ion-label>
-          <ion-input clear placeholder="session time" type="date" displayFormat="DD/MM/YYYY" min='2019-01-01'
-            [(ngModel)]="userdate"></ion-input>
-        </ion-item>
-        <button ion-button (click)="view()">VIEW</button>
+
+ 
 
         <div class="body">
           <div class="time" *ngFor="let n of testArray">

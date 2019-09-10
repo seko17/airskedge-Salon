@@ -14,7 +14,7 @@ import { UserCreateProfilePage } from '../pages/user-create-profile/user-create-
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
-
+//import { CalendarModule } from 'ionic3-calendar';
 import { Camera } from "@ionic-native/camera";
 import { ImagePicker } from "@ionic-native/image-picker";
 import { AddSalonPage } from '../pages/add-salon/add-salon';
@@ -29,6 +29,7 @@ import { AddStaffPage } from '../pages/add-staff/add-staff';
 import { BookingsPage } from '../pages/bookings/bookings';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
+import { CalendarModule } from 'ionic3-calendar-en';
 @NgModule({
   declarations: [
     MyApp,
@@ -51,6 +52,7 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder';
   ],
   imports: [
     BrowserModule,
+    CalendarModule,
     IonicModule.forRoot(MyApp,{
       scrollPadding: true,
       scrollAssist: false,

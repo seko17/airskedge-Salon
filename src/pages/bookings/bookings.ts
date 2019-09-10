@@ -5,7 +5,7 @@ import { ViewUserPorfilePage } from '../view-user-porfile/view-user-porfile';
 import { AddhairStylePage } from '../addhair-style/addhair-style';
 import * as firebase from 'firebase';
 import { UserProvider } from '../../providers/user/user';
-import { ValueTransformer } from '@angular/compiler/src/util';
+
 
 /**
  * Generated class for the BookingsPage page.
@@ -265,6 +265,34 @@ console.log(this.hairdresser,this.userdate)
       ]
     });
     prompt.present();
+  }
+
+  todate;
+  onDaySelect(event)
+  {
+console.log(event);
+event.year;
+event.month;
+event.date;
+
+console.log(event.year,
+  event.month,
+  event.date)
+
+  this.todate = (event.year)+'-'+(event.month)+'-'+(event.date);
+  if((event.month+1)<10)
+  {
+
+    this.todate = (event.year)+'-0'+(event.month+1)+'-'+(event.date);
+  if((event.date)<10)
+  {
+    this.todate = (event.year)+'-0'+(event.month+1)+'-0'+(event.date);
+  }
+
+}
+this.userdate =this.todate;
+console.log("Currentdate =",this.userdate)
+
   }
 }
 
