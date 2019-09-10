@@ -21,6 +21,7 @@ import { UserProvider } from '../../providers/user/user';
 @Component({
  selector: 'page-landing',
  templateUrl: 'landing.html',
+ 
 })
 export class LandingPage {
   db = firebase.firestore();

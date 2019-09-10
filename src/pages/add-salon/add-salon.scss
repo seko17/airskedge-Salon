@@ -62,12 +62,13 @@ page-add-salon {
     top: 50%;
 
     .item {
-      width: 40vh;
-      background: transparent;
-      color: grey;
-      .input{
-        color: grey;
-      }
+      width: 100%;
+      text-align: center;
+      box-shadow: 1px 3px 3px grey;
+      border-radius: 50px;
+      // background: transparent;
+      color: rgb(0, 0, 0);
+    
     }
   }
 

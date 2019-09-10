@@ -22,6 +22,8 @@ import { ManageStaffPage } from '../manage-staff/manage-staff';
 })
 export class ManageHairSalonPage {
   isSalon = false;
+  isnotSalon = false;
+
   isHairstyle = false;
   db = firebase.firestore();
   uid
@@ -74,9 +76,7 @@ c(){
   this.authService.logoutUser();
 }
   //function to go to manage staff page  
-  viewstaff(){
-    this.navCtrl.push( ManageStaffPage);
-  }
+ 
   //Function to go to add Salon page only visisble when there's no availiable salon
 addSalon(){
   this.navCtrl.push(AddSalonPage);
@@ -174,9 +174,11 @@ this.styles.push(doc.data());
       });
       })
       this.isSalon = true;
+      this.isnotSalon = false;
     } else {
       console.log('No data');
       this.isSalon = false;
+      this.isnotSalon = true;
     }
     load.dismiss();
   }).catch(err => {
@@ -195,6 +197,9 @@ ViewUserPorfilePage(){
 //Function to push to adding a new hairstyle
 addStyle(){
   this.navCtrl.setRoot(AddhairStylePage);
+}
+viewstaff(){
+  this.navCtrl.setRoot( ManageStaffPage);
 }
 
 getProfile(){
