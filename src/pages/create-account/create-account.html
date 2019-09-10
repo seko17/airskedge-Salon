@@ -21,7 +21,7 @@
     </div>
     <br>
       <div class="signin">
-        <h4>Sign-Up into your account to continue</h4>
+        <h4>Create account to continue</h4>
         </div>
  
   <div class="form">
@@ -32,9 +32,9 @@
               [class.invalid]="!signupForm.controls['email'].valid && signupForm.controls['email'].touched">
             </ion-input>
           </ion-item>
-          <ion-item class="error-message" *ngIf="!signupForm.controls['email'].valid
+          <ion-item style="background: transparent; border: none; box-shadow: none"  class="error-message" *ngIf="!signupForm.controls['email'].valid
             && signupForm.controls['email'].touched">
-            <ion-label style="color:red; font-size: 13px">Please enter a valid email.</ion-label>
+            <ion-label style="color:red; font-size: 16px">Please enter a valid email.</ion-label>
           </ion-item>
       <br>
           <ion-item>
@@ -43,11 +43,10 @@
               [class.invalid]="!signupForm.controls['password'].valid && signupForm.controls['password'].touched">
             </ion-input>
           </ion-item>
-          <ion-item class="error-message" *ngIf="!signupForm.controls['password'].valid  &&
+          <ion-item style="background: transparent; border: none;box-shadow: none"  class="error-message" *ngIf="!signupForm.controls['password'].valid  &&
             signupForm.controls['password'].touched">
-            <ion-label style="color:red; font-size: 13px">Your password needs more than 6 characters.</ion-label>
+            <ion-label style="color:red; font-size: 16px">Your password needs more than 6 characters.</ion-label>
             <br>
-            <ion-label style="color:red; font-size: 13px">Your password needs more than 15 characters.</ion-label>
           </ion-item>
       <br>
       <br>

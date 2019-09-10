@@ -49,6 +49,7 @@ SalonLogoImage;
     SalonContactNo: '',
     userUID: '',
     coords: {lat:0,lng:0},
+    streetName : ''
 
   }
   constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthServiceProvider,
@@ -79,6 +80,7 @@ SalonLogoImage;
     this.SalonNode.coords.lat = addres.geometry.location.lat() ;
     this.SalonNode.coords.lng =addres.geometry.location.lng() ;
     this.SalonNode.location = addres.formatted_address ;
+    this.SalonNode.streetName = addres.name;
  
     
 }

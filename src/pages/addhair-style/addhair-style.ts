@@ -28,6 +28,7 @@ export class AddhairStylePage {
   storage = firebase.storage().ref();
   db = firebase.firestore();
   Gender : any = ['female','male'];
+  Duration =  [{value:30, label:'30 minutes'},{value:60, label: '1 Hour'},{value:120, label: '2 Hours'},{value:180, label: '3 hours'}]
   addhairStyleForm : FormGroup;
 styleImage
 uploadprogress
@@ -95,7 +96,7 @@ isuploading: false
       user.then( () => {
         this.navCtrl.setRoot(ManageHairSalonPage)
         this.toastCtrl.create({
-          message: 'User Salon added.',
+          message: 'User hairStyle added',
           duration: 2000,
        
         }).present();
@@ -105,7 +106,7 @@ isuploading: false
         // catch any errors.
       }).catch( err=> {
         this.toastCtrl.create({
-          message: 'Error creating Profile.',
+          message: 'Error creating hairstyle.',
           duration: 2000
         }).present();
        
@@ -180,7 +181,7 @@ isuploading: false
   getHairSalon(){
  
     let load = this.loadingCtrl.create({
-     content: 'Please wait...',
+     content: ' wait...',
      spinner: 'dots'
    });
    load.present();

@@ -1,60 +1,76 @@
 page-add-staff {
-    .container{
-      display: flex;
-      flex-flow: column;
-      // justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      position: fixed;
-    }
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html{
+    text-decoration: none;
+    color: #fff;
 
-    .back{
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      font-size: 20px;
-    }
+  }
 
-    .propic{
-      width: 200px;
-      height: 200px;
-      background: rgba(128, 128, 128, 0.747);
-      position: absolute;
-      top:10%;
-      border-radius: 50%;
-      border: 5px solid grey;
-      overflow: hidden;
-      img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 50%;
-      }
+  .heading{
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    letter-spacing: 3px;
+    // margin-right: -3pxx;
+    // margin-bottom: 3rem;
+    text-align: center;
+    color: #333;
+    position: relative;
 
-      .btnz{
-        position: relative;
-        top: 100px;
-        left: 150px;
-        button{
-          border-radius: 50%;
-        }
-      }
-    }
 
-    .form1{
-      position: absolute;
-      top: 45%;
-    }
+  }
+  .heading::after{
+    content:"";
+    width:10rem;
+    height: .8rem;
+    background-color: #45e19f;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2rem;
 
-    .btn{
-      position: absolute;
-      top: 70%;
-      width: 250px;
-    }
+  }
+  .card-wrapper{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+  }
+  .card{
+    width: 100%;
+    background-color: #ebeef8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+    box-shadow: .5rem 3rem 3rem rgba(0,0,0,0.2);
+
+  }
+  
     .item {
-      background: rgb(230, 230, 230);
-      box-shadow: 5px 5px 10px rgb(180, 180, 180);
+      
+      background: rgb(255, 255, 255);
+      // box-shadow: 5px 5px 10px rgb(180, 180, 180);
       border-radius: 50px;
     }
+
+  .backimage {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(rgba(128, 128, 128, 0.521)), url('../../assets/imgs/image.png');
+    border: 6px solid rgba(128, 128, 128, 0.897);
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    position: relative;
+    top: 30px;
+  }
+
+ 
+
 }

@@ -6,6 +6,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import * as firebase from 'firebase';
 import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
 import { AddStaffPage } from '../add-staff/add-staff';
+import { LandingPage } from '../landing/landing';
 /**
  * Generated class for the ManageStaffPage page.
  *
@@ -54,7 +55,7 @@ export class ManageStaffPage {
          console.log('Profile Document: ', doc.data())
          this.displayProfile = doc.data();
  //query to get all staff
-         this.db.collection('SalonNode').doc(doc.data().salonName).collection('Staff').get().then( res =>{
+         this.db.collection('SalonNode').doc(doc.data().salonName).collection('staff').get().then( res =>{
        res.forEach(doc =>{
  this.staff.push(doc.data());
          console.log('styles' , doc.data());
@@ -73,7 +74,7 @@ export class ManageStaffPage {
  }
 
  goback(){
-  this.navCtrl.pop();
+  this.navCtrl.setRoot(ManageHairSalonPage);
 }
 
 }

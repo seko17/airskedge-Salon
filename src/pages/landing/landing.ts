@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController, AlertController } from 'ionic-angular';
-
 import { LoginPage } from '../login/login';
 import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
 import * as firebase from 'firebase';
@@ -13,16 +12,16 @@ import { UserProvider } from '../../providers/user/user';
 
 
 /**
- * Generated class for the LandingPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
+* Generated class for the LandingPage page.
+*
+* See https://ionicframework.com/docs/components/#navigation for more info on
+* Ionic pages and navigation.
+*/
 @IonicPage()
 @Component({
-  selector: 'page-landing',
-  templateUrl: 'landing.html',
+ selector: 'page-landing',
+ templateUrl: 'landing.html',
+ 
 })
 export class LandingPage {
   db = firebase.firestore();
@@ -47,7 +46,7 @@ export class LandingPage {
       this.uid = firebase.auth().currentUser.uid;
       this.authservice.setUser(this.uid);
   }
-
+obj ={};
   ionViewDidLoad() {
    this.getProfile();
   }
@@ -68,7 +67,7 @@ export class LandingPage {
     this.navCtrl.push( UserCreateProfilePage)
    
   }
-  obj ={};
+  
   manageSalon(){
     this.navCtrl.push(ManageHairSalonPage)
   }

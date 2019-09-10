@@ -10,7 +10,7 @@ page-login {
     color: white;
     background: linear-gradient(rgba(78, 78, 78, 0.384), black), url('https://images.unsplash.com/photo-1550332781-aecd27f7434f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');
     position: fixed;
-    // font-family: 'Manjari';
+    font-family: 'Manjari';
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -18,8 +18,8 @@ page-login {
   .logo {
     position: absolute;
     top: 5%;
-    width: 150px;
-    height: 150px;
+    width: 35%;
+    height: 50%;
     // opacity: 0.10;
   }
 
@@ -34,11 +34,12 @@ page-login {
     top: 25%;
     text-align: center;
     // opacity: 0.6;
+    padding: 10px;
     h1 {
-      font-size: 35px;
+      font-size: 3vw;
 
       span {
-        font-size: 15px;
+        font-size:2vw;
       }
     }
   }
@@ -48,9 +49,10 @@ page-login {
     position: absolute;
     top: 50%;
     text-align: center;
+    width: 80%;
 
     .item {
-      width: 350px;
+      width: 100%;
       text-align: center;
       box-shadow: 1px 3px 3px grey;
       border-radius: 50px;
@@ -59,7 +61,7 @@ page-login {
     }
 
     button {
-      width: 350px;
+      width:40vh;
 
     }
   }

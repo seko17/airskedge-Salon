@@ -1,4 +1,12 @@
 page-manage-hair-salon {
+
+  .header{
+    background: transparent;
+    .toolbar-background{
+      background: transparent;
+      border: none;
+    }
+  }
   .Profimage {
     width: 100vw;
     height: 55vh;
@@ -21,7 +29,7 @@ page-manage-hair-salon {
 
     .container {
       width: 100%;
-      height: 40vh;
+      height: 100%;
       position: fixed;
       font-family: 'Manjari';
     }
@@ -29,7 +37,7 @@ page-manage-hair-salon {
     .displayName {
       color: white;
       position: absolute;
-      bottom: 0;
+      bottom: 10%;
       left: 0;
       padding: 5px;
       width: 100vw;
@@ -125,6 +133,8 @@ page-manage-hair-salon {
     height: 60vh;
     overflow-y: auto;
     font-family: 'Manjari';
+    position: relative;
+    top: 5vh;
   }
 
   #cards {
@@ -134,24 +144,23 @@ page-manage-hair-salon {
     margin: 6px;
 
     .item {
-      width: 200px;
-      height: 300px;
-      
-
+      width: 49%;
+      height: 35%;
+     
       img {
-        width: 200px;
-        height: 200px;
+        width: 50vw;
+        height: 30vh;
         box-shadow: 2px 2px 5px grey;
       }
 
-      .buttons {
-
-        button {
-          position: absolute;
-          bottom: 20%;
-        }
-      }
+    
     }
 
+  }
+
+  #fab{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
   }
 }
