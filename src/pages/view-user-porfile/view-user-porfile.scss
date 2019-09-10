@@ -2,7 +2,7 @@ page-view-user-porfile {
 
   .content{
 
-    
+    background: rgb(226, 226, 226);
   }
   .parent{
     width: 100%;
@@ -20,12 +20,13 @@ page-view-user-porfile {
     height: 35%;
     
     position: absolute;
-    bottom: -90px;
+    bottom: -80px;
   left: 10%;
 right: 10%;
-    background-color: rgba(26, 26, 26, 0.89);
+    background-color: rgb(252, 252, 252);
     border-radius: 20px;
-    color: aliceblue;
+    color: rgb(0, 0, 0);
+
   }
 .info1{
   margin: 20px;
@@ -37,7 +38,43 @@ right: 10%;
   font-size: 30px;
   float: right;
 }
+.flex-container {
+  display: flex;
+  justify-content: center;
 
+}
+
+.flex-container > div {
+
+  width: 100%;
+  margin: 10px;
+  text-align: center;
+  line-height: 10px;
+  font-size: 30px;
+}
+.btn1{
+border: 1px solid;
+color:  rgb(7, 7, 12);
+}
+.btn2{
+background: rgb(1, 2, 2);
+color: white;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+
+
+}
+
+.flex > div {
+
+  width: 100%;
+  margin: 10px;
+  text-align: center;
+  line-height: 45px;
+  font-size: 20px;
+}
 //   *{
 //     margin: 0;
 //     padding: 0;
