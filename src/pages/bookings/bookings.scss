@@ -3,39 +3,62 @@ page-bookings {
     margin: 0;
     padding: 0;
   }
-  
-  .content{
+
+  .content {
     font-family: 'Manjari';
   }
 
-  .container {
+  .body {
     font-family: 'Manjari';
+
     .time {
       display: flex;
-      flex-flow: column;
+      flex-flow: row;
       background: rgba(255, 251, 251, 0.26);
       margin: 15px;
       border-radius: 10px;
       border: 1px solid grey;
       font-family: 'Manjari';
+      height: 20vh;
+      position: relative;
+
       // height: 150px;
+      .data {
+        margin: 3%;
 
-      p {
+        p {
+          margin: 5px;
+        }
 
-        margin: 5px;
+        .buttz {
+          position: absolute;
+          right: 3%;
+          bottom: 7%;
 
+          button {
+            width: 4vh;
+            height: 6vh;
+          }
+        }
       }
 
-      #date {
-        text-align: right;
+
+      .date {
+        background: rgb(145, 144, 143);
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        text-align: center;
+
+        #date {
+          transform: rotate(-90deg);
+          position: relative;
+          top: 40%;
+        }
       }
 
-      button {
-        width: 50px;
-     
-      }
+
     }
   }
 
-  
+
 }

@@ -44,21 +44,21 @@
             <p>{{n.hairstylePrice | currency:'&#82;'}}</p>
     
             <ion-buttons end style="position: absolute;
-              top: 6%;
-              left: 75%;
+              top: 2%;
+              left: 73%;
               width: 40px;
               height: 40px;">
-              <button ion-button color="dark" (click)="Delete(n)" style="border-radius: 50%;
-                width: 40px;
-                height: 40px;">
+              <button ion-button color="danger" (click)="Delete(n)" style="border-radius: 50%;
+                width: 30px;
+                height: 30px;">
                 <ion-icon name="close"></ion-icon>
               </button>
             </ion-buttons>
           </ion-item>
         </div>
       </div>
-      <ion-fab right bottom>
-        <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+      <ion-fab right bottom id="fab">
+        <button ion-fab color="dark"><ion-icon name="arrow-dropleft"></ion-icon></button>
         <ion-fab-list side="left">
           <button  (click)="addStyle()" ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
           <button  (click)="viewstaff()" ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
@@ -74,8 +74,6 @@
         <div class="line"></div>
         <div class="email"><p>{{displayProfile.numHairDressers}}</p></div> | currency:'&#82;'
       </div> -->
-
- 
 
 <!-- 
   <ion-fab right bottom style="position: fixed">
