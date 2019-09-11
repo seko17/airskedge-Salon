@@ -10,6 +10,14 @@
     <ion-row>
       <ion-col size="12">
 
+
+
+        <ion-item>
+          <ion-label position="stacked">Selected Date</ion-label>
+          <ion-input clear placeholder="session time" type="date" displayFormat="DD/MM/YYYY" min='2019-01-01'
+            [(ngModel)]="userdate" readonly></ion-input>
+        </ion-item>
+        
           <ion-item>
               <ion-label>Hairdresser</ion-label>
               <ion-select okText="Okay" [(ngModel)]="hairdresser">
@@ -17,11 +25,7 @@
               </ion-select>
             </ion-item>
 
-          <ion-item>
-              <ion-label position="stacked">Selected Date</ion-label>
-              <ion-input clear placeholder="session time" type="date" displayFormat="DD/MM/YYYY" min='2019-01-01'
-                [(ngModel)]="userdate" readonly></ion-input>
-            </ion-item>
+       
       
         <div class="body">
           <div class="time" *ngFor="let n of testArray">
@@ -34,7 +38,7 @@
               <p> For about {{n.estimatedtime}} minutes</p>
               <p>Client {{n.status}}</p>
               <div class="buttz">
-                <button ion-button [disabled]="validated" *ngIf="n.status2!='cancelled'" (click)="cancels(n)">
+                <button ion-button [disabled]="validated" *ngIf="n.status2!='cancelled' && n.status!='cancelled'" (click)="cancels(n)">
                   <ion-icon name="close"></ion-icon>
                 </button>
               </div>

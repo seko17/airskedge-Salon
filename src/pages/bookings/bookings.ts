@@ -152,7 +152,14 @@ userdate;
   {
 
     console.log(this.hairdresser,this.userdate)
-    this.getHairSalon()
+    if(this.hairdresser ==undefined)
+    {
+    console.log("error")
+    this.presentAlert();
+    }
+    else{
+      this.getHairSalon();
+    }
   }
   cancelbooking:boolean;
   cancels(x)
@@ -293,6 +300,17 @@ console.log(event.year,
 this.userdate =this.todate;
 console.log("Currentdate =",this.userdate)
 
+  }
+
+
+
+  presentAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Caution!',
+      subTitle: 'Select the name of the hairdresser first.',
+      buttons: ['Dismiss']
+    });
+    alert.present();
   }
 }
 
