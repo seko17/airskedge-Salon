@@ -14,11 +14,10 @@ page-salon-registrationpage {
   }
 
   .item {
-    box-shadow: 5px 5px 10px rgb(180, 180, 180);
-    border-radius: 40px;
-    margin: 5px;
-    height: 0.5vh;
-    width: 40vh;
+    background: rgb(255, 255, 255);
+    // box-shadow: 5px 5px 10px rgb(180, 180, 180);
+    border-radius: 50px;
+    margin: 11px;
 // align-items: center;
     .input {
       background: transparent;
@@ -34,7 +33,7 @@ page-salon-registrationpage {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: .5rem 3rem 3rem rgba(0, 0, 0, 0.2);
+ 
   }
 
   * {
@@ -65,7 +64,7 @@ page-salon-registrationpage {
     height: 5.5vh;
     border-radius: 20px;
     border: none;
-    box-shadow: .5rem 3rem 3rem rgba(0, 0, 0, 0.2);
+
     position: relative;
     left: 1.5%;
     padding: 10px;
