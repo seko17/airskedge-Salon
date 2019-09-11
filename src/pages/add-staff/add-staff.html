@@ -116,12 +116,12 @@
                       <ion-label> Name
           
                       </ion-label>
-                      <ion-input type="text" formControlName="staffName" [(ngModel)]="Staff.staffName" ngDefaultControl>
+                      <ion-input type="text" formControlName="name" [(ngModel)]="Staff.name" ngDefaultControl>
                       </ion-input>
                     </ion-item>
-                    <div class="error" *ngFor="let validate of validation_messages.staffName">
+                    <div class="error" *ngFor="let validate of validation_messages.name">
                       <div class="messages"
-                        *ngIf="staffForm.get('staffName').hasError(validate.type) && (staffForm.get('staffName').dirty || staffForm.get('staffName').touched)">
+                        *ngIf="staffForm.get('name').hasError(validate.type) && (staffForm.get('name').dirty || staffForm.get('name').touched)">
                         {{validate.message}}
                       </div>
                     </div>

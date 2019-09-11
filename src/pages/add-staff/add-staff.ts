@@ -53,7 +53,7 @@ export class AddStaffPage {
     private formBuilder: FormBuilder) {
 
     this.staffForm = this.formBuilder.group({
-      staffName: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
+      name: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
       staffSurname: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
       personalNumber: new  FormControl('', Validators.compose([Validators.required, Validators.maxLength(10)])),
    
@@ -78,7 +78,7 @@ export class AddStaffPage {
 
       let customStaffNumber = this.Staff.name +""+ 1000 + Math.floor(Math.random() * 10);    
       this.Staff.uid = customStaffNumber;
-      const user = this.db.collection('SalonNode').doc(this.SalonNode.salonName).collection('staff').doc(this.Staff.uid).set(this.Staff);
+      const user = this.db.collection('SalonNode').doc(this.SalonNode.salonName).collection('staff').doc(this.Staff.name).set(this.Staff);
       // upon success...
       user.then( () => {
         this.navCtrl.setRoot(ManageHairSalonPage)
@@ -142,7 +142,7 @@ export class AddStaffPage {
 
   } 
   validation_messages = {
-    'staffName': [
+    'name': [
       { type: 'required', message: 'Name is required.' },
       { type: 'minlength', message: 'Name must be at least 4 characters long.' },
       { type: 'maxlength', message: 'Name cannot be more than 25 characters long.' },
