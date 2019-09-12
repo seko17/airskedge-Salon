@@ -5,8 +5,13 @@ page-bookings {
   }
 
   .content {
-    // font-family: 'Manjari';
+    background: rgb(31, 31, 31);
+    color: orangered;
   }
+
+
+
+ 
 
   .body {
     // font-family: 'Manjari';
@@ -27,7 +32,8 @@ page-bookings {
         margin: 3%;
 
         p {
-          margin: 5px;
+          margin: 6px;
+          color: white;
         }
 
         .buttz {
@@ -42,12 +48,17 @@ page-bookings {
         }
       }
 
+      .item{
+        background: transparent;
+      }
+
 
       .date {
         background: rgb(219, 120, 21);
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
         text-align: center;
+        color: white;
 
         #date {
           transform: rotate(-90deg);

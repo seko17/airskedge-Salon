@@ -43,7 +43,7 @@ page-home {
 
       h1 {
         font-size: 7vw;
-        color: white;
+        color: rgb(255, 255, 255);
         // font-family: 'Manjari';
       }
     }
@@ -106,6 +106,7 @@ page-home {
     .skip {
       position: relative;
       top: 10px;
+      width: 50px;
       button {
         background: orangered;
         border-radius: 50%;

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, LoadingController, AlertController, Popover, PopoverController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Slides, ToastController, LoadingController, AlertController, Popover, PopoverController } from 'ionic-angular';
 import { AddSalonPage } from '../add-salon/add-salon';
 import * as firebase from 'firebase';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
@@ -8,12 +8,7 @@ import { AddhairStylePage } from '../addhair-style/addhair-style';
 import { StyleviewpopoverComponent } from '../../components/styleviewpopover/styleviewpopover';
 import { EditstylesPage } from '../editstyles/editstyles';
 import { ManageStaffPage } from '../manage-staff/manage-staff';
-/**
- * Generated class for the ManageHairSalonPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -21,6 +16,9 @@ import { ManageStaffPage } from '../manage-staff/manage-staff';
   templateUrl: 'manage-hair-salon.html',
 })
 export class ManageHairSalonPage {
+@ViewChild('slider') slider: Slides;
+  page = "0";
+
   isSalon = false;
   isnotSalon = false;
 
@@ -52,6 +50,8 @@ export class ManageHairSalonPage {
     uid: ''
 
   }
+
+  analitics =[];
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public toastCtrl: ToastController, 
@@ -65,6 +65,22 @@ export class ManageHairSalonPage {
     console.log('check salon profile',this.displayProfile); 
     
     console.log('check',this.styles)     
+
+    this.analitics;
+    firebase.firestore().collection('salonAnalytics').doc(firebase.auth().currentUser.uid).collection('numbers').get().then(val=>{
+      val.forEach(data=>{
+        console.log(data.data())
+        this.analitics.push(data.data());
+      })
+    })
+  }
+
+  selectedTab(ind){
+    this.slider.slideTo(ind);
+  }
+
+  moveButton($event){
+    this.page= $event._snapIndex.toString();
   }
 
   ionViewDidLoad() {
@@ -196,7 +212,7 @@ ViewUserPorfilePage(){
 }
 //Function to push to adding a new hairstyle
 addStyle(){
-  this.navCtrl.setRoot(AddhairStylePage);
+  this.navCtrl.push(AddhairStylePage);
 }
 viewstaff(){
   this.navCtrl.setRoot( ManageStaffPage);

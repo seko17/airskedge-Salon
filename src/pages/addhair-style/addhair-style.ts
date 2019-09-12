@@ -24,7 +24,7 @@ import { Address } from 'ngx-google-places-autocomplete/objects/address';
 })
 export class AddhairStylePage {
 
-
+  profileImage = false
   storage = firebase.storage().ref();
   db = firebase.firestore();
   Gender : any = ['female','male'];
@@ -129,6 +129,7 @@ isuploading: false
       const image = `data:image/jpeg;base64,${res}`;
 
       this.styleImage = image;
+      this.profileImage = true
       const filename = Math.floor(Date.now() / 1000);
       let file = 'Salon-styles/' + this.authService.getUser() + '.jpg';
       const UserImage = this.storage.child(file);
