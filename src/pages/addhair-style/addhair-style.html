@@ -8,15 +8,15 @@
 <ion-content >
     <section>
   <div class="container">
-   
+   <br><br><br>
      <!-- input for salon cover image-->
      <div class="card-wrapper">
      <div class="card">
      <div class="backimage">
         <div class="pickImage">
-            <button *ngIf="!styleImage" ion-button clear large full (click)="selectImage()">Select hairstyle image</button>
+            <button *ngIf="!styleImage" ion-button clear large full (click)="selectImage()">Select</button>
          </div>
-      <div *ngIf="profileImage" class="image">
+      <div *ngIf="profileImage" class="image" (click)="selectImage()">
           <img  src="{{styleImage}}">
        </div>
     
