@@ -4,14 +4,6 @@ page-bookings {
     padding: 0;
   }
 
-  .content {
-    background: rgb(31, 31, 31);
-    color: orangered;
-  }
-
-
-
- 
 
   .body {
     // font-family: 'Manjari';
@@ -33,7 +25,7 @@ page-bookings {
 
         p {
           margin: 6px;
-          color: white;
+
         }
 
         .buttz {
@@ -48,17 +40,19 @@ page-bookings {
         }
       }
 
-      .item{
+      .item {
         background: transparent;
       }
 
 
       .date {
-        background: rgb(219, 120, 21);
+        background: rgb(14, 13, 13);
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
         text-align: center;
         color: white;
+
+
 
         #date {
           transform: rotate(-90deg);
@@ -71,5 +65,16 @@ page-bookings {
     }
   }
 
+  h1 {
+    font-size: 8vw;
+    color: black;
+    // text-shadow: 5px 5px 6px rgba(128, 128, 128, 0.459);
+  }
+
+  .datez {
+    width: 100%;
+    height: 500px;
+    overflow-y: auto;
+  }
 
 }

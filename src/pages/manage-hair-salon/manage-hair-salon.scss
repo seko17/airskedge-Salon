@@ -1,42 +1,60 @@
 page-manage-hair-salon {
-  .header{
-    background: transparent;
-    .toolbar-background{
+
+  .header {
+    border: none;
+    // box-shadow: none;
+
+    .toolbar-background {
       background: transparent;
       border: none;
     }
   }
-  
+
+  .container {
+    width: 100%;
+    height: 100vh;
+  }
+
+  #top {
+    width: 100%;
+    height: 100vh;
+  }
+
   .Profimage {
     width: 100vw;
-    height: 55vh;
+    height: 60vh;
     position: relative;
-    overflow: hidden;
+    top: 0;
+    // overflow: hidden;
+
     background: black;
 
-    .contact{
+
+
+    .contact {
       display: flex;
       flex-flow: row;
       justify-content: space-evenly;
       position: absolute;
-     top: 75%;
-     left: 5%;
+      top: 80%;
+      left: 5%;
       z-index: 5;
       color: rgb(187, 185, 185);
       font-family: 'Manjari';
-      .likes{
+
+      .likes {
         margin: 5px;
         font-size: 5vw;
         text-align: center;
       }
 
-      .views{
+      .views {
         margin: 5px;
         font-size: 5vw;
         text-align: center;
       }
 
-      .bookings{
+      .bookings {
         margin: 5px;
         font-size: 5vw;
         text-align: center;
@@ -48,6 +66,7 @@ page-manage-hair-salon {
       height: 100%;
       object-fit: cover;
       opacity: 0.6;
+      position: relative;
     }
 
     .butt {
@@ -56,13 +75,14 @@ page-manage-hair-salon {
       left: 10px;
     }
 
-   .displayName {
+    .displayName {
       color: white;
       position: absolute;
-      bottom: 30%;
-      left: 30%;
+      bottom: 40%;
+      // left: 30%;
       padding: 5px;
       width: 100vw;
+      text-align: center;
 
       h4 {
         font-weight: normal;
@@ -72,6 +92,12 @@ page-manage-hair-salon {
         color: white;
         font-family: 'Manjari';
       }
+    }
+
+    .displayName1 {
+      position: absolute;
+      top: 70%;
+      left: 25%;
     }
   }
 
@@ -125,42 +151,47 @@ page-manage-hair-salon {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    // margin: 6px;
-    overflow-y: scroll;
+    height: 30vh;
+    overflow-y: auto;
 
     .item {
-      width: 49%;
-      height: 35%;
-     
+      width: 50%;
+      min-height: 35%;
+
       img {
-        width: 50vw;
-        height: 30vh;
+        width: 60vw;
+        height: 25vh;
         box-shadow: 2px 2px 5px grey;
       }
     }
   }
 
-  #fab{
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-  }
 
-  .seg{
-    margin: 10px;
-    .segment{
+  .one{
+    position: relative;
+    bottom: 40%;
+  }
+  .seg {
+    margin: 5px;
+    position: relative;
+    bottom: 38%;
+
+    .segment {
       border: none;
 
     }
   }
 
-  .slidez{
-    margin: 10px;
+  .slidez {
+    position: relative;
+    bottom: 40%;
+    // background: red;
   }
 
-  // .floater{
-  //   position: absolute;
-  //   bottom: 10px;
-  //   right: 10px;
-  // }
+  #fab {
+    position: fixed;
+    z-index: 3;
+    bottom: 10px;
+    right: 10px;
+  }
 }

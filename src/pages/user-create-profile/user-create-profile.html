@@ -7,60 +7,95 @@
 <ion-content padding>
   <h1 style="text-align: center">AirSkedge</h1>
   <p style="text-align: center">Verson 1.0</p>
-<ion-item *ngFor ="let x of analitics">
-  <p>
-Salon likes :&nbsp;{{x.likes}}<br>
-Number of views :&nbsp;{{x.numberofclicks}}<br>
-All bookings :&nbsp;{{x.numberofbookings}}<br>
-Salon booking cancellations:&nbsp;{{x.saloncancellations}}<br>
-User booking cancellations:&nbsp;{{x.usercancellations}}<br>
-</p>
-</ion-item>
-  <h2>About Us</h2>
-  <p>Lorem ipsum dolor sit amet, quis eget
-    elementum maecenas metus donec. Ligula
-    velit neque mauris metus tellus, id platea
-    morbi lacinia sed dolor, rutrum mauris
-    imperdiet magnis sem, ante velit id placerat
-    facilisi mattis, nunc vitae ac sagittis non
-    </p>
+  <br>
+ <br>
+  <div class="analytics" style="text-align: center">
+    <div class="name" (click)="getanalytics()">
+      <h2>Analytics</h2>
+    </div>
+    <div class="text" *ngIf="!analytics" style="text-align: left; margin: 10px;">
+      <ion-item *ngFor="let x of analitics">
+        <p>
+          Salon likes :&nbsp;{{x.likes}}<br>
+          Number of views :&nbsp;{{x.numberofclicks}}<br>
+          All bookings :&nbsp;{{x.numberofbookings}}<br>
+          Salon booking cancellations:&nbsp;{{x.saloncancellations}}<br>
+          User booking cancellations:&nbsp;{{x.usercancellations}}<br>
+        </p>
+      </ion-item>
+    </div>
 
-  <h2>Disclaimer</h2>
+  </div>
 
-  <p>Lorem ipsum dolor sit amet, quis eget
-    elementum maecenas metus donec. Ligula
-    velit neque mauris metus tellus, id platea
-    morbi lacinia sed dolor, rutrum mauris
-    imperdiet magnis sem, ante velit id placerat
-    facilisi mattis, nunc vitae ac sagittis non
-    eu lobortis. Amet donec nonummy sit odio
-    vestibulum, pellentesque orci,
-    nec nec erat lobortis eros, a tellus quis in.
-  </p>
+  <div class="AboutUs" style="text-align: center">
+    <div class="name" (click)="getAbout()">
+      <h2>About Us</h2>
+    </div>
+    <div class="text" *ngIf="!aboutUs" style="text-align: left; margin: 10px;">
+      <p>Lorem ipsum dolor sit amet, quis eget
+        elementum maecenas metus donec. Ligula
+        velit neque mauris metus tellus, id platea
+        morbi lacinia sed dolor, rutrum mauris
+        imperdiet magnis sem, ante velit id placerat
+        facilisi mattis, nunc vitae ac sagittis non
+      </p>
+    </div>
 
-    <h2>Terms Of Use</h2>
+  </div>
 
-    <p>Lorem ipsum dolor sit amet, quis eget
-      elementum maecenas metus donec. Ligula
-      velit neque mauris metus tellus, id platea
-      morbi lacinia sed dolor, rutrum mauris
-      imperdiet magnis sem, ante velit id placerat
-      facilisi mattis, nunc vitae ac sagittis non
-      eu lobortis. Amet donec nonummy sit odio
-      vestibulum, pellentesque orci,
-</p>
+  <div class="disclaimer" style="text-align: center">
+    <div class="name" (click)="getdisclaimer()">
+      <h2>Disclaimer</h2>
+    </div>
+    <div class="text" *ngIf="!disclaimer" style="text-align: left; margin: 10px;">
+      <p>Lorem ipsum dolor sit amet, quis eget
+        elementum maecenas metus donec. Ligula
+        velit neque mauris metus tellus, id platea
+        morbi lacinia sed dolor, rutrum mauris
+        imperdiet magnis sem, ante velit id placerat
+        facilisi mattis, nunc vitae ac sagittis non
+        eu lobortis. Amet donec nonummy sit odio
+        vestibulum, pellentesque orci,
+        nec nec erat lobortis eros, a tellus quis in.
+      </p>
+    </div>
+  </div>
 
-<h2>Legal Information</h2>
+  <div class="terms" style="text-align: center">
+    <div class="name" (click)="getterms()">
+      <h2>Terms Of Use</h2>
+    </div>
+    <div class="text" *ngIf="!terms" style="text-align: left; margin: 10px; ">
+      <p>Lorem ipsum dolor sit amet, quis eget
+        elementum maecenas metus donec. Ligula
+        velit neque mauris metus tellus, id platea
+        morbi lacinia sed dolor, rutrum mauris
+        imperdiet magnis sem, ante velit id placerat
+        facilisi mattis, nunc vitae ac sagittis non
+        eu lobortis. Amet donec nonummy sit odio
+        vestibulum, pellentesque orci,
+        nec nec erat lobortis eros, a tellus quis in.
+      </p>
+    </div>
+  </div>
 
-<ul>
-  <li>Open Source Licenses</li>
-  <li>Google Legal</li>
-  <li>Privacy Policy</li>
-  <li>Safety Information</li>
-</ul>
-
-
-  <p style="text-align: center; font-size: 12px">Copyright 2019 by CodeTribe Soweto</p>
-  <p style="text-align: center; font-size: 12px">All Rights Reserved</p>
-  <p style="text-align: center; font-size: 12px">Contact Us: info@airskedge.co.za</p>
+  <div class="legal" style="text-align: center">
+    <div class="name" (click)="getlegal()">
+      <h2>Legal Information</h2>
+    </div>
+    <div class="text" *ngIf="!legal" style="text-align: left; margin: 10px;">
+      <ul>
+        <li>Open Source Licenses</li>
+        <li>Google Legal</li>
+        <li>Privacy Policy</li>
+        <li>Safety Information</li>
+      </ul>
+    </div>
+  </div>
+<div class="copy">
+   <p>Copyright 2019 by CodeTribe Soweto</p>
+  <p>All Rights Reserved</p>
+  <p>Contact Us: info@airskedge.co.za</p>
+</div>
+ 
 </ion-content>

@@ -1,12 +1,13 @@
 page-user-create-profile {
-.content{
-    // font-family: 'Manjari';
-}
-.submit-container {
+  .content {
+    font-family: 'Manjari';
+  }
+
+  .submit-container {
     position: relative;
     margin: 80px;
   }
-  
+
   .submit-btn {
     width: 100px;
     color: #20BF7E;
@@ -21,37 +22,65 @@ page-user-create-profile {
     border-radius: 25px;
     transition: width .3s, margin .3s, background-color .3s, color .3s;
   }
-  
+
   .submit-btn:hover {
     background-color: #20BF7E;
     color: white;
   }
-  
+
   .submit-btn.round {
     margin-left: 50px;
     border-color: #CCCCCC;
     background: white;
-    
+
     /*  circle should be 50px width & height */
     /* borderLeft + paddingLeft + paddingRight + borderRight  */
     /* 4 + 20 + 20 + 4 = 48 + 2 = 50 */
-    width: 2px; 
+    width: 2px;
     /* borderTop + paddingTop + paddingBottom + borderBottom  */
     /* 4 + 10 + 10 + 4 = 28 + 22 = 50 */
     height: 22px;
   }
+
   .submit-btn.loaded {
     color: white;
     background-color: #20BF7E;
   }
-  
+
   .loader-svg {
     pointer-events: none;
     position: absolute;
     top: 0px;
     left: 50px;
-    width: 50px; 
-    height: 50px; 
+    width: 50px;
+    height: 50px;
     transform-origin: 25px 25px 25px;
+  }
+
+  .name {
+    border: 1px solid black;
+    margin: 10px;
+    background: black;
+    justify-content: center;
+
+    h2 {
+      padding: 8px;
+      margin: 5px;
+      color: white;
+      font-weight: normal;
+      font-family: 'Manjari';
+    }
+  }
+
+  .copy {
+    width: 100%;
+    position: absolute;
+    left: -10px;
+    bottom: 10px;
+    font-size: 12px;
+
+    p {
+      text-align: center;
+    }
   }
 }

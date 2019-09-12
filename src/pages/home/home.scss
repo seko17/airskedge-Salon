@@ -88,7 +88,7 @@ page-home {
 
   .desc {
     position: absolute;
-    bottom: 0.5%;
+    bottom: 4%;
     display: flex;
     flex-flow: row;
     justify-content: space-between;
@@ -97,15 +97,20 @@ page-home {
     padding: 10px;
 
     .text1 {
+      width: 30vh;
       font-size: 4vw;
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
       font-family: 'Manjari';
+      position: relative;
+      left: -20px;
     }
 
     .skip {
       position: relative;
       top: 10px;
+      left: 30px;
       width: 50px;
       button {
         background: orangered;
