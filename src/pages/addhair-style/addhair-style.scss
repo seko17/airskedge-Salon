@@ -15,6 +15,7 @@ page-addhair-style {
     align-items: center;
     align-content: center;
     flex-direction: column;
+   
   }
   .card{
 
@@ -27,10 +28,15 @@ page-addhair-style {
   }
   
 
+.container{
+  height: 100vh;
+}
 
 
-
-
+// .pickImage{
+//   position: absolute;
+//   top: 10%;
+// }
 
 
 .backimage {
@@ -42,7 +48,12 @@ page-addhair-style {
   background-repeat: no-repeat;
   border-radius: 50%;
 
-
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
 }
 
 .card-wrapper{
@@ -61,6 +72,8 @@ page-addhair-style {
  
  
 }
+
+
 
 
 }

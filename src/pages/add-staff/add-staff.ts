@@ -21,7 +21,7 @@ import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
 export class AddStaffPage {
   db = firebase.firestore();
   storage = firebase.storage().ref();
-
+  SalonCoverImage =  false;
   Staff = {
     name: '',
     staffSurname: '',
@@ -116,6 +116,7 @@ export class AddStaffPage {
       const image = `data:image/jpeg;base64,${res}`;
 
       this.profileImage = image;
+      
       const filename = Math.floor(Date.now() / 1000);
       let file = 'Salon-styles/' + this.authUser.getUser() + '.jpg';
       const UserImage = this.storage.child(file);

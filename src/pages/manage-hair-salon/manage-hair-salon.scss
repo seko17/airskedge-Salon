@@ -14,6 +14,35 @@ page-manage-hair-salon {
     overflow: hidden;
     background: black;
 
+    .contact{
+      display: flex;
+      flex-flow: row;
+      justify-content: space-evenly;
+      position: absolute;
+     top: 75%;
+     left: 5%;
+      z-index: 5;
+      color: rgb(187, 185, 185);
+      font-family: 'Manjari';
+      .likes{
+        margin: 5px;
+        font-size: 5vw;
+        text-align: center;
+      }
+
+      .views{
+        margin: 5px;
+        font-size: 5vw;
+        text-align: center;
+      }
+
+      .bookings{
+        margin: 5px;
+        font-size: 5vw;
+        text-align: center;
+      }
+    }
+
     img {
       width: 100%;
       height: 100%;
@@ -27,18 +56,11 @@ page-manage-hair-salon {
       left: 10px;
     }
 
-    .container {
-      width: 100%;
-      height: 100%;
-      position: fixed;
-      // font-family: 'Manjari';
-    }
-
-    .displayName {
+   .displayName {
       color: white;
       position: absolute;
-      bottom: 10%;
-      left: 0;
+      bottom: 30%;
+      left: 30%;
       padding: 5px;
       width: 100vw;
 
@@ -50,44 +72,6 @@ page-manage-hair-salon {
         color: white;
         font-family: 'Manjari';
       }
-    }
-  }
-
-  .contact {
-    width: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    justify-items: center;
-    text-align: center;
-    border-radius: 0px 0px 10px 10px;
-    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.219);
-    background: #323268;
-    color: rgb(227, 228, 255);
-    overflow: hidden;
-    border-bottom: solid 2px #5657A4;
-    font-family: 'Manjari';
-
-    div {
-      width: 50%;
-      display: grid;
-      align-items: center;
-      align-content: center;
-      justify-content: center;
-      justify-items: center;
-      padding: 10px 0px;
-
-      p {
-        font-size: 110%;
-        margin: 0;
-        padding: 0;
-      }
-    }
-
-    .line {
-      width: 2px;
-      background: gray;
     }
   }
 
@@ -138,10 +122,11 @@ page-manage-hair-salon {
   }
 
   #cards {
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    margin: 6px;
+    // margin: 6px;
+    overflow-y: scroll;
 
     .item {
       width: 49%;
@@ -152,10 +137,7 @@ page-manage-hair-salon {
         height: 30vh;
         box-shadow: 2px 2px 5px grey;
       }
-
-    
     }
-
   }
 
   #fab{
@@ -163,4 +145,22 @@ page-manage-hair-salon {
     bottom: 10px;
     right: 10px;
   }
+
+  .seg{
+    margin: 10px;
+    .segment{
+      border: none;
+
+    }
+  }
+
+  .slidez{
+    margin: 10px;
+  }
+
+  // .floater{
+  //   position: absolute;
+  //   bottom: 10px;
+  //   right: 10px;
+  // }
 }
