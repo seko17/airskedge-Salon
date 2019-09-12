@@ -79,9 +79,10 @@ page-manage-hair-salon {
       color: white;
       position: absolute;
       bottom: 40%;
-      left: 30%;
+      // left: 30%;
       padding: 5px;
       width: 100vw;
+      text-align: center;
 
       h4 {
         font-weight: normal;
@@ -165,6 +166,11 @@ page-manage-hair-salon {
     }
   }
 
+
+  .one{
+    position: relative;
+    bottom: 40%;
+  }
   .seg {
     margin: 5px;
     position: relative;

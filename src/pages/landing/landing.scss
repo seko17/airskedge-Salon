@@ -7,8 +7,8 @@ page-landing {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    // height: 100%;
-    // width: 100%;
+    height: 100%;
+    width: 100%;
   }
 
   .container {
@@ -17,11 +17,10 @@ page-landing {
     flex-flow: column;
     flex-direction: wrap;
     align-items: center;
-    // height: 100%;
-    // width: 100vh;
-   
-    // position: fixed;
-    // font-family: 'Manjari';
+    height: 100vh;
+    width: 100%;   
+    position: fixed;
+    font-family: 'Manjari';
   }
 
   .noprof {
@@ -107,8 +106,6 @@ page-landing {
     #name {
       font-size: 8vw;
     }
-
-
   }
 
   .main {
