@@ -9,6 +9,7 @@ import { BookingsPage } from '../bookings/bookings';
 import { UserCreateProfilePage } from '../user-create-profile/user-create-profile';
 import { ViewUserPorfilePage } from '../view-user-porfile/view-user-porfile';
 import { UserProvider } from '../../providers/user/user';
+import { AnalysisPage } from '../analysis/analysis';
 
 
 /**
@@ -55,7 +56,9 @@ obj ={};
       this.navCtrl.setRoot(LoginPage);
     });
   }
-
+  analysis(){
+    this.navCtrl.push(AnalysisPage)
+  }
   viewprofile(){
     this.navCtrl.push( ViewUserPorfilePage)
   }

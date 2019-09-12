@@ -49,8 +49,7 @@ SalonLogoImage;
     SalonContactNo: '',
     userUID: '',
     coords: {lat:0,lng:0},
-    streetName : ''
-
+    streetName : ''  
   }
   constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthServiceProvider,
     public camera: Camera,

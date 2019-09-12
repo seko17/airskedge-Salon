@@ -30,6 +30,9 @@ import { BookingsPage } from '../pages/bookings/bookings';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { CalendarModule } from 'ionic3-calendar-en';
+import { ViewReviewsPage } from '../pages/view-reviews/view-reviews';
+import { AnalysisPage } from '../pages/analysis/analysis';
+import { StarRatingModule } from 'ionic3-star-rating';
 @NgModule({
   declarations: [
     MyApp,
@@ -48,11 +51,14 @@ import { CalendarModule } from 'ionic3-calendar-en';
     EditstylesPage,
     ManageStaffPage,
     AddStaffPage,
-    BookingsPage
+    BookingsPage,
+    ViewReviewsPage,
+    AnalysisPage
   ],
   imports: [
     BrowserModule,
     CalendarModule,
+    StarRatingModule,
     IonicModule.forRoot(MyApp,{
       scrollPadding: true,
       scrollAssist: false,
@@ -81,7 +87,9 @@ import { CalendarModule } from 'ionic3-calendar-en';
     EditstylesPage,
     ManageStaffPage,
     AddStaffPage,
-    BookingsPage
+    BookingsPage,
+    ViewReviewsPage,
+    AnalysisPage
   ],
   providers: [
     StatusBar,
