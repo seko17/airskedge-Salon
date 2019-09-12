@@ -29,6 +29,8 @@ export class ManageHairSalonPage {
   disp = {}
   name
   styles = [];
+  maleStyles = [];
+  femaleStyles = []
   SalonNode = {
     salonName: '',
     salonImage: '',
@@ -52,6 +54,10 @@ export class ManageHairSalonPage {
   }
 
   analitics =[];
+  userRating = [];
+  total = 0;
+  dummy = []
+  aveg: number;
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public toastCtrl: ToastController, 
@@ -65,7 +71,7 @@ export class ManageHairSalonPage {
     console.log('check salon profile',this.displayProfile); 
     
     console.log('check',this.styles)     
-
+//Fubction for getting functionality
     this.analitics;
     firebase.firestore().collection('salonAnalytics').doc(firebase.auth().currentUser.uid).collection('numbers').get().then(val=>{
       val.forEach(data=>{
@@ -73,6 +79,9 @@ export class ManageHairSalonPage {
         this.analitics.push(data.data());
       })
     })
+
+console.log('salon name', this.SalonNode.salonName);
+
   }
 
   selectedTab(ind){
@@ -86,12 +95,14 @@ export class ManageHairSalonPage {
   ionViewDidLoad() {
     this.getHairSalon();
     this.getProfile();
+    this.getFemaleStyle();
+    this.getMaleStyle();
 
   }
 c(){
   this.authService.logoutUser();
 }
-  //function to go to manage staff page  
+ 
  
   //Function to go to add Salon page only visisble when there's no availiable salon
 addSalon(){
@@ -183,18 +194,32 @@ getHairSalon(){
         this.SalonNode.salonImage = doc.data().salonName;
         this.db.collection('SalonNode').doc(doc.data().salonName).collection('Styles').get().then( res =>{
       res.forEach(doc =>{
-this.styles.push(doc.data());
-        console.log('styles' , doc.data());
         this.isHairstyle = true;
       })
       });
+      this.db.collection('SalonNode').doc(doc.data().salonName).collection('ratings').onSnapshot( rates =>{
+        rates.forEach( doc =>{
+              this.userRating.push(doc.data().rating)
+              console.log('users', doc.data().rating);
+          
+            this.total += doc.data().rating;
+            console.log(this.total);
+            this.dummy.push(doc.data().rating)
+            
+            
+            })
+            this.aveg = this.total / this.dummy.length;
+            console.log('averge', this.aveg);
+      })
       })
       this.isSalon = true;
       this.isnotSalon = false;
+     
     } else {
       console.log('No data');
       this.isSalon = false;
       this.isnotSalon = true;
+      this.isHairstyle = false ;
     }
     load.dismiss();
   }).catch(err => {
@@ -204,7 +229,44 @@ this.styles.push(doc.data());
     load.dismiss();
   })
 }
-
+getMaleStyle(){
+  let users = this.db.collection('SalonNode');
+  let query = users.where("userUID", "==", this.authService.getUser());
+  query.onSnapshot(res =>{
+    if (res.empty !== true){
+      res.forEach( doc =>{
+      this.db.collection('SalonNode').doc(doc.data().salonName).collection('Styles').where("genderOptions","==","male").onSnapshot(snapshot =>{
+        this.maleStyles = []
+        snapshot.forEach(doc =>{
+          this.maleStyles.push(doc.data())
+          console.log('male styles here', doc.data());
+          
+        })
+      })
+        
+      })
+    }
+  })
+}
+getFemaleStyle(){
+  let users = this.db.collection('SalonNode');
+  let query = users.where("userUID", "==", this.authService.getUser());
+  query.onSnapshot(res =>{
+    if (res.empty !== true){
+      res.forEach( doc =>{
+      this.db.collection('SalonNode').doc(doc.data().salonName).collection('Styles').where("genderOptions","==","female").onSnapshot(snapshot =>{
+        this.femaleStyles = []
+        snapshot.forEach(doc =>{
+          this.femaleStyles.push(doc.data())
+          console.log('female styles here', doc.data());
+          
+        })
+      })
+        
+      })
+    }
+  })
+}
 
 //Function to push to the user profile page
 ViewUserPorfilePage(){

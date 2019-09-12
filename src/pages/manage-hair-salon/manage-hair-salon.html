@@ -33,11 +33,23 @@
             <p>{{x.numberofbookings}}<br>Bookings</p>
           </div>
         </div>
+       
+  
+    <div class="displayName">
+      <ionic3-star-rating #rating
+      activeIcon = "ios-star"
+      defaultIcon = "ios-star-outline"
+      activeColor = "#db981a" 
+      defaultColor = "#A9A9A9"
+      readonly="true"
+      rating={{aveg}}
+      fontSize = "25px"
+      halfStar = "true"
+      >
+  </ionic3-star-rating>
+    </div>
       </div>
 
-      <div *ngIf="!isHairstyle">
-        <p> No record of hair Styles please add your hair styles</p>
-      </div>
       <!-- <div class="hairdetails">
         <div *ngIf="isHairstyle" id="cards">
           
@@ -88,12 +100,15 @@
         </ion-segment>
       </div>
 
+      <div *ngIf="!isHairstyle">
+        <p> No record of hair Styles please add your hair styles</p>
+      </div>
       <div class="slidez" padding>
         <ion-slides #slider (ionSlideWillChange)="moveButton($event)">
           <ion-slide >
             <h1>Ladies</h1> 
             <div *ngIf="isHairstyle" id="cards">
-                <ion-item *ngFor="let n of styles">
+                <ion-item *ngFor="let n of femaleStyles">
                   <img src="{{n.hairStyleImage}}">
                   <p>{{n.hairstyleName}}</p>
                   <p>{{n.hairstylePrice | currency:'&#82;'}}</p>
@@ -115,6 +130,25 @@
 
           <ion-slide >
               <h1>Gents</h1>
+              <div *ngIf="isHairstyle" id="cards">
+                <ion-item *ngFor="let n of maleStyles">
+                  <img src="{{n.hairStyleImage}}">
+                  <p>{{n.hairstyleName}}</p>
+                  <p>{{n.hairstylePrice | currency:'&#82;'}}</p>
+      
+                  <ion-buttons end style="position: absolute;
+                    top: 2%;
+                    left: 73%;
+                  width: 40px;
+                    height: 40px;">
+                    <button ion-button color="dark" (click)="Delete(n)" style="border-radius: 50%;
+                      width: 30px;
+                      height: 30px;">
+                      <ion-icon name="close"></ion-icon>
+                    </button>
+                  </ion-buttons>
+                </ion-item>
+              </div>
             </ion-slide>
           
         </ion-slides>
