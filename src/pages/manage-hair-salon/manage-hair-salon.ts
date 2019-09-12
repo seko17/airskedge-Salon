@@ -192,7 +192,7 @@ getHairSalon(){
       
         this.SalonNode.salonImage = doc.data().salonImage;
         this.SalonNode.salonImage = doc.data().salonName;
-        this.db.collection('SalonNode').doc(doc.data().salonName).collection('Styles').get().then( res =>{
+        this.db.collection('SalonNode').doc(doc.data().salonName).collection('Styles').onSnapshot( res =>{
       res.forEach(doc =>{
         this.isHairstyle = true;
       })
