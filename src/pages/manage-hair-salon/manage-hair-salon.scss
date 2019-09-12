@@ -1,6 +1,9 @@
 page-manage-hair-salon {
 
   .header {
+    border: none;
+    // box-shadow: none;
+
     .toolbar-background {
       background: transparent;
       border: none;
@@ -25,6 +28,8 @@ page-manage-hair-salon {
     // overflow: hidden;
 
     background: black;
+
+
 
     .contact {
       display: flex;
@@ -73,7 +78,7 @@ page-manage-hair-salon {
     .displayName {
       color: white;
       position: absolute;
-      bottom: 30%;
+      bottom: 40%;
       left: 30%;
       padding: 5px;
       width: 100vw;
@@ -86,6 +91,12 @@ page-manage-hair-salon {
         color: white;
         font-family: 'Manjari';
       }
+    }
+
+    .displayName1 {
+      position: absolute;
+      top: 70%;
+      left: 25%;
     }
   }
 
@@ -139,15 +150,16 @@ page-manage-hair-salon {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    // margin: 6px;
+    height: 30vh;
+    overflow-y: auto;
 
     .item {
-      width:50%;
-      height: 35%;
+      width: 50%;
+      min-height: 35%;
 
       img {
         width: 60vw;
-        height:25vh;
+        height: 25vh;
         box-shadow: 2px 2px 5px grey;
       }
     }
@@ -155,6 +167,8 @@ page-manage-hair-salon {
 
   .seg {
     margin: 5px;
+    position: relative;
+    bottom: 38%;
 
     .segment {
       border: none;
@@ -162,7 +176,16 @@ page-manage-hair-salon {
     }
   }
 
-  // .slidez {
-  //   margin: 10px;
-  // }
+  .slidez {
+    position: relative;
+    bottom: 40%;
+    // background: red;
+  }
+
+  #fab {
+    position: fixed;
+    z-index: 3;
+    bottom: 10px;
+    right: 10px;
+  }
 }
