@@ -8,7 +8,7 @@
 
   <div class="container" *ngFor="let n of reviews">
 
-  <!-- <ion-list *ngFor="let n of reviews">
+  <ion-list *ngFor="let n of reviews">
     <ion-item>
       <ion-thumbnail item-start>
         <img src="n.image">
@@ -19,23 +19,11 @@
         defaultColor="#f4f4f4" readonly="true" rating={{n.rating}} fontSize="25px">
       </ionic3-star-rating>
     </ion-item>
-  </ion-list> -->
-  <div class="imgz"  *ngFor="let n of reviews">
+  </ion-list>
+  <!-- <div class="imgz"  *ngFor="let n of reviews">
       <img src="n.image">
-    </div>
-  <div class="speech-bubble" *ngFor="let n of reviews">
-      <div class="arrow bottom right"></div>
-      <!-- Thinking.... -->
+    </div> -->
 
-    <div class="detail">
-      <p style="margin: 10px; font-family: 'Manjari';"><span style="font-size: 5vw;">{{n.name}}</span><br>{{n.review}} <br>
-        <ionic3-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="gold"
-        defaultColor="#f4f4f4" readonly="true" rating={{n.rating}} fontSize="3vh">
-      </ionic3-star-rating>
-      </p>
-    </div>
- 
-    </div>
   </div>
 
 </ion-content>
