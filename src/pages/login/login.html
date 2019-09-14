@@ -6,15 +6,15 @@
 
 <ion-content>
   <div class="container">
-      <div class="logo">
-        <img src="../../assets/imgs/Untitled-1.svg">
-      </div>
-<br>
+    <div class="logo">
+      <img src="../../assets/imgs/Untitled-1.svg">
+    </div>
+    <br>
     <div class="signin">
-      <h3>Sign-In to your account to continue</h3>
+      <h3>Sign-In to your account<br> to continue</h3>
     </div>
     <div class="form">
-      <form [formGroup]="loginForm">
+      <form [formGroup]="loginForm" fixed>
         <ion-item>
           <!-- <ion-label position="stacked">Email</ion-label> -->
           <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!loginForm.controls['email'].valid &&
@@ -36,8 +36,8 @@
                   && loginForm.controls['password'].touched">
           <ion-label style="color:red; font-size: 18px">Your password needs more than 6 characters.</ion-label>
         </ion-item>
-<br><br>
-        <button ion-button round (click)="loginUser(loginForm)" color="light" [disabled]="!loginForm.valid">
+        <br><br>
+        <button ion-button round (click)="loginUser(loginForm)" color="dark" [disabled]="!loginForm.valid">
           Log In
         </button>
 
@@ -49,13 +49,7 @@
     <div class="btns">
 
       <p>Don't have an account? <span (click)="createAcc()">Sign-Up</span></p>
-      <!-- <button ion-button expand="block" clear (click)="createAcc()">
-        Create a new account
-      </button> -->
 
-      <!-- <button ion-button expand="block" clear (click)="forgotpassword()">
-        Forgot password?
-      </button> -->
     </div>
   </div>
 
