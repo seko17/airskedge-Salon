@@ -8,7 +8,7 @@
 <ion-content >
     <section>
   <div class="container">
-   <br><br><br>
+   <br>
      <!-- input for salon cover image-->
      <div class="card-wrapper">
      <div class="card">
@@ -24,7 +24,7 @@
   </div>
 
  
-  <br>
+  
 <div class="form">
   
     <form [formGroup]="addhairStyleForm">
@@ -78,13 +78,13 @@
             </ion-select>
           </ion-item>
         
-        <br>
+      
         
         
-        <div class="btn">
-          <button id="skip" (click)="createStyle(addhairStyleForm)"  type="submit" [disabled]="!addhairStyleForm.valid" ion-button full  round>ADD HAIR STYLE</button>
         
-        </div>
+          <button ion-button (click)="createStyle(addhairStyleForm)"  type="submit" [disabled]="!addhairStyleForm.valid" ion-button full  round>ADD HAIR STYLE</button>
+        
+   
       </form>
     </div> 
     </div>
