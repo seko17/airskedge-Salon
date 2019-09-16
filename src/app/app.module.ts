@@ -33,6 +33,7 @@ import { CalendarModule } from 'ionic3-calendar-en';
 import { ViewReviewsPage } from '../pages/view-reviews/view-reviews';
 import { AnalysisPage } from '../pages/analysis/analysis';
 import { StarRatingModule } from 'ionic3-star-rating';
+import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 @NgModule({
   declarations: [
     MyApp,
@@ -53,7 +54,8 @@ import { StarRatingModule } from 'ionic3-star-rating';
     AddStaffPage,
     BookingsPage,
     ViewReviewsPage,
-    AnalysisPage
+    AnalysisPage,
+    EditProfilePage
   ],
   imports: [
     BrowserModule,
@@ -89,7 +91,8 @@ import { StarRatingModule } from 'ionic3-star-rating';
     AddStaffPage,
     BookingsPage,
     ViewReviewsPage,
-    AnalysisPage
+    AnalysisPage,
+    EditProfilePage
   ],
   providers: [
     StatusBar,
