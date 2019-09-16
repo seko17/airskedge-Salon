@@ -6,51 +6,54 @@
 
 <ion-content>
   <div class="container">
-    <div class="logo">
-      <img src="../../assets/imgs/Untitled-1.svg">
-    </div>
-    <br>
-    <div class="signin">
-      <h3>Sign-In to your account<br> to continue</h3>
-    </div>
-    <div class="form">
-      <form [formGroup]="loginForm" fixed>
-        <ion-item>
-          <!-- <ion-label position="stacked">Email</ion-label> -->
-          <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!loginForm.controls['email'].valid &&
-                  loginForm.controls['email'].touched">
-          </ion-input>
-        </ion-item>
-        <ion-item style="background: transparent; border: none; " class="error-message" *ngIf="!loginForm.controls['email'].valid &&
-                   loginForm.controls['email'].touched">
-          <ion-label style="color:red; font-size: 18px">Please enter a valid email address.</ion-label>
-        </ion-item>
-        <br>
-        <ion-item>
-          <!-- <ion-label position="stacked">Password</ion-label> -->
-          <ion-input id="pass" formControlName="password" type="password" placeholder="Your password"
-            [class.invalid]="!loginForm.controls['password'].valid&& loginForm.controls['password'].touched">
-          </ion-input>
-        </ion-item>
-        <ion-item style="background: transparent; border: none; box-shadow: none" class="error-message" *ngIf="!loginForm.controls['password'].valid
-                  && loginForm.controls['password'].touched">
-          <ion-label style="color:red; font-size: 18px">Your password needs more than 6 characters.</ion-label>
-        </ion-item>
-        <br><br>
-        <button ion-button round (click)="loginUser(loginForm)" color="dark" [disabled]="!loginForm.valid">
-          Log In
-        </button>
+   
+        <div class="logo">
+            <img src="../../assets/imgs/Untitled-1.svg">
+          </div>
+          <br>
+          <div class="signin">
+            <h3>Sign-In to your account<br> to continue</h3>
+          </div>
+          <div class="form">
+            <form [formGroup]="loginForm" fixed>
+              <ion-item>
+                <!-- <ion-label position="stacked">Email</ion-label> -->
+                <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!loginForm.controls['email'].valid &&
+                        loginForm.controls['email'].touched">
+                </ion-input>
+              </ion-item>
+              <ion-item style="background: transparent; border: none; " class="error-message" *ngIf="!loginForm.controls['email'].valid &&
+                         loginForm.controls['email'].touched">
+                <ion-label style="color:red; font-size: 18px">Please enter a valid email address.</ion-label>
+              </ion-item>
+              <br>
+              <ion-item>
+                <!-- <ion-label position="stacked">Password</ion-label> -->
+                <ion-input id="pass" formControlName="password" type="password" placeholder="Your password"
+                  [class.invalid]="!loginForm.controls['password'].valid&& loginForm.controls['password'].touched">
+                </ion-input>
+              </ion-item>
+              <ion-item style="background: transparent; border: none; box-shadow: none" class="error-message" *ngIf="!loginForm.controls['password'].valid
+                        && loginForm.controls['password'].touched">
+                <ion-label style="color:red; font-size: 18px">Your password needs more than 6 characters.</ion-label>
+              </ion-item>
+              <br><br>
+              <button ion-button round (click)="loginUser(loginForm)" color="dark" [disabled]="!loginForm.valid">
+                Log In
+              </button>
+      
+              <p class="forgot1" (click)="forgotpassword()">Forgot password?</p>
+      
+            </form>
+          </div>
+      
+          <div class="btns">
+      
+            <p>Don't have an account? <span (click)="createAcc()">Sign-Up</span></p>
+      
+          </div>
 
-        <p class="forgot1" (click)="forgotpassword()">Forgot password?</p>
-
-      </form>
-    </div>
-
-    <div class="btns">
-
-      <p>Don't have an account? <span (click)="createAcc()">Sign-Up</span></p>
-
-    </div>
+   
   </div>
 
 
