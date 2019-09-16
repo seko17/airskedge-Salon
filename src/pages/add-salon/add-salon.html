@@ -21,15 +21,6 @@
             </button>
           </div>
         </div>
-    <!-- <div class="image">
-      <img src="{{SalonCoverImage}}">
-    </div>
-    <div class="btn">
-      <button *ngIf="!SalonCoverImage" ion-button color="dark"  (click)="selectImage()"><ion-icon name="camera"></ion-icon></button>
-    </div>
-  </div> -->
-
-
 
   <form [formGroup]="addSalonForm">
 
@@ -43,6 +34,7 @@
         *ngIf="addSalonForm.get('salonName').hasError(validate.type) && (addSalonForm.get('salonName').dirty || addSalonForm.get('salonName').touched)">
         {{validate.message}}
       </div>
+      <br>
     </div>
     <!-- input for salon location/Address-->
     <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" id="location"

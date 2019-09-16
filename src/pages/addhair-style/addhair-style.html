@@ -1,31 +1,29 @@
-
 <ion-header>
-  <ion-navbar>
-    <ion-title>Add Hair-Style</ion-title>
+  <ion-navbar color="dark">
+    <ion-title>Add HairStyle </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content >
-    <section>
-  <div class="container">
-   <br>
-     <!-- input for salon cover image-->
-     <div class="card-wrapper">
-     <div class="card">
-     <div class="backimage">
-        <div class="pickImage">
-            <button *ngIf="!styleImage" ion-button clear large full (click)="selectImage()">Select</button>
-         </div>
-      <div *ngIf="profileImage" class="image" (click)="selectImage()">
-          <img  src="{{styleImage}}">
-       </div>
-    
-  </div>
-  </div>
+<ion-content>
 
+
+
+  <div class="container">
+
+    <div class="card-wrapper">
+      <div class="card">
+        <div class="backimage">
+    
+          <img src="{{styleImage}}" alt="" class="bimage">
+          <div class="btn">
+            <button *ngIf="!styleImage" ion-button color="dark" (click)="selectImage()">
+              <ion-icon name="camera"></ion-icon>
+            </button>
+          </div>
+        </div>
  
   
-<div class="form">
+
   
     <form [formGroup]="addhairStyleForm">
      
@@ -89,5 +87,5 @@
     </div> 
     </div>
 </div>
-</section>
+
 </ion-content>
