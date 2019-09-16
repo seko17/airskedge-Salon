@@ -1,24 +1,33 @@
-<!-- <ion-header>
-  <ion-navbar>
-    <ion-title>addSalon</ion-title>
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>Add Salon Profile</ion-title>
   </ion-navbar>
-</ion-header> -->
+</ion-header>
 
 <ion-content>
-<div class="container">
- 
-  <div class="prof">
-    <h1>Add Your Salon</h1>
-  </div>
- <!-- input for salon cover image *ngIf="profileImage"-->
- <div class="backimage">
-    <div class="image">
+
+
+
+  <div class="container">
+
+    <div class="card-wrapper">
+      <div class="card">
+        <div class="backimage">
+    
+          <img src="{{SalonCoverImage}}" alt="" class="bimage">
+          <div class="btn">
+            <button *ngIf="!SalonCoverImage" ion-button color="dark" (click)="selectImage()">
+              <ion-icon name="camera"></ion-icon>
+            </button>
+          </div>
+        </div>
+    <!-- <div class="image">
       <img src="{{SalonCoverImage}}">
     </div>
     <div class="btn">
       <button *ngIf="!SalonCoverImage" ion-button color="dark"  (click)="selectImage()"><ion-icon name="camera"></ion-icon></button>
     </div>
-  </div>
+  </div> -->
 
 
 
@@ -74,14 +83,12 @@
       </div>
     </div>
     <br>
-
-    <div class="btn">
       <button id="skip" (click)="createSalon(addSalonForm)" type="submit" [disabled]="!addSalonForm.valid" ion-button
         color="dark" round>
         Save Salon </button>
-
-    </div>
   </form>
+</div>
+</div>
 </div>
  
 </ion-content>
