@@ -172,7 +172,7 @@ isuploading: false
       { type: 'validUsername', message: 'Your username has already been taken.' }
     ],
     'hairstylePrice': [
-      { type: 'required', message: 'Cellnumber is required.' }
+      { type: 'required', message: 'Hairstyle price is required.' }
     ],
     'duration': [
       { type: 'required', message: 'duration is required.' }

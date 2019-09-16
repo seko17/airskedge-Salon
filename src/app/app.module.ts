@@ -69,6 +69,8 @@ import { EditProfilePage } from '../pages/edit-profile/edit-profile';
     ReactiveFormsModule,
     FormsModule,
     GooglePlaceModule,
+    // ScreenOrientation
+
     
   ],
   bootstrap: [IonicApp],
