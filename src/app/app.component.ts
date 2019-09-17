@@ -8,7 +8,7 @@ import {firebaseConfig} from '../app/credentials';
 import { LoginPage } from '../pages/login/login';
 import { LandingPage } from '../pages/landing/landing';
 import { SalonRegistrationpagePage } from '../pages/salon-registrationpage/salon-registrationpage';
-
+// import { ScreenOrientation } from '@ionic-native/screen-orientation';
 @Component({
   templateUrl: 'app.html'
 })
@@ -44,10 +44,15 @@ export class MyApp {
       }
     });
     platform.ready().then(() => {
+      statusBar.backgroundColorByHexString('#1E1E1E');
+      // screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       // Okay, so the platform is ready and our plugins are available.
+      //private screenOrientation: ScreenOrientation, 
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
-      splashScreen.hide();
+      setTimeout(()=>{
+        splashScreen.hide();
+      }, 1000);
     });
   }
 }

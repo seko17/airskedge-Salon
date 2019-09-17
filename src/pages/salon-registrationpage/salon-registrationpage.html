@@ -7,17 +7,14 @@
  <ion-content>
  
 
-<section>
+
    <div class="container">
-     <!-- <div class="heading">
-            <h1>Create Profile</h1> 
-           </div> -->
+
      <div class="card-wrapper">
        <div class="card">
          <div class="backimage">
-           <div class="image">
-             <img src="{{profileImage}}">
-           </div>
+     
+           <img src="{{profileImage}}" alt="" class="bimage">
            <div class="btn">
              <button *ngIf="!profileImage" ion-button color="dark" (click)="selectImage()">
                <ion-icon name="camera"></ion-icon>
@@ -26,7 +23,7 @@
          </div>
          
          <br>
-         <div class="form1">
+        
            <form [formGroup]="profileForm">
              <input id="location" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places"
                (onAddressChange)="handleAddressChange($event)" />
@@ -35,6 +32,7 @@
                <ion-input type="text" placeholder="Name" formControlName="ownername"
                  [(ngModel)]="SalonOwnerProfile.ownername" ngDefaultControl>
                </ion-input>f
+               
              </ion-item>
 
              <div class="error" *ngFor="let validate of validation_messages.ownername">
@@ -86,9 +84,9 @@
              <button id="skip" (click)="signout()" type="submit" ion-button clear full style="color:black">Cancel
              </button>
            </form>
-         </div>
+       
        </div>
      </div>
    </div>
-  </section>
+
  </ion-content>

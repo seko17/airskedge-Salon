@@ -8,9 +8,12 @@ page-create-account {
     width: 100%;
     height: 100%;
     color: white;
-    background: linear-gradient(rgba(56, 56, 56, 0.678), black), url('https://images.unsplash.com/photo-1520880178538-52017968d5d0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
+    background: url('../../assets/imgs/background.svg');
     position: fixed;
-    // font-family: 'Manjari';
+    font-family: 'Manjari';
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 
 
@@ -29,33 +32,45 @@ page-create-account {
   }
 
   .signin {
-    position: absolute;
-    top: 25%;
-    text-align: center;
+    display: flex;
+    flex-flow: row;
+    position: relative;
+    top: 5%;
+    left: -12%;
+    text-align: left;
     // opacity: 0.6;
-    h4 {
-      font-size: 3vw;
+    h3 {
+      font-size: 15vw;
 
       span {
         font-size: 1.5vw;
       }
+    }
+
+    h2{
+      font-size: 5vw;
+      position: absolute;
+      left: 40vh;
+      top: 20vh;
     }
   }
 
 
   .form {
     position: absolute;
-    top: 50%;
+    top: 40%;
     text-align: center;
-    width: 90%;
+    width: 40vh;
 
     .item {
-      width: 100%;
+      position: relative;
+      // left: 9%;
+      width: 40vh;
       text-align: center;
-      box-shadow: 1px 3px 3px grey;
-      border-radius: 50px;
-      // background: transparent;
-      color: rgb(0, 0, 0);
+      // box-shadow: 1px 3px 3px grey;
+      // border-radius: 50px;
+      background: transparent;
+      color: white;
     }
 
     button {
@@ -73,7 +88,7 @@ page-create-account {
 
     p {
       span {
-        color: rgb(255, 145, 0);
+        color: black;
       }
     }
   }

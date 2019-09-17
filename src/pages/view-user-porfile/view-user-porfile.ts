@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController, LoadingController
 import * as firebase from 'firebase';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { LoginPage } from '../login/login';
+import { EditProfilePage } from '../edit-profile/edit-profile';
 
 
 /**
@@ -21,7 +22,8 @@ export class ViewUserPorfilePage {
   db = firebase.firestore();
   uid
   displayProfile
-
+  profile = []
+isProfile =false;
   SalonOwnerProfile = {
     ownerImage: '',
     ownername: '',
@@ -81,7 +83,7 @@ export class ViewUserPorfilePage {
           this.SalonOwnerProfile.email = doc.data().email;
         
         })
-       
+       this.isProfile = true;
       } else {
         console.log('No data');
       
@@ -95,7 +97,9 @@ export class ViewUserPorfilePage {
       load.dismiss();
     })
   }
-
+  update(){
+    this.navCtrl.push(EditProfilePage,this.SalonOwnerProfile)
+  }
   goback(){
     this.navCtrl.pop()
   }

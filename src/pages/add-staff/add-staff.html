@@ -1,113 +1,27 @@
 
 <ion-header>
   <ion-navbar color="dark">
-    <ion-title></ion-title>
+    <ion-title>Add Staff Profile</ion-title>
   </ion-navbar>
-</ion-header> 
-<ion-content >
+</ion-header>
+
+<ion-content>
 
 
-     
-     <!-- <div class="parent"> -->
-        <!-- <div class="propic" (click)="selectImage()">
-      
-            <img src="{{profileImage}}" >
-          <div class="btnz">
-              <button *ngIf="!profileImage" ion-button color="dark" (click)="selectImage()">  <ion-icon name="camera"></ion-icon></button>
-          </div>
-          
-          </div> -->
-        <!-- <div class="wrapper">
-          
+
   <div class="container">
- 
-      <div class="propic" (click)="selectImage()">
-      
-          <img src="{{profileImage}}">
-        <div class="btnz">
-            <button *ngIf="!profileImage" ion-button color="dark" (click)="selectImage()">  <ion-icon name="camera"></ion-icon></button>
-        </div>
-        
-        </div>
-<br>
-      <div class="form1">
-        <form [formGroup]="staffForm">
-          <ion-item>
-  
-            <ion-label> Name
 
-            </ion-label>
-            <ion-input type="text" formControlName="staffName" [(ngModel)]="Staff.staffName" ngDefaultControl>
-            </ion-input>
-          </ion-item>
-          <div class="error" *ngFor="let validate of validation_messages.staffName">
-            <div class="messages"
-              *ngIf="staffForm.get('staffName').hasError(validate.type) && (staffForm.get('staffName').dirty || staffForm.get('staffName').touched)">
-              {{validate.message}}
-            </div>
-          </div>
-  <br>
-          <ion-item>
-            <ion-label> Surname</ion-label>
-            <ion-input type="text" formControlName="staffSurname" [(ngModel)]="Staff.staffSurname"
-              ngDefaultControl></ion-input>
-          </ion-item>
-          <div class="error" *ngFor="let validate of validation_messages.staffSurname">
-            <div class="messages"
-              *ngIf="staffForm.get('staffSurname').hasError(validate.type) && (staffForm.get('staffSurname').dirty || staffForm.get('staffSurname').touched)">
-              {{validate.message}}
-            </div>
-          </div>
-  <br>
-          <ion-item>
-            <ion-label> Cellphone Number</ion-label>
-            <ion-input type="tel" maxLength="10" formControlName="personalNumber"
-              [(ngModel)]="Staff.personalNumber" ngDefaultControl></ion-input>
-          </ion-item>
-          <div class="error" *ngFor="let validate of validation_messages.personalNumber">
-            <div class="messages"
-              *ngIf="staffForm.get('personalNumber').hasError(validate.type) && (staffForm.get('personalNumber').dirty || staffForm.get('personalNumber').touched)">
-              {{validate.message}}
-            </div>
-          </div>
-          <br>
-  
-  
-  
-        </form>
-      </div>
-  <br>
-
- 
-    </div> 
-          <div class="info">
+    <div class="card-wrapper">
+      <div class="card">
+        <div class="backimage">
     
-                  <button ion-button full round id="skip" (click)="createStyle(staffForm)" 
-                    >Add Stylist </button>
-          
-               
+          <img src="{{profileImage}}" alt="" class="bimage">
+          <div class="btn">
+            <button *ngIf="!profileImage" ion-button color="dark" (click)="selectImage()">
+              <ion-icon name="camera"></ion-icon>
+            </button>
           </div>
- 
-      
-     </div>
-   </div> -->
-   <section>
-      <div class="container">
-          <div class="card-wrapper">
-            <div class="card">
-           
-              <div class="backimage">
-                  <div class="image">
-                    <img src="{{profileImage}}">
-                  </div>
-                  <div class="btn">
-                    <button *ngIf="!profileImage" ion-button color="dark"  (click)="selectImage()"><ion-icon name="camera"></ion-icon></button>
-                  </div>
-                </div>
-                <br>
-                <br>
-                <br>
-                <br>
+        </div>
 
               <div class="form1">
                   <form [formGroup]="staffForm">
@@ -159,6 +73,6 @@
             </div>
           </div>
         </div>
-   </section>
+  
 
 </ion-content>
