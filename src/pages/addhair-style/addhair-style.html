@@ -28,8 +28,8 @@
     <form [formGroup]="addhairStyleForm">
      
         <ion-item >
-  
-         <ion-input type="text" placeholder="Hairstyle Name" formControlName="hairstyleName" [(ngModel)]="Styles.hairstyleName" ngDefaultControl></ion-input>
+          <ion-label floating>Hairstyle name </ion-label>
+         <ion-input type="text" placeholder="" formControlName="hairstyleName" [(ngModel)]="Styles.hairstyleName" ngDefaultControl></ion-input>
         </ion-item>
         <div class="error" *ngFor="let validate of validation_messages.hairstyleName">
         <div class="messages" *ngIf="addhairStyleForm.get('hairstyleName').hasError(validate.type) && (addhairStyleForm.get('hairstyleName').dirty || addhairStyleForm.get('hairstyleName').touched)">
@@ -39,8 +39,8 @@
         </div>
      
         <ion-item >
- 
-         <ion-input type="text"  placeholder="Hairstyle Description" formControlName="hairstyleDesc"   [(ngModel)]="Styles.hairstyleDesc" ngDefaultControl></ion-input>
+          <ion-label floating>Hairstyle description </ion-label>
+         <ion-input type="text"  placeholder="" formControlName="hairstyleDesc"   [(ngModel)]="Styles.hairstyleDesc" ngDefaultControl></ion-input>
         </ion-item>
         <div class="error" *ngFor="let validate of validation_messages.hairstyleDesc">
         <div class="messages" *ngIf="addhairStyleForm.get('hairstyleDesc').hasError(validate.type) && (addhairStyleForm.get('hairstyleDesc').dirty || addhairStyleForm.get('hairstyleDesc').touched)">
@@ -50,8 +50,8 @@
         </div>
   
         <ion-item >
-       
-         <ion-input  type="tel" placeholder="Hairstyle Price" maxLength="4" formControlName="hairstylePrice"  [(ngModel)]="Styles.hairstylePrice" ngDefaultControl></ion-input>
+          <ion-label floating>Price </ion-label>
+         <ion-input  type="tel" placeholder="" maxLength="4" formControlName="hairstylePrice"  [(ngModel)]="Styles.hairstylePrice" ngDefaultControl></ion-input>
         </ion-item>
         <div class="error" *ngFor="let validate of validation_messages.hairstylePrice">
         <div class="messages" *ngIf="addhairStyleForm.get('hairstylePrice').hasError(validate.type) && (addhairStyleForm.get('hairstylePrice').dirty || addhairStyleForm.get('hairstylePrice').touched)">
@@ -61,7 +61,7 @@
         </div>
   
         <ion-item>
-          <ion-label> Duration</ion-label>
+          <ion-label floating> Duration</ion-label>
           <ion-select formControlName="duration" [(ngModel)]="Styles.duration" >
             <ion-option *ngFor="let g of Duration" [value]="g.value">{{g.label}}  </ion-option>
           </ion-select>
@@ -70,7 +70,7 @@
        
  
         <ion-item>
-            <ion-label> Style gender</ion-label>
+            <ion-label floating> Style gender</ion-label>
             <ion-select formControlName="genderOptions" [(ngModel)]="Styles.genderOptions" >
               <ion-option *ngFor="let g of Gender" value="{{g}}">{{g}}</ion-option>
             </ion-select>

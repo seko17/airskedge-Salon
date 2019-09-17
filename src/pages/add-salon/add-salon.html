@@ -26,7 +26,7 @@
 
     <!-- input for salon name-->
     <ion-item>
-      <!-- <ion-label>Salon name</ion-label> -->
+      <ion-label floating>Salon name</ion-label>
       <ion-input type="text" formControlName="salonName" [(ngModel)]="SalonNode.salonName" ngDefaultControl placeholder="Salon Name"></ion-input>
     </ion-item>
     <div class="error" *ngFor="let validate of validation_messages.salonName">
@@ -41,7 +41,7 @@
     style="font-size: 17px"/>
   
     <ion-item>
-      <!-- <ion-label> Salon contact number</ion-label> -->
+      <ion-label floating> Salon contact number</ion-label>
       <ion-input type="tel"  maxLength="10" formControlName="SalonContactNo" [(ngModel)]="SalonNode.SalonContactNo"
         ngDefaultControl placeholder="Contact Number"></ion-input>
     </ion-item>
@@ -53,7 +53,7 @@
     </div>
     <!-- input for salon descriptions-->
     <ion-item>
-      <!-- <ion-label> Salon Description </ion-label> -->
+      <ion-label floating> Salon Description </ion-label>
       <ion-input type="text" formControlName="SalonDesc" [(ngModel)]="SalonNode.SalonDesc" ngDefaultControl placeholder="Description"></ion-input>
     </ion-item>
     <div class="error" *ngFor="let validate of validation_messages.SalonDesc">
@@ -64,7 +64,7 @@
     </div>
     <!-- input for salon number of hair dressers-->
     <ion-item>
-      <!-- <ion-label> Number of hair dressers </ion-label> -->
+      <ion-label floating> Number of hair dressers </ion-label>
       <ion-input type="tel" maxLength="2" formControlName="numHairDressers" [(ngModel)]="SalonNode.numHairDressers"
         ngDefaultControl placeholder="Number of Hairdressers"></ion-input>
     </ion-item>

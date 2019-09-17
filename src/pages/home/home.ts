@@ -11,12 +11,12 @@ import { CreateAccountPage } from '../create-account/create-account';
   templateUrl: 'home.html'
 })
 export class HomePage {
-@ViewChild(Slides) slides: Slides;
+@ViewChild('slides') slides: Slides;
 
   constructor(public navCtrl: NavController,
     private authservice : AuthServiceProvider
     ) {
-
+      // this.slides.lockSwipeToPrev(true);
   }
 logout(){
  this.authservice.logoutUser().then(() =>{
