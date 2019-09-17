@@ -27,8 +27,11 @@ export class AddStaffPage {
     staffSurname: '',
     personalNumber: '',
     staffImage: '',
-    uid: ''
-
+    email: '',
+    OwnerUID: '',
+    uid: '',
+    password: '',
+isOwner: false
   }
   SalonNode = {
     salonName: '',
@@ -56,8 +59,13 @@ export class AddStaffPage {
       name: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
       staffSurname: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
       personalNumber: new  FormControl('', Validators.compose([Validators.required, Validators.maxLength(10)])),
-   
+      staffEmail: ['', Validators.compose([Validators.required, Validators.email])],
+      password: [
+        '',
+        Validators.compose([Validators.minLength(6), Validators.maxLength(15), Validators.required])
+      ]
     });
+    this.Staff.OwnerUID = firebase.auth().currentUser.uid;
   }
 
   ionViewDidLoad() {
@@ -72,33 +80,42 @@ export class AddStaffPage {
     } else {
        
            const load = this.loadingCtrl.create({
-            content: 'Creating HairSalon..'
+            content: 'Creating Staff member..'
           });
           load.present();
 
-      let customStaffNumber = this.Staff.name +""+ 1000 + Math.floor(Math.random() * 10);    
-      this.Staff.uid = customStaffNumber;
-      const user = this.db.collection('SalonNode').doc(this.SalonNode.salonName).collection('staff').doc(this.Staff.name).set(this.Staff);
+      // let customStaffNumber = this.Staff.name +""+ 1000 + Math.floor(Math.random() * 10);    
+      // this.Staff.uid = customStaffNumber;
+
+      firebase.auth().createUserWithEmailAndPassword(this.Staff.email, this.Staff.password).then((newUserCredential: firebase.auth.UserCredential) => {  
+
+        this.Staff.uid = newUserCredential.user.uid;
+     
+        
+        const user = this.db.collection('SalonNode').doc(this.SalonNode.salonName).collection('staff').doc(this.Staff.name).set(this.Staff);
+        user.then( () => {
+          this.navCtrl.setRoot(ManageHairSalonPage)
+          this.toastCtrl.create({
+            message: 'User hair dresser added.',
+            duration: 2000,
+         
+          }).present();
+          // ...get the profile that just got created...
+          load.dismiss();
+        
+          // catch any errors.
+        }).catch( err=> {
+          this.toastCtrl.create({
+            message: 'Error creating  hair dresser.',
+            duration: 2000
+          }).present();
+         
+          load.dismiss();
+        })
+       });
+    
       // upon success...
-      user.then( () => {
-        this.navCtrl.setRoot(ManageHairSalonPage)
-        this.toastCtrl.create({
-          message: 'User hair dresser added.',
-          duration: 2000,
-       
-        }).present();
-        // ...get the profile that just got created...
-        load.dismiss();
-      
-        // catch any errors.
-      }).catch( err=> {
-        this.toastCtrl.create({
-          message: 'Error creating  hair dresser.',
-          duration: 2000
-        }).present();
-       
-        load.dismiss();
-      })
+ 
     }
   }
 
@@ -118,7 +135,7 @@ export class AddStaffPage {
       this.profileImage = image;
       
       const filename = Math.floor(Date.now() / 1000);
-      let file = 'Salon-styles/' + this.authUser.getUser() + '.jpg';
+      let file = 'Salon-Staff/' + this.authUser.getUser() + filename + '.jpg';
       const UserImage = this.storage.child(file);
 
       const upload = UserImage.putString(image, 'data_url');
@@ -160,7 +177,13 @@ export class AddStaffPage {
     'personalNumber': [
       { type: 'required', message: 'Cellnumber is required.' }
     ],
-    
+    'password': [
+      {type: 'required', message: 'Password is required'}
+    ]
+    ,
+    'email': [
+      {type:'required', message: 'Email is required'}
+    ]
   };
 
   getHairSalon(){

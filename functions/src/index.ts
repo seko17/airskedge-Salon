@@ -10,22 +10,23 @@ const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(SENDGRID_API_KEY);
 
 
-export const welcomeEmail = functions.auth.user().onCreate ( (user : any) =>{
+export const welcomeEmail = functions.firestore.document('SalonOwnerProfile/{uid}').onCreate ( (snapshot : any) =>{
+  console.log('aaaa',snapshot.data());
   
-            // const msg = {
-            //     // to: user.email,
-            //     // from: 'hello@angularfirebase.com',
-            //     // subject:  'New Follower',
+            const msg = {
+                to: snapshot.email,
+                from: 'hello@angularfirebase.com',
+                subject:  'New Follower',
         
-            //     // templateId: 'd-f7bdfb34e2ec4921b679469f125b77ea',
+                templateId: 'd-f7bdfb34e2ec4921b679469f125b77ea',
               
-            //     // dynamic_template_data: {
-            //     //         subject: 'Welcome to my awesome app',
-            //     //         name: user.ownername
-            //     // }
+                dynamic_template_data: {
+                        subject: 'Welcome to my awesome app',
+                        name: snapshot.ownername
+                }
                 
-            // };
-            // return sgMail.send()
+            };
+            return sgMail.send(msg)
         console.log('welcome user')
 
 

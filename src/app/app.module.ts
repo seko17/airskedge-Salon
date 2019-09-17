@@ -34,6 +34,7 @@ import { ViewReviewsPage } from '../pages/view-reviews/view-reviews';
 import { AnalysisPage } from '../pages/analysis/analysis';
 import { StarRatingModule } from 'ionic3-star-rating';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 @NgModule({
   declarations: [
     MyApp,
@@ -104,7 +105,7 @@ import { EditProfilePage } from '../pages/edit-profile/edit-profile';
     AuthServiceProvider,
      Camera,
      ImagePicker,
-     NativeGeocoder,
+     NativeGeocoder, LocalNotifications
   ]
 })
 export class AppModule {}
