@@ -54,7 +54,7 @@
              </div>
 
              <ion-item>
-               <ion-input type="tel" placeholder="Number" maxLength="10" formControlName="personalNumber"
+               <ion-input  type="tel" placeholder="Number" maxLength="10" formControlName="personalNumber"
                  [(ngModel)]="SalonOwnerProfile.personalNumber" ngDefaultControl></ion-input>
              </ion-item>
              <div class="error" *ngFor="let validate of validation_messages.personalNumber">
@@ -65,7 +65,7 @@
              </div>
 
              <ion-item>
-               <ion-input type="text" placeholder="Tell Us About Yourself" formControlName="About"
+               <ion-input  type="text" placeholder="Tell Us About Yourself" formControlName="About"
                  [(ngModel)]="SalonOwnerProfile.About" ngDefaultControl>
                </ion-input>
              </ion-item>

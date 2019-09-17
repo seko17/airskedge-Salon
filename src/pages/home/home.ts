@@ -16,7 +16,7 @@ export class HomePage {
   constructor(public navCtrl: NavController,
     private authservice : AuthServiceProvider
     ) {
-      this.slides.lockSwipeToPrev(true);
+      // this.slides.lockSwipeToPrev(true);
   }
 logout(){
  this.authservice.logoutUser().then(() =>{

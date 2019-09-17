@@ -27,7 +27,7 @@
                   <form [formGroup]="staffForm">
                     <ion-item>
             
-                      <ion-label> Name
+                      <ion-label floating> Name
           
                       </ion-label>
                       <ion-input type="text" formControlName="name" [(ngModel)]="Staff.name" ngDefaultControl>
@@ -41,7 +41,7 @@
                     </div>
             <br>
                     <ion-item>
-                      <ion-label> Surname</ion-label>
+                      <ion-label floating> Surname</ion-label>
                       <ion-input type="text" formControlName="staffSurname" [(ngModel)]="Staff.staffSurname"
                         ngDefaultControl></ion-input>
                     </ion-item>
@@ -53,7 +53,7 @@
                     </div>
             <br>
                     <ion-item>
-                      <ion-label> Cellphone Number</ion-label>
+                      <ion-label floating> Cellphone Number</ion-label>
                       <ion-input type="tel" maxLength="10" formControlName="personalNumber"
                         [(ngModel)]="Staff.personalNumber" ngDefaultControl></ion-input>
                     </ion-item>
