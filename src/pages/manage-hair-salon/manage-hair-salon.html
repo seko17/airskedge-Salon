@@ -62,7 +62,7 @@
       <div *ngIf="!isHairstyle">
         <p> No record of hair Styles please add your hair styles</p>
       </div>
-      <div class="slidez" padding>
+      <div class="slidez">
         <ion-slides #slider (ionSlideWillChange)="moveButton($event)">
           <ion-slide>
   
@@ -113,8 +113,6 @@
       </div>
 </div>
       
-      
-
     <!-- <div class="hairdetails">
         <div *ngIf="isHairstyle" id="cards">
           
@@ -152,7 +150,6 @@
         </ion-fab-list>
       </ion-fab> -->
 
-    
     </div>
 
   <!-- <ion-item *ngFor="let x of analitics">
@@ -219,8 +216,8 @@
   </ion-list>
     </div> -->
     <div id="fab" *ngIf="isSalon">
-        <ion-fab right bottom id="fab">
-          <button ion-fab color="dark">
+        <ion-fab right bottom id="fab" >
+          <button ion-fab style="background: orangered">
             <ion-icon name="arrow-dropleft"></ion-icon>
           </button>
           <ion-fab-list side="left">

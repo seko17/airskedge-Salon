@@ -91,7 +91,7 @@ isuploading: false
           });
           load.present();
       
-      const user = this.db.collection('SalonNode').doc(this.SalonNode.salonName).collection('Styles').doc(this.Styles.hairstyleName).set(this.Styles);
+      const user = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').doc().set(this.Styles);
       // upon success...
       user.then( () => {
         this.navCtrl.setRoot(ManageHairSalonPage)
@@ -187,7 +187,7 @@ isuploading: false
    });
    load.present();
    
-   let users = this.db.collection('SalonNode');
+   let users = this.db.collection('Salons');
    
    let query = users.where("userUID", "==", this.authService.getUser());
    query.get().then( snap => {
@@ -198,13 +198,6 @@ isuploading: false
          console.log('Profile Document: ', doc.data())
         
          this.SalonNode.salonName  = doc.data().salonName;
-         this.SalonNode.salonLogo  = doc.data().salonLogo;
-         this.SalonNode.salonImage  = doc.data().salonImage;
-         this.SalonNode.numHairDressers  = doc.data().numHairDressers;
-         this.SalonNode.location  = doc.data().location;
-         this.SalonNode.SalonDesc  = doc.data().SalonDesc;
-         this.SalonNode.SalonContactNo  = doc.data().SalonContactNo;
-    
        })
      
      } else {

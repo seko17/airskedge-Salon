@@ -1,54 +1,49 @@
+<ion-content>
+  <ion-header>
+    <ion-navbar>
+      <ion-title></ion-title>
+      <ion-icon name="exit" style="float: right; font-size: 5vw; margin: 5px; color: rgba(80, 78, 78, 0.781);"
+        (click)="logout()"></ion-icon>
+    </ion-navbar>
 
+  </ion-header>
+  <div class="container">
+    <div class="fade">
+      <div class="edit">
+        <button (click)="update()" ion-fab>
 
- <ion-content>
-    <ion-header>
-        <ion-navbar>
-          <ion-title></ion-title>
-          <ion-icon name="exit" style="float: right; font-size: 5vw; margin: 5px; color: rgba(80, 78, 78, 0.781);" (click)="logout()"></ion-icon>
-        </ion-navbar>
-     
-      </ion-header>
-   <div class="container">
-     <div class="fade">
-        <div class="edit">
-          <button   (click)="update()" ion-fab >
-
-              <ion-icon name="create"></ion-icon>
-          </button>
-            <!-- <button ion-button icon-only >
+          <ion-icon name="create"></ion-icon>
+        </button>
+        <!-- <button ion-button icon-only >
                 <ion-icon name="create"></ion-icon>
               </button> -->
-          </div>
-     
-          <div class="nmz">
-          
-               <p><span>{{SalonOwnerProfile.ownerSurname}}</span> <br>{{SalonOwnerProfile.ownername}}</p>
-           
-          </div>
-     
-         
-     
-          <div class="contact">
-            <div class="number">
-              <p>{{SalonOwnerProfile.personalNumber}}</p>
-            </div>
-     
-            <div class="email">
-              <p>{{SalonOwnerProfile.email}}</p>
-            </div>
-          </div>
-     
+      </div>
+
+      <div class="nmz">
+        <p><span>{{SalonOwnerProfile.ownerSurname}}</span> <br>{{SalonOwnerProfile.ownername}}</p>
+      </div>
+
+      <div class="contact">
+        <div class="number">
+          <p>{{SalonOwnerProfile.personalNumber}}</p>
+        </div>
+
+        <div class="email">
+          <p>{{SalonOwnerProfile.email}}</p>
+        </div>
+      </div>
+
     </div>
      <div class="imgz">
-       <img src="{{SalonOwnerProfile.ownerImage}}">
+       <img *ngIf="!SalonOwnerProfile.ownerImage" src="../../assets/imgs/dummyAvatr.png" alt="">
+       <img *ngIf="SalonOwnerProfile.ownerImage" src="{{SalonOwnerProfile.ownerImage}}">
      </div>
 
-  
 
-   </div>
+  </div>
 
 
-   <!--    
+  <!--    
      <div class="parent">
          <ion-icon  class="arowback" name="ios-power" (click)="logout()"></ion-icon> 
         <img src="{{SalonOwnerProfile.ownerImage}}" style="border-radius: 20px" height="100%;" width="100%">
@@ -74,4 +69,4 @@
      
    </div> -->
 
- </ion-content>
+</ion-content>

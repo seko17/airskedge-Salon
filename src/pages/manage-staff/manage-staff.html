@@ -14,10 +14,11 @@
     ante dui malesuada. Euismod feugiat maecenas amet
     montes nam, vestibulum sapien, volutpat erat. Mollis
   </p>
-  <ion-list *ngFor=" let n of staff ">
+  <ion-list *ngFor=" let n of staff " (click)="view(n)">
     <ion-item>
       <ion-avatar item-start>
-        <img src="{{n.staffImage}}">
+        <img *ngIf="!n.staffImage" src="../../assets/imgs/dummyAvatr.png" alt="">
+        <img  *ngIf="n.staffImage" src="{{n.staffImage}}">
       </ion-avatar>
       <h2>{{n.staffName}} {{n.staffSurname}}</h2>
       <h2>Staff ID: {{n.uid}}</h2>

@@ -65,7 +65,7 @@ isProfile =false;
     });
     load.present();
     
-    let users = this.db.collection('SalonOwnerProfile');
+    let users = this.db.collection('Users');
 
     let query = users.where("uid", "==", this.authUser.getUser());
     query.get().then(querySnapshot => {
@@ -76,9 +76,9 @@ isProfile =false;
           console.log('Profile Document: ', doc.data())
           this.displayProfile = doc.data();
           this.SalonOwnerProfile.About = doc.data().About;
-          this.SalonOwnerProfile.ownerImage = doc.data().ownerImage;
-          this.SalonOwnerProfile.ownerSurname = doc.data().ownerSurname;
-          this.SalonOwnerProfile.ownername = doc.data().ownername;
+          this.SalonOwnerProfile.ownerImage = doc.data().image;
+          this.SalonOwnerProfile.ownerSurname = doc.data().surname;
+          this.SalonOwnerProfile.ownername = doc.data().name;
           this.SalonOwnerProfile.personalNumber = doc.data().personalNumber;
           this.SalonOwnerProfile.email = doc.data().email;
         

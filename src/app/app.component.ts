@@ -25,7 +25,7 @@ export class MyApp {
       if (user) {
         console.log('logged in');
         
-        firebase.firestore().collection('SalonOwnerProfile').where("uid", "==", user.uid).onSnapshot((result) => {
+        firebase.firestore().collection('Users').where("uid", "==", user.uid).onSnapshot((result) => {
           if(result.empty) {
             console.log('khuthy');
             this.rootPage = SalonRegistrationpagePage;
@@ -49,7 +49,7 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       //private screenOrientation: ScreenOrientation, 
       // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
+      statusBar.styleLightContent();
       setTimeout(()=>{
         splashScreen.hide();
       }, 1000);

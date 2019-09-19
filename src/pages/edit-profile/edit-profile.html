@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar color="dark">
-      <ion-title>Create Profile</ion-title>
+      <ion-title>Edit Profile</ion-title>
     </ion-navbar>
   </ion-header>
  
@@ -31,24 +31,24 @@
 
  
               <ion-item >
-                <ion-input type="text" placeholder="Name" formControlName="ownername"
-                  [(ngModel)]="SalonOwnerProfile.ownername" ngDefaultControl> {{SalonOwnerProfile.ownerSurname}}</ion-input>
+                <ion-input type="text" placeholder="Name" formControlName="name"
+                  [(ngModel)]="SalonOwnerProfile.name" ngDefaultControl> {{SalonOwnerProfile.name}}</ion-input>
               </ion-item>
  
-              <div class="error" *ngFor="let validate of validation_messages.ownername">
+              <div class="error" *ngFor="let validate of validation_messages.name">
                 <div class="messages"
-                  *ngIf="profileForm.get('ownername').hasError(validate.type) && (profileForm.get('ownername').dirty || profileForm.get('ownername').touched)">
+                  *ngIf="profileForm.get('name').hasError(validate.type) && (profileForm.get('name').dirty || profileForm.get('name').touched)">
                   {{validate.message}}
                 </div>
               </div>
  
               <ion-item>
-                <ion-input type="text" placeholder="Surname" formControlName="ownerSurname"
-                  [(ngModel)]="SalonOwnerProfile.ownerSurname" ngDefaultControl></ion-input>
+                <ion-input type="text" placeholder="Surname" formControlName="surname"
+                  [(ngModel)]="SalonOwnerProfile.surname" ngDefaultControl></ion-input>
               </ion-item>
-              <div class="error" *ngFor="let validate of validation_messages.ownerSurname">
+              <div class="error" *ngFor="let validate of validation_messages.surname">
                 <div class="messages"
-                  *ngIf="profileForm.get('ownerSurname').hasError(validate.type) && (profileForm.get('ownerSurname').dirty || profileForm.get('ownerSurname').touched)">
+                  *ngIf="profileForm.get('surname').hasError(validate.type) && (profileForm.get('surname').dirty || profileForm.get('surname').touched)">
                   {{validate.message}}
                 </div>
               </div>

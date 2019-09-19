@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Teko|Abel|Anton|Dosis|Oxygen|Jura|Pacifico|Righteous|Roboto+Condensed|Ubuntu|Open+Sans+Condensed');
-
 page-landing {
-
   .content{
     background: linear-gradient(rgba(0, 0, 0, 0.479)), url('../../assets/imgs/afro.svg');
     background-repeat: no-repeat;
@@ -10,7 +8,6 @@ page-landing {
     height: 100%;
     width: 100%;
   }
-
   .container {
     
     display: flex;
@@ -22,36 +19,30 @@ page-landing {
     position: fixed;
     font-family: 'Manjari';
   }
-
   .noprof {
     display: flex;
     flex-flow: column;
     text-align: center;
-
     .icon {
       font-size: 10vw;
       color: red;
     }
-
     p {
       font-size: 2vw;
       color: white;
     }
-
     button {
       background: rgba(0, 0, 0, 0.507);
     }
   }
-
   .navs {
     display: flex;
     flex-flow: column;
     position: absolute;
     position: fixed;
     right: -23%;
-    top: 45%;
+    top: 40%;
     width: 50%;
-
     button {
       width: 5%;
       height: 9vh;
@@ -62,7 +53,6 @@ page-landing {
       cursor: pointer;
     }
   }
-
   .profile1 {
     display: flex;
     flex-flow: row;
@@ -71,7 +61,6 @@ page-landing {
     position: absolute;
     top: 20px;
   }
-
   .details {
     text-align: center;
     color: white;
@@ -81,38 +70,36 @@ page-landing {
     top: 63%;
     left: 6%;
     width: 40vh;
-
     .name {
       display: flex;
       flex-flow: row;
       position: relative;
-
       .imgz {
         width: 80px;
         height: 80px;
         text-align: center;
       }
     }
-
     .propic {
       width: 30vh;
-
       #logo {
         width: 40%;
         height: 30%;
       }
     }
-
     #name {
       font-size: 8vw;
     }
   }
-
   .main {
     display: flex;
     flex-flow: row;
     justify-content: space-between;
   }
-
-
 }
+
+
+
+
+
+

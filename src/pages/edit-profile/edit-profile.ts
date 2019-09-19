@@ -23,16 +23,7 @@ export class EditProfilePage {
   profileForm : FormGroup;
   uploadprogress = 0;
   isuploading: false
-  SalonOwnerProfile = {
-    ownerImage: '',
-    ownername: '',
-    ownerSurname: '',
-    personalNumber: '',
-    coords: {lat:0,lng:0},
-    About: '',
-    uid: '',
-email: ''
-  }
+  SalonOwnerProfile = {} as user
   profileImage
   uid
   email
@@ -48,7 +39,7 @@ email: ''
       });
       load.present();
       
-      let users = this.db.collection('SalonOwnerProfile');
+      let users = this.db.collection('Users');
   
       let query = users.where("uid", "==", this.authUser.getUser());
       query.get().then(querySnapshot => {
@@ -59,9 +50,9 @@ email: ''
             console.log('Profile Document: ', doc.data())
         
             this.SalonOwnerProfile.About = doc.data().About;
-            this.SalonOwnerProfile.ownerImage = doc.data().ownerImage;
-            this.SalonOwnerProfile.ownerSurname = doc.data().ownerSurname;
-            this.SalonOwnerProfile.ownername = doc.data().ownername;
+            this.SalonOwnerProfile.image = doc.data().image;
+            this.SalonOwnerProfile.name = doc.data().surname;
+            this.SalonOwnerProfile.surname = doc.data().name;
             this.SalonOwnerProfile.personalNumber = doc.data().personalNumber;
             this.SalonOwnerProfile.email = doc.data().email;
             // this.SalonOwnerProfile.coords.lat = doc.data().lat
@@ -85,8 +76,8 @@ email: ''
 this.SalonOwnerProfile.uid = this.uid
 
     this.profileForm = this.formBuilder.group({
-      ownername: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
-      ownerSurname: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
+      name: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
+      surname: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
       personalNumber: new  FormControl('', Validators.compose([Validators.required, Validators.minLength(10)])),
       About: ['']
     });
@@ -124,7 +115,7 @@ this.SalonOwnerProfile.uid = this.uid
       }, err => {
       }, () => {
         upload.snapshot.ref.getDownloadURL().then(downUrl => {
-          this.SalonOwnerProfile.ownerImage = downUrl;
+          this.SalonOwnerProfile.image = downUrl;
           console.log('Image downUrl', downUrl);
 
 
@@ -148,7 +139,7 @@ this.SalonOwnerProfile.uid = this.uid
           });
           load.present();
       
-      const user = this.db.collection('SalonOwnerProfile').doc(this.authUser.getUser()).set(this.SalonOwnerProfile);
+      const user = this.db.collection('Users').doc(this.authUser.getUser()).set(this.SalonOwnerProfile);
       // upon success...
       user.then( () => {
         this.navCtrl.setRoot(ViewUserPorfilePage)
@@ -171,16 +162,15 @@ this.SalonOwnerProfile.uid = this.uid
       })
     }
   }
-
   validation_messages = {
-    'ownername': [
+    'name': [
       { type: 'required', message: 'Name is required.' },
       { type: 'minlength', message: 'Name must be at least 4 characters long.' },
       { type: 'maxlength', message: 'Name cannot be more than 25 characters long.' },
       { type: 'pattern', message: 'Your Name must not contain numbers and special characters.' },
       { type: 'validUsername', message: 'Your username has already been taken.' }
     ],
-    'ownerSurname': [
+    'surname': [
       { type: 'required', message: 'Surname is required.' },
       { type: 'minlength', message: 'Surname must be at least 4 characters long.' },
       { type: 'maxlength', message: 'Surname cannot be more than 25 characters long.' },
@@ -196,13 +186,12 @@ this.SalonOwnerProfile.uid = this.uid
     this.navCtrl.setRoot(ViewUserPorfilePage)
   }
 }
-export interface Profile {
-
-  ownerImage: string,
-  ownername: string,
-  ownerSurname: string,
-  personalNumber: string,
+export interface user {
+  image: string,
+  name: string,
+  surname: string,
+  personalNumber: null, 
   About: string,
   uid: string,
-  email:string
+  email : string
 }

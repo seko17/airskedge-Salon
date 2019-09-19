@@ -1,4 +1,3 @@
-
 <ion-header>
   <ion-navbar color="dark">
     <ion-title>Add Staff Profile</ion-title>
@@ -6,15 +5,10 @@
 </ion-header>
 
 <ion-content>
-
-
-
   <div class="container">
-
     <div class="card-wrapper">
       <div class="card">
         <div class="backimage">
-    
           <img src="{{profileImage}}" alt="" class="bimage">
           <div class="btn">
             <button *ngIf="!profileImage" ion-button color="dark" (click)="selectImage()">
@@ -23,7 +17,7 @@
           </div>
         </div>
 
-              <div class="form1">
+             
                   <form [formGroup]="staffForm">
                     <ion-item>
             
@@ -64,7 +58,7 @@
                       </div>
                     </div>
                     <br>
-                    <ion-item>
+                    <!-- <ion-item>
                       <ion-label> staff email</ion-label>
                       <ion-input type="text"  formControlName="staffEmail"
                         [(ngModel)]="Staff.email" ngDefaultControl></ion-input>
@@ -87,15 +81,22 @@
                         {{validate.message}}
                       </div>
                     </div>
-                    <br>
+                    <br> -->
             
             <button ion-button id="skip" (click)="createStyle(staffForm)" full round>ADD STYLIST</button>
                   </form>
-                </div>
-           
+                
             </div>
-          </div>
+            <br>
+
+
+            <!-- <button ion-button id="skip" (click)="createStyle(staffForm)" full round>ADD STYLIST</button>
+          </form> -->
         </div>
+
+      </div>
   
+
+
 
 </ion-content>
