@@ -27,7 +27,6 @@ page-landing {
     display: flex;
     flex-flow: column;
     text-align: center;
-
     .icon {
       font-size: 10vw;
       color: red;
@@ -49,7 +48,7 @@ page-landing {
     position: absolute;
     position: fixed;
     right: -23%;
-    top: 45%;
+    top: 40%;
     width: 50%;
 
     button {

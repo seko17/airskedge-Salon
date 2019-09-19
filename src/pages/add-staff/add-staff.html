@@ -1,4 +1,3 @@
-
 <ion-header>
   <ion-navbar color="dark">
     <ion-title>Add Staff Profile</ion-title>
@@ -6,15 +5,10 @@
 </ion-header>
 
 <ion-content>
-
-
-
   <div class="container">
-
     <div class="card-wrapper">
       <div class="card">
         <div class="backimage">
-    
           <img src="{{profileImage}}" alt="" class="bimage">
           <div class="btn">
             <button *ngIf="!profileImage" ion-button color="dark" (click)="selectImage()">
@@ -23,56 +17,53 @@
           </div>
         </div>
 
-              <div class="form1">
-                  <form [formGroup]="staffForm">
-                    <ion-item>
-            
-                      <ion-label> Name
-          
-                      </ion-label>
-                      <ion-input type="text" formControlName="name" [(ngModel)]="Staff.name" ngDefaultControl>
-                      </ion-input>
-                    </ion-item>
-                    <div class="error" *ngFor="let validate of validation_messages.name">
-                      <div class="messages"
-                        *ngIf="staffForm.get('name').hasError(validate.type) && (staffForm.get('name').dirty || staffForm.get('name').touched)">
-                        {{validate.message}}
-                      </div>
-                    </div>
-            <br>
-                    <ion-item>
-                      <ion-label> Surname</ion-label>
-                      <ion-input type="text" formControlName="staffSurname" [(ngModel)]="Staff.staffSurname"
-                        ngDefaultControl></ion-input>
-                    </ion-item>
-                    <div class="error" *ngFor="let validate of validation_messages.staffSurname">
-                      <div class="messages"
-                        *ngIf="staffForm.get('staffSurname').hasError(validate.type) && (staffForm.get('staffSurname').dirty || staffForm.get('staffSurname').touched)">
-                        {{validate.message}}
-                      </div>
-                    </div>
-            <br>
-                    <ion-item>
-                      <ion-label> Cellphone Number</ion-label>
-                      <ion-input type="tel" maxLength="10" formControlName="personalNumber"
-                        [(ngModel)]="Staff.personalNumber" ngDefaultControl></ion-input>
-                    </ion-item>
-                    <div class="error" *ngFor="let validate of validation_messages.personalNumber">
-                      <div class="messages"
-                        *ngIf="staffForm.get('personalNumber').hasError(validate.type) && (staffForm.get('personalNumber').dirty || staffForm.get('personalNumber').touched)">
-                        {{validate.message}}
-                      </div>
-                    </div>
-                    <br>
-            
-            
-            <button ion-button id="skip" (click)="createStyle(staffForm)" full round>ADD STYLIST</button>
-                  </form>
-                </div>
-           
+        <div class="form1">
+          <form [formGroup]="staffForm">
+            <ion-item>
+              <ion-label> Name </ion-label>
+              <ion-input type="text" formControlName="name" [(ngModel)]="Staff.name" ngDefaultControl>
+              </ion-input>
+            </ion-item>
+            <div class="error" *ngFor="let validate of validation_messages.name">
+              <div class="messages"
+                *ngIf="staffForm.get('name').hasError(validate.type) && (staffForm.get('name').dirty || staffForm.get('name').touched)">
+                {{validate.message}}
+              </div>
             </div>
-          </div>
+            <br>
+            <ion-item>
+              <ion-label> Surname</ion-label>
+              <ion-input type="text" formControlName="staffSurname" [(ngModel)]="Staff.staffSurname" ngDefaultControl>
+              </ion-input>
+            </ion-item>
+            <div class="error" *ngFor="let validate of validation_messages.staffSurname">
+              <div class="messages"
+                *ngIf="staffForm.get('staffSurname').hasError(validate.type) && (staffForm.get('staffSurname').dirty || staffForm.get('staffSurname').touched)">
+                {{validate.message}}
+              </div>
+            </div>
+            <br>
+            <ion-item>
+              <ion-label> Cellphone Number</ion-label>
+              <ion-input type="tel" maxLength="10" formControlName="personalNumber" [(ngModel)]="Staff.personalNumber"
+                ngDefaultControl></ion-input>
+            </ion-item>
+            <div class="error" *ngFor="let validate of validation_messages.personalNumber">
+              <div class="messages"
+                *ngIf="staffForm.get('personalNumber').hasError(validate.type) && (staffForm.get('personalNumber').dirty || staffForm.get('personalNumber').touched)">
+                {{validate.message}}
+              </div>
+            </div>
+            <br>
+
+
+            <button ion-button id="skip" (click)="createStyle(staffForm)" full round>ADD STYLIST</button>
+          </form>
         </div>
-  
+
+      </div>
+    </div>
+  </div>
+
 
 </ion-content>
