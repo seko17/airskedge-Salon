@@ -84,7 +84,7 @@ obj ={};
     });
     load.present();
     // create a reference to the collection of users...
-    let users = this.db.collection('SalonOwnerProfile');
+    let users = this.db.collection('Users');
     // ...query the profile that contains the uid of the currently logged in user...
     let query = users.where("uid", "==", this.authservice.getUser());
     query.get().then(querySnapshot => {
@@ -97,9 +97,9 @@ obj ={};
 this.userservice.userdata.push({...this.obj , ...doc.data()});
           this.displayProfile = doc.data();
           this.SalonOwnerProfile.About = doc.data().About;
-          this.SalonOwnerProfile.ownerImage = doc.data().ownerImage;
-          this.SalonOwnerProfile.ownerSurname = doc.data().ownerSurname;
-          this.SalonOwnerProfile.ownername = doc.data().ownername;
+          this.SalonOwnerProfile.ownerImage = doc.data().image;
+          this.SalonOwnerProfile.ownerSurname = doc.data().surname;
+          this.SalonOwnerProfile.ownername = doc.data().name;
           this.SalonOwnerProfile.personalNumber = doc.data().personalNumber;
         this.profile = true;
         })

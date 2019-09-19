@@ -8,6 +8,7 @@ import { AddhairStylePage } from '../addhair-style/addhair-style';
 import { StyleviewpopoverComponent } from '../../components/styleviewpopover/styleviewpopover';
 import { EditstylesPage } from '../editstyles/editstyles';
 import { ManageStaffPage } from '../manage-staff/manage-staff';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 
 @IonicPage()
@@ -23,6 +24,7 @@ export class ManageHairSalonPage {
   isnotSalon = false;
 
   isHairstyle = false;
+  isNotHairstyle = false
   db = firebase.firestore();
   uid
   displayProfile = {}
@@ -64,7 +66,8 @@ export class ManageHairSalonPage {
     public loadingCtrl: LoadingController, 
     public alertCtrl: AlertController,
     private authService: AuthServiceProvider,
-    private popoverCtrl : PopoverController) {
+    private popoverCtrl : PopoverController,
+    private localNotifications: LocalNotifications) {
 
       this.uid = firebase.auth().currentUser.uid;
     this.authService.setUser(this.uid);
@@ -139,29 +142,37 @@ Delete(value){
               spinner: 'bubbles'
             })
             worker.present();
-            let users = this.db.collection('SalonNode');
-            let query = users.where("userUID", "==", this.authService.getUser());
+         
+            let query =  this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').where("hairstyleName","==",value.hairstyleName)
             query.get().then( snap => {
-              if (snap.empty !== true){
-                console.log('Got data', snap);
+             
                 snap.forEach(doc => {
                   console.log('Delete Document: ', doc.data())
                   this.displayProfile = doc.data();
           
-                  this.db.collection('SalonNode').doc(doc.data().salonName).collection('Styles').doc(value.hairstyleName).delete().then( res =>{
+                  this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').doc(doc.id).delete().then( res =>{
                     worker.dismiss();
-                    this.styles = [];
-                    this.getHairSalon();
+                 
+                    
+                    this.localNotifications.schedule({
+                      id: 1,
+                      title: 'style deleted',
+                      text: 'User has delted a style',
+                      
+                  
                    
+                    });
                     const alerter =  this.alertCtrl.create({
                       message: 'Style deleted'
                     })
                     alerter.present();
+                    this.styles = [];
+                    this.getHairSalon();
                 });
              
                 })
              
-              } 
+              
              
             })
           }
@@ -180,7 +191,7 @@ getHairSalon(){
     spinner: 'dots'
   });
   load.present();
-  let users = this.db.collection('SalonNode');
+  let users = this.db.collection('Salons');
   let query = users.where("userUID", "==", this.authService.getUser());
   query.get().then( snap => {
     if (snap.empty !== true){
@@ -192,12 +203,12 @@ getHairSalon(){
       
         this.SalonNode.salonImage = doc.data().salonImage;
         this.SalonNode.salonImage = doc.data().salonName;
-        this.db.collection('SalonNode').doc(doc.data().salonName).collection('Styles').onSnapshot( res =>{
+        this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').onSnapshot( res =>{
       res.forEach(doc =>{
         this.isHairstyle = true;
       })
       });
-      this.db.collection('SalonNode').doc(doc.data().salonName).collection('ratings').onSnapshot( rates =>{
+      this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('ratings').onSnapshot( rates =>{
         rates.forEach( doc =>{
               this.userRating.push(doc.data().rating)
               console.log('users', doc.data().rating);
@@ -230,12 +241,12 @@ getHairSalon(){
   })
 }
 getMaleStyle(){
-  let users = this.db.collection('SalonNode');
+  let users = this.db.collection('Salons');
   let query = users.where("userUID", "==", this.authService.getUser());
   query.onSnapshot(res =>{
     if (res.empty !== true){
       res.forEach( doc =>{
-      this.db.collection('SalonNode').doc(doc.data().salonName).collection('Styles').where("genderOptions","==","male").onSnapshot(snapshot =>{
+      this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').where("genderOptions","==","male").onSnapshot(snapshot =>{
         this.maleStyles = []
         snapshot.forEach(doc =>{
           this.maleStyles.push(doc.data())
@@ -249,12 +260,12 @@ getMaleStyle(){
   })
 }
 getFemaleStyle(){
-  let users = this.db.collection('SalonNode');
+  let users = this.db.collection('Salons');
   let query = users.where("userUID", "==", this.authService.getUser());
   query.onSnapshot(res =>{
     if (res.empty !== true){
       res.forEach( doc =>{
-      this.db.collection('SalonNode').doc(doc.data().salonName).collection('Styles').where("genderOptions","==","female").onSnapshot(snapshot =>{
+      this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').where("genderOptions","==","female").onSnapshot(snapshot =>{
         this.femaleStyles = []
         snapshot.forEach(doc =>{
           this.femaleStyles.push(doc.data())
@@ -282,7 +293,7 @@ viewstaff(){
 
 getProfile(){
   
-  let users = this.db.collection('SalonOwnerProfile');
+  let users = this.db.collection('Users');
 
   let query = users.where("uid", "==", this.authService.getUser());
   query.get().then(querySnapshot => {
@@ -293,9 +304,9 @@ getProfile(){
         console.log('Profile Document: ', doc.data())
         this.displayProfile = doc.data();
         this.SalonOwnerProfile.About = doc.data().About;
-        this.SalonOwnerProfile.ownerImage = doc.data().ownerImage;
-        this.SalonOwnerProfile.ownerSurname = doc.data().ownerSurname;
-        this.SalonOwnerProfile.ownername = doc.data().ownername;
+        this.SalonOwnerProfile.ownerImage = doc.data().image;
+        this.SalonOwnerProfile.ownerSurname = doc.data().name;
+        this.SalonOwnerProfile.ownername = doc.data().surname;
         this.SalonOwnerProfile.personalNumber = doc.data().personalNumber;
       
       })
@@ -315,7 +326,7 @@ getProfile(){
 }
 
 goback(){
-  this.navCtrl.pop();
+  this.navCtrl.push(ManageHairSalonPage);
 }
 
 }

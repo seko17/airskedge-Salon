@@ -35,6 +35,7 @@ import { AnalysisPage } from '../pages/analysis/analysis';
 import { StarRatingModule } from 'ionic3-star-rating';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { ViewStaffProfilePage } from '../pages/view-staff-profile/view-staff-profile';
 @NgModule({
   declarations: [
     MyApp,
@@ -56,7 +57,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     BookingsPage,
     ViewReviewsPage,
     AnalysisPage,
-    EditProfilePage
+    EditProfilePage,
+    ViewStaffProfilePage
   ],
   imports: [
     BrowserModule,
@@ -95,7 +97,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     BookingsPage,
     ViewReviewsPage,
     AnalysisPage,
-    EditProfilePage
+    EditProfilePage,
+    ViewStaffProfilePage
   ],
   providers: [
     StatusBar,

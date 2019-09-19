@@ -5,14 +5,14 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
-
+​
 /**
  * Generated class for the AddStaffPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
+​
 @IonicPage()
 @Component({
   selector: 'page-add-staff',
@@ -24,14 +24,12 @@ export class AddStaffPage {
   SalonCoverImage =  false;
   Staff = {
     name: '',
-    staffSurname: '',
     personalNumber: '',
     staffImage: '',
-    email: '',
-    OwnerUID: '',
     uid: '',
-    password: '',
-isOwner: false
+    date_created: null,
+    isAvialiabe: true,
+​staffSurname: ''
   }
   SalonNode = {
     salonName: '',
@@ -42,8 +40,8 @@ isOwner: false
     SalonDesc: '',
     SalonContactNo: '',
     userUID: ''
-
-
+​
+​
   }
   staffForm :FormGroup ;
   profileImage: string;
@@ -54,20 +52,15 @@ isOwner: false
     public camera: Camera,
     public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController,
     private formBuilder: FormBuilder) {
-
+​
     this.staffForm = this.formBuilder.group({
       name: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
       staffSurname: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
       personalNumber: new  FormControl('', Validators.compose([Validators.required, Validators.maxLength(10)])),
-      staffEmail: ['', Validators.compose([Validators.required, Validators.email])],
-      password: [
-        '',
-        Validators.compose([Validators.minLength(6), Validators.maxLength(15), Validators.required])
-      ]
+   
     });
-    this.Staff.OwnerUID = firebase.auth().currentUser.uid;
   }
-
+​
   ionViewDidLoad() {
     this.getHairSalon();
   }
@@ -80,45 +73,37 @@ isOwner: false
     } else {
        
            const load = this.loadingCtrl.create({
-            content: 'Creating Staff member..'
+            content: 'Creating HairSalon..'
           });
           load.present();
-
+​
       // let customStaffNumber = this.Staff.name +""+ 1000 + Math.floor(Math.random() * 10);    
-      // this.Staff.uid = customStaffNumber;
-
-      firebase.auth().createUserWithEmailAndPassword(this.Staff.email, this.Staff.password).then((newUserCredential: firebase.auth.UserCredential) => {  
-
-        this.Staff.uid = newUserCredential.user.uid;
-     
-        
-        const user = this.db.collection('SalonNode').doc(this.SalonNode.salonName).collection('staff').doc(this.Staff.name).set(this.Staff);
-        user.then( () => {
-          this.navCtrl.setRoot(ManageHairSalonPage)
-          this.toastCtrl.create({
-            message: 'User hair dresser added.',
-            duration: 2000,
-         
-          }).present();
-          // ...get the profile that just got created...
-          load.dismiss();
-        
-          // catch any errors.
-        }).catch( err=> {
-          this.toastCtrl.create({
-            message: 'Error creating  hair dresser.',
-            duration: 2000
-          }).present();
-         
-          load.dismiss();
-        })
-       });
-    
+      this.Staff.uid = this.Staff.name +''+this.Staff.staffSurname;
+      this.Staff.date_created = new Date();
+      const user = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('staff').doc().set(this.Staff);
       // upon success...
- 
+      user.then( () => {
+        this.navCtrl.setRoot(ManageHairSalonPage)
+        this.toastCtrl.create({
+          message: 'User hair dresser added.',
+          duration: 2000,
+       
+        }).present();
+        // ...get the profile that just got created...
+        load.dismiss();
+      
+        // catch any errors.
+      }).catch( err=> {
+        this.toastCtrl.create({
+          message: 'Error creating  hair dresser.',
+          duration: 2000
+        }).present();
+       
+        load.dismiss();
+      })
     }
   }
-
+​
   async selectImage() {
     let option: CameraOptions = {
       quality: 100,
@@ -131,13 +116,13 @@ isOwner: false
     await this.camera.getPicture(option).then(res => {
       console.log(res);
       const image = `data:image/jpeg;base64,${res}`;
-
+​
       this.profileImage = image;
       
       const filename = Math.floor(Date.now() / 1000);
-      let file = 'Salon-Staff/' + this.authUser.getUser() + filename + '.jpg';
+      let file = 'Salon-staff/' + this.authUser.getUser() + '.jpg';
       const UserImage = this.storage.child(file);
-
+​
       const upload = UserImage.putString(image, 'data_url');
       upload.on('state_changed', snapshot => {
         let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -150,14 +135,14 @@ isOwner: false
         upload.snapshot.ref.getDownloadURL().then(downUrl => {
           this.Staff.staffImage = downUrl;
           console.log('Image downUrl', downUrl);
-
-
+​
+​
         })
       })
     }, err => {
       console.log("Something went wrong: ", err);
     })
-
+​
   } 
   validation_messages = {
     'name': [
@@ -177,15 +162,9 @@ isOwner: false
     'personalNumber': [
       { type: 'required', message: 'Cellnumber is required.' }
     ],
-    'password': [
-      {type: 'required', message: 'Password is required'}
-    ]
-    ,
-    'email': [
-      {type:'required', message: 'Email is required'}
-    ]
+    
   };
-
+​
   getHairSalon(){
  
     let load = this.loadingCtrl.create({
@@ -194,7 +173,7 @@ isOwner: false
    });
    load.present();
    
-   let users = this.db.collection('SalonNode');
+   let users = this.db.collection('Salons');
    
    let query = users.where("userUID", "==", this.authUser.getUser());
    query.get().then( snap => {
@@ -205,12 +184,7 @@ isOwner: false
          console.log('Profile Document: ', doc.data())
         
          this.SalonNode.salonName  = doc.data().salonName;
-         this.SalonNode.salonLogo  = doc.data().salonLogo;
-         this.SalonNode.salonImage  = doc.data().salonImage;
-         this.SalonNode.numHairDressers  = doc.data().numHairDressers;
-         this.SalonNode.location  = doc.data().location;
-         this.SalonNode.SalonDesc  = doc.data().SalonDesc;
-         this.SalonNode.SalonContactNo  = doc.data().SalonContactNo;
+
     
        })
      
@@ -227,9 +201,12 @@ isOwner: false
      load.dismiss();
    })
  }
-
+​
  goback(){
   this.navCtrl.pop();
 }
-
+​
 }
+
+
+

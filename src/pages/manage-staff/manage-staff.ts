@@ -7,6 +7,7 @@ import * as firebase from 'firebase';
 import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
 import { AddStaffPage } from '../add-staff/add-staff';
 import { LandingPage } from '../landing/landing';
+import { ViewStaffProfilePage } from '../view-staff-profile/view-staff-profile';
 /**
  * Generated class for the ManageStaffPage page.
  *
@@ -40,13 +41,18 @@ export class ManageStaffPage {
  addperson(){
    this.navCtrl.push(AddStaffPage)
  }
+
+ 
+ view(value){
+   this.navCtrl.push(ViewStaffProfilePage,value)
+ }
   Staff(){
     let load = this.loadingCtrl.create({
      content: 'Please wait...',
      spinner: 'dots'
    });
    load.present();
-   let users = this.db.collection('SalonNode');
+   let users = this.db.collection('Salons');
    let query = users.where("userUID", "==", this.authUser.getUser());
    query.get().then( snap => {
      if (snap.empty !== true){
@@ -55,7 +61,7 @@ export class ManageStaffPage {
          console.log('Profile Document: ', doc.data())
          this.displayProfile = doc.data();
  //query to get all staff
-         this.db.collection('SalonNode').doc(doc.data().salonName).collection('staff').get().then( res =>{
+         this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('staff').get().then( res =>{
        res.forEach(doc =>{
  this.staff.push(doc.data());
          console.log('styles' , doc.data());

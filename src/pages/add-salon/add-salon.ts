@@ -42,14 +42,17 @@ SalonLogoImage;
   SalonNode = {
     salonName: '',
     salonImage: '',
-    salonLogo: '',
-    location: '',
     numHairDressers: '',
     SalonDesc: '',
     SalonContactNo: '',
     userUID: '',
-    coords: {lat:0,lng:0},
-    streetName : ''  
+    Address: {
+      lat:0,
+      lng:0,
+      streetName : '',
+    fullAddress: ''},
+    DatCreated : null
+      
   }
   constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthServiceProvider,
     public camera: Camera,
@@ -76,10 +79,11 @@ SalonLogoImage;
   public handleAddressChange(addres: Address) {
     // Do some stuff
     console.log(addres);
-    this.SalonNode.coords.lat = addres.geometry.location.lat() ;
-    this.SalonNode.coords.lng =addres.geometry.location.lng() ;
-    this.SalonNode.location = addres.formatted_address ;
-    this.SalonNode.streetName = addres.name;
+ 
+    this.SalonNode.Address.lat = addres.geometry.location.lat() ;
+    this.SalonNode.Address.lng =addres.geometry.location.lng() ;
+    this.SalonNode.Address.fullAddress= addres.formatted_address ;
+    this.SalonNode.Address.streetName = addres.name;
  
     
 }
@@ -101,8 +105,9 @@ async createSalon(addSalonForm: FormGroup): Promise<void> {
           content: 'Creating Salon..'
         });
         load.present();
-    
-    const user = this.db.collection('SalonNode').doc(this.SalonNode.salonName).set(this.SalonNode);
+    this.SalonNode.DatCreated = new Date();
+    parseInt(this.SalonNode.SalonContactNo)
+    const user = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).set(this.SalonNode);
     // upon success...
     user.then( () => {
       this.navCtrl.setRoot(LandingPage)
@@ -117,7 +122,7 @@ async createSalon(addSalonForm: FormGroup): Promise<void> {
       // catch any errors.
     }).catch( err=> {
       this.toastCtrl.create({
-        message: 'Error creating Profile.',
+        message: 'Error creating Salon.',
         duration: 2000
       }).present();
      
@@ -168,47 +173,47 @@ async createSalon(addSalonForm: FormGroup): Promise<void> {
 
   }
 
-  //select cover logo for the salon 
-  async selectLogo() {
-    let option: CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
-      correctOrientation: true,
-      sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM
-    }
-    await this.camera.getPicture(option).then(res => {
-      console.log(res);
-      const image = `data:image/jpeg;base64,${res}`;
+  // //select cover logo for the salon 
+  // async selectLogo() {
+  //   let option: CameraOptions = {
+  //     quality: 100,
+  //     destinationType: this.camera.DestinationType.DATA_URL,
+  //     encodingType: this.camera.EncodingType.JPEG,
+  //     mediaType: this.camera.MediaType.PICTURE,
+  //     correctOrientation: true,
+  //     sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM
+  //   }
+  //   await this.camera.getPicture(option).then(res => {
+  //     console.log(res);
+  //     const image = `data:image/jpeg;base64,${res}`;
 
-      this.SalonLogoImage = image;
-      const filename = Math.floor(Date.now() / 1000);
-      let file = 'Salon-Profile-Logo/' + this.authService.getUser() + filename +'.jpg';
-      const UserImage = this.storage.child(file);
+  //     this.SalonLogoImage = image;
+  //     const filename = Math.floor(Date.now() / 1000);
+  //     let file = 'Salon-Profile-Logo/' + this.authService.getUser() + filename +'.jpg';
+  //     const UserImage = this.storage.child(file);
 
-      const upload = UserImage.putString(image, 'data_url');
-      upload.on('state_changed', snapshot => {
-        let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        this.uploadprogress = progress;
-        if (progress == 100) {
-          this.isuploading = false;
-        }
-      }, err => {
-      }, () => {
-        upload.snapshot.ref.getDownloadURL().then(downUrl => {
-          this.SalonNode.salonLogo
-           = downUrl;
-          console.log('Image downUrl', downUrl);
+  //     const upload = UserImage.putString(image, 'data_url');
+  //     upload.on('state_changed', snapshot => {
+  //       let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+  //       this.uploadprogress = progress;
+  //       if (progress == 100) {
+  //         this.isuploading = false;
+  //       }
+  //     }, err => {
+  //     }, () => {
+  //       upload.snapshot.ref.getDownloadURL().then(downUrl => {
+  //         this.SalonNode.salonLogo
+  //          = downUrl;
+  //         console.log('Image downUrl', downUrl);
 
 
-        })
-      })
-    }, err => {
-      console.log("Something went wrong: ", err);
-    })
+  //       })
+  //     })
+  //   }, err => {
+  //     console.log("Something went wrong: ", err);
+  //   })
 
-  }
+  // }
   // Validation messages
   validation_messages = {
     'salonName': [

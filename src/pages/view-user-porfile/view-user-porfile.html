@@ -40,7 +40,8 @@
      
     </div>
      <div class="imgz">
-       <img src="{{SalonOwnerProfile.ownerImage}}">
+       <img *ngIf="!SalonOwnerProfile.ownerImage" src="../../assets/imgs/dummyAvatr.png" alt="">
+       <img *ngIf="SalonOwnerProfile.ownerImage" src="{{SalonOwnerProfile.ownerImage}}">
      </div>
 
   

@@ -31,14 +31,13 @@ export class SalonRegistrationpagePage {
   uploadprogress = 0;
   isuploading: false
   SalonOwnerProfile = {
-    ownerImage: '',
-    ownername: '',
-    ownerSurname: '',
-    personalNumber: '',
-    coords: {lat:0,lng:0},
+    image: '',
+    name: '',
+    surname: '',
+    personalNumber: null,
     About: '',
-    uid: ''
-
+    uid: '',
+date_created : null
   }
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -51,8 +50,8 @@ export class SalonRegistrationpagePage {
     this.authUser.setUser(this.uid);
 this.SalonOwnerProfile.uid = this.uid
     this.profileForm = this.formBuilder.group({
-      ownername: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
-      ownerSurname: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
+      name: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
+      surname: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
       personalNumber: new  FormControl('', Validators.compose([Validators.required, Validators.minLength(10)])),
       About: ['']
     });
@@ -64,12 +63,12 @@ this.SalonOwnerProfile.uid = this.uid
 
     console.log('masibone', this.authUser.getUser())
   }
-  public handleAddressChange(addres: Address) {
-    // Do some stuff
-    console.log(addres);
-    this.SalonOwnerProfile.coords.lat = addres.geometry.location.lat() ;
-    this.SalonOwnerProfile.coords.lng =addres.geometry.location.lng() ;
-}
+//   public handleAddressChange(addres: Address) {
+//     // Do some stuff
+//     console.log(addres);
+//     this.SalonOwnerProfile.coords.lat = addres.geometry.location.lat() ;
+//     this.SalonOwnerProfile.coords.lng =addres.geometry.location.lng() ;
+// }
   //select image for the salon
   async selectImage() {
     let option: CameraOptions = {
@@ -99,7 +98,7 @@ this.SalonOwnerProfile.uid = this.uid
       }, err => {
       }, () => {
         upload.snapshot.ref.getDownloadURL().then(downUrl => {
-          this.SalonOwnerProfile.ownerImage = downUrl;
+          this.SalonOwnerProfile.image = downUrl;
           console.log('Image downUrl', downUrl);
 
 
@@ -122,8 +121,8 @@ this.SalonOwnerProfile.uid = this.uid
             content: 'Creating Profile..'
           });
           load.present();
-      
-      const user = this.db.collection('SalonOwnerProfile').doc(this.authUser.getUser()).update(this.SalonOwnerProfile);
+      this.SalonOwnerProfile.date_created = new Date();
+      const user = this.db.collection('Users').doc(this.authUser.getUser()).update(this.SalonOwnerProfile);
       // upon success...
       user.then( () => {
         this.navCtrl.setRoot(LandingPage)
@@ -150,14 +149,14 @@ this.SalonOwnerProfile.uid = this.uid
   
 
  validation_messages = {
-    'ownername': [
+    'name': [
       { type: 'required', message: 'Name is required.' },
       { type: 'minlength', message: 'Name must be at least 4 characters long.' },
       { type: 'maxlength', message: 'Name cannot be more than 25 characters long.' },
       { type: 'pattern', message: 'Your Name must not contain numbers and special characters.' },
       { type: 'validUsername', message: 'Your username has already been taken.' }
     ],
-    'ownerSurname': [
+    'surname': [
       { type: 'required', message: 'Surname is required.' },
       { type: 'minlength', message: 'Surname must be at least 4 characters long.' },
       { type: 'maxlength', message: 'Surname cannot be more than 25 characters long.' },
