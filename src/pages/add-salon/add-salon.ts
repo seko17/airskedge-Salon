@@ -27,7 +27,7 @@ export class AddSalonPage {
   @ViewChild("placesRef") placesRef : GooglePlaceDirective;
   options={
    
-   componentRestrictions: { country: 'ZA' }
+   componentRestrictions: { country: 'ZA' } 
    };
   db = firebase.firestore();
   storage = firebase.storage().ref();

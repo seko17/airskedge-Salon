@@ -48,6 +48,8 @@ export class LandingPage {
       this.authservice.setUser(this.uid);
   }
 obj ={};
+
+
   ionViewDidLoad() {
    this.getProfile();
   }

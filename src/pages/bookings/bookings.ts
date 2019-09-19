@@ -5,7 +5,7 @@ import { ViewUserPorfilePage } from '../view-user-porfile/view-user-porfile';
 import { AddhairStylePage } from '../addhair-style/addhair-style';
 import * as firebase from 'firebase';
 import { UserProvider } from '../../providers/user/user';
-
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 /**
  * Generated class for the BookingsPage page.
@@ -31,7 +31,8 @@ validated =true;
     public toastCtrl: ToastController, 
     public loadingCtrl: LoadingController, 
     public alertCtrl: AlertController,
-    private authService: AuthServiceProvider,) {
+    private authService: AuthServiceProvider,
+    private localNotifications: LocalNotifications) {
       console.log(this.userservice.userdata[0].uid)
 
      this.getsalonname();
@@ -40,7 +41,25 @@ validated =true;
   }
   obj ={};
   ionViewDidLoad() {
+    this.getLocalNotification()
+  }
+  getLocalNotification(){
+    this.db.collection('SalonNode').where("userUID", "==", this.authService.getUser()).onSnapshot(doc =>{
+      doc.forEach(res =>{
+        console.log('datas ',res.data())
+        this.db.collection('SalonNode').doc(res.data().salonName).collection('staff').doc('seko').onSnapshot(res =>{
+          this.localNotifications.schedule({
+            id: 1,
+            title: 'Airsekged',
+            text: 'Booking has been made for seko',
+        
+       
+          });
+        })
+      })
     
+      
+    })
   }
 
 getsalonname()
