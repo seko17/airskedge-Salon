@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="dark">
-    <ion-title>viewReviews</ion-title>
+    <ion-title>Reviews</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -22,17 +22,18 @@
 
     <div class="card">
       <div class="image">
-        <img src="n.image">
+        <img *ngIf="!n.image "src="../../assets/imgs/dummyAvatr.png" alt="">
+        <img *ngIf="n.image" [src]="n.image">
       </div>
       <div class="details">
         <div class="name">
-          <h2>{{n.name}}</h2>
-          <p>{{n.review}}</p>
+          <h4 style="color:orangered">{{n.name}}</h4>
+          <p style="position: relative; bottom: 10px; color: whitesmoke">{{n.review}}</p>
         </div>
 
         <div class="rates">
           <ionic3-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#488aff"
-            defaultColor="#f4f4f4" readonly="true" rating={{n.rating}} fontSize="8vw">
+            defaultColor="#f4f4f4" readonly="true" rating={{n.rating}} fontSize="6vw">
           </ionic3-star-rating>
         </div>
       </div>

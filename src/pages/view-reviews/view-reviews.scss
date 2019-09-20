@@ -1,4 +1,4 @@
-page-view-reviews {
+\page-view-reviews {
 
   .card {
     display: flex;
@@ -7,6 +7,7 @@ page-view-reviews {
     width: 100%;
     margin: 10px 0;
     box-shadow: 5px 5px 10px grey;
+    background: rgb(51, 51, 51);
   }
 
   .image {
@@ -14,7 +15,7 @@ page-view-reviews {
     height: 12vh;
     border: 1px solid grey;
     position: relative;
-    left: -20px;
+    left: -21px;
 
     img {
       width: 100%;
@@ -26,10 +27,14 @@ page-view-reviews {
   .details {
     width: 30vh;
     position: relative;
+    top: 10px;
+    left: -30px;
 
     .rates {
       position: absolute;
       bottom: 4px;
+      left: -10px;
+      margin: 5px;
     }
   }
 

@@ -21,12 +21,14 @@
             </button>
           </div>
         </div>
-
+<br><br>
   <form [formGroup]="addSalonForm">
+      <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" id="location"
+      style="font-size: 17px"/>
 
     <!-- input for salon name-->
     <ion-item>
-      <ion-label floating>Salon name</ion-label>
+      <ion-label stacked>Salon name</ion-label>
       <ion-input type="text" formControlName="salonName" [(ngModel)]="SalonNode.salonName" ngDefaultControl placeholder="Salon Name"></ion-input>
     </ion-item>
     <div class="error" *ngFor="let validate of validation_messages.salonName">
@@ -34,14 +36,13 @@
         *ngIf="addSalonForm.get('salonName').hasError(validate.type) && (addSalonForm.get('salonName').dirty || addSalonForm.get('salonName').touched)">
         {{validate.message}}
       </div>
-      <br>
+     
     </div>
     <!-- input for salon location/Address-->
-    <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" id="location"
-    style="font-size: 17px"/>
+    
   
     <ion-item>
-      <ion-label floating> Salon contact number</ion-label>
+      <ion-label stacked> Salon contact number</ion-label>
       <ion-input type="tel"  maxLength="10" formControlName="SalonContactNo" [(ngModel)]="SalonNode.SalonContactNo"
         ngDefaultControl placeholder="Contact Number"></ion-input>
     </ion-item>
@@ -53,7 +54,7 @@
     </div>
     <!-- input for salon descriptions-->
     <ion-item>
-      <ion-label floating> Salon Description </ion-label>
+      <ion-label stacked> Salon Description </ion-label>
       <ion-input type="text" formControlName="SalonDesc" [(ngModel)]="SalonNode.SalonDesc" ngDefaultControl placeholder="Description"></ion-input>
     </ion-item>
     <div class="error" *ngFor="let validate of validation_messages.SalonDesc">
@@ -64,7 +65,7 @@
     </div>
     <!-- input for salon number of hair dressers-->
     <ion-item>
-      <ion-label floating> Number of hair dressers </ion-label>
+      <ion-label stacked> Number of hair dressers </ion-label>
       <ion-input type="tel" maxLength="2" formControlName="numHairDressers" [(ngModel)]="SalonNode.numHairDressers"
         ngDefaultControl ></ion-input>
     </ion-item>

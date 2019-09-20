@@ -36,7 +36,7 @@ validated =true;
       console.log(this.userservice.userdata[0].uid)
 
      this.getsalonname();
- 
+     this.gethairdresser();
    
   }
   obj ={};
@@ -64,10 +64,11 @@ validated =true;
 
 getsalonname()
 {
-  firebase.firestore().collection('SalonNode').where("userUID","==",this.userservice.userdata[0].uid).get().then(val=>{
+  console.log("YES")
+  firebase.firestore().collection('Salons').where("salonuid","==",this.userservice.userdata[0].uid).get().then(val=>{
     val.forEach(uz=>{
-      this.salonname =uz.data().salonName;
-      this.gethairdresser(this.salonname )
+      console.log(uz.data());
+      this.gethairdresser( );
       this.saloninfo.push(uz.data())
     });
   });
@@ -84,12 +85,15 @@ currentdate:Date;
      spinner: 'dots'
    });
    load.present();
+
+
    this.testArray =[];
-    this.db.collection('SalonNode').doc(this.salonname).collection('staff').doc(this.hairdresser).collection(this.userdate).get().then( snap => {
+
+    this.db.collection('Bookings').where("salonuid","==",this.userservice.userdata[0].uid).where("userdate","==",this.userdate).where("hairdresser","==",this.hairdresser).get().then( snap => {
      if (snap.empty !== true){
        console.log('Got data', snap);
        snap.forEach(doc => {
-        console.log('Profile Document: = ',doc.id, doc.data())
+        console.log('data',doc.id, doc.data())
          
          let x1=new Date(doc.data().userdate) ;
          let x2=((new Date()).getFullYear()+'-'+(new Date().getMonth())+'-'+new Date().getDate());
@@ -135,14 +139,7 @@ this.validated =false;
  }
  
  
- //Function to push to the user profile page
- ViewUserPorfilePage(){
-   this.navCtrl.push(ViewUserPorfilePage);
- }
- //Function to push to adding a new hairstyle
- addStyle(){
-   this.navCtrl.push(AddhairStylePage)
- }
+
  
  testarray;
 events;
@@ -152,9 +149,9 @@ d3;
 
 
   staff =[];
-  gethairdresser(x)
+  gethairdresser()
   {
-   return this.db.collection('SalonNode').doc(this.salonname).collection('staff').get().then(val=>{
+   return this.db.collection('Salons').doc(this.userservice.userdata[0].uid).collection('staff').where("isAvialiabe","==",true).get().then(val=>{
     val.forEach(stav=>{
       this.obj ={id:stav.id}
 this.staff.push({...this.obj, ...stav.data()});
