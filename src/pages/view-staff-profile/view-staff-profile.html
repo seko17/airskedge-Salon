@@ -23,17 +23,19 @@
             <div>Surname<br><strong>{{staff.staffSurname}}</strong></div>
             <div>Phone<br><strong>{{staff.personalNumber}}</strong></div>  
           </div>
+
+          <div class="flex">
+            <div>  <button (click)="updateAvailiable()" ion-button color="secondary" round >Availiable</button></div>
+            <div> <button  class="available" (click)="updateNotAvailiable()" ion-button color="danger" clear round>Not availiable</button></div>
+            
+          </div>
       <ion-card-title>
       &nbsp;  &nbsp; 
         </ion-card-title>
 
     
   
-      <div class="flex">
-        <div>  <button (click)="updateAvailiable()" ion-button color="secondary" round >Availiable</button></div>
-        <div> <button  class="available" (click)="updateNotAvailiable()" ion-button color="danger" clear round>Not availiable</button></div>
-        
-      </div>
+ 
     </ion-card-content>
   </ion-card>
 </ion-content>
