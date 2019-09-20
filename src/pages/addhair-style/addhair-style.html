@@ -28,7 +28,7 @@
     <form [formGroup]="addhairStyleForm">
      
         <ion-item >
-          <ion-label floating>Hairstyle name </ion-label>
+          <ion-label stacked>Hairstyle name </ion-label>
          <ion-input type="text" placeholder="" formControlName="hairstyleName" [(ngModel)]="Styles.hairstyleName" ngDefaultControl></ion-input>
         </ion-item>
         <div class="error" *ngFor="let validate of validation_messages.hairstyleName">
@@ -39,7 +39,7 @@
         </div>
      
         <ion-item >
-          <ion-label floating>Hairstyle description </ion-label>
+          <ion-label stacked>Hairstyle description </ion-label>
          <ion-input type="text"  placeholder="" formControlName="hairstyleDesc"   [(ngModel)]="Styles.hairstyleDesc" ngDefaultControl></ion-input>
         </ion-item>
         <div class="error" *ngFor="let validate of validation_messages.hairstyleDesc">
@@ -50,7 +50,7 @@
         </div>
   
         <ion-item >
-          <ion-label floating>Price </ion-label>
+          <ion-label stacked>Price </ion-label>
          <ion-input  type="tel" placeholder="" maxLength="4" formControlName="hairstylePrice"  [(ngModel)]="Styles.hairstylePrice" ngDefaultControl></ion-input>
         </ion-item>
         <div class="error" *ngFor="let validate of validation_messages.hairstylePrice">
@@ -61,7 +61,7 @@
         </div>
   
         <ion-item>
-          <ion-label floating> Duration</ion-label>
+          <ion-label stacked> Duration</ion-label>
           <ion-select formControlName="duration" [(ngModel)]="Styles.duration" >
             <ion-option *ngFor="let g of Duration" [value]="g.value">{{g.label}}  </ion-option>
           </ion-select>
@@ -70,7 +70,7 @@
        
  
         <ion-item>
-            <ion-label floating> Style gender</ion-label>
+            <ion-label stacked> Style gender</ion-label>
             <ion-select formControlName="genderOptions" [(ngModel)]="Styles.genderOptions" >
               <ion-option *ngFor="let g of Gender" value="{{g}}">{{g}}</ion-option>
             </ion-select>

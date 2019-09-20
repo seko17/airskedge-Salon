@@ -57,7 +57,7 @@ export class ViewReviewsPage {
      spinner: 'dots'
    });
    load.present();
-   let users = this.db.collection('SalonNode');
+   let users = this.db.collection('Salons');
    let query = users.where("userUID", "==", this.authService.getUser());
    query.get().then( snap => {
      if (snap.empty !== true){
@@ -68,10 +68,10 @@ export class ViewReviewsPage {
          this.name = doc.data().salonName;
        
      
-         this.db.collection('SalonNode').doc(doc.data().salonName).collection('ratings').get().then( res =>{
+         this.db.collection('Salons').doc(doc.id).collection('ratings').get().then( res =>{
        res.forEach(doc =>{
  this.reviews.push(doc.data());
-         console.log('styles' , doc.data());
+         console.log('review' , doc.data());
     
        })
        });
