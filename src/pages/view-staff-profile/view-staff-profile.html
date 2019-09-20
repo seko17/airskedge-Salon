@@ -5,25 +5,33 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>viewStaffProfile</ion-title>
+  <ion-navbar color="dark">
+    <ion-title>Stuff profile</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-card>
-    <p *ngIf="!staff.isAvialiabe" style="color: red"> not availiable</p>
-    <p *ngIf="staff.isAvialiabe" style="color: green">availiable</p>
+<ion-content >
+  <ion-card class="back">
+    <p class="word" *ngIf="!staff.isAvialiabe" style="color: red"> Not available</p>
+    <p class="word" *ngIf="staff.isAvialiabe" style="color: green">Available</p>
     <img *ngIf="staff.staffImage" src="{{staff.staffImage}}" alt="">
-    <img *ngIf="!staff.staffImage" src="../../assets/imgs/dummyAvatr.png"/>
+    <img *ngIf="!staff.staffImage" src="../../assets/imgs/dummyAvatr.png" class="img">
     <ion-card-content>
+
+        <div class="flex-container">
+            <div>Name:<br><strong>{{staff.name}}</strong> </div>
+            <div>Surname<br><strong>{{staff.staffSurname}}</strong></div>
+            <div>Phone<br><strong>{{staff.personalNumber}}</strong></div>  
+          </div>
       <ion-card-title>
-      {{staff.name}} &nbsp; {{staff.staffSurname}} &nbsp; {{staff.personalNumber}}
+      &nbsp;  &nbsp; 
         </ion-card-title>
+
+    
       <p>
         
-          <button (click)="updateAvailiable()" ion-button color="secondary" clear>availiable</button>
-          <button  (click)="updateNotAvailiable()" ion-button color="danger" clear>not availiable</button>
+          <button (click)="updateAvailiable()" ion-button color="secondary" round >Availiable</button>
+          <button  class="available" (click)="updateNotAvailiable()" ion-button color="danger" clear round>Not availiable</button>
       </p>
     </ion-card-content>
   </ion-card>
