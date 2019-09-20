@@ -44,13 +44,13 @@ validated =true;
     this.getLocalNotification()
   }
   getLocalNotification(){
-    this.db.collection('Salons').where("salonuid", "==", this.authService.getUser()).onSnapshot(doc =>{
+    this.db.collection('Bookings').where("salonuid", "==", this.authService.getUser()).onSnapshot(doc =>{
       doc.forEach(res =>{
         console.log('datas ',res.data())
    
           this.localNotifications.schedule({
             id: 1,
-            title: 'Airsekged',
+            title: 'Airskedge',
             text: 'New Booking has been made',
         
        
