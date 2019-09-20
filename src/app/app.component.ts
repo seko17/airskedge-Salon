@@ -25,7 +25,7 @@ export class MyApp {
       if (user) {
         console.log('logged in');
         
-        firebase.firestore().collection('SalonOwnerProfile').where("uid", "==", user.uid).onSnapshot((result) => {
+        firebase.firestore().collection('Users').where("uid", "==", user.uid).onSnapshot((result) => {
           if(result.empty) {
             console.log('khuthy');
             this.rootPage = SalonRegistrationpagePage;

@@ -34,10 +34,10 @@
       </div>
 
     </div>
-    <div class="imgz">
-      <img src="{{SalonOwnerProfile.ownerImage}}">
-    </div>
-
+     <div class="imgz">
+       <img *ngIf="!SalonOwnerProfile.ownerImage" src="../../assets/imgs/dummyAvatr.png" alt="">
+       <img *ngIf="SalonOwnerProfile.ownerImage" src="{{SalonOwnerProfile.ownerImage}}">
+     </div>
 
 
   </div>
