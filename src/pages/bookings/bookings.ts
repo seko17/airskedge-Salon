@@ -44,18 +44,18 @@ validated =true;
     this.getLocalNotification()
   }
   getLocalNotification(){
-    this.db.collection('SalonNode').where("userUID", "==", this.authService.getUser()).onSnapshot(doc =>{
+    this.db.collection('Bookings').where("salonuid", "==", this.authService.getUser()).onSnapshot(doc =>{
       doc.forEach(res =>{
         console.log('datas ',res.data())
-        this.db.collection('SalonNode').doc(res.data().salonName).collection('staff').doc('seko').onSnapshot(res =>{
+   
           this.localNotifications.schedule({
             id: 1,
-            title: 'Airsekged',
-            text: 'Booking has been made for seko',
+            title: 'Airskedge',
+            text: 'New Booking has been made',
         
        
           });
-        })
+
       })
     
       
