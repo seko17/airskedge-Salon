@@ -28,11 +28,12 @@
         </ion-card-title>
 
     
-      <p>
+  
+      <div class="flex">
+        <div>  <button (click)="updateAvailiable()" ion-button color="secondary" round >Availiable</button></div>
+        <div> <button  class="available" (click)="updateNotAvailiable()" ion-button color="danger" clear round>Not availiable</button></div>
         
-          <button (click)="updateAvailiable()" ion-button color="secondary" round >Availiable</button>
-          <button  class="available" (click)="updateNotAvailiable()" ion-button color="danger" clear round>Not availiable</button>
-      </p>
+      </div>
     </ion-card-content>
   </ion-card>
 </ion-content>
