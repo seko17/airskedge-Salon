@@ -10,6 +10,7 @@ import { UserCreateProfilePage } from '../user-create-profile/user-create-profil
 import { ViewUserPorfilePage } from '../view-user-porfile/view-user-porfile';
 import { UserProvider } from '../../providers/user/user';
 import { AnalysisPage } from '../analysis/analysis';
+import { ViewReviewsPage } from '../view-reviews/view-reviews';
 
 
 /**
@@ -59,7 +60,7 @@ obj ={};
     });
   }
   analysis(){
-    this.navCtrl.push(AnalysisPage)
+    this.navCtrl.push(ViewReviewsPage)
   }
   viewprofile(){
     this.navCtrl.push( ViewUserPorfilePage)
