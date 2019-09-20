@@ -21,7 +21,7 @@ page-view-staff-profile {
 
         .img{
 
-            height: -50vw;
+            height: 50vw;
             width: 100px;
 
         }
@@ -40,5 +40,19 @@ page-view-staff-profile {
         text-align: center;
 
         font-size: 16px;
+      }
+      .flex {
+        display: flex;
+        justify-content: center;
+      
+      }
+      
+      .flex > div {
+     
+        width: 100%;
+
+        text-align: center;
+      
+        font-size: 30px;
       }
 }
