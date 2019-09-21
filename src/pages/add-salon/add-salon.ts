@@ -107,7 +107,15 @@ async createSalon(addSalonForm: FormGroup): Promise<void> {
         load.present();
     this.SalonNode.DatCreated = new Date();
     parseInt(this.SalonNode.SalonContactNo)
-    const user = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).set(this.SalonNode);
+    const user = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).set(this.SalonNode)
+    this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Analytics').add({
+      likes: [],
+      SalonCancellations: 0,
+      UserCancellations: 0,
+      AllBookings : 0,
+      NumberOfViews : 0
+
+    })
     // upon success...
     user.then( () => {
       this.navCtrl.setRoot(LandingPage)
