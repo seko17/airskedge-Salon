@@ -73,11 +73,38 @@ getsalonname()
     });
   });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   
 }
 
 
 currentdate:Date;
+currentEvents = [
+  {
+    year: 2019,
+    month: 8,
+    date: 29
+  }
+];
+
+
+
 
   getHairSalon(){
     let load = this.loadingCtrl.create({
@@ -89,17 +116,23 @@ currentdate:Date;
 
    this.testArray =[];
 
-    this.db.collection('Bookings').where("salonuid","==",this.userservice.userdata[0].uid).where("userdate","==",this.userdate).where("hairdresser","==",this.hairdresser).get().then( snap => {
+    this.db.collection('Bookings').where("salonuid","==",this.userservice.userdata[0].uid).where("userdate",">=",this.userdate).where("hairdresser","==",this.hairdresser).get().then( snap => {
      if (snap.empty !== true){
        console.log('Got data', snap);
        snap.forEach(doc => {
         console.log('data',doc.id, doc.data())
+        
          
          let x1=new Date(doc.data().userdate) ;
          let x2=((new Date()).getFullYear()+'-'+(new Date().getMonth())+'-'+new Date().getDate());
        
        this.obj ={id:doc.id}
          this.testArray.push({...this.obj, ...doc.data()});
+
+         console.log("Manipulate this date",x1)
+         this.currentEvents.push({year:x1.getFullYear(),month:x1.getMonth(),date:x1.getDate()})
+         console.log(this.currentEvents)
+        // this.onDaySelect(doc.data());
          console.log(this.testArray)
          //console.log("date1",x1)
          //console.log("date2",x2)
@@ -291,6 +324,7 @@ console.log(this.hairdresser,this.userdate)
   }
 
   todate;
+  
   onDaySelect(event)
   {
 console.log(event);
@@ -313,6 +347,17 @@ console.log(event.year,
   }
 
 }
+
+if((event.month+1)>9)
+  {
+
+    this.todate = (event.year)+'-'+(event.month+1)+'-'+(event.date);
+  if((event.date)<10)
+  {
+    this.todate = (event.year)+'-'+(event.month+1)+'-0'+(event.date);
+  }
+
+}
 this.userdate =this.todate;
 console.log("Currentdate =",this.userdate)
 
@@ -328,6 +373,43 @@ console.log("Currentdate =",this.userdate)
     });
     alert.present();
   }
+
+  calendar = {
+    mode: 'month',
+    currentDate: new Date()
+  }; 
+
+
+
+
+
+
+
+
+
+
+onDateSelected() {
+alert('asd');
+}
+
+onCurrentDatechanged($event){
+alert('onCurrentDatechanged');
+}
+
+onEventSelected($event){
+alert('onEventSelected');
+}
+
+onTitleChanged($event){
+alert('onTitleChanged');
+}
+
+onTimeSelected($event){
+alert('onTimeSelected');
+}
+
+
+
 }
 
 
