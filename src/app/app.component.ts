@@ -8,6 +8,7 @@ import {firebaseConfig} from '../app/credentials';
 import { LoginPage } from '../pages/login/login';
 import { LandingPage } from '../pages/landing/landing';
 import { SalonRegistrationpagePage } from '../pages/salon-registrationpage/salon-registrationpage';
+import { OneSignal } from '@ionic-native/onesignal';
 // import { ScreenOrientation } from '@ionic-native/screen-orientation';
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +19,7 @@ export class MyApp {
 
 
   
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private oneSignal: OneSignal) {
 
     firebase.initializeApp(firebaseConfig);
    firebase.auth().onAuthStateChanged(user => {
@@ -53,6 +54,20 @@ export class MyApp {
       setTimeout(()=>{
         splashScreen.hide();
       }, 1000);
+
+this.oneSignal.startInit('5381c453-7474-4542-9a79-488e96dd363c', '282915271246');
+
+this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
+
+this.oneSignal.handleNotificationReceived().subscribe(() => {
+ // do something when notification is received
+});
+
+this.oneSignal.handleNotificationOpened().subscribe(() => {
+  // do something when a notification is opened
+});
+
+this.oneSignal.endInit();
     });
   }
 }
