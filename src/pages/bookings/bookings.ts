@@ -27,6 +27,8 @@ salonname;
 userdata =this.userservice.userdata;
 selecteddate;
 validated =true;
+currentday;
+currentEvents = [];
   constructor(public navCtrl: NavController, public navParams: NavParams,public userservice:UserProvider,
     public toastCtrl: ToastController, 
     public loadingCtrl: LoadingController, 
@@ -37,12 +39,17 @@ validated =true;
 
      this.getsalonname();
      this.gethairdresser();
-   
+     this.currentday =this.cdate()
   }
   obj ={};
   ionViewDidLoad() {
-    this.getLocalNotification()
-  }
+    this.getLocalNotification();
+
+   this.currentEvents =this.userservice.currentEvents;
+      }
+  
+
+
   getLocalNotification(){
     this.db.collection('Bookings').where("salonuid", "==", this.authService.getUser()).onSnapshot(doc =>{
       doc.forEach(res =>{
@@ -73,11 +80,32 @@ getsalonname()
     });
   });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   
 }
 
 
 currentdate:Date;
+
+
+
+
 
   getHairSalon(){
     let load = this.loadingCtrl.create({
@@ -94,12 +122,17 @@ currentdate:Date;
        console.log('Got data', snap);
        snap.forEach(doc => {
         console.log('data',doc.id, doc.data())
+        
          
          let x1=new Date(doc.data().userdate) ;
          let x2=((new Date()).getFullYear()+'-'+(new Date().getMonth())+'-'+new Date().getDate());
        
        this.obj ={id:doc.id}
          this.testArray.push({...this.obj, ...doc.data()});
+
+         console.log("Manipulate this date",x1)
+        
+        // this.onDaySelect(doc.data());
          console.log(this.testArray)
          //console.log("date1",x1)
          //console.log("date2",x2)
@@ -291,6 +324,7 @@ console.log(this.hairdresser,this.userdate)
   }
 
   todate;
+  
   onDaySelect(event)
   {
 console.log(event);
@@ -313,6 +347,17 @@ console.log(event.year,
   }
 
 }
+
+if((event.month+1)>9)
+  {
+
+    this.todate = (event.year)+'-'+(event.month+1)+'-'+(event.date);
+  if((event.date)<10)
+  {
+    this.todate = (event.year)+'-'+(event.month+1)+'-0'+(event.date);
+  }
+
+}
 this.userdate =this.todate;
 console.log("Currentdate =",this.userdate)
 
@@ -328,6 +373,60 @@ console.log("Currentdate =",this.userdate)
     });
     alert.present();
   }
+
+  calendar = {
+    mode: 'month',
+    currentDate: new Date()
+  }; 
+
+
+
+
+
+
+
+
+
+
+onDateSelected() {
+alert('asd');
+}
+
+onCurrentDatechanged($event){
+alert('onCurrentDatechanged');
+}
+
+onEventSelected($event){
+alert('onEventSelected');
+}
+
+onTitleChanged($event){
+alert('onTitleChanged');
+}
+
+onTimeSelected($event){
+alert('onTimeSelected');
+}
+
+
+
+cdate() {
+   let todate;
+  todate = (new Date().getFullYear().toString()) + '-' + (new Date().getMonth()) + '-' + (new Date().getDate());
+  if ((new Date().getMonth() + 1) < 10) {
+
+  todate = (new Date().getFullYear().toString()) + '-0' + (new Date().getMonth() + 1) + '-' + (new Date().getDate());
+    if ((new Date().getDate()) < 10) {
+    todate = (new Date().getFullYear().toString()) + '-0' + (new Date().getMonth() + 1) + '-0' + (new Date().getDate());
+    }
+
+  }
+  console.log("Currentdate =", todate)
+  return todate;
+}
+
+
+
 }
 
 

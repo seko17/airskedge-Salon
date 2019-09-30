@@ -24,7 +24,15 @@
 
         <br><br>
         <div class="datez">
-          <ion-calendar #calendar style="font-size: 21px;" (onDaySelect)="onDaySelect($event)" (click)="view()">
+          <ion-calendar #calendar style="font-size: 21px;" (onDaySelect)="onDaySelect($event)" (click)="view()"
+          [events]="currentEvents"
+          (dateSelected)="onDateSelected($event)"
+          (onCurrentDateChanged)="onCurrentDatechanged($event)"
+          (onEventSelected)="onEventSelected($event)"
+          (onTitleChanged)="onTitleChanged($event)"
+          (onTimeSelected)="onTimeSelected($event)"
+          step="30"
+          (onDaySelected)=onDaySelect($event)>
           </ion-calendar>
           <br>
           <ion-item>
@@ -45,7 +53,7 @@
               <p> For about {{n.estimatedtime}} minutes</p>
               <p>Client {{n.status}}</p>
               <div class="buttz">
-                <button ion-button [disabled]="validated" *ngIf="n.status2!='cancelled' && n.status!='cancelled'"
+                <button ion-button  *ngIf="n.status2!='cancelled' && n.status!='cancelled' && n.userdate >= currentday "
                   (click)="cancels(n)" style="background:red">
                   <ion-icon name="close"></ion-icon>
                 </button>
