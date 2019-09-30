@@ -27,6 +27,8 @@ salonname;
 userdata =this.userservice.userdata;
 selecteddate;
 validated =true;
+currentday;
+currentEvents = [];
   constructor(public navCtrl: NavController, public navParams: NavParams,public userservice:UserProvider,
     public toastCtrl: ToastController, 
     public loadingCtrl: LoadingController, 
@@ -37,12 +39,17 @@ validated =true;
 
      this.getsalonname();
      this.gethairdresser();
-   
+     this.currentday =this.cdate()
   }
   obj ={};
   ionViewDidLoad() {
-    this.getLocalNotification()
-  }
+    this.getLocalNotification();
+
+   this.currentEvents =this.userservice.currentEvents;
+      }
+  
+
+
   getLocalNotification(){
     this.db.collection('Bookings').where("salonuid", "==", this.authService.getUser()).onSnapshot(doc =>{
       doc.forEach(res =>{
@@ -95,13 +102,7 @@ getsalonname()
 
 
 currentdate:Date;
-currentEvents = [
-  {
-    year: 2019,
-    month: 8,
-    date: 29
-  }
-];
+
 
 
 
@@ -116,7 +117,7 @@ currentEvents = [
 
    this.testArray =[];
 
-    this.db.collection('Bookings').where("salonuid","==",this.userservice.userdata[0].uid).where("userdate",">=",this.userdate).where("hairdresser","==",this.hairdresser).get().then( snap => {
+    this.db.collection('Bookings').where("salonuid","==",this.userservice.userdata[0].uid).where("userdate","==",this.userdate).where("hairdresser","==",this.hairdresser).get().then( snap => {
      if (snap.empty !== true){
        console.log('Got data', snap);
        snap.forEach(doc => {
@@ -130,8 +131,7 @@ currentEvents = [
          this.testArray.push({...this.obj, ...doc.data()});
 
          console.log("Manipulate this date",x1)
-         this.currentEvents.push({year:x1.getFullYear(),month:x1.getMonth(),date:x1.getDate()})
-         console.log(this.currentEvents)
+        
         // this.onDaySelect(doc.data());
          console.log(this.testArray)
          //console.log("date1",x1)
@@ -406,6 +406,23 @@ alert('onTitleChanged');
 
 onTimeSelected($event){
 alert('onTimeSelected');
+}
+
+
+
+cdate() {
+   let todate;
+  todate = (new Date().getFullYear().toString()) + '-' + (new Date().getMonth()) + '-' + (new Date().getDate());
+  if ((new Date().getMonth() + 1) < 10) {
+
+  todate = (new Date().getFullYear().toString()) + '-0' + (new Date().getMonth() + 1) + '-' + (new Date().getDate());
+    if ((new Date().getDate()) < 10) {
+    todate = (new Date().getFullYear().toString()) + '-0' + (new Date().getMonth() + 1) + '-0' + (new Date().getDate());
+    }
+
+  }
+  console.log("Currentdate =", todate)
+  return todate;
 }
 
 
