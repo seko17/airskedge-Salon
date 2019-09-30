@@ -17,14 +17,12 @@ analytics=true;
 
 analitics =[];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  this.analitics;
-    firebase.firestore().collection('salonAnalytics').doc(firebase.auth().currentUser.uid).collection('numbers').get().then(val=>{
-      val.forEach(data=>{
-        console.log(data.data())
-        this.analitics.push(data.data());
-      })
+ 
+    firebase.firestore().collection('Analytics').doc(firebase.auth().currentUser.uid).get().then(val=>{
+      val.data();
+      this.analitics.push( val.data())
+      console.log(val.data());
     })
-    
   
   }
 

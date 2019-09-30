@@ -26,6 +26,8 @@ export class AuthServiceProvider {
     return firebase.auth().createUserWithEmailAndPassword(email, password).then((newUserCredential: firebase.auth.UserCredential) => {
 this.uid = firebase.auth().currentUser.uid
 
+firebase.firestore().collection('Analytics').doc(this.uid).set({numberofviews:0,numberoflikes:0,usercancel:0,saloncancel:0,allbookings:0,users:[]});
+
 
         firebase.firestore().doc(`/Users/${newUserCredential.user.uid}`).set({ email  });
       })
