@@ -36,6 +36,7 @@ import { StarRatingModule } from 'ionic3-star-rating';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { ViewStaffProfilePage } from '../pages/view-staff-profile/view-staff-profile';
+import { OneSignal } from '@ionic-native/onesignal';
 @NgModule({
   declarations: [
     MyApp,
@@ -71,6 +72,7 @@ import { ViewStaffProfilePage } from '../pages/view-staff-profile/view-staff-pro
     }),
     ReactiveFormsModule,
     FormsModule,
+    
     GooglePlaceModule,
     // ScreenOrientation
 
@@ -103,6 +105,7 @@ import { ViewStaffProfilePage } from '../pages/view-staff-profile/view-staff-pro
   providers: [
     StatusBar,
     SplashScreen,
+    OneSignal,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
     AuthServiceProvider,

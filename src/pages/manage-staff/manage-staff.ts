@@ -80,7 +80,7 @@ export class ManageStaffPage {
  }
 
  goback(){
-  this.navCtrl.setRoot(ManageHairSalonPage);
+  this.navCtrl.push(ManageHairSalonPage);
 }
 
 }
