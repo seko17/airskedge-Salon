@@ -9,6 +9,7 @@ import { LandingPage } from '../landing/landing';
 import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
 import { LoginPage } from '../login/login';
+import { OneSignal } from '@ionic-native/onesignal';
 
 
 
@@ -37,18 +38,25 @@ export class SalonRegistrationpagePage {
     personalNumber: null,
     About: '',
     uid: '',
-date_created : null
+date_created : null,
+TokenID : ''
   }
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private authUser: AuthServiceProvider,
     public camera: Camera,
     public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    private oneSignal: OneSignal) {
 
     this.uid = firebase.auth().currentUser.uid;
     this.authUser.setUser(this.uid);
 this.SalonOwnerProfile.uid = this.uid
+
+this.oneSignal.getIds().then((res) =>{
+  this.SalonOwnerProfile.TokenID = res.userId;
+})
+
     this.profileForm = this.formBuilder.group({
       name: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
       surname: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),

@@ -16,12 +16,29 @@ import { OneSignal } from '@ionic-native/onesignal';
 export class MyApp {
   rootPage: any;
 
-
+  signal_app_id: string = 'bf488b2e-b5d1-4e42-9aa5-8ce29e6320c8';
+  
+  firebase_id:string = '282915271246';
 
   
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private oneSignal: OneSignal) {
 
     firebase.initializeApp(firebaseConfig);
+    
+   this.oneSignal.startInit(this.signal_app_id, this.firebase_id);
+   this.oneSignal.getIds().then((userID) => {
+      console.log("user ID ", userID);
+    })
+    this.oneSignal.inFocusDisplaying(oneSignal.OSInFocusDisplayOption.InAppAlert);
+    this.oneSignal.handleNotificationReceived().subscribe((res) => {
+      // do something when notification is received
+      console.log(res);
+    });
+    this.oneSignal.handleNotificationOpened().subscribe((res) => {
+      // do something when a notification is opened
+      console.log(res);
+    });
+    this.oneSignal.endInit();
    firebase.auth().onAuthStateChanged(user => {
       if (user) {
         console.log('logged in');
@@ -55,19 +72,6 @@ export class MyApp {
         splashScreen.hide();
       }, 1000);
 
-this.oneSignal.startInit('5381c453-7474-4542-9a79-488e96dd363c', '282915271246');
-
-this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
-
-this.oneSignal.handleNotificationReceived().subscribe(() => {
- // do something when notification is received
-});
-
-this.oneSignal.handleNotificationOpened().subscribe(() => {
-  // do something when a notification is opened
-});
-
-this.oneSignal.endInit();
     });
   }
 }

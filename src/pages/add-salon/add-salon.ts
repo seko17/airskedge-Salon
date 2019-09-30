@@ -10,6 +10,7 @@ import { Address } from 'ngx-google-places-autocomplete/objects/address';
 import { NativeGeocoder,
   NativeGeocoderReverseResult,
   NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
+import { OneSignal } from '@ionic-native/onesignal';
 
 /**
  * Generated class for the AddSalonPage page.
@@ -51,13 +52,15 @@ SalonLogoImage;
       lng:0,
       streetName : '',
     fullAddress: ''},
-    DatCreated : null
+    DatCreated : null,
+    TokenID : ''
       
   }
   constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthServiceProvider,
     public camera: Camera,
     public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController,private GEOCODE: NativeGeocoder,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    private oneSignal: OneSignal) {
 
       //get logged user uid and set the uid
     this.uid = firebase.auth().currentUser.uid;
@@ -65,7 +68,10 @@ SalonLogoImage;
 
     //set user uid
     this.SalonNode.userUID = this.uid;
-
+//get user Token ID
+this.oneSignal.getIds().then((res)=>{
+  this.SalonNode.TokenID = res.userId;
+})
     //form builder validations
     this.addSalonForm = this.formBuilder.group({
       salonName: new FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
