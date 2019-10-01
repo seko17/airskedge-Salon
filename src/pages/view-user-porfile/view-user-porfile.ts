@@ -51,9 +51,31 @@ isProfile =false;
   }
 
   logout(){
-    this.authservice.logoutUser().then(() =>{
-      this.navCtrl.setRoot(LoginPage);
+    const prompt = this.alertCtrl.create({
+      title: 'Exit',
+      message: "Are you sure you want to logout?",
+    
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Exit',
+          handler: data => {
+            console.log('Saved clicked');
+            this.authservice.logoutUser().then(() =>{
+              this.navCtrl.setRoot(LoginPage);
+            });
+          }
+        }
+      ]
     });
+    prompt.present();
+  
+ 
   }
 
 

@@ -25,20 +25,20 @@ export class MyApp {
 
     firebase.initializeApp(firebaseConfig);
     
-   this.oneSignal.startInit(this.signal_app_id, this.firebase_id);
-   this.oneSignal.getIds().then((userID) => {
-      console.log("user ID ", userID);
-    })
-    this.oneSignal.inFocusDisplaying(oneSignal.OSInFocusDisplayOption.InAppAlert);
-    this.oneSignal.handleNotificationReceived().subscribe((res) => {
-      // do something when notification is received
-      console.log(res);
-    });
-    this.oneSignal.handleNotificationOpened().subscribe((res) => {
-      // do something when a notification is opened
-      console.log(res);
-    });
-    this.oneSignal.endInit();
+  //  this.oneSignal.startInit(this.signal_app_id, this.firebase_id);
+  //  this.oneSignal.getIds().then((userID) => {
+  //     console.log("user ID ", userID);
+  //   })
+  //   this.oneSignal.inFocusDisplaying(oneSignal.OSInFocusDisplayOption.InAppAlert);
+  //   this.oneSignal.handleNotificationReceived().subscribe((res) => {
+  //     // do something when notification is received
+  //     console.log(res);
+  //   });
+  //   this.oneSignal.handleNotificationOpened().subscribe((res) => {
+  //     // do something when a notification is opened
+  //     console.log(res);
+  //   });
+  //   this.oneSignal.endInit();
    firebase.auth().onAuthStateChanged(user => {
       if (user) {
         console.log('logged in');
@@ -71,8 +71,27 @@ export class MyApp {
       setTimeout(()=>{
         splashScreen.hide();
       }, 1000);
-
+      if (platform.is('cordova')) {
+        this.setupPush();
+      }
     });
+  }
+
+  setupPush(){
+    this.oneSignal.startInit(this.signal_app_id, this.firebase_id);
+     this.oneSignal.getIds().then((userID) => {
+        console.log("user ID ", userID);
+      })
+      this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
+      this.oneSignal.handleNotificationReceived().subscribe((res) => {
+        // do something when notification is received
+        console.log(res);
+      });
+      this.oneSignal.handleNotificationOpened().subscribe((res) => {
+        // do something when a notification is opened
+        console.log(res);
+      });
+      this.oneSignal.endInit();
   }
 }
 
