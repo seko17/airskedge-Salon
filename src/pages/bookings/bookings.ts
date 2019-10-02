@@ -233,43 +233,13 @@ console.log(this.hairdresser,this.userdate)
             console.log('Cancel clicked');
            this.cancelbooking =true;
 
-
-           firebase.firestore().collection('SalonNode').doc(x.salonname).collection('staff').doc(x.hairdresser).collection(x.userdate).doc(x.id).update({
-            status2: 'cancelled'
-            }).then(res=>{
-            console.log(res)
-            });
-
-            firebase.firestore().collection('SalonNode').doc(x.salonname).collection('staff').doc(x.hairdresser).collection(x.userdate).doc(x.id).get().then(val=>{
-              console.log(val.data())
-            })
-
-
-
-
-            
-  let click = 1;
-  let v1;
-  let docid;
-  
-  firebase.firestore().collection('salonAnalytics').doc(x.salonuid).collection('numbers').get().then(val=>{
-    console.log("These are the numbers",val)
-    val.forEach(qu=> 
-  
-      {
-      docid =qu.id;
-      console.log(docid)
-      console.log(qu.data().saloncancellations)
-      v1 =qu.data().saloncancellations;
-  
-      firebase.firestore().collection('salonAnalytics').doc(x.salonuid).collection('numbers').doc(qu.id).update({"saloncancellations":v1+click}).then(zet=>{
-        console.log(zet)
-      })
-      })
-
-    })
-
-            
+           
+           firebase.firestore().collection('Analytics').doc(x.salonuid).get().then(val=>{
+         
+             console.log("numbers = ",val.data())
+          
+             firebase.firestore().collection('Analytics').doc(x.salonuid).set({numberofviews:val.data().numberofviews,numberoflikes:val.data().numberoflikes,usercancel:val.data().usercancel,saloncancel:val.data().saloncancel+1,allbookings:val.data().allbookings,users:val.data().users});
+           });
             
 
           }
@@ -411,19 +381,27 @@ alert('onTimeSelected');
 
 
 cdate() {
-   let todate;
+  let todate;
   todate = (new Date().getFullYear().toString()) + '-' + (new Date().getMonth()) + '-' + (new Date().getDate());
   if ((new Date().getMonth() + 1) < 10) {
-
+ 
   todate = (new Date().getFullYear().toString()) + '-0' + (new Date().getMonth() + 1) + '-' + (new Date().getDate());
     if ((new Date().getDate()) < 10) {
     todate = (new Date().getFullYear().toString()) + '-0' + (new Date().getMonth() + 1) + '-0' + (new Date().getDate());
     }
-
+ 
   }
+  else if ((new Date().getMonth() + 1) >= 10)
+ {
+   todate = (new Date().getFullYear().toString()) + '-' + (new Date().getMonth() + 1) + '-' + (new Date().getDate());
+ 
+   if ((new Date().getDate()) < 10) {
+   todate = (new Date().getFullYear().toString()) + '-' + (new Date().getMonth() + 1) + '-0' + (new Date().getDate());
+   }
+ }
   console.log("Currentdate =", todate)
   return todate;
-}
+ }
 
 
 

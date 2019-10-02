@@ -49,6 +49,14 @@ db =firebase.firestore();
    }
 
  }
+ else if ((new Date().getMonth() + 1) >= 10)
+{
+  todate = (new Date().getFullYear().toString()) + '-' + (new Date().getMonth() + 1) + '-' + (new Date().getDate());
+
+  if ((new Date().getDate()) < 10) {
+  todate = (new Date().getFullYear().toString()) + '-' + (new Date().getMonth() + 1) + '-0' + (new Date().getDate());
+  }
+}
  console.log("Currentdate =", todate)
  return todate;
 }
