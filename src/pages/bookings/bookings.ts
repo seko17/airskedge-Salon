@@ -6,6 +6,7 @@ import { AddhairStylePage } from '../addhair-style/addhair-style';
 import * as firebase from 'firebase';
 import { UserProvider } from '../../providers/user/user';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { OneSignal } from '@ionic-native/onesignal';
 
 /**
  * Generated class for the BookingsPage page.
@@ -34,7 +35,8 @@ currentEvents = [];
     public loadingCtrl: LoadingController, 
     public alertCtrl: AlertController,
     private authService: AuthServiceProvider,
-    private localNotifications: LocalNotifications) {
+    private localNotifications: LocalNotifications,
+    private oneSignal: OneSignal) {
       console.log(this.userservice.userdata[0].uid)
 
      this.getsalonname();
@@ -232,7 +234,15 @@ console.log(this.hairdresser,this.userdate)
           handler: data => {
             console.log('Cancel clicked');
            this.cancelbooking =true;
-
+           if( x.UserTokenID){
+            var notificationObj = {
+              contents: { en: "CANCELLATION ALERT! "  + " Hey "+ x.name + ", "+ x.salonname + " has canceled their booking with you "  },
+              include_player_ids: [x.UserTokenID],
+            }
+            this.oneSignal.postNotification(notificationObj).then(res => {
+             // console.log('After push notifcation sent: ' +res);
+            })
+          }
            
            firebase.firestore().collection('Analytics').doc(x.salonuid).get().then(val=>{
          
