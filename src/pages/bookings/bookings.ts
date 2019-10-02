@@ -233,6 +233,20 @@ console.log(this.hairdresser,this.userdate)
             console.log('Cancel clicked');
            this.cancelbooking =true;
 
+        
+           console.log("USER Clicked", x);
+       
+           x.status = "cancelled";
+           firebase.firestore().collection('Bookings').doc(x.id).update({
+             status2: 'cancelled'
+           }).then(res => {
+             console.log(res)
+           });
+
+
+
+
+
            
            firebase.firestore().collection('Analytics').doc(x.salonuid).get().then(val=>{
          
