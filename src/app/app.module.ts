@@ -37,6 +37,7 @@ import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { ViewStaffProfilePage } from '../pages/view-staff-profile/view-staff-profile';
 import { OneSignal } from '@ionic-native/onesignal';
+import { OwnbookingsPage } from '../pages/ownbookings/ownbookings';
 @NgModule({
   declarations: [
     MyApp,
@@ -59,7 +60,8 @@ import { OneSignal } from '@ionic-native/onesignal';
     ViewReviewsPage,
     AnalysisPage,
     EditProfilePage,
-    ViewStaffProfilePage
+    ViewStaffProfilePage,
+    OwnbookingsPage
   ],
   imports: [
     BrowserModule,
@@ -100,7 +102,8 @@ import { OneSignal } from '@ionic-native/onesignal';
     ViewReviewsPage,
     AnalysisPage,
     EditProfilePage,
-    ViewStaffProfilePage
+    ViewStaffProfilePage,
+    OwnbookingsPage
   ],
   providers: [
     StatusBar,

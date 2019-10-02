@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, LoadingController, AlertController } from 'ionic-angular';
+import {  ViewController ,IonicPage, NavController, NavParams, ToastController, LoadingController, AlertController, ModalController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { ViewUserPorfilePage } from '../view-user-porfile/view-user-porfile';
 import { AddhairStylePage } from '../addhair-style/addhair-style';
@@ -7,6 +7,7 @@ import * as firebase from 'firebase';
 import { UserProvider } from '../../providers/user/user';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { OneSignal } from '@ionic-native/onesignal';
+import { OwnbookingsPage } from '../ownbookings/ownbookings';
 
 /**
  * Generated class for the BookingsPage page.
@@ -30,7 +31,8 @@ selecteddate;
 validated =true;
 currentday;
 currentEvents = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams,public userservice:UserProvider,
+hairdresser
+  constructor(public modalCtrl: ModalController,public navCtrl: NavController, public navParams: NavParams,public userservice:UserProvider,
     public toastCtrl: ToastController, 
     public loadingCtrl: LoadingController, 
     public alertCtrl: AlertController,
@@ -197,7 +199,7 @@ console.log(this.staff)
  
   }
 
-hairdresser;
+
 userdate;
   view()
   {
@@ -428,6 +430,16 @@ cdate() {
   return todate;
  }
 
+
+
+
+ bookingModal() {
+  let bookingModal = this.modalCtrl.create(OwnbookingsPage,{ hairdresser: this.hairdresser,userdate:this.userdate });
+  bookingModal.present();
+  bookingModal.onDidDismiss(data => {
+    console.log(data);
+  });
+}
 
 
 }
