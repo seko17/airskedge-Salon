@@ -69,10 +69,8 @@ this.navCtrl.push(CreateAccountPage)
         });
       });
 
-      this.loading = this.loadingCtrl.create({
-        dismissOnPageChange: true,
-      });
-      this.loading.present();
+  
+    
     }
   }
   goback(){
