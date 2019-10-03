@@ -47,31 +47,32 @@ hairdresser
   }
   obj ={};
   ionViewDidLoad() {
-    this.getLocalNotification();
+ 
+     
 
    this.currentEvents =this.userservice.currentEvents;
       }
   
 
 
-  getLocalNotification(){
-    this.db.collection('Bookings').where("salonuid", "==", this.authService.getUser()).onSnapshot(doc =>{
-      doc.forEach(res =>{
-        console.log('datas ',res.data())
+  // getLocalNotification(){
+  //   this.db.collection('Bookings').where("salonuid", "==", this.authService.getUser()).onSnapshot(doc =>{
+  //     doc.forEach(res =>{
+  //       console.log('datas ',res.data())
    
-          this.localNotifications.schedule({
-            id: 1,
-            title: 'Airskedge',
-            text: 'New Booking has been made',
+  //         this.localNotifications.schedule({
+  //           id: 1,
+  //           title: 'Airskedge',
+  //           text: 'New Booking has been made',
         
        
-          });
+  //         });
 
-      })
+  //     })
     
       
-    })
-  }
+  //   })
+  // }
 
 getsalonname()
 {
@@ -253,7 +254,8 @@ console.log(this.hairdresser,this.userdate)
 
            if( x.UserTokenID){
             var notificationObj = {
-              contents: { en: "CANCELLATION ALERT! "  + " Hey "+ x.name + ", "+ x.salonname + " has canceled their booking with you "  },
+              headings: {en: "CANCELLATION ALERT!" },
+              contents: { en: " Hey "+ x.name + ", "+ x.salonname + " has canceled their booking with you "  },
               include_player_ids: [x.UserTokenID],
             }
             this.oneSignal.postNotification(notificationObj).then(res => {
