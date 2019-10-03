@@ -112,8 +112,74 @@ userbookings(booking: bookings) {
 }
 
 
+salonbooking;
+holduserinput(booking)
+{
+ this.salonbooking =booking; 
+}
 
 
+events =[];
+d1;d2;d3;
 
 
+findtime(booking,ara) {
+  this.testarray=ara;
+
+  this.events = [];
+  this.d1 = new Date((booking.userdate + 'T') + (booking.sessiontime));
+  this.d2 = new Date((booking.userdate + 'T0') + (booking.sessionendtime));
+  this.d3;
+
+  
+console.log(this.testarray,this.testarray.length)
+  //this.formodal=false;
+
+ // console.log("TestArray = ", this.testarray)
+let val =this.testarray.length;
+
+  for (let i = 0; i < val; i++) {
+
+    this.d1 = new Date((booking.userdate + 'T') + (booking.sessiontime)).toTimeString();
+
+    this.d2 = new Date((this.testarray[i].userdate + 'T') + (this.testarray[i].sessiontime)).toTimeString();
+
+
+   //console.log("Second condition for end time =", (this.testarray[i].sessionendtime[0]))
+
+    this.d3 = new Date((this.testarray[i].userdate + 'T') + (this.testarray[i].sessionendtime)).toTimeString();
+
+
+    let d4 = new Date((booking.userdate + 'T') + (booking.sessionendtime)).toTimeString();
+
+
+    console.log(" d1 =",this.d1," d2 =",this.d2," d3= ",this.d3);
+
+
+    if( this.d2 <= this.d1 && this.d1 < this.d3 ) 
+    {
+
+   
+      this.isvalidated = false;
+      
+   
+     console.log("Booking Error slot occupied ")
+ 
+    i =5000000000000000000000;
+
+    }
+
+    else {
+
+      // console.log(" d1 =",this.d1," d2 =",this.d2," d3= ",this.d3);
+       console.log("holy")
+
+      i =5000000000000000000000;
+     
+   
+
+    }
+  }
+
+}
 }
