@@ -47,31 +47,32 @@ hairdresser
   }
   obj ={};
   ionViewDidLoad() {
-    this.getLocalNotification();
+ 
+     
 
    this.currentEvents =this.userservice.currentEvents;
       }
   
 
 
-  getLocalNotification(){
-    this.db.collection('Bookings').where("salonuid", "==", this.authService.getUser()).onSnapshot(doc =>{
-      doc.forEach(res =>{
-        console.log('datas ',res.data())
+  // getLocalNotification(){
+  //   this.db.collection('Bookings').where("salonuid", "==", this.authService.getUser()).onSnapshot(doc =>{
+  //     doc.forEach(res =>{
+  //       console.log('datas ',res.data())
    
-          this.localNotifications.schedule({
-            id: 1,
-            title: 'Airskedge',
-            text: 'New Booking has been made',
+  //         this.localNotifications.schedule({
+  //           id: 1,
+  //           title: 'Airskedge',
+  //           text: 'New Booking has been made',
         
        
-          });
+  //         });
 
-      })
+  //     })
     
       
-    })
-  }
+  //   })
+  // }
 
 getsalonname()
 {
