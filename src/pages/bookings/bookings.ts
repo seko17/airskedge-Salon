@@ -251,7 +251,8 @@ console.log(this.hairdresser,this.userdate)
 
            if( x.UserTokenID){
             var notificationObj = {
-              contents: { en: "CANCELLATION ALERT! "  + " Hey "+ x.name + ", "+ x.salonname + " has canceled their booking with you "  },
+              headings: {en: "CANCELLATION ALERT!" },
+              contents: { en: " Hey "+ x.name + ", "+ x.salonname + " has canceled their booking with you "  },
               include_player_ids: [x.UserTokenID],
             }
             this.oneSignal.postNotification(notificationObj).then(res => {
