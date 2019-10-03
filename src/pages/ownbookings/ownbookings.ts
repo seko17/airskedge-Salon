@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ToastController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ToastController, AlertController, LoadingController } from 'ionic-angular';
 import { bookings } from '../../app/booking';
 import * as firebase from 'firebase';
 import { UserProvider } from '../../providers/user/user';
@@ -20,7 +20,7 @@ export class OwnbookingsPage {
 hairdresser;
 userdate;
 testarray=[];
-  constructor(public user:UserProvider,private alertCtrl: AlertController,params: NavParams,public viewCtrl:ViewController,public navCtrl: NavController, public navParams: NavParams,private toastCtrl: ToastController) {
+  constructor(public loadingCtrl: LoadingController,public user:UserProvider,private alertCtrl: AlertController,params: NavParams,public viewCtrl:ViewController,public navCtrl: NavController, public navParams: NavParams,private toastCtrl: ToastController) {
   this.hairdresser =params.get('hairdresser');
   this.userdate =params.get('userdate');
 
@@ -73,7 +73,7 @@ testarray=[];
   isvalidated =false;
 
 testbooking(booking) {
-
+this.testarray =[];
   this.events = [];
   let hourRange = parseFloat(booking.sessiontime[0] + booking.sessiontime[1]);
   let minuteRange = parseFloat(booking.sessiontime[3] + booking.sessiontime[4])
@@ -95,7 +95,7 @@ testbooking(booking) {
 
   });
 
-  this.presentConfirm(booking)
+  this.presentLoadingDefault(booking);
   console.log("here = ",this.testarray,this.testarray.length)
  
 
@@ -104,45 +104,43 @@ testbooking(booking) {
 
 
 
-presentToast() {
-  let toast = this.toastCtrl.create({
-    message: 'There is already a booking at this time and date!',
-    duration: 5000,
-    position: 'bottom'
+
+
+
+presentLoadingDefault(booking) {
+  let loading = this.loadingCtrl.create({
+    content: 'Please wait...',
+    duration: 5000
   });
 
-  toast.onDidDismiss(() => {
-    console.log('Dismissed toast');
+  loading.present();
+
+  loading.onDidDismiss(() => {
+    this.user.findtime(booking,this.testarray);
+    console.log('Dismissed loading');
   });
 
-  toast.present();
+  loading.present();
+
+
+
+ 
 }
 
 
-presentConfirm(booking) {
-  let alert = this.alertCtrl.create({
-    title: 'Confirm purchase',
-    message: 'Do you want to buy this book?',
-    buttons: [
-      {
-        text: 'Cancel',
-        role: 'cancel',
-        handler: () => {
-          console.log('Cancel clicked');
-        }
-      },
-      {
-        text: 'Buy',
-        handler: () => {
 
-          this.user.findtime(booking,this.testarray);
-          console.log('Buy clicked');
-        }
-      }
-    ]
-  });
-  alert.present();
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

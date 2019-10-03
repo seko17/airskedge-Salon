@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 import { bookings } from '../../app/booking';
+import { ToastController, AlertController } from 'ionic-angular';
 /*
  Generated class for the UserProvider provider.
  See https://angular.io/guide/dependency-injection for more info on providers
@@ -28,7 +29,7 @@ item = true;
 
 
 
- constructor() {
+ constructor(public toastCtrl:ToastController,public alertCtrl:AlertController) {
  
 
   
@@ -160,17 +161,17 @@ let val =this.testarray.length;
     {
 
    
-      this.isvalidated = false;
-      
+      this.isvalidated = true;
+      this.presentToast(booking);
    
      console.log("Booking Error slot occupied ")
  
     i =5000000000000000000000;
-
+return 0;
     }
 
     else {
-
+      this.isvalidated = false;
       // console.log(" d1 =",this.d1," d2 =",this.d2," d3= ",this.d3);
        console.log("holy")
 
@@ -181,5 +182,93 @@ let val =this.testarray.length;
     }
   }
 
+
+
+  if(this.isvalidated==false)
+  {
+    console.log("Validated")
+    this.presentConfirm(booking)
+  }
 }
+
+
+
+presentToast(booking) {
+  let toast = this.toastCtrl.create({
+    message: booking.hairdresser +' is already booked on '+booking.userdate+' at '+booking.sessiontime+".\n Check your calendar for appointments.",
+    duration: 3000,
+    position: 'bottom'
+  });
+
+  toast.onDidDismiss(() => {
+    console.log('Dismissed toast');
+  });
+
+  toast.present();
+}
+
+
+
+bookingsuccessfulToast(booking) {
+
+  let toast = this.toastCtrl.create({
+    message: "Your booking was successfully added",
+    duration: 3000,
+    position: 'bottom'
+  });
+
+  toast.onDidDismiss(() => {
+    console.log('Dismissed toast');
+  });
+
+  toast.present();
+}
+
+
+
+
+presentConfirm(booking) {
+  let alert = this.alertCtrl.create({
+    title: 'Confirm booking',
+    message: 'The current time is available for booking?',
+    buttons: [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: 'Proceed',
+        handler: () => {
+
+        
+          console.log('Buy clicked');
+
+          firebase.firestore().collection('Analytics').doc(booking.salonuid).get().then(val=>{
+
+            console.log("numbers = ",val.data())
+         
+            firebase.firestore().collection('Analytics').doc(booking.salonuid).set({numberofviews:val.data().numberofviews,numberoflikes:val.data().numberoflikes,usercancel:val.data().usercancel,saloncancel:val.data().saloncancel,allbookings:val.data().allbookings+1,users:val.data().users});
+          });
+      
+      
+      
+          firebase.firestore().collection('Bookings').add(booking).then(result => {
+            console.log(result)
+          });
+      
+          console.log("query info =", booking.salonname, booking.hairdresser, booking.userdate, booking.hairdresser)
+         
+      
+        
+        }
+      }
+    ]
+  });
+  alert.present();
+}
+
+
 }
