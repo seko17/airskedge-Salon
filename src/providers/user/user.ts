@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 import { bookings } from '../../app/booking';
+import { ToastController, AlertController } from 'ionic-angular';
 /*
  Generated class for the UserProvider provider.
  See https://angular.io/guide/dependency-injection for more info on providers
@@ -28,7 +29,7 @@ item = true;
 
 
 
- constructor() {
+ constructor(public toastCtrl:ToastController,public alertCtrl:AlertController) {
  
 
   
@@ -112,8 +113,11 @@ userbookings(booking: bookings) {
 }
 
 
-
-
+salonbooking;
+holduserinput(booking)
+{
+ this.salonbooking =booking; 
+}
 
 
 }
