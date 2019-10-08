@@ -24,9 +24,7 @@
 
 <ion-content>
 
-  <ion-fab bottom right>
-    <button ion-fab (click) ="bookingModal()"><ion-icon name ="create"></ion-icon></button>
-  </ion-fab>
+
   <div class="container">
     <div class="h2">
       <h2 style="color: orangered; text-align: center; font-size: 6vw">Date {{userdate}}</h2>
@@ -41,7 +39,7 @@
 
       <div class="appmnts">
 
-
+      
         <ion-item style ="width: 40vh;" color="transparent">
           <ion-label position ="stacked">Client name</ion-label>
           <ion-input placeholder ="Name of client" type="text" [disabled]="preventinputs"
@@ -63,7 +61,10 @@
           <ion-input placeholder ="Price of hairstyle" type="number" [disabled]="preventinputs"
             [(ngModel)]="booking.hairstyleprice"></ion-input>
         </ion-item>
-       <ion-item style ="width: 40vh;" color="transparent">
+
+
+
+        <ion-item style ="width: 40vh;" color="transparent">
           <ion-label position ="stacked">Start Time</ion-label>
           <ion-input placeholder ="session time" type="time" [disabled]="preventinputs"
             [(ngModel)]="booking.sessiontime"></ion-input>
@@ -73,9 +74,6 @@
           <ion-input placeholder ="session end-time" type="time"
             [(ngModel)]="booking.sessionendtime"></ion-input>
         </ion-item>
-
-
-    
 
 
 

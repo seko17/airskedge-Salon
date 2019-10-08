@@ -77,7 +77,7 @@ hairdresser
 getsalonname()
 {
   console.log("YES")
-  firebase.firestore().collection('Salons').where("salonuid","==",this.userservice.userdata[0].uid).get().then(val=>{
+  firebase.firestore().collection('Salons').where("salonuid","==",firebase.auth().currentUser.uid).get().then(val=>{
     val.forEach(uz=>{
       console.log(uz.data());
       this.gethairdresser( );
@@ -436,13 +436,34 @@ cdate() {
 
 
  bookingModal() {
+   if(this.userdate ==undefined||this.hairdresser==undefined)
+   {
+    this.present();
+}
+else
+{
   let bookingModal = this.modalCtrl.create(OwnbookingsPage,{ hairdresser: this.hairdresser,userdate:this.userdate });
   bookingModal.present();
   bookingModal.onDidDismiss(data => {
     console.log(data);
   });
+
 }
 
+
+
+}
+
+
+
+present() {
+  let alert = this.alertCtrl.create({
+    title: 'Missing information!',
+    subTitle: 'Select a hairdresser then the date before creating a local booking.',
+    buttons: ['Dismiss']
+  });
+  alert.present();
+}
 
 }
 

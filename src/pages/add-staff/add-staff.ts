@@ -29,7 +29,8 @@ export class AddStaffPage {
     uid: '',
     date_created: null,
     isAvialiabe: true,
-​staffSurname: ''
+​staffSurname: '',
+specialisation:''
   }
   SalonNode = {
     salonName: '',
@@ -43,6 +44,7 @@ export class AddStaffPage {
 ​
 ​
   }
+  specialisation =  [{value:'male', label:'Male Hairstyles'},{value:'female', label: 'Female Hairstyles'},{value:'both', label: 'Both Male & Female Hairstyles'}]
   staffForm :FormGroup ;
   profileImage: string;
   uploadprogress;
@@ -57,7 +59,7 @@ export class AddStaffPage {
       name: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
       staffSurname: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
       personalNumber: new  FormControl('', Validators.compose([Validators.required, Validators.maxLength(10)])),
-   
+      special : new FormControl()
     });
   }
 ​

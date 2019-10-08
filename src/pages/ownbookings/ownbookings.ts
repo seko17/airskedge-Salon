@@ -59,7 +59,45 @@ testarray=[];
     booking.userdate =this.userdate;
     console.log("booking info =", booking)
 
-    this.testbooking(booking)
+    if(new Date(booking.userdate+'T'+booking.sessiontime).getHours()*60+new Date(booking.userdate+'T'+booking.sessiontime).getMinutes()>=new Date(booking.userdate+'T'+booking.sessionendtime).getHours()*60+new Date(booking.userdate+'T'+booking.sessionendtime).getMinutes() )
+    {
+      this.present6();
+    }
+    else
+   
+    if(booking.name==undefined || booking.name=="")
+{
+  this.present1();
+}
+else 
+if(booking.surname==undefined || booking.surname=="")
+{
+  this.present2();
+}
+else
+if(booking.hairstyletype==undefined || booking.hairstyletype=="")
+{
+  this.present3();
+}
+else
+if(booking.hairstyleprice==undefined || booking.hairstyleprice=="")
+{
+  this.present4();
+}
+else
+if(booking.sessiontime ==undefined || booking.sessionendtime==""||booking.sessiontime =="" || booking.sessionendtime==undefined)
+{
+ this.present5()
+}
+
+    else
+    {
+      this.testbooking(booking)
+    }
+
+
+
+    
   }
 
 
@@ -69,7 +107,7 @@ testarray=[];
 
   events;
   testarray2;
-  preventinputs;
+ 
   isvalidated =false;
 
 testbooking(booking) {
@@ -78,11 +116,11 @@ this.testarray =[];
   let hourRange = parseFloat(booking.sessiontime[0] + booking.sessiontime[1]);
   let minuteRange = parseFloat(booking.sessiontime[3] + booking.sessiontime[4])
 
-  firebase.firestore().collection('Bookings').where("salonuid","==",booking.salonuid).where("hairdresser","==",booking.hairdresser).orderBy("userdate", "desc").limit(50).get().then(val => {
+  firebase.firestore().collection('Bookings').where("salonuid","==",booking.salonuid).where("hairdresser","==",booking.hairdresser).where("userdate","==",this.userdate).get().then(val => {
   if(val.empty)
   {
     this.isvalidated =false;
-    this.preventinputs=true;
+    
     console.log("heya!!!")
   }
     val.forEach(doc => {
@@ -141,8 +179,8 @@ findtime(booking,ara) {
   this.testarray=ara;
 
   this.events = [];
-  this.d1 = new Date((booking.userdate + 'T') + (booking.sessiontime));
-  this.d2 = new Date((booking.userdate + 'T0') + (booking.sessionendtime));
+  this.d1 = new Date((booking.userdate + 'T') + (booking.sessiontime)).getHours();
+  this.d2 = new Date((booking.userdate + 'T0') + (booking.sessionendtime)).getHours();
   this.d3;
 
   
@@ -154,17 +192,17 @@ let val =this.testarray.length;
 
   for (let i = 0; i < val; i++) {
 
-    this.d1 = new Date((booking.userdate + 'T') + (booking.sessiontime)).toTimeString();
+    this.d1 = new Date((booking.userdate + 'T') + (booking.sessiontime)).getHours()*60+new Date((booking.userdate + 'T') + (booking.sessiontime)).getMinutes();
 
-    this.d2 = new Date((this.testarray[i].userdate + 'T') + (this.testarray[i].sessiontime)).toTimeString();
+    this.d2 = new Date((this.testarray[i].userdate + 'T') + (this.testarray[i].sessiontime)).getHours()*60+new Date((this.testarray[i].userdate + 'T') + (this.testarray[i].sessiontime)).getMinutes();
 
 
    //console.log("Second condition for end time =", (this.testarray[i].sessionendtime[0]))
 
-    this.d3 = new Date((this.testarray[i].userdate + 'T') + (this.testarray[i].sessionendtime)).toTimeString();
+    this.d3 = new Date((this.testarray[i].userdate + 'T') + (this.testarray[i].sessionendtime)).getHours()*60+new Date((this.testarray[i].userdate + 'T') + (this.testarray[i].sessionendtime)).getMinutes();
 
 
-    let d4 = new Date((booking.userdate + 'T') + (booking.sessionendtime)).toTimeString();
+    let d4 = new Date((booking.userdate + 'T') + (booking.sessionendtime)).getHours();
 
 
     console.log(" d1 =",this.d1," d2 =",this.d2," d3= ",this.d3);
@@ -179,7 +217,7 @@ let val =this.testarray.length;
    
      console.log("Booking Error slot occupied ")
  
-    i =5000000000000000000000;
+  
 return 0;
     }
 
@@ -188,7 +226,7 @@ return 0;
       // console.log(" d1 =",this.d1," d2 =",this.d2," d3= ",this.d3);
        console.log("holy")
 
-      i =5000000000000000000000;
+ 
      
    
 
@@ -259,6 +297,7 @@ presentConfirm(booking) {
         
           console.log('Buy clicked');
 
+
           firebase.firestore().collection('Analytics').doc(booking.salonuid).get().then(val=>{
 
             console.log("numbers = ",val.data())
@@ -284,13 +323,74 @@ presentConfirm(booking) {
 }
 
 
+present1() {
+  let toast = this.toastCtrl.create({
+    message: 'Enter the name of the client.',
+    duration: 4000,
+    position: 'bottom'
+  });
+
+
+  toast.present();
+}
 
 
 
+present2() {
+  let toast = this.toastCtrl.create({
+    message: 'Enter the surname of the client.',
+    duration: 4000,
+    position: 'bottom'
+  });
 
 
+  toast.present();
+}
+
+present3() {
+  let toast = this.toastCtrl.create({
+    message: 'Enter the name of the hairstyle.',
+    duration: 4000,
+    position: 'bottom'
+  });
 
 
+  toast.present();
+}
+
+
+present4() {
+  let toast = this.toastCtrl.create({
+    message: 'Enter the price of the hairstyle.',
+    duration: 4000,
+    position: 'bottom'
+  });
+
+
+  toast.present();
+}
+
+present5() {
+  let toast = this.toastCtrl.create({
+    message: 'Enter start time and the end time.',
+    duration: 4000,
+    position: 'bottom'
+  });
+
+
+  toast.present();
+}
+present6()
+{
+  let toast = this.toastCtrl.create({
+    message: 'End Time cannot be greater than Start Time.',
+    duration: 4000,
+    position: 'bottom'
+  });
+
+
+  toast.present();
+}
 
 
 }

@@ -58,6 +58,12 @@
                       </div>
                     </div>
                     <br>
+                    <ion-item>
+                      <ion-label stacked>  Stylist specialization</ion-label>
+                      <ion-select formControlName="special" [(ngModel)]="Staff.specialisation" >
+                        <ion-option *ngFor="let g of specialisation" [value]="g.value">{{g.label}}  </ion-option>
+                      </ion-select>
+                    </ion-item>
                     <!-- <ion-item>
                       <ion-label> staff email</ion-label>
                       <ion-input type="text"  formControlName="staffEmail"
