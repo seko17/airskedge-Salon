@@ -242,11 +242,13 @@ console.log(this.hairdresser,this.userdate)
            console.log("USER Clicked", x);
        
            x.status = "cancelled";
-           firebase.firestore().collection('Bookings').doc(x.id).update({
-             status2: 'cancelled'
-           }).then(res => {
-             console.log(res)
-           });
+
+           firebase.firestore().collection('Bookings').doc(x.id).delete();
+          //  firebase.firestore().collection('Bookings').doc(x.id).update({
+          //    status2: 'cancelled'
+          //  }).then(res => {
+          //    console.log(res)
+          //  });
 
 
 
@@ -293,34 +295,6 @@ console.log(this.hairdresser,this.userdate)
 
   }
 
-
-  showPrompt() {
-    const prompt = this.alertCtrl.create({
-      title: 'Login',
-      message: "Enter a name for this new album you're so keen on adding",
-      inputs: [
-        {
-          name: 'title',
-          placeholder: 'Title'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Save',
-          handler: data => {
-            console.log('Saved clicked');
-          }
-        }
-      ]
-    });
-    prompt.present();
-  }
 
   todate;
   
