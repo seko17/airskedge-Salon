@@ -53,6 +53,7 @@ SalonLogoImage;
       streetName : '',
     fullAddress: ''},
     DatCreated : null,
+    Metro : '',
     TokenID : ''
       
   }
@@ -90,6 +91,8 @@ this.oneSignal.getIds().then((res)=>{
     this.SalonNode.Address.lng =addres.geometry.location.lng() ;
     this.SalonNode.Address.fullAddress= addres.formatted_address ;
     this.SalonNode.Address.streetName = addres.name;
+  this.SalonNode.Metro  = addres.address_components[4].short_name;
+    console.log('hlleeoeoe',addres.address_components[4].short_name)
  
     
 }
