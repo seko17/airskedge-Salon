@@ -5,9 +5,11 @@
     </ion-title>
   </ion-navbar>
 </ion-header> -->
-<ion-content>
+<ion-content class="container">
+  
   <ion-slides #slides pager="true">
-    <ion-slide id="onboard">
+
+    <ion-slide id="onboard1">
       <!-- <div class="logo">
         <img src="../../assets/imgs/Untitled-2.svg">
       </div>
@@ -21,13 +23,10 @@
       <ion-buttons id="btn1">
         <button ion-button (click)="register()">Sign-Up</button>
       </ion-buttons> -->
-      <div class="container">
+    
         <div class="title">
           <div class="logo">
-            <img src="../../assets/imgs/Untitled-1.svg">
-          </div>
-          <div class="name">
-            <h1>AirSkedge</h1>
+            <!-- <img src="../../assets/imgs/Untitled-1.svg"> -->
           </div>
         </div>
         <div class="group">
@@ -35,7 +34,7 @@
             <p>Register <br><span> Salon</span></p>
           </div>
           <div class="image">
-            <img src="../../assets/imgs/dark.svg">
+            <!-- <img src="../../assets/imgs/dark.svg"> -->
           </div>
         </div>
         <div class="desc">
@@ -44,18 +43,27 @@
                that you would like your customers to see</p>
           </div>
           <div class="skip">
-              <button ion-fab (click)="home()">
-                  <ion-icon name="arrow-dropright"></ion-icon>
-              </button>
+              <button (click)="home()">
+                  <p>SKIP</p>
+                </button>
           </div>
         </div>
-      </div>
+
+        
+
+        <div class="name">
+            <h1>AirSkedge</h1>
+          </div>
+
+   
     </ion-slide>
-    <ion-slide id="onboard">
+
+    
+    <ion-slide id="onboard2">
       <div class="container">
         <div class="title">
           <div class="logo">
-            <img src="../../assets/imgs/Untitled-1.svg">
+            <!-- <img src="../../assets/imgs/Untitled-1.svg"> -->
           </div>
           <div class="name">
             <h1>AirSkedge</h1>
@@ -66,7 +74,7 @@
             <p>Manage <br><span> Salon</span></p>
           </div>
           <div class="image">
-            <img src="../../assets/imgs/left-turn.svg">
+            <!-- <img src="../../assets/imgs/left-turn.svg"> -->
           </div>
         </div>
         <div class="desc">
@@ -83,11 +91,12 @@
         </div>
       </div>
     </ion-slide>
-    <ion-slide id="onboard">
+
+    <ion-slide id="onboard3">
       <div class="container">
         <div class="title">
           <div class="logo">
-            <img src="../../assets/imgs/Untitled-1.svg">
+           
           </div>
           <div class="name">
             <h1>AirSkedge</h1>
@@ -98,7 +107,7 @@
             <p>View<br><span> Reviews</span></p>
           </div>
           <div class="image">
-            <img src="../../assets/imgs/orange.svg">
+           
           </div>
         </div>
         <div class="desc">
