@@ -8,9 +8,9 @@ page-login {
       width: 100%;
       min-height: 100vh;
       color: white;
-      background-image:linear-gradient(30deg, (rgba(65, 43, 56, 0.822))50%, (rgba(0, 0, 255, 0))60%, rgba(191, 150, 126, 0.116), rgba(52, 58, 63, 0.747)), url('../../assets/imgs/MAKEUP.jpg');
+      background-image:linear-gradient(30deg, (rgba(65, 43, 56, 0.822))50%, (rgba(0, 0, 255, 0))60%, rgba(191, 150, 126, 0.116), rgba(52, 58, 63, 0.747)), url('../../assets/imgs/ww.jpg');
       position: fixed;
-      font-family: 'Manjari';
+      font-family: 'sans-serif';
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -35,9 +35,7 @@ page-login {
   }
 
   .signin {
-    position: absolute;
-    top: 25%;
-    text-align: center;
+  text-align: center;
     // opacity: 0.6;
     padding: 10px;
     h1 {
@@ -51,9 +49,6 @@ page-login {
 
 
   .form {
-   
-  
-   
     align-items: center;
     text-align: center;
     width: 300px;
