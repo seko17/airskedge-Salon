@@ -27,12 +27,16 @@ logout(){
 addSalon(){
   this.navCtrl.push(AddSalonPage);
 }
-home(){
+skip(){
   this.navCtrl.setRoot(LoginPage)
 }
 
 
 register(){
   this.navCtrl.setRoot(CreateAccountPage);
+}
+
+nextslides(){
+  this.slides.slideNext();
 }
 }
