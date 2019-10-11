@@ -8,9 +8,9 @@ page-create-account {
     width: 100%;
     height: 100%;
     color: white;
-    background: url('../../assets/imgs/background.svg');
+    background-image:linear-gradient(30deg, (rgba(65, 43, 56, 0.822))50%, (rgba(0, 0, 255, 0))60%, rgba(191, 150, 126, 0.116), rgba(52, 58, 63, 0.747)), url('../../assets/imgs/ww.jpg');
     position: fixed;
-    font-family: 'Manjari';
+    font-family: 'sans-serif';
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -24,8 +24,8 @@ page-create-account {
   .logo {
     position: absolute;
     top: 5%;
-    width: 35%;
-    height: 50%;
+    width: 20vh;
+    height: 20vh;
     // opacity: 0.10;
   }
 
@@ -38,17 +38,11 @@ page-create-account {
   .signin {
     display: flex;
     flex-flow: row;
-    position: relative;
-    top: 5%;
-    left: -12%;
     text-align: left;
+    font-family: SANS-SERIF;
     // opacity: 0.6;
     h3 {
       font-size: 15vw;
-
-      span {
-        font-size: 1.5vw;
-      }
     }
 
     h2{
@@ -61,8 +55,8 @@ page-create-account {
 
 
   .form {
-    position: absolute;
-    top: 40%;
+  
+  
     text-align: center;
     width: 300px;
 
@@ -79,7 +73,7 @@ page-create-account {
 
     button {
       width: 300px;
-
+      font-family: SANS-SERIF;
     }
   }
 

@@ -12,17 +12,19 @@
 
 <ion-content>
   <div class="container">
-<!-- 
-    <div class="back" (click)="goback()">
-        <ion-icon name="arrow-back"></ion-icon>
-    </div> -->
-    <!-- <div class="logo">
-        <img src="../../assets/imgs/Untitled-1.svg">
-    </div> -->
-    <br>
-      <div class="signin">
-        <h3>Create <br>Account</h3>
-        </div>
+    <pre>
+ </pre>
+    <div >
+      <h1 style =" font-family:Sans-Serif;color:rgba(145, 115, 132, 0.822);">AIR<span (click)="createAcc()" style ="color:white;font-family:Sans-Serif">SKEDGE</span></h1>
+    </div>
+     <pre>
+      
+      
+
+    </pre>
+    <div >
+        <h1 style ="font-family:Sans-Serif;">SIGN UP</h1>
+      </div>
  <br><br>
   <div class="form">
       <form [formGroup]="signupForm">
@@ -50,15 +52,14 @@
           </ion-item>
       <br>
       <br>
-          <button ion-button round expand="block" color="dark" (click)="signupUser(signupForm)" [disabled]="!signupForm.valid">
+          <button ion-button block style ="background:#F3E1D5;color:black;" (click)="signupUser(signupForm)" [disabled]="!signupForm.valid">
             Continue
           </button>
         </form>
   </div>
 
   <div class="btns">
-
-      <p>Already have an account? <span (click)=" signin()">Sign-In</span></p>
+      <p>Already have an account? <span (click)=" signin()" style ="color:white"><u>Sign-In</u></span></p>
     </div>
 </div>
 

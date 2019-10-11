@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Teko|Abel|Anton|Dosis|Oxygen|Jura|Pacifico|Righteous|Roboto+Condensed|Ubuntu|Open+Sans+Condensed');
 page-landing {
   .content{
-    background: linear-gradient(rgba(0, 0, 0, 0.479)), url('../../assets/imgs/afro.svg');
+    background:linear-gradient(30deg, (rgba(65, 43, 56, 0.7))40%, (rgba(0, 0, 255, 0))60%, rgba(191, 150, 126, 0), rgb(52, 58, 63)), url('https://images.pexels.com/photos/3065015/pexels-photo-3065015.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -44,12 +45,12 @@ page-landing {
     top: 40%;
     width: 50%;
     button {
-      width: 5%;
+      width: 4vh;
       height: 9vh;
-      box-shadow: 5px 5px 5px #888888;
+      box-shadow: 5px 5px 5px rgba(39, 19, 6, 0.822);
       margin: 10px;
       font-size: 30px;
-      background: rgba(83, 80, 80, 0.712);
+      background: rgba(32, 12, 0, 0.733);
       cursor: pointer;
     }
   }
@@ -74,10 +75,13 @@ page-landing {
       display: flex;
       flex-flow: row;
       position: relative;
+      transform: rotate(35deg);
+      
       .imgz {
         width: 80px;
         height: 80px;
         text-align: center;
+        
       }
     }
     .propic {
@@ -85,6 +89,7 @@ page-landing {
       #logo {
         width: 40%;
         height: 30%;
+        
       }
     }
     #name {

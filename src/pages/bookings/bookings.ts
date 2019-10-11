@@ -77,7 +77,7 @@ hairdresser
 getsalonname()
 {
   console.log("YES")
-  firebase.firestore().collection('Salons').where("salonuid","==",this.userservice.userdata[0].uid).get().then(val=>{
+  firebase.firestore().collection('Salons').where("salonuid","==",firebase.auth().currentUser.uid).get().then(val=>{
     val.forEach(uz=>{
       console.log(uz.data());
       this.gethairdresser( );
@@ -242,11 +242,13 @@ console.log(this.hairdresser,this.userdate)
            console.log("USER Clicked", x);
        
            x.status = "cancelled";
-           firebase.firestore().collection('Bookings').doc(x.id).update({
-             status2: 'cancelled'
-           }).then(res => {
-             console.log(res)
-           });
+
+           firebase.firestore().collection('Bookings').doc(x.id).delete();
+          //  firebase.firestore().collection('Bookings').doc(x.id).update({
+          //    status2: 'cancelled'
+          //  }).then(res => {
+          //    console.log(res)
+          //  });
 
 
 
@@ -293,34 +295,6 @@ console.log(this.hairdresser,this.userdate)
 
   }
 
-
-  showPrompt() {
-    const prompt = this.alertCtrl.create({
-      title: 'Login',
-      message: "Enter a name for this new album you're so keen on adding",
-      inputs: [
-        {
-          name: 'title',
-          placeholder: 'Title'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Save',
-          handler: data => {
-            console.log('Saved clicked');
-          }
-        }
-      ]
-    });
-    prompt.present();
-  }
 
   todate;
   
@@ -436,13 +410,34 @@ cdate() {
 
 
  bookingModal() {
+   if(this.userdate ==undefined||this.hairdresser==undefined)
+   {
+    this.present();
+}
+else
+{
   let bookingModal = this.modalCtrl.create(OwnbookingsPage,{ hairdresser: this.hairdresser,userdate:this.userdate });
   bookingModal.present();
   bookingModal.onDidDismiss(data => {
     console.log(data);
   });
+
 }
 
+
+
+}
+
+
+
+present() {
+  let alert = this.alertCtrl.create({
+    title: 'Missing information!',
+    subTitle: 'Select a hairdresser then the date before creating a local booking.',
+    buttons: ['Dismiss']
+  });
+  alert.present();
+}
 
 }
 
