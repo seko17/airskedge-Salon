@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Teko|Abel|Anton|Dosis|Oxygen|Jura|Pacifico|Righteous|Roboto+Condensed|Ubuntu|Open+Sans+Condensed');
 page-landing {
   .content{
-    background:linear-gradient(30deg, (rgba(65, 43, 56, 0.7))40%, (rgba(0, 0, 255, 0))60%, rgba(191, 150, 126, 0), rgb(52, 58, 63)), url('https://images.pexels.com/photos/3065015/pexels-photo-3065015.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
-    
+    background-image: linear-gradient(30deg, #422D39 50%, rgba(52, 58, 63, 0) 40%), url('../../assets/imgs/iPhone\ X-XS\ –\ 100.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -19,6 +18,8 @@ page-landing {
     width: 100%;   
     position: fixed;
     font-family: 'Manjari';
+    // filter: blur(8px);
+    // -webkit-filter: blur(8px);
   }
   .noprof {
     display: flex;

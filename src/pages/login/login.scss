@@ -8,17 +8,11 @@ page-login {
       width: 100%;
       min-height: 100vh;
       color: white;
-      background-image:linear-gradient(30deg, (rgba(65, 43, 56, 0.822))50%, (rgba(0, 0, 255, 0))60%, rgba(191, 150, 126, 0.116), rgba(52, 58, 63, 0.747)), url('../../assets/imgs/ww.jpg');
-      position: fixed;
-      font-family: 'sans-serif';
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
+      background-image: linear-gradient(30deg, #422D39 50%, rgba(52, 58, 63, 0) 40%), url('../../assets/imgs/iPhone\ X-XS\ –\ 100.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
-
-
-
-
 
   .logo {
     position: absolute;

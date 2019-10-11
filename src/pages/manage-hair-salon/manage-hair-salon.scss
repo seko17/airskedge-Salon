@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Poiret+One|Open+Sans+Condensed|Jura|Manjari|Poppins|Raleway|Montserrat ');
+
 page-manage-hair-salon {
 
   .header {
@@ -12,7 +14,9 @@ page-manage-hair-salon {
 
   .container {
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
   }
 
   #top {
@@ -20,13 +24,23 @@ page-manage-hair-salon {
     height: 100vh;
   }
 
+  .line{
+    position: relative;
+    width: 100vw;
+    height: 58vh;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 1px solid black;
+  }
+
   .Profimage {
     width: 100vw;
-    height: 60vh;
+    height: 42vh;
     position: relative;
     top: 0;
-    // overflow: hidden;
-
+    overflow: hidden;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     background: black;
 
 
@@ -37,26 +51,27 @@ page-manage-hair-salon {
       justify-content: space-evenly;
       position: absolute;
       top: 80%;
-      left: 5%;
+      left: 30%;
+      width: 40vw;
+
       z-index: 5;
       color: rgb(187, 185, 185);
-      font-family: 'Manjari';
+      font-family: 'Raleway';
 
       .likes {
-        margin: 5px;
-        font-size: 5vw;
+        font-size: 3.5vw;
         text-align: center;
       }
 
       .views {
-        margin: 5px;
-        font-size: 5vw;
+
+        font-size: 3.5vw;
         text-align: center;
       }
 
       .bookings {
-        margin: 5px;
-        font-size: 5vw;
+
+        font-size: 3.5vw;
         text-align: center;
       }
     }
@@ -78,26 +93,27 @@ page-manage-hair-salon {
     .displayName {
       color: white;
       position: absolute;
-      bottom: 40%;
+      bottom: 25%;
+
       // left: 30%;
       padding: 5px;
       width: 100vw;
-      text-align: center;
+
 
       h4 {
         font-weight: normal;
-        font-size: 35px;
+        font-family: 'Poiret One';
+        font-size: 8vw;
         margin: 0;
         padding: 0;
         color: white;
-        font-family: 'Manjari';
       }
     }
 
     .displayName1 {
       position: absolute;
-      top: 70%;
-      left: 25%;
+      top: 65%;
+      right: 5%;
     }
   }
 
@@ -112,81 +128,161 @@ page-manage-hair-salon {
     }
   }
 
-  .profile {
+
+  .gender {
+    position: absolute;
+    top: 55vh;
+    left: 20vw;
     display: flex;
     flex-flow: row;
-    justify-content: space-between;
-    position: absolute;
-    z-index: 5;
+    justify-content: space-around;
+    background: rgb(255, 255, 255);
+    box-shadow: 5px 5px 10px lightgrey;
+    width: 60vw;
+    height: 6vh;
+    z-index: 200;
+    border-radius: 30px;
+
+    .female {
+        width: 50%;
+        height: 100%;
+        border-radius: 30px;
+        align-items: center;
+        overflow: hidden;
+
+        button {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            font-family: 'Poiret One';
+            font-weight: bold;
+            letter-spacing: 3px;
+            background: #BF967E;
+            color: white;
+            border: none;
+        }
+
+    }
+
+    .male {
+        width: 50%;
+        height: 100%;
+        border-radius: 30px;
+        overflow: hidden;
+
+        button {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            font-family: 'Poiret One';
+            font-weight: bold;
+            letter-spacing: 3px;
+            background: #BF967E;
+            color: white;
+            border: none;
+        }
+
+    }
+
+
+
+    .female-inactive {
+        width: 50%;
+        height: 100%;
+        border-radius: 30px;
+        align-items: center;
+        overflow: hidden;
+
+        button {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            font-family: 'Poiret One';
+            font-weight: bold;
+            letter-spacing: 3px;
+            background: rgb(255, 255, 255);
+            color: rgb(24, 24, 24);
+            border: none;
+        }
+
+    }
+
+    .male-inactive {
+        width: 50%;
+        height: 100%;
+        border-radius: 30px;
+        overflow: hidden;
+
+        button {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            font-family: 'Poiret One';
+            font-weight: bold;
+            letter-spacing: 3px;
+            background: rgb(255, 255, 255);
+            color: rgb(24, 24, 24);
+            border: none;
+        }
+
+    }
+}
+
+.stylez{
+  position: relative;
+  top: 35px;
+  width: 100%;
+  height: 100%;
+  // padding: 5px;
+  display: flex;
+  overflow-x: auto;
+
+  .scroll{
+    width: 70vw;
+    height: 40vh;
     padding: 10px;
-    font-family: 'Manjari';
+    .picz{
+      width: 55vw;
+      height: 31vh;
+      border-radius: 10px;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+    }
 
-    .propic {
-      background: rgba(255, 166, 0, 0.699);
-      color: white;
-      padding: 5px;
-      border-radius: 50%;
+    .hairstylez{
       position: absolute;
-      left: 350px;
+      // z-index: 5;
+      margin: 5px 10px;
+      top: 56%;
+      p{
+        font-size: 6vw;
+        font-family: 'Poiret One';
+        letter-spacing: 5px;
+        color: white;
+        font-weight: bold;
+      }
     }
 
-    .name {
-      color: white;
-      padding: 5px;
-      font-size: 20px;
-      font-family: 'Manjari';
-    }
-  }
-
-  .hairdetails {
-    width: 100%;
-    height: 60vh;
-    overflow-y: auto;
-    font-family: 'Manjari';
-    position: relative;
-    top: 5vh;
-  }
-
-  #cards {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    height: 30vh;
-    overflow-y: auto;
-
-    .item {
-      width: 50%;
-      min-height: 35%;
-
-      img {
-        width: 60vw;
-        height: 25vh;
-        box-shadow: 2px 2px 5px grey;
+    .pick{
+      border: 2px dashed black;
+      width: 55vw;
+      height: 31vh;
+      border-radius: 10px;
+      text-align: center;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      ion-icon{
+        font-size: 15vw;
       }
     }
   }
 
-
-  .one{
-    position: relative;
-    bottom: 40%;
-  }
-  .seg {
-    margin: 5px;
-    position: relative;
-    bottom: 38%;
-
-    .segment {
-      border: none;
-
-    }
-  }
-
-  .slidez {
-    position: relative;
-    bottom: 40%;
-    // background: red;
-  }
+}
 
   #fab {
     position: fixed;

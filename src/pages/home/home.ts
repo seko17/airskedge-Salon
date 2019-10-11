@@ -27,6 +27,7 @@ logout(){
 addSalon(){
   this.navCtrl.push(AddSalonPage);
 }
+
 skip(){
   this.navCtrl.setRoot(LoginPage);
   console.log('clicked');

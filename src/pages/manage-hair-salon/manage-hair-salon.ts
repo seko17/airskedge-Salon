@@ -17,9 +17,9 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   templateUrl: 'manage-hair-salon.html',
 })
 export class ManageHairSalonPage {
-@ViewChild('slider') slider: Slides;
+  @ViewChild('slider') slider: Slides;
   page = "0";
-
+  select = true;
   isSalon = false;
   isnotSalon = false;
 
@@ -55,44 +55,44 @@ export class ManageHairSalonPage {
 
   }
 
-  analitics =[];
+  analitics = [];
   userRating = [];
   total = 0;
   dummy = []
   aveg: number;
-  constructor(public navCtrl: NavController, 
+  constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public toastCtrl: ToastController, 
-    public loadingCtrl: LoadingController, 
+    public toastCtrl: ToastController,
+    public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
     private authService: AuthServiceProvider,
-    private popoverCtrl : PopoverController,
+    private popoverCtrl: PopoverController,
     private localNotifications: LocalNotifications) {
 
-      this.uid = firebase.auth().currentUser.uid;
+    this.uid = firebase.auth().currentUser.uid;
     this.authService.setUser(this.uid);
-    console.log('check salon profile',this.displayProfile); 
-    
-    console.log('check',this.styles)     
-//Fubction for getting functionality
+    console.log('check salon profile', this.displayProfile);
+
+    console.log('check', this.styles)
+    //Fubction for getting functionality
     this.analitics;
-    firebase.firestore().collection('salonAnalytics').doc(firebase.auth().currentUser.uid).collection('numbers').get().then(val=>{
-      val.forEach(data=>{
+    firebase.firestore().collection('salonAnalytics').doc(firebase.auth().currentUser.uid).collection('numbers').get().then(val => {
+      val.forEach(data => {
         console.log(data.data())
         this.analitics.push(data.data());
       })
     })
 
-console.log('salon name', this.SalonNode.salonName);
+    console.log('salon name', this.SalonNode.salonName);
 
   }
 
-  selectedTab(ind){
+  selectedTab(ind) {
     this.slider.slideTo(ind);
   }
 
-  moveButton($event){
-    this.page= $event._snapIndex.toString();
+  moveButton($event) {
+    this.page = $event._snapIndex.toString();
   }
 
   ionViewDidLoad() {
@@ -102,31 +102,30 @@ console.log('salon name', this.SalonNode.salonName);
     this.getMaleStyle();
 
   }
-c(){
-  this.authService.logoutUser();
-}
- 
- 
+  c() {
+    this.authService.logoutUser();
+  }
+
+
   //Function to go to add Salon page only visisble when there's no availiable salon
-addSalon(){
-  this.navCtrl.push(AddSalonPage);
-}
-//function to view style
-viewStyle(v){
-  const popover = this.popoverCtrl.create(StyleviewpopoverComponent, v);
-  popover.present();
-}
-//function to edit
-edithairstlye(v){
-  this.navCtrl.push(EditstylesPage,v)
-}
-editProfile()
-{
-  this.isSalon = false;
-}
-//Function to delete style
-Delete(value){
- const alert = this.alertCtrl.create({
+  addSalon() {
+    this.navCtrl.push(AddSalonPage);
+  }
+  //function to view style
+  viewStyle(v) {
+    const popover = this.popoverCtrl.create(StyleviewpopoverComponent, v);
+    popover.present();
+  }
+  //function to edit
+  edithairstlye(v) {
+    this.navCtrl.push(EditstylesPage, v)
+  }
+  editProfile() {
+    this.isSalon = false;
+  }
+  //Function to delete style
+  Delete(value) {
+    const alert = this.alertCtrl.create({
       title: 'Delete',
       subTitle: 'Are you sure you want to delete this Style?',
       buttons: [
@@ -134,46 +133,46 @@ Delete(value){
           text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
-        },{
-          text : 'Delete',
-          handler : () =>{
+        }, {
+          text: 'Delete',
+          handler: () => {
             const worker = this.loadingCtrl.create({
               content: 'deleting, please wait',
               spinner: 'bubbles'
             })
             worker.present();
-         
-            let query =  this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').where("hairstyleName","==",value.hairstyleName)
-            query.get().then( snap => {
-             
-                snap.forEach(doc => {
-                  console.log('Delete Document: ', doc.data())
-                  this.displayProfile = doc.data();
-          
-                  this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').doc(doc.id).delete().then( res =>{
-                    worker.dismiss();
-                 
-                    
-                    this.localNotifications.schedule({
-                      id: 1,
-                      title: 'style deleted',
-                      text: 'User has delted a style',
-                      
-                  
-                   
-                    });
-                    const alerter =  this.alertCtrl.create({
-                      message: 'Style deleted'
-                    })
-                    alerter.present();
-                    this.styles = [];
-                    this.getHairSalon();
+
+            let query = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').where("hairstyleName", "==", value.hairstyleName)
+            query.get().then(snap => {
+
+              snap.forEach(doc => {
+                console.log('Delete Document: ', doc.data())
+                this.displayProfile = doc.data();
+
+                this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').doc(doc.id).delete().then(res => {
+                  worker.dismiss();
+
+
+                  this.localNotifications.schedule({
+                    id: 1,
+                    title: 'style deleted',
+                    text: 'User has delted a style',
+
+
+
+                  });
+                  const alerter = this.alertCtrl.create({
+                    message: 'Style deleted'
+                  })
+                  alerter.present();
+                  this.styles = [];
+                  this.getHairSalon();
                 });
-             
-                })
-             
-              
-             
+
+              })
+
+
+
             })
           }
         }
@@ -181,152 +180,152 @@ Delete(value){
 
     });
     alert.present();
- 
-}
 
-//function to get Hair Salon and hair styles
-getHairSalon(){
-   let load = this.loadingCtrl.create({
-    content: 'Please wait...',
-    spinner: 'dots'
-  });
-  load.present();
-  let users = this.db.collection('Salons');
-  let query = users.where("userUID", "==", this.authService.getUser());
-  query.get().then( snap => {
-    if (snap.empty !== true){
-      console.log('Got data', snap);
-      snap.forEach(doc => {
-        console.log('Profile Document: ', doc.data())
-        this.disp = doc.data();
-        this.name = doc.data().salonName;
-      
-        this.SalonNode.salonImage = doc.data().salonImage;
-        this.SalonNode.salonImage = doc.data().salonName;
-        this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').onSnapshot( res =>{
-      res.forEach(doc =>{
-        this.isHairstyle = true;
-      })
-      });
-      this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('ratings').onSnapshot( rates =>{
-        rates.forEach( doc =>{
+  }
+
+  //function to get Hair Salon and hair styles
+  getHairSalon() {
+    let load = this.loadingCtrl.create({
+      content: 'Please wait...',
+      spinner: 'dots'
+    });
+    load.present();
+    let users = this.db.collection('Salons');
+    let query = users.where("userUID", "==", this.authService.getUser());
+    query.get().then(snap => {
+      if (snap.empty !== true) {
+        console.log('Got data', snap);
+        snap.forEach(doc => {
+          console.log('Profile Document: ', doc.data())
+          this.disp = doc.data();
+          this.name = doc.data().salonName;
+
+          this.SalonNode.salonImage = doc.data().salonImage;
+          this.SalonNode.salonImage = doc.data().salonName;
+          this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').onSnapshot(res => {
+            res.forEach(doc => {
+              this.isHairstyle = true;
+            })
+          });
+          this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('ratings').onSnapshot(rates => {
+            rates.forEach(doc => {
               this.userRating.push(doc.data().rating)
               console.log('users', doc.data().rating);
-          
-            this.total += doc.data().rating;
-            console.log(this.total);
-            this.dummy.push(doc.data().rating)
-            
-            
+
+              this.total += doc.data().rating;
+              console.log(this.total);
+              this.dummy.push(doc.data().rating)
+
+
             })
             this.aveg = this.total / this.dummy.length;
             console.log('averge', this.aveg);
-      })
-      })
-      this.isSalon = true;
-      this.isnotSalon = false;
-     
-    } else {
-      console.log('No data');
-      this.isSalon = false;
-      this.isnotSalon = true;
-      this.isHairstyle = false ;
-    }
-    load.dismiss();
-  }).catch(err => {
-   
-    console.log("Query Results: ", err);
-  
-    load.dismiss();
-  })
-}
-getMaleStyle(){
-  let users = this.db.collection('Salons');
-  let query = users.where("userUID", "==", this.authService.getUser());
-  query.onSnapshot(res =>{
-    if (res.empty !== true){
-      res.forEach( doc =>{
-      this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').where("genderOptions","==","male").onSnapshot(snapshot =>{
-        this.maleStyles = []
-        snapshot.forEach(doc =>{
-          this.maleStyles.push(doc.data())
-          console.log('male styles here', doc.data());
-          
+          })
         })
-      })
-        
-      })
-    }
-  })
-}
-getFemaleStyle(){
-  let users = this.db.collection('Salons');
-  let query = users.where("userUID", "==", this.authService.getUser());
-  query.onSnapshot(res =>{
-    if (res.empty !== true){
-      res.forEach( doc =>{
-      this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').where("genderOptions","==","female").onSnapshot(snapshot =>{
-        this.femaleStyles = []
-        snapshot.forEach(doc =>{
-          this.femaleStyles.push(doc.data())
-          console.log('female styles here', doc.data());
-          
+        this.isSalon = true;
+        this.isnotSalon = false;
+
+      } else {
+        console.log('No data');
+        this.isSalon = false;
+        this.isnotSalon = true;
+        this.isHairstyle = false;
+      }
+      load.dismiss();
+    }).catch(err => {
+
+      console.log("Query Results: ", err);
+
+      load.dismiss();
+    })
+  }
+  getMaleStyle() {
+    let users = this.db.collection('Salons');
+    let query = users.where("userUID", "==", this.authService.getUser());
+    query.onSnapshot(res => {
+      if (res.empty !== true) {
+        res.forEach(doc => {
+          this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').where("genderOptions", "==", "male").onSnapshot(snapshot => {
+            this.maleStyles = []
+            snapshot.forEach(doc => {
+              this.maleStyles.push(doc.data())
+              console.log('male styles here', doc.data());
+
+            })
+          })
+
         })
-      })
-        
-      })
-    }
-  })
-}
+      }
+    })
+  }
+  getFemaleStyle() {
+    let users = this.db.collection('Salons');
+    let query = users.where("userUID", "==", this.authService.getUser());
+    query.onSnapshot(res => {
+      if (res.empty !== true) {
+        res.forEach(doc => {
+          this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').where("genderOptions", "==", "female").onSnapshot(snapshot => {
+            this.femaleStyles = []
+            snapshot.forEach(doc => {
+              this.femaleStyles.push(doc.data())
+              console.log('female styles here', doc.data());
 
-//Function to push to the user profile page
-ViewUserPorfilePage(){
-  this.navCtrl.setRoot(ViewUserPorfilePage);
-}
-//Function to push to adding a new hairstyle
-addStyle(){
-  this.navCtrl.push(AddhairStylePage);
-}
-viewstaff(){
-  this.navCtrl.setRoot( ManageStaffPage);
-}
+            })
+          })
 
-getProfile(){
-  
-  let users = this.db.collection('Users');
+        })
+      }
+    })
+  }
 
-  let query = users.where("uid", "==", this.authService.getUser());
-  query.get().then(querySnapshot => {
-  
-    if (querySnapshot.empty !== true){
-      console.log('Got data', querySnapshot);
-      querySnapshot.forEach(doc => {
-        console.log('Profile Document: ', doc.data())
-        this.displayProfile = doc.data();
-        this.SalonOwnerProfile.About = doc.data().About;
-        this.SalonOwnerProfile.ownerImage = doc.data().image;
-        this.SalonOwnerProfile.ownerSurname = doc.data().name;
-        this.SalonOwnerProfile.ownername = doc.data().surname;
-        this.SalonOwnerProfile.personalNumber = doc.data().personalNumber;
-      
-      })
-     
-    } else {
-      console.log('No data');
-    
-    }
-    // dismiss the loading
-   
-  }).catch(err => {
-    // catch any errors that occur with the query.
-    console.log("Query Results: ", err);
-    // dismiss the loading
-  
-  })
-}
+  //Function to push to the user profile page
+  ViewUserPorfilePage() {
+    this.navCtrl.setRoot(ViewUserPorfilePage);
+  }
+  //Function to push to adding a new hairstyle
+  addStyle() {
+    this.navCtrl.push(AddhairStylePage);
+  }
+  viewstaff() {
+    this.navCtrl.setRoot(ManageStaffPage);
+  }
 
-goback(){
-  this.navCtrl.push(ManageHairSalonPage);
-}
+  getProfile() {
+
+    let users = this.db.collection('Users');
+
+    let query = users.where("uid", "==", this.authService.getUser());
+    query.get().then(querySnapshot => {
+
+      if (querySnapshot.empty !== true) {
+        console.log('Got data', querySnapshot);
+        querySnapshot.forEach(doc => {
+          console.log('Profile Document: ', doc.data())
+          this.displayProfile = doc.data();
+          this.SalonOwnerProfile.About = doc.data().About;
+          this.SalonOwnerProfile.ownerImage = doc.data().image;
+          this.SalonOwnerProfile.ownerSurname = doc.data().name;
+          this.SalonOwnerProfile.ownername = doc.data().surname;
+          this.SalonOwnerProfile.personalNumber = doc.data().personalNumber;
+
+        })
+
+      } else {
+        console.log('No data');
+
+      }
+      // dismiss the loading
+
+    }).catch(err => {
+      // catch any errors that occur with the query.
+      console.log("Query Results: ", err);
+      // dismiss the loading
+
+    })
+  }
+
+  goback() {
+    this.navCtrl.push(ManageHairSalonPage);
+  }
 
 }
