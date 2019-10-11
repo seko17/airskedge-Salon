@@ -6,16 +6,19 @@
 
 <ion-content>
   <div class="container">
-   
-        <div class="logo">
-            <img src="../../assets/imgs/Untitled-1.svg">
-          </div>
-          <br>
-          <br>
+   <pre>
+   </pre>
+  
+    <div >
+      <h1 style =" font-family:Sans-Serif;color:rgba(145, 115, 132, 0.822);">AIR<span (click)="createAcc()" style ="color:white;font-family:Sans-Serif">SKEDGE</span></h1>
+    </div>
+    <pre>
 
-          <br>
-          <div class="signin">
-            <h3>Sign-In to your account<br> to continue</h3>
+
+
+    </pre>
+          <div >
+            <h1 style ="font-family:Sans-Serif;">SIGN IN</h1>
           </div>
           <br><br>
           <div class="form">
@@ -41,19 +44,22 @@
                         && loginForm.controls['password'].touched">
                 <ion-label style="color:red; font-size: 18px">Your password needs more than 6 characters.</ion-label>
               </ion-item>
-              <br><br>
-              <button ion-button round (click)="loginUser(loginForm)" color="dark" [disabled]="!loginForm.valid">
-                Log In
+              <div align ="right">
+              <p class="forgot1" (click)="forgotpassword()" style ="color:#F3E1D5">Forgot password?</p>
+            </div>
+              <pre></pre>
+              <button ion-button block (click)="loginUser(loginForm)" style ="background:#F3E1D5;color:black;" [disabled]="!loginForm.valid">
+                Sign In
               </button>
       
-              <p class="forgot1" (click)="forgotpassword()">Forgot password?</p>
+              
       
             </form>
           </div>
       
           <div class="btns">
       
-            <p>Don't have an account? <span (click)="createAcc()">Sign-Up</span></p>
+            <p>Don't have an account? <span (click)="createAcc()" style ="color:white;text-underline-position:below;"><u>Sign-Up</u></span></p>
       
           </div>
 

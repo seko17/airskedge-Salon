@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, LoadingController, AlertController } from 'ionic-angular';
+import {  ViewController ,IonicPage, NavController, NavParams, ToastController, LoadingController, AlertController, ModalController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { ViewUserPorfilePage } from '../view-user-porfile/view-user-porfile';
 import { AddhairStylePage } from '../addhair-style/addhair-style';
 import * as firebase from 'firebase';
 import { UserProvider } from '../../providers/user/user';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { OneSignal } from '@ionic-native/onesignal';
+import { OwnbookingsPage } from '../ownbookings/ownbookings';
 
 /**
  * Generated class for the BookingsPage page.
@@ -29,12 +31,14 @@ selecteddate;
 validated =true;
 currentday;
 currentEvents = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams,public userservice:UserProvider,
+hairdresser
+  constructor(public modalCtrl: ModalController,public navCtrl: NavController, public navParams: NavParams,public userservice:UserProvider,
     public toastCtrl: ToastController, 
     public loadingCtrl: LoadingController, 
     public alertCtrl: AlertController,
     private authService: AuthServiceProvider,
-    private localNotifications: LocalNotifications) {
+    private localNotifications: LocalNotifications,
+    private oneSignal: OneSignal) {
       console.log(this.userservice.userdata[0].uid)
 
      this.getsalonname();
@@ -43,36 +47,37 @@ currentEvents = [];
   }
   obj ={};
   ionViewDidLoad() {
-    this.getLocalNotification();
+ 
+     
 
    this.currentEvents =this.userservice.currentEvents;
       }
   
 
 
-  getLocalNotification(){
-    this.db.collection('Bookings').where("salonuid", "==", this.authService.getUser()).onSnapshot(doc =>{
-      doc.forEach(res =>{
-        console.log('datas ',res.data())
+  // getLocalNotification(){
+  //   this.db.collection('Bookings').where("salonuid", "==", this.authService.getUser()).onSnapshot(doc =>{
+  //     doc.forEach(res =>{
+  //       console.log('datas ',res.data())
    
-          this.localNotifications.schedule({
-            id: 1,
-            title: 'Airskedge',
-            text: 'New Booking has been made',
+  //         this.localNotifications.schedule({
+  //           id: 1,
+  //           title: 'Airskedge',
+  //           text: 'New Booking has been made',
         
        
-          });
+  //         });
 
-      })
+  //     })
     
       
-    })
-  }
+  //   })
+  // }
 
 getsalonname()
 {
   console.log("YES")
-  firebase.firestore().collection('Salons').where("salonuid","==",this.userservice.userdata[0].uid).get().then(val=>{
+  firebase.firestore().collection('Salons').where("salonuid","==",firebase.auth().currentUser.uid).get().then(val=>{
     val.forEach(uz=>{
       console.log(uz.data());
       this.gethairdresser( );
@@ -195,7 +200,7 @@ console.log(this.staff)
  
   }
 
-hairdresser;
+
 userdate;
   view()
   {
@@ -233,6 +238,32 @@ console.log(this.hairdresser,this.userdate)
             console.log('Cancel clicked');
            this.cancelbooking =true;
 
+        
+           console.log("USER Clicked", x);
+       
+           x.status = "cancelled";
+
+           firebase.firestore().collection('Bookings').doc(x.id).delete();
+          //  firebase.firestore().collection('Bookings').doc(x.id).update({
+          //    status2: 'cancelled'
+          //  }).then(res => {
+          //    console.log(res)
+          //  });
+
+
+
+
+
+           if( x.UserTokenID){
+            var notificationObj = {
+              headings: {en: "CANCELLATION ALERT!" },
+              contents: { en: " Hey "+ x.name + ", "+ x.salonname + " has canceled their booking with you "  },
+              include_player_ids: [x.UserTokenID],
+            }
+            this.oneSignal.postNotification(notificationObj).then(res => {
+             // console.log('After push notifcation sent: ' +res);
+            })
+          }
            
            firebase.firestore().collection('Analytics').doc(x.salonuid).get().then(val=>{
          
@@ -264,34 +295,6 @@ console.log(this.hairdresser,this.userdate)
 
   }
 
-
-  showPrompt() {
-    const prompt = this.alertCtrl.create({
-      title: 'Login',
-      message: "Enter a name for this new album you're so keen on adding",
-      inputs: [
-        {
-          name: 'title',
-          placeholder: 'Title'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Save',
-          handler: data => {
-            console.log('Saved clicked');
-          }
-        }
-      ]
-    });
-    prompt.present();
-  }
 
   todate;
   
@@ -404,6 +407,37 @@ cdate() {
  }
 
 
+
+
+ bookingModal() {
+   if(this.userdate ==undefined||this.hairdresser==undefined)
+   {
+    this.present();
+}
+else
+{
+  let bookingModal = this.modalCtrl.create(OwnbookingsPage,{ hairdresser: this.hairdresser,userdate:this.userdate });
+  bookingModal.present();
+  bookingModal.onDidDismiss(data => {
+    console.log(data);
+  });
+
+}
+
+
+
+}
+
+
+
+present() {
+  let alert = this.alertCtrl.create({
+    title: 'Missing information!',
+    subTitle: 'Select a hairdresser then the date before creating a local booking.',
+    buttons: ['Dismiss']
+  });
+  alert.present();
+}
 
 }
 

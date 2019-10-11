@@ -3,18 +3,22 @@ page-login {
   .container {
       display: flex;
       flex-flow: column;
-      // justify-content: center;
+     
       align-items: center;
       width: 100%;
       min-height: 100vh;
       color: white;
-      background: url('../../assets/imgs/background.svg');
+      background-image:linear-gradient(30deg, (rgba(65, 43, 56, 0.822))50%, (rgba(0, 0, 255, 0))60%, rgba(191, 150, 126, 0.116), rgba(52, 58, 63, 0.747)), url('../../assets/imgs/ww.jpg');
       position: fixed;
-      font-family: 'Manjari';
+      font-family: 'sans-serif';
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
   }
+
+
+
+
 
   .logo {
     position: absolute;
@@ -31,14 +35,12 @@ page-login {
   }
 
   .signin {
-    position: absolute;
-    top: 25%;
-    text-align: center;
+  text-align: center;
     // opacity: 0.6;
     padding: 10px;
     h1 {
       font-size: 3vw;
-
+       font-family:sans-serif;
       span {
         font-size:2vw;
       }
@@ -47,15 +49,12 @@ page-login {
 
 
   .form {
-    position: absolute;
-    top: 40%;
-    // left: 10%;
     align-items: center;
     text-align: center;
     width: 300px;
 
     .item {
-      position: relative;
+     
       // left: 9%;
       width: 300px;
       text-align: center;

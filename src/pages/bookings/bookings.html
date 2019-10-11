@@ -51,7 +51,8 @@
               <p>Customer Name: {{n.name}}</p>
               <p>{{n.hairstyletype}} at {{n.sessiontime}}</p>
               <p> For about {{n.estimatedtime}} minutes</p>
-              <p>Client {{n.status}}</p>
+              <p>Client {{n.status}} &nbsp;{{n.late}}</p>
+              <p>Contact {{n.cell}}</p>
               <div class="buttz">
                 <button ion-button  *ngIf="n.status2!='cancelled' && n.status!='cancelled' && n.userdate >= currentday "
                   (click)="cancels(n)" style="background:red">
@@ -68,15 +69,9 @@
   </ion-grid>
 
 
-  <!-- <ion-item *ngFor = "let n of testArray">
-<pre>{{n.sessiontime}}
-{{n.sessionendtime}}
-{{n.estimatedtime}}
-<br>
-{{n.surname}}
-{{n.hairstyletype}}
-</pre>
-</ion-item> -->
 
+<ion-fab bottom right>
+  <button ion-fab (click) ="bookingModal()"><ion-icon name ="create"></ion-icon></button>
+</ion-fab>
 
 </ion-content>
