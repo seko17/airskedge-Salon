@@ -37,6 +37,7 @@ import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { ViewStaffProfilePage } from '../pages/view-staff-profile/view-staff-profile';
 import { OneSignal } from '@ionic-native/onesignal';
+import { SMS } from '@ionic-native/sms';
 import { OwnbookingsPage } from '../pages/ownbookings/ownbookings';
 @NgModule({
   declarations: [
@@ -114,6 +115,7 @@ import { OwnbookingsPage } from '../pages/ownbookings/ownbookings';
     AuthServiceProvider,
      Camera,
      ImagePicker,
+     SMS,
      NativeGeocoder, LocalNotifications
   ]
 })
