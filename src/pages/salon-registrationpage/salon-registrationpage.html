@@ -21,9 +21,10 @@
              </button>
            </div>
          </div>
-         
-         <br>
-        
+        </div>
+      </div>
+       
+        <div class="form">
            <form [formGroup]="profileForm">
              <!-- <input id="location" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places"
                (onAddressChange)="handleAddressChange($event)" /> -->
@@ -78,15 +79,14 @@
              <br>
         
              <button id="skip" (click)="createprofile(profileForm)" type="submit" [disabled]="!profileForm.valid"
-               ion-button color="dark" full round>Register
+               ion-button  style ="background:#F3E1D5;color:black;" full round>Register
                Profile </button>
 
              <button id="skip" (click)="signout()" type="submit" ion-button clear full style="color:black">Cancel
              </button>
            </form>
-       
-       </div>
-     </div>
+          </div>
+      
    </div>
 
  </ion-content>
