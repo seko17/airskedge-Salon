@@ -28,6 +28,7 @@
     "@ionic-native/native-geocoder": "^4.20.0",
     "@ionic-native/onesignal": "^4.20.0",
     "@ionic-native/screen-orientation": "^4.20.0",
+    "@ionic-native/sms": "^4.20.0",
     "@ionic-native/splash-screen": "~4.20.0",
     "@ionic-native/status-bar": "~4.20.0",
     "@ionic/storage": "^2.2.0",
@@ -43,6 +44,7 @@
     "cordova-plugin-nativegeocoder": "3.2.2",
     "cordova-plugin-screen-orientation": "3.0.2",
     "cordova-plugin-telerik-imagepicker": "2.3.3",
+    "cordova-sms-plugin": "1.0.0",
     "cordova-sqlite-storage": "3.3.0",
     "datepicker-for-ionic": "^1.1.7",
     "es6-promise-plugin": "4.2.2",
@@ -96,7 +98,8 @@
       "cordova-plugin-screen-orientation": {},
       "cordova-plugin-local-notification": {},
       "cordova-sqlite-storage": {},
-      "onesignal-cordova-plugin": {}
+      "onesignal-cordova-plugin": {},
+      "cordova-sms-plugin": {}
     },
     "platforms": [
       "android"
