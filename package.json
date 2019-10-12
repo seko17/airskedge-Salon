@@ -36,6 +36,7 @@
     "@progress/kendo-angular-intl": "^2.0.0",
     "@progress/kendo-angular-l10n": "^2.0.0",
     "@progress/kendo-angular-popup": "^3.0.1",
+    "call-number": "1.0.1",
     "cordova-android": "^8.0.0",
     "cordova-plugin-badge": "0.8.8",
     "cordova-plugin-camera": "4.1.0",
@@ -99,7 +100,8 @@
       "cordova-plugin-local-notification": {},
       "cordova-sqlite-storage": {},
       "onesignal-cordova-plugin": {},
-      "cordova-sms-plugin": {}
+      "cordova-sms-plugin": {},
+      "mx.ferreyra.callnumber": {}
     },
     "platforms": [
       "android"
