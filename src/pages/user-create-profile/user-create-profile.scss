@@ -1,6 +1,17 @@
 page-user-create-profile {
+  .header {
+    border: none !important;
+    box-shadow: none !important;
+
+    .toolbar-background {
+      background: transparent;
+      border: none;
+    }
+  }
+
   .content {
     font-family: 'Manjari';
+    background: linear-gradient(rgba(255, 255, 255, 0.788)), url('../../assets/imgs/iPhone\ X-XS\ –\ 98.svg');
   }
 
   .submit-container {
@@ -58,10 +69,11 @@ page-user-create-profile {
   }
 
   .name {
-    border: 1px solid black;
+    // border: 1px solid black;
     margin: 10px;
-    background: black;
+    background: #422D39;
     justify-content: center;
+    border-radius: 10px;
 
     h2 {
       padding: 8px;
@@ -85,7 +97,7 @@ page-user-create-profile {
   }
 
   .list{
-    height: 60vh;
+    height: 80vh;
     overflow-y: auto;
   }
 }

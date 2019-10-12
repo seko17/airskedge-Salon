@@ -1,4 +1,14 @@
 page-addhair-style {
+  .header {
+    border: none !important;
+    box-shadow: none !important;
+
+    .toolbar-background {
+      background: transparent;
+      border: none;
+    }
+  }
+
   .content {
     height: 100%;
     background: #ebeef8;;

@@ -1,7 +1,8 @@
-<ion-content padding>
+  <ion-content padding >
 
   <ion-header>
     <ion-navbar>
+      <ion-icon name="arrow-back" (click)="goback()"></ion-icon>
     </ion-navbar>
   </ion-header>
 
@@ -19,27 +20,12 @@
           <img *ngIf="n.staffImage" src="{{n.staffImage}}">
         </div>
         <div class="details">
-          <p>{{n.staffName}} {{n.staffSurname}}</p>
-          <p>Staff ID: {{n.uid}}</p>
+          <p class="p1">{{n.name}} {{n.staffSurname}}</p>
+          <p class="p2">Staff ID: {{n.uid}}</p>
         </div>
       </div>
-
     </div>
-
   </div>
-
-
-  <!-- <ion-list *ngFor=" let n of staff " (click)="view(n)">
-    <ion-item>
-      <ion-avatar item-start>
-        <img *ngIf="!n.staffImage" src="../../assets/imgs/dummyAvatr.png" alt="">
-        <img *ngIf="n.staffImage" src="{{n.staffImage}}">
-      </ion-avatar>
-      <h2>{{n.staffName}} {{n.staffSurname}}</h2>
-      <h2>Staff ID: {{n.uid}}</h2>
-
-    </ion-item>
-  </ion-list> -->
   <ion-fab right bottom>
     <button ion-fab color="dark" (click)="addperson()">
       <ion-icon name="person-add"></ion-icon>

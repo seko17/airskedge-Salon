@@ -12,6 +12,12 @@ page-manage-staff {
     }
   }
 
+  ion-navbar{
+    ion-icon{
+      font-size: 200%;
+    }
+  }
+
   .container {
     display: flex;
     flex-flow: column;
@@ -64,14 +70,27 @@ page-manage-staff {
         display: flex;
         flex-flow: column;
         justify-content: center;
-        height: 10vh;
+        align-items: baseline;
+        height: 12vh;
         background: #343A3F;
-        border-
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+        position: relative;
+        top: 12px;
 
-        p {
-          margin: 0px 10px;
+        .p1 {
+          margin: 0px 15px;
           font-family: 'Raleway';
           font-size: 4vw;
+          color: #C0958D;
+          font-size: 6vw;
+        }
+
+        .p2{
+          color: white;
+          margin: 0px 15px;
+          font-family: 'Raleway';
+          font-size: 3vw;
         }
       }
     }
