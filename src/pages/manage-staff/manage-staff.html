@@ -1,38 +1,49 @@
-<ion-header>
-    <ion-navbar color="dark">
-        <ion-icon name="arrow-back" (click)="goback()" style=" font-size: 20px; float: left; color: white"></ion-icon>
-      <!-- <ion-title>About Application</ion-title> -->
+<ion-content padding>
+
+  <ion-header>
+    <ion-navbar>
     </ion-navbar>
   </ion-header>
- 
-<ion-content padding>
-  <!-- <div class="back" (click)="goback()">
-    <ion-icon name="arrow-back" style=" font-size: 20px;"></ion-icon>
-  </div> -->
-  <h1>Stylist Details</h1>
-  <p style="text-align: center">
-  
-  </p>
-  <ion-list *ngFor=" let n of staff " (click)="view(n)">
+
+  <div class="container">
+    <div class="title">
+      <h1><span>STYLIST</span> <br> DETAILS</h1>
+    </div>
+
+    <div class="line"></div>
+    <br><br>
+    <div class="crds">
+      <div class="crd" *ngFor=" let n of staff " (click)="view(n)">
+        <div class="image">
+          <img *ngIf="!n.staffImage" src="../../assets/imgs/dummyAvatr.png" alt="">
+          <img *ngIf="n.staffImage" src="{{n.staffImage}}">
+        </div>
+        <div class="details">
+          <p>{{n.staffName}} {{n.staffSurname}}</p>
+          <p>Staff ID: {{n.uid}}</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- <ion-list *ngFor=" let n of staff " (click)="view(n)">
     <ion-item>
       <ion-avatar item-start>
         <img *ngIf="!n.staffImage" src="../../assets/imgs/dummyAvatr.png" alt="">
-        <img  *ngIf="n.staffImage" src="{{n.staffImage}}">
+        <img *ngIf="n.staffImage" src="{{n.staffImage}}">
       </ion-avatar>
       <h2>{{n.staffName}} {{n.staffSurname}}</h2>
       <h2>Staff ID: {{n.uid}}</h2>
 
     </ion-item>
-  </ion-list>
+  </ion-list> -->
   <ion-fab right bottom>
     <button ion-fab color="dark" (click)="addperson()">
       <ion-icon name="person-add"></ion-icon>
     </button>
-    <!-- <ion-fab-list side="left" color="dark">
-      <button ion-fab>
-        <ion-icon (click)="addperson()" name="person-add" ></ion-icon>
-      </button>
 
-    </ion-fab-list> -->
   </ion-fab>
 </ion-content>
