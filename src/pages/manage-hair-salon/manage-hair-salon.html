@@ -53,11 +53,11 @@
            [ngClass]="{'male': styleCategory=='male', 'male-inactive': styleCategory=='female'}"
           -->
           <div class='female'>
-            <button>LADIES</button>
+            <button (click) ="loadgender('female')">LADIES</button>
           </div>
           <br>
           <div class='male'>
-            <button>GENTS</button>
+            <button (click) ="loadgender('male')">GENTS</button>
           </div>
         </div>
       </div>
@@ -71,7 +71,7 @@
 
         </div>
       </div>
-      <div class="scroll" *ngFor="let n of femaleStyles">
+      <div class="scroll" *ngFor="let n of hair">
         <div class="picz">
             <img src="{{n.hairStyleImage}}">
         </div>
