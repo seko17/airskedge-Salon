@@ -1,36 +1,22 @@
-<!--
-  Generated template for the CreateAccountPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<!-- <ion-header>
-  <ion-navbar>
-    <ion-title>createAccountPage</ion-title>
-  </ion-navbar>
-</ion-header> -->
 
 <ion-content>
   <div class="container">
-    <pre>
- </pre>
-    <div >
-      <h1 style =" font-family:Sans-Serif;color:rgba(145, 115, 132, 0.822);">AIR<span (click)="createAcc()" style ="color:white;font-family:Sans-Serif">SKEDGE</span></h1>
-    </div>
-     <pre>
-      
-      
 
-    </pre>
-    <div >
-        <h1 style ="font-family:Sans-Serif;">SIGN UP</h1>
-      </div>
- <br><br>
-  <div class="form">
+    <div class="title">
+        <h1><span>AIR</span>SKEDGE</h1>
+    </div>
+<pre>
+
+</pre>
+    <div>
+      <h1 style="font-family:raleway;">SIGN UP</h1>
+    </div>
+    <br><br>
+    <div class="form">
       <form [formGroup]="signupForm">
           <ion-item>
             <!-- <ion-label position="stacked">Email</ion-label> -->
-            <ion-input formControlName="email" type="email" placeholder="Your email address"
+            <ion-input  (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" formControlName="email" type="email" placeholder="Your email address"
               [class.invalid]="!signupForm.controls['email'].valid && signupForm.controls['email'].touched">
             </ion-input>
           </ion-item>
@@ -41,7 +27,7 @@
       <br>
           <ion-item>
             <!-- <ion-label position="stacked">Password</ion-label> -->
-            <ion-input formControlName="password" type="password" placeholder="Your password"
+            <ion-input  (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" formControlName="password" type="password" placeholder="Your password"
               [class.invalid]="!signupForm.controls['password'].valid && signupForm.controls['password'].touched">
             </ion-input>
           </ion-item>
@@ -52,15 +38,50 @@
           </ion-item>
       <br>
       <br>
-          <button ion-button block style ="background:#F3E1D5;color:black;" (click)="signupUser(signupForm)" [disabled]="!signupForm.valid">
+          <button  *ngIf="!hide" ion-button block style ="background:#F3E1D5;color:black;" (click)="signupUser(signupForm)" [disabled]="!signupForm.valid">
             Continue
           </button>
         </form>
   </div>
 
-  <div class="btns">
+  <div class="btns"  *ngIf="!hide">
       <p>Already have an account? <span (click)=" signin()" style ="color:white"><u>Sign-In</u></span></p>
+        <ion-item>
+          <!-- <ion-label position="stacked">Email</ion-label> -->
+          <ion-input formControlName="email" type="email" placeholder="Your email address"
+            [class.invalid]="!signupForm.controls['email'].valid && signupForm.controls['email'].touched">
+          </ion-input>
+        </ion-item>
+
+        <ion-label class="error-message" *ngIf="!signupForm.controls['email'].valid
+            && signupForm.controls['email'].touched" style="color:red; font-size: 14px; text-align: left">Please enter a valid email.
+        </ion-label>
+
+        <br>
+        <ion-item>
+          <!-- <ion-label position="stacked">Password</ion-label> -->
+          <ion-input formControlName="password" type="password" placeholder="Your password"
+            [class.invalid]="!signupForm.controls['password'].valid && signupForm.controls['password'].touched">
+          </ion-input>
+        </ion-item>
+
+        <ion-label class="error-message" *ngIf="!signupForm.controls['password'].valid  &&
+            signupForm.controls['password'].touched" style="color:red; font-size: 14px; text-align: left"> Password requires more than 6
+          characters</ion-label>
+        <br>
+
+        <br>
+        <button ion-button block id="sign" (click)="signupUser(signupForm)"
+          [disabled]="!signupForm.valid">
+          Continue
+        </button>
+      </form>
     </div>
-</div>
+
+    <div class="btns">
+      <p>Already have an account? <span (click)=" signin()"
+          style="color: #C0958D; font-family: Poiret One"><u>SIGN-IN</u></span></p>
+    </div>
+  </div>
 
 </ion-content>

@@ -25,6 +25,7 @@ export class ManageHairSalonPage {
   hair =[];
   isHairstyle = false;
   isNotHairstyle = false
+  loadHair='female'
   db = firebase.firestore();
   uid
   displayProfile = {}
@@ -343,7 +344,7 @@ export class ManageHairSalonPage {
 
   loadgender(x)
   {
-
+this.loadHair=x
    console.log('click = ' ,x) 
    this.hair = [];
   let limit;

@@ -3,14 +3,14 @@ page-create-account {
   .container {
     display: flex;
     flex-flow: column;
-    // justify-content: center;
+    justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     color: white;
-    background-image:linear-gradient(30deg, (rgba(65, 43, 56, 0.822))50%, (rgba(0, 0, 255, 0))60%, rgba(191, 150, 126, 0.116), rgba(52, 58, 63, 0.747)), url('../../assets/imgs/ww.jpg');
+    background-image: linear-gradient(30deg, #422D39 60%, rgba(52, 58, 63, 0) 40%), url('../../assets/imgs/iPhone\ X-XS\ –\ 100.svg');
     position: fixed;
-    font-family: 'sans-serif';
+    font-family: 'Raleway';
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -58,22 +58,19 @@ page-create-account {
   
   
     text-align: center;
-    width: 300px;
+    width: 80vw;
 
     .item {
       position: relative;
-      // left: 9%;
-      width: 300px;
+      font-family: 'Poiret One';
       text-align: center;
-      // box-shadow: 1px 3px 3px grey;
-      // border-radius: 50px;
       background: transparent;
       color: white;
     }
 
     button {
       width: 300px;
-      font-family: SANS-SERIF;
+     
     }
   }
 
@@ -91,5 +88,26 @@ page-create-account {
     }
   }
 
+
+  .title{
+    h1{
+      font-family: 'Poiret One';
+      font-size: 8vw;
+      letter-spacing: 4px;
+      span{
+        color: #C0958D;
+      }
+    }
+  }
+
+  #sign{
+    background: #F3E1D5;
+    color: black;
+    font-family: 'Poiret One';
+    letter-spacing: 3px;
+    width: 50vw;
+    position: relative;
+    left: 16vw;
+  }
 
 }
