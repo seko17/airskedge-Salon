@@ -16,7 +16,7 @@ page-salon-registrationpage {
     display: flex;
     justify-content: center;
     flex-direction: column;
-
+overflow: hidden;
   }
   .form{
     display: flex;
@@ -25,7 +25,9 @@ page-salon-registrationpage {
     align-items: center;
     flex-direction: column;
     border: 1px solid black;
-    height: 50vh;
+    height: 80vh;
+    overflow: hidden;
+    
  
   }
 
