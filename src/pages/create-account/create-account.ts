@@ -20,6 +20,7 @@ import { LoginPage } from '../login/login';
 export class CreateAccountPage {
   public signupForm: FormGroup;
   public loading: any;
+  hide='';
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private authService: AuthServiceProvider,
     private loadingCtrl: LoadingController,
@@ -77,5 +78,15 @@ export class CreateAccountPage {
 
   goback(){
     this.navCtrl.pop()
+  }
+
+  inputEvent(data){
+
+    if(data=='open'){
+       this.hide='value'
+    } else if(data=='close') {
+      this.hide='';
+    }
+    
   }
 }

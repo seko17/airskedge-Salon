@@ -25,7 +25,7 @@
             <form [formGroup]="loginForm" fixed>
               <ion-item>
                 <!-- <ion-label position="stacked">Email</ion-label> -->
-                <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!loginForm.controls['email'].valid &&
+                <ion-input  (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!loginForm.controls['email'].valid &&
                         loginForm.controls['email'].touched">
                 </ion-input>
               </ion-item>
@@ -36,7 +36,7 @@
               <br>
               <ion-item>
                 <!-- <ion-label position="stacked">Password</ion-label> -->
-                <ion-input id="pass" formControlName="password" type="password" placeholder="Your password"
+                <ion-input  (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" id="pass" formControlName="password" type="password" placeholder="Your password"
                   [class.invalid]="!loginForm.controls['password'].valid&& loginForm.controls['password'].touched">
                 </ion-input>
               </ion-item>
@@ -48,7 +48,7 @@
               <p class="forgot1" (click)="forgotpassword()" style ="color:#F3E1D5">Forgot password?</p>
             </div>
               <pre></pre>
-              <button ion-button block (click)="loginUser(loginForm)" style ="background:#F3E1D5;color:black;" [disabled]="!loginForm.valid">
+              <button *ngIf="!hide" ion-button block  (click)="loginUser(loginForm)" style ="background:#F3E1D5;color:black;" [disabled]="!loginForm.valid">
                 Sign In
               </button>
       
@@ -57,9 +57,9 @@
             </form>
           </div>
       
-          <div class="btns">
+          <div class="btns"  *ngIf="!hide">
       
-            <p>Don't have an account? <span (click)="createAcc()" style ="color:white;text-underline-position:below;"><u>Sign-Up</u></span></p>
+            <p>Don't have an account? <span   (click)="createAcc()" style ="color:white;text-underline-position:below;"><u>Sign-Up</u></span></p>
       
           </div>
 

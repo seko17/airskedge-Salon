@@ -30,7 +30,7 @@
       <form [formGroup]="signupForm">
           <ion-item>
             <!-- <ion-label position="stacked">Email</ion-label> -->
-            <ion-input formControlName="email" type="email" placeholder="Your email address"
+            <ion-input  (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" formControlName="email" type="email" placeholder="Your email address"
               [class.invalid]="!signupForm.controls['email'].valid && signupForm.controls['email'].touched">
             </ion-input>
           </ion-item>
@@ -41,7 +41,7 @@
       <br>
           <ion-item>
             <!-- <ion-label position="stacked">Password</ion-label> -->
-            <ion-input formControlName="password" type="password" placeholder="Your password"
+            <ion-input  (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" formControlName="password" type="password" placeholder="Your password"
               [class.invalid]="!signupForm.controls['password'].valid && signupForm.controls['password'].touched">
             </ion-input>
           </ion-item>
@@ -52,13 +52,13 @@
           </ion-item>
       <br>
       <br>
-          <button ion-button block style ="background:#F3E1D5;color:black;" (click)="signupUser(signupForm)" [disabled]="!signupForm.valid">
+          <button  *ngIf="!hide" ion-button block style ="background:#F3E1D5;color:black;" (click)="signupUser(signupForm)" [disabled]="!signupForm.valid">
             Continue
           </button>
         </form>
   </div>
 
-  <div class="btns">
+  <div class="btns"  *ngIf="!hide">
       <p>Already have an account? <span (click)=" signin()" style ="color:white"><u>Sign-In</u></span></p>
     </div>
 </div>

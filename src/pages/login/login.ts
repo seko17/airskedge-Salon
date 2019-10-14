@@ -22,6 +22,7 @@ import { LandingPage } from '../landing/landing';
 export class LoginPage {
   public loginForm: FormGroup;
   loading: Loading;
+  hide='';
   constructor(public navCtrl: NavController, public navParams: NavParams,   private formBuilder: FormBuilder,
      private authservice: AuthServiceProvider,
      public loadingCtrl: LoadingController,
@@ -45,7 +46,7 @@ export class LoginPage {
 this.navCtrl.push(CreateAccountPage)
   }
   forgotpassword(){
-    this.navCtrl.push(ForgotPasswordPage)
+   this.showPrompt();
   }
   loginUser(){
     if (!this.loginForm.valid){
@@ -75,5 +76,73 @@ this.navCtrl.push(CreateAccountPage)
   }
   goback(){
     this.navCtrl.pop()
+  }
+  inputEvent(data){
+
+    if(data=='open'){
+       this.hide='value'
+    } else if(data=='close') {
+      this.hide='';
+    }
+    
+  }
+  showPrompt() {
+    const prompt = this.alertCtrl.create({
+      title:'Reset Password',
+      message: 'Enter your email so we can send the password reset link.',
+      inputs: [
+        {
+          name: 'name1',
+          type: 'text',
+          placeholder: 'Email'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            this.authservice.resetPassword(data.name1).then(
+              async () => {
+                const alert = await this.alertCtrl.create({
+                  message: 'Check your email for a password reset link',
+                  buttons: [
+                    {
+                      text: 'Ok',
+                      role: 'cancel',
+                      handler: () => {
+                 
+                          this.presentLoading()
+                      }
+                    }
+                  ]
+                });
+                await alert.present();
+              },
+              async error => {
+                const errorAlert = await this.alertCtrl.create({
+                  message: error.message,
+                  buttons: [{ text: 'Ok', role: 'cancel' }]
+                });
+                await errorAlert.present();
+              }
+            );
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Saved clicked');
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+  presentLoading() {
+    const loader = this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 2000
+    });
+    loader.present();
   }
 }
