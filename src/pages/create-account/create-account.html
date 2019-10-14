@@ -14,8 +14,40 @@
     <br><br>
     <div class="form">
       <form [formGroup]="signupForm">
+          <ion-item>
+            <!-- <ion-label position="stacked">Email</ion-label> -->
+            <ion-input  (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" formControlName="email" type="email" placeholder="Your email address"
+              [class.invalid]="!signupForm.controls['email'].valid && signupForm.controls['email'].touched">
+            </ion-input>
+          </ion-item>
+          <ion-item style="background: transparent; border: none; box-shadow: none"  class="error-message" *ngIf="!signupForm.controls['email'].valid
+            && signupForm.controls['email'].touched">
+            <ion-label style="color:red; font-size: 18px">Please enter a valid email.</ion-label>
+          </ion-item>
+      <br>
+          <ion-item>
+            <!-- <ion-label position="stacked">Password</ion-label> -->
+            <ion-input  (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" formControlName="password" type="password" placeholder="Your password"
+              [class.invalid]="!signupForm.controls['password'].valid && signupForm.controls['password'].touched">
+            </ion-input>
+          </ion-item>
+          <ion-item style="background: transparent; border: none;box-shadow: none"  class="error-message" *ngIf="!signupForm.controls['password'].valid  &&
+            signupForm.controls['password'].touched">
+            <ion-label style="color:red; font-size: 18px">Your password needs more than 6 characters.</ion-label>
+            <br>
+          </ion-item>
+      <br>
+      <br>
+          <button  *ngIf="!hide" ion-button block style ="background:#F3E1D5;color:black;" (click)="signupUser(signupForm)" [disabled]="!signupForm.valid">
+            Continue
+          </button>
+        </form>
+  </div>
+
+  <!-- <div class="btns"  *ngIf="!hide">
+      <p>Already have an account? <span (click)=" signin()" style ="color:white"><u>Sign-In</u></span></p>
         <ion-item>
-          <!-- <ion-label position="stacked">Email</ion-label> -->
+          <ion-label position="stacked">Email</ion-label> 
           <ion-input formControlName="email" type="email" placeholder="Your email address"
             [class.invalid]="!signupForm.controls['email'].valid && signupForm.controls['email'].touched">
           </ion-input>
@@ -27,7 +59,7 @@
 
         <br>
         <ion-item>
-          <!-- <ion-label position="stacked">Password</ion-label> -->
+        <ion-label position="stacked">Password</ion-label> 
           <ion-input formControlName="password" type="password" placeholder="Your password"
             [class.invalid]="!signupForm.controls['password'].valid && signupForm.controls['password'].touched">
           </ion-input>
@@ -44,9 +76,9 @@
           Continue
         </button>
       </form>
-    </div>
+    </div> -->
 
-    <div class="btns">
+    <div class="btns"  *ngIf="!hide"  >
       <p>Already have an account? <span (click)=" signin()"
           style="color: #C0958D; font-family: Poiret One"><u>SIGN-IN</u></span></p>
     </div>

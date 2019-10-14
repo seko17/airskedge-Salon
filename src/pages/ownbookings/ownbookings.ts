@@ -43,6 +43,7 @@ testarray=[];
     salonuid: firebase.auth().currentUser.uid,
     hairstyleimage: "https://images.pexels.com/photos/2528695/pexels-photo-2528695.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
     UserTokenID: "",
+    payment:"Unpaid"
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad OwnbookingsPage');
@@ -147,8 +148,14 @@ this.testarray =[];
 
 presentLoadingDefault(booking) {
   let loading = this.loadingCtrl.create({
-    content: 'Please wait...',
-    duration: 5000
+    content: `
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content 
+  refreshingSpinner="customcircles">
+  </ion-refresher-content>
+</ion-refresher>`,
+    duration: 3000,
+    spinner: 'dots'
   });
 
   loading.present();
@@ -158,7 +165,7 @@ presentLoadingDefault(booking) {
     console.log('Dismissed loading');
   });
 
-  loading.present();
+ 
 
 
 

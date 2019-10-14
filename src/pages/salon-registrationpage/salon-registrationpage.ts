@@ -28,6 +28,7 @@ export class SalonRegistrationpagePage {
   storage = firebase.storage().ref();
   uid
   profileImage
+  hide = ''
   profileForm : FormGroup;
   uploadprogress = 0;
   isuploading: false
@@ -153,7 +154,15 @@ this.oneSignal.getIds().then((res) =>{
       })
     }
   }
+  inputEvent(data){
 
+    if(data=='open'){
+       this.hide='value'
+    } else if(data=='close') {
+      this.hide='';
+    }
+    
+  }
   
 
  validation_messages = {
@@ -171,7 +180,7 @@ this.oneSignal.getIds().then((res) =>{
       { type: 'pattern', message: 'Your Surname must not contain numbers and special characters.' },
       { type: 'validUsername', message: 'Your username has already been taken.' }
     ],
-    'phone': [
+    'personalNumber': [
       { type: 'required', message: 'Cellnumber is required.' }
     ],
     
