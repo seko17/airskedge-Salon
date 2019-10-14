@@ -6,15 +6,29 @@
 
 <ion-content>
   <div class="container">
-   <pre>
-   </pre>
   
-    <div >
-      <h1 style =" font-family:Sans-Serif;color:rgba(145, 115, 132, 0.822);">AIR<span (click)="createAcc()" style ="color:white;font-family:Sans-Serif">SKEDGE</span></h1>
+    <div class="title">
+      <h1><span>AIR</span>SKEDGE</h1>
     </div>
-    <pre>
+ <pre>
 
+ </pre>
+    <div>
+      <h1 style="font-family:Raleway;">SIGN IN</h1>
+    </div>
+    <br><br>
+    <div class="form">
+      <form [formGroup]="loginForm" fixed>
+        <ion-item>
+          <!-- <ion-label position="stacked">Email</ion-label> -->
+          <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!loginForm.controls['email'].valid &&
+                        loginForm.controls['email'].touched">
+          </ion-input>
+        </ion-item>
 
+        <ion-label class="error-message" *ngIf="!loginForm.controls['email'].valid &&
+          loginForm.controls['email'].touched" style="color:red; font-size: 14px; text-align: left">Please enter a valid email address.
+        </ion-label>
 
     </pre>
           <div >
@@ -60,10 +74,39 @@
           <div class="btns"  *ngIf="!hide">
       
             <p>Don't have an account? <span   (click)="createAcc()" style ="color:white;text-underline-position:below;"><u>Sign-Up</u></span></p>
-      
-          </div>
+        <br>
+        <ion-item>
+          <!-- <ion-label position="stacked">Password</ion-label> -->
+          <ion-input id="pass" formControlName="password" type="password" placeholder="Your password"
+            [class.invalid]="!loginForm.controls['password'].valid&& loginForm.controls['password'].touched">
+          </ion-input>
+        </ion-item>
 
-   
+        <ion-label class="error-message" *ngIf="!loginForm.controls['password'].valid
+          && loginForm.controls['password'].touched" style="color:red; font-size: 14px; text-align: left"> Password requires more than 6
+          characters.</ion-label>
+
+        <div align="right">
+          <p class="forgot1" (click)="forgotpassword()" style="color:rgb(255, 255, 255); font-family: 'Poiret One';">
+            Forgot password?</p>
+        </div>
+        
+      
+        <button ion-button block (click)="loginUser(loginForm)" id="sign" [disabled]="!loginForm.valid">
+          SIGN-IN
+        </button>
+
+      </form>
+    </div>
+
+    <div class="btns">
+
+      <p>Don't have an account? <span (click)="createAcc()"
+          style="color:#C0958D;text-underline-position:below; color: #C0958D; font-family: Poiret One"><u>SIGN-UP</u></span>
+      </p>
+
+    </div>
+
   </div>
 
 

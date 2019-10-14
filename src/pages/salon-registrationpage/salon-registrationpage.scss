@@ -1,67 +1,92 @@
 page-salon-registrationpage {
+
+  .header {
+    border: none !important;
+    box-shadow: none !important;
+
+    .toolbar-background {
+      background: transparent;
+      border: none;
+    }
+  }
+
   .content {
     height: 100%;
-    background: #ebeef8;;
-  
+    background: #ebeef8;
   }
-  .container{
+
+  .title{
+    width: 100vw;
+    text-align: center;
+    h1{
+      font-family: 'Poiret One';
+      letter-spacing: 4px;
+      span{
+        color: #C0958D;
+      }
+    }
+  }
+
+  .container {
     margin: 0;
-    padding:0;
+    padding: 0;
     height: 100vh;
-    background-image:linear-gradient(30deg, (rgba(65, 43, 56, 0.952))70%, (rgba(0, 0, 255, 0))30%);
+    background-image: linear-gradient(30deg, #422D39 60%, rgb(255, 255, 255) 40%);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    border: 1px solid green;
+    // border: 1px solid green;
     display: flex;
     justify-content: center;
     flex-direction: column;
-
   }
-  .form{
+
+  .form {
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
     flex-direction: column;
-    border: 1px solid black;
+    // border: 1px solid black;
     height: 50vh;
- 
+
   }
 
   .btn {
     position: absolute;
     left: 75%;
     top: 70%;
+
     button {
       border-radius: 50%;
     }
   }
 
+  .form {
+    width: 100vw;
+  }
+
   .item {
     position: relative;
-    // left: 9%;
-    width: 300px;
+    width: 90vw;
     height: 50px;
     text-align: center;
-    // border-radius: 50px;
+
     background: transparent;
     color: rgb(14, 13, 13);
-    border: 1px solid green;
+
 
   }
 
 
- .card {
-  border: 2px solid black;
-  height: 100%;
-/* background: linear-gradient(rgb(247, 148, 0),rgb(241, 164, 112),rgba(243, 217, 160, 0.952));
-  // */   display: flex;
-       flex-direction: column;
-       align-items: center;
-       margin-top: auto;
-  
- 
+  .card {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+
+
   }
 
   * {
@@ -72,92 +97,71 @@ page-salon-registrationpage {
 
 
   .backimage {
-    border: 2px solid blue;
-    width: 180px;
-    height: 180px;
-    margin-top: 15px;
-    background: linear-gradient(rgba(128, 128, 128, 0.521)), url('../../assets/imgs/image.png');
-    // border: 4px solid rgba(255, 255, 255, 0.897);
+
+    width: 50vw;
+    height: 22vh;
+    margin-top: 20px;
+    background: linear-gradient(rgba(128, 128, 128, 0.521)), url('../../assets/imgs/_ionicons_svg_ios-person.svg');
     display: flex;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 50%;
     position: relative;
     object-fit: cover;
-    
 
 
-    img{
-      border: 2px solid blue;
+
+    img {
+
       height: 100%;
       object-fit: cover;
-      border-radius: 50%;
+      border-radius: 50%;                         
     }
-    .bimage{
+
+    .bimage {
       width: 180px;
       height: 180px;
       z-index: -1;
       object-fit: cover;
-     
+
     }
 
-    .image{  width: 100%;
-      border: 2px solid yellow;
-    object-fit: cover;
-    border-radius: 50%;
-
-    img{
+    .image {
       width: 100%;
-    
       object-fit: cover;
       border-radius: 50%;
+
+      img {
+        width: 100%;
+
+        object-fit: cover;
+        border-radius: 50%;
+      }
     }
-    }
+
     .back {
-      border: 2px solid blue;
+
       position: absolute;
       left: 10px;
       top: 10px;
     }
-  
+
     .signin {
-      border: 2px solid blue;
+
       position: absolute;
-      top: 25%;
+      top: 30%;
       text-align: center;
-      // opacity: 0.6;
       padding: 10px;
+
       h1 {
         font-size: 3vw;
-  
+
         span {
-          font-size:2vw;
+          font-size: 2vw;
         }
       }
     }
-  
-  
-    // .form {
-    //   border: 2px solid blue;
-    //   position: absolute;
-    //   top: 40%;
-    //   // left: 10%;
-    //   align-items: center;
-    //   text-align: center;
-    //   width: 300px;
-  
-      // .item {
-      //   border: 2px solid blue;
-      //   position: relative;
-      //   // left: 9%;
-      //   width: 300px;
-      //   text-align: center;
-      //   // border-radius: 50px;
-      //   background: transparent;
-      //   color: white;
-  
-      // }
-    // }  
+
   }
 
   #location {
@@ -170,13 +174,17 @@ page-salon-registrationpage {
     left: 6%;
     padding: 10px;
     font-size: 4vw;
-   
+
   }
-  #skip{
-    width: 100%;
+
+  #skip {
+    width: 50vw;
     color: bisque;
+    position: relative;
+    left: 20vw;
   }
-  .messages{
+
+  .messages {
     color: red;
   }
 

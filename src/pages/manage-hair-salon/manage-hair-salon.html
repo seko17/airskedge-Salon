@@ -48,23 +48,26 @@
           </div>
         </div>
 
+        <div class="desc">
+          <p>{{disp.SalonDesc}}</p>
+        </div>
+
         <div class="gender">
-          <!-- [ngClass]="{'female': styleCategory=='female', 'female-inactive': styleCategory=='male'}"
-           [ngClass]="{'male': styleCategory=='male', 'male-inactive': styleCategory=='female'}"
+          <!-- [ngClass]="{'female': loadgender=='female', 'female-inactive': loadgender=='male'}"
+           [ngClass]="{'male': loadgender=='male', 'male-inactive': loadgender=='female'}"
           -->
-          <div class='female'>
+          <div class='female' [ngClass]="{'female': loadHair=='female', 'female-inactive': loadHair=='male'}" >
             <button (click) ="loadgender('female')">LADIES</button>
           </div>
           <br>
-          <div class='male'>
+          <div class='male'  [ngClass]="{'male': loadHair=='male', 'male-inactive': loadHair=='female'}">
             <button (click) ="loadgender('male')">GENTS</button>
           </div>
         </div>
       </div>
-
     </div>
 
-    <div class="stylez">
+    <div class="stylez" *ngIf="!isnotSalon">
       <div class="scroll">
         <div class="pick" (click)=" addStyle()">
           <ion-icon name="add-circle"></ion-icon>
@@ -80,120 +83,13 @@
           <p>{{n.hairstyleName}}</p>
         </div>
       </div>
-   
-
     </div>
-    <!-- <div class="one" *ngIf="isSalon">
-    <div class="seg">
-        <ion-segment color="dark" [(ngModel)]="page">
-          <ion-segment-button value="0" (click)="selectedTab(0)">
-            Ladies
-          </ion-segment-button>
-  
-          <ion-segment-button value="1" (click)="selectedTab(1)">
-            Gents
-          </ion-segment-button>
-  
-        </ion-segment>
-      </div>
-  
-      <div *ngIf="!isHairstyle">
-        <p> No record of hair Styles please add your hair styles</p>
-      </div>
-      <div class="slidez">
-        <ion-slides #slider (ionSlideWillChange)="moveButton($event)">
-          <ion-slide>
-  
-            <div *ngIf="isHairstyle" id="cards">
-              <ion-item *ngFor="let n of femaleStyles">
-                <img src="{{n.hairStyleImage}}">
-                <p>{{n.hairstyleName}}</p>
-                <p>{{n.hairstylePrice | currency:'&#82;'}}</p>
-  
-                <ion-buttons end style="position: absolute;
-                      top: 2%;
-                      left: 73%;
-                    width: 40px;
-                      height: 40px;">
-                  <button ion-button color="dark" (click)="Delete(n)" style="border-radius: 50%;
-                        width: 30px;
-                        height: 30px;">
-                    <ion-icon name="close"></ion-icon>
-                  </button>
-                </ion-buttons>
-              </ion-item>
-            </div>
-          </ion-slide>
-  
-          <ion-slide>
-            <div *ngIf="isHairstyle" id="cards">
-              <ion-item *ngFor="let n of maleStyles">
-                <img src="{{n.hairStyleImage}}">
-                <p>{{n.hairstyleName}}</p>
-                <p>{{n.hairstylePrice | currency:'&#82;'}}</p>
-  
-                <ion-buttons end style="position: absolute;
-                      top: 2%;
-                      left: 73%;
-                    width: 40px;
-                      height: 40px;">
-                  <button ion-button color="dark" (click)="Delete(n)" style="border-radius: 50%;
-                        width: 30px;
-                        height: 30px;">
-                    <ion-icon name="close"></ion-icon>
-                  </button>
-                </ion-buttons>
-              </ion-item>
-            </div>
-          </ion-slide>
-  
-        </ion-slides>
-      </div>
-</div> -->
-
-    <!-- <div class="hairdetails">
-        <div *ngIf="isHairstyle" id="cards">
-          
-
-          <ion-item *ngFor="let n of styles">
-            <img src="{{n.hairStyleImage}}">
-            <p>{{n.hairstyleName}}</p>
-            <p>{{n.hairstylePrice | currency:'&#82;'}}</p>
-
-            <ion-buttons end style="position: absolute;
-              top: 2%;
-              left: 73%;
-            width: 40px;
-              height: 40px;">
-              <button ion-button color="danger" (click)="Delete(n)" style="border-radius: 50%;
-                width: 30px;
-                height: 30px;">
-                <ion-icon name="close"></ion-icon>
-              </button>
-            </ion-buttons>
-          </ion-item>
-        </div>
-      </div>
-      <ion-fab right bottom id="fab">
-        <button ion-fab color="dark">
-          <ion-icon name="arrow-dropleft"></ion-icon>
-        </button>
-        <ion-fab-list side="left">
-          <button (click)="addStyle()" ion-fab>
-            <ion-icon name="cut"></ion-icon>
-          </button>
-          <button (click)="viewstaff()" ion-fab>
-            <ion-icon name="ios-contacts"></ion-icon>
-          </button>
-        </ion-fab-list>
-      </ion-fab> -->
-
   </div>
 
 
   <div id="fab" *ngIf="isSalon">
     <ion-fab right bottom id="fab" size="small" (click)="viewstaff()">
-      <button ion-fab style="background: orangered">
+      <button ion-fab style="background: #422D39">
         <ion-icon name="people"></ion-icon>
       </button>
 

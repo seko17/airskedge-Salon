@@ -41,6 +41,7 @@ page-view-reviews {
     display: flex;
     flex-flow: row;
     margin: 12px 0px;
+    border-radius: 10px;
   
     .image {
       width: 20vw;
@@ -56,6 +57,12 @@ page-view-reviews {
         border-radius: 50%;
       }
     }
+
+.line2{
+  width: 90vw;
+  height: 2px;
+  background: grey;
+}
 
     .details {
       width: 70vw;
