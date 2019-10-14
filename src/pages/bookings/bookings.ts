@@ -492,7 +492,7 @@ console.log(n)
           }
           else
           {
-          this.db.collection('Payments').doc(this.userservice.userdata[0].uid).collection('users').add({date:n.userdate,useruid:n.useruid,salonuid:n.salonuid});
+          this.db.collection('Payments').doc(n.useruid).set ({date:n.userdate,useruid:n.useruid,salonuid:n.salonuid});
         
         this.presentConfirm();
         
