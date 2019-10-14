@@ -42,17 +42,20 @@ page-landing {
     flex-flow: column;
     position: absolute;
     position: fixed;
-    right: -23%;
-    top: 40%;
+    // right: -23%;
+    top: 35%;
     width: 50%;
     button {
-      width: 4vh;
+      width: 70vw;
       height: 9vh;
       box-shadow: 5px 5px 5px rgba(39, 19, 6, 0.822);
       margin: 10px;
-      font-size: 30px;
-      background: rgba(32, 12, 0, 0.733);
+      right: -10px;
+      font-size: 5vw;
+      background:linear-gradient(to left,rgba(52, 58, 63, 0.589), #343A3F);
       cursor: pointer;
+      font-family: 'Poiret One';
+      letter-spacing: 5px;
     }
   }
   .profile1 {
@@ -69,15 +72,21 @@ page-landing {
     display: flex;
     flex-flow: column;
     position: absolute;
-    top: 63%;
-    left: 6%;
+    top: 10%;
+    left: 28%;
     width: 40vh;
     .name {
       display: flex;
       flex-flow: row;
       position: relative;
-      transform: rotate(35deg);
-      
+      // transform: rotate(35deg);
+      h1{
+        font-family: 'Poiret One';
+        letter-spacing: 5px;
+        span{
+          color:#C0958D;
+        }
+      }
       .imgz {
         width: 80px;
         height: 80px;
