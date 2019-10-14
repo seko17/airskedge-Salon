@@ -58,6 +58,10 @@
                   (click)="cancels(n)" style="background:red">
                   <ion-icon name="close"></ion-icon>
                 </button>
+                <button ion-button  *ngIf="n.userdate == currentday "
+                  (click)="paid(n)" style="background:rgb(14, 70, 24)">
+                  <ion-icon name="md-cash"></ion-icon>
+                </button>
               </div>
             </div>
 
