@@ -44,10 +44,10 @@
         </form>
   </div>
 
-  <div class="btns"  *ngIf="!hide">
+  <!-- <div class="btns"  *ngIf="!hide">
       <p>Already have an account? <span (click)=" signin()" style ="color:white"><u>Sign-In</u></span></p>
         <ion-item>
-          <!-- <ion-label position="stacked">Email</ion-label> -->
+          <ion-label position="stacked">Email</ion-label> 
           <ion-input formControlName="email" type="email" placeholder="Your email address"
             [class.invalid]="!signupForm.controls['email'].valid && signupForm.controls['email'].touched">
           </ion-input>
@@ -59,7 +59,7 @@
 
         <br>
         <ion-item>
-          <!-- <ion-label position="stacked">Password</ion-label> -->
+        <ion-label position="stacked">Password</ion-label> 
           <ion-input formControlName="password" type="password" placeholder="Your password"
             [class.invalid]="!signupForm.controls['password'].valid && signupForm.controls['password'].touched">
           </ion-input>
@@ -76,9 +76,9 @@
           Continue
         </button>
       </form>
-    </div>
+    </div> -->
 
-    <div class="btns">
+    <div class="btns"  *ngIf="!hide"  >
       <p>Already have an account? <span (click)=" signin()"
           style="color: #C0958D; font-family: Poiret One"><u>SIGN-IN</u></span></p>
     </div>

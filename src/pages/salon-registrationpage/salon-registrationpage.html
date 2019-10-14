@@ -23,7 +23,7 @@
         <!-- <input id="location" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places"
                (onAddressChange)="handleAddressChange($event)" /> -->
         <ion-item>
-          <ion-input type="text" placeholder="Name" formControlName="name" [(ngModel)]="SalonOwnerProfile.name"
+          <ion-input   (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" type="text" placeholder="Name" formControlName="name" [(ngModel)]="SalonOwnerProfile.name"
             ngDefaultControl>
           </ion-input>
         </ion-item>
@@ -36,7 +36,7 @@
         </div>
 
         <ion-item>
-          <ion-input type="text" placeholder="Surname" formControlName="surname" [(ngModel)]="SalonOwnerProfile.surname"
+          <ion-input   (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" type="text" placeholder="Surname" formControlName="surname" [(ngModel)]="SalonOwnerProfile.surname"
             ngDefaultControl></ion-input>
         </ion-item>
         <div class="error" *ngFor="let validate of validation_messages.surname">
@@ -47,7 +47,7 @@
         </div>
 
         <ion-item>
-          <ion-input type="tel" placeholder="Number" maxLength="10" formControlName="personalNumber"
+          <ion-input   (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" type="tel" placeholder="Number" maxLength="10" formControlName="personalNumber"
             [(ngModel)]="SalonOwnerProfile.personalNumber" ngDefaultControl></ion-input>
         </ion-item>
         <div class="error" *ngFor="let validate of validation_messages.personalNumber">
@@ -58,7 +58,7 @@
         </div>
 
         <ion-item>
-          <ion-input type="text" placeholder="Tell Us About Yourself" formControlName="About"
+          <ion-input   (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" type="text" placeholder="Tell Us About Yourself" formControlName="About"
             [(ngModel)]="SalonOwnerProfile.About" ngDefaultControl>
           </ion-input>
         </ion-item>
@@ -70,10 +70,10 @@
         </div>
         <br>
 
-        <button id="skip" (click)="createprofile(profileForm)" type="submit" [disabled]="!profileForm.valid" ion-button
+        <button  *ngIf="!hide"  id="skip" (click)="createprofile(profileForm)" type="submit" [disabled]="!profileForm.valid" ion-button
           style="background:#F3E1D5;color:black; width: 50vw; border-radius: 5px; font-family: Poiret One; letter-spacing: 4px; font-weight: bold">DONE</button>
 
-        <button id="skip" (click)="signout()" type="submit" ion-button clear full style="color:white; font-family: Poiret One; letter-spacing: 4px; font-weight: bold">CANCEL
+        <button  *ngIf="!hide"  id="skip" (click)="signout()" type="submit" ion-button clear full style="color:white; font-family: Poiret One; letter-spacing: 4px; font-weight: bold">CANCEL
         </button>
       </form>
     </div>
