@@ -439,6 +439,70 @@ present() {
   alert.present();
 }
 
+
+paid(n)
+{
+
+console.log(n)
+
+
+
+
+  let alert = this.alertCtrl.create({
+    title: 'Has the client payed for the service?',
+    message: 'If you click yes, your client will be able to review your salon.',
+    buttons: [
+      {
+        text: 'No',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: 'Yes',
+        handler: () => {
+
+          if(n.useruid ==undefined)
+          {
+
+            console.log(n.useruid)
+            
+            let toast = this.toastCtrl.create({
+              message: 'Local bookings cannot be permitted to review your salon.',
+              duration: 6000,
+              position: 'middle'
+            });
+          }
+          else
+          {
+          this.db.collection('Payments').doc(this.userservice.userdata[0].uid).collection('users').add({date:n.userdate,useruid:n.useruid,salonuid:n.salonuid});
+        }
+        }
+      }
+    ]
+  });
+  alert.present();
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+presentConfirm() {
+ 
+}
+
 }
 
 
