@@ -1,46 +1,36 @@
-<ion-header>
-  <ion-navbar color="dark">
-    <ion-title>Reviews</ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
+  <ion-header>
+    <ion-navbar>
+    </ion-navbar>
+  </ion-header>
 
-  <div class="container" *ngFor="let n of reviews">
-    <!-- <ion-list>
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="n.image">
-      </ion-thumbnail>
-      <h2>{{n.name}}</h2>
-      <p>{{n.review}}</p>
-      <ionic3-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#488aff"
-        defaultColor="#f4f4f4" readonly="true" rating={{n.rating}} fontSize="25px">
-      </ionic3-star-rating>
-    </ion-item>
-  </ion-list> -->
+  <div class="container">
 
-    <div class="card">
+    <div class="title">
+      <p><span>View</span><br>Reviews</p>
+    </div>
+
+    <div class="line">
+
+    </div>
+    <br>
+    <div class="card" *ngFor="let n of reviews">
       <div class="image">
-        <img *ngIf="!n.image "src="../../assets/imgs/dummyAvatr.png" alt="">
+        <img *ngIf="!n.image " src="../../assets/imgs/dummyAvatr.png" alt="">
         <img *ngIf="n.image" [src]="n.image">
       </div>
       <div class="details">
         <div class="name">
-          <h4 style="color:orangered">{{n.name}}</h4>
-          <p style="position: relative; bottom: 10px; color: whitesmoke">{{n.review}}</p>
-        </div>
-
-        <div class="rates">
-          <ionic3-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#488aff"
-            defaultColor="#f4f4f4" readonly="true" rating={{n.rating}} fontSize="6vw">
-          </ionic3-star-rating>
+          <p><span>{{n.name}}</span><br> {{n.review}}</p>
+          <div class="rates">
+            <ionic3-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#488aff"
+              defaultColor="#f4f4f4" readonly="true" rating={{n.rating}} fontSize="6vw">
+            </ionic3-star-rating>
+          </div>
         </div>
       </div>
-
-
     </div>
+    <div class="line2"></div>
 
   </div>
-
 </ion-content>

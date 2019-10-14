@@ -1,25 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Poiret+One|Open+Sans+Condensed|Jura|Manjari|Poppins|Raleway|Montserrat ');
+
 page-manage-staff {
-  .item {
-    background: rgba(187, 186, 185, 0.836);
-    box-shadow: 5px 5px 10px grey;
-    color: black;
 
+  .header {
+    border: none !important;
+    box-shadow: none !important;
+
+    .toolbar-background {
+      background: transparent;
+      border: none;
+    }
   }
 
-  h1 {
-    text-align: center;
-    padding: 5px;
-    font-family: 'Manjari';
-
+  ion-navbar{
+    ion-icon{
+      font-size: 200%;
+    }
   }
 
-  p {
-    font-family: 'Manjari';
+  .container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
   }
 
-  h2 {
-    font-family: 'Manjari';
-    padding: 2px;
+  .title {
+    h1 {
+      font-family: 'Poiret One';
+      letter-spacing: 5px;
+      font-size: 8vw;
+
+      span {
+        color: #C0958D;
+      }
+    }
+  }
+
+  .line {
+    width: 90vw;
+    height: 2px;
+    background: grey;
+  }
+
+  .crds {
+    width: 100%;
+    height: 90vh;
+    overflow-y: auto;
+
+    .crd {
+      display: flex;
+      flex-flow: row;
+      width: 90vw;
+
+      .image {
+        width: 30vw;
+        height: 15vh;
+        border-radius: 10px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+          object-fit: cover;
+        }
+      }
+
+      .details {
+        width: 60vw;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: baseline;
+        height: 12vh;
+        background: #343A3F;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+        position: relative;
+        top: 12px;
+
+        .p1 {
+          margin: 0px 15px;
+          font-family: 'Raleway';
+          font-size: 4vw;
+          color: #C0958D;
+          font-size: 6vw;
+        }
+
+        .p2{
+          color: white;
+          margin: 0px 15px;
+          font-family: 'Raleway';
+          font-size: 3vw;
+        }
+      }
+    }
   }
 
 }

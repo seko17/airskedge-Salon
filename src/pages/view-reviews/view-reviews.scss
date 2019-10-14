@@ -1,43 +1,90 @@
-\page-view-reviews {
+page-view-reviews {
+
+  .header {
+    border: none !important;
+    box-shadow: none !important;
+
+    .toolbar-background {
+      background: transparent;
+      border: none;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-flow: column;
+    // align-items: center;
+  }
+
+  .line {
+    width: 90vw;
+    height: 2px;
+    background: grey;
+  }
+
+  .title {
+    text-align: center;
+    width: 90vw;
+
+    p {
+      font-family: 'Poiret One';
+      font-size: 7vw;
+      font-weight: bold;
+
+      span {
+        color: #C0958D;
+      }
+    }
+  }
 
   .card {
     display: flex;
     flex-flow: row;
-    justify-content: space-evenly;
-    width: 100%;
-    margin: 10px 0;
-    box-shadow: 5px 5px 10px grey;
-    background: rgb(51, 51, 51);
-  }
+    margin: 12px 0px;
+    border-radius: 10px;
+  
+    .image {
+      width: 20vw;
+      height: 19vw;
+      overflow: hidden;
+      margin: 10px;
+      border-radius: 50%;
 
-  .image {
-    width: 12vh;
-    height: 12vh;
-    border: 1px solid grey;
-    position: relative;
-    left: -21px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+.line2{
+  width: 90vw;
+  height: 2px;
+  background: grey;
+}
+
+    .details {
+      width: 70vw;
+
+      .name {
+        p {
+          font-family: 'Poiret One';
+          font-size: 4vw;
+
+          span {
+            font-size: 5.5vw;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .rates{
+        position: relative;
+        bottom: 10px;
+      }
     }
   }
-
-  .details {
-    width: 30vh;
-    position: relative;
-    top: 10px;
-    left: -30px;
-
-    .rates {
-      position: absolute;
-      bottom: 4px;
-      left: -10px;
-      margin: 5px;
-    }
-  }
-
 
 
 }

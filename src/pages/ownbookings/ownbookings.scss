@@ -33,5 +33,8 @@ page-ownbookings {
         left: 5px;
     }
     
-    
+    [ng-reflect-name="customcircles"]{
+        background-image: url('https://loading.io/spinners/cutiefox/lg.cutie-fox-spinner.gif');
+        background-size: cover;
+      } 
 }

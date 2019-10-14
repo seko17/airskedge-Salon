@@ -22,9 +22,10 @@ export class ManageHairSalonPage {
   select = true;
   isSalon = false;
   isnotSalon = false;
-
+  hair =[];
   isHairstyle = false;
   isNotHairstyle = false
+  loadHair='female'
   db = firebase.firestore();
   uid
   displayProfile = {}
@@ -100,6 +101,18 @@ export class ManageHairSalonPage {
     this.getProfile();
     this.getFemaleStyle();
     this.getMaleStyle();
+
+   
+    let user = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles')
+
+
+    let query = user.where("genderOptions", "==", 'female').limit(30).get().then(val => {
+      val.forEach(doc => {
+ 
+        this.hair.push(doc.data());
+        console.log('jkl', this.hair)
+      })
+    }) 
 
   }
   c() {
@@ -326,6 +339,36 @@ export class ManageHairSalonPage {
 
   goback() {
     this.navCtrl.push(ManageHairSalonPage);
+  }
+
+
+  loadgender(x)
+  {
+this.loadHair=x
+   console.log('click = ' ,x) 
+   this.hair = [];
+  let limit;
+ if(x =='male')
+{
+  limit =10;
+}
+else
+{
+  limit = 30;
+}
+
+console.log('limit = ',limit)
+
+   let user = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles')
+
+
+   let query = user.where("genderOptions", "==", x).limit(limit).get().then(val => {
+     val.forEach(doc => {
+
+       this.hair.push(doc.data());
+       console.log('jkl', this.hair)
+     })
+   })
   }
 
 }

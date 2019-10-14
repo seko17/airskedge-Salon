@@ -1,30 +1,25 @@
-<ion-header>
-  <ion-navbar color="dark">
-    <ion-title>Add HairStyle </ion-title>
-  </ion-navbar>
-</ion-header>
+
 
 <ion-content>
-
+    <ion-header>
+        <ion-navbar>
+        </ion-navbar>
+      </ion-header>
 
 
   <div class="container">
+    <div class="title">
+      <h1><span>ADD</span><br>HAIRSTYLE</h1>
+    </div>
 
     <div class="card-wrapper">
       <div class="card">
-        <div class="backimage">
+        <div class="backimage" (click)="selectImage()">
     
           <img src="{{styleImage}}" alt="" class="bimage">
-          <div class="btn">
-            <button *ngIf="!styleImage" ion-button color="dark" (click)="selectImage()">
-              <ion-icon name="camera"></ion-icon>
-            </button>
-          </div>
+   
         </div>
- 
-  
 
-  
     <form [formGroup]="addhairStyleForm">
      
         <ion-item >
@@ -75,12 +70,11 @@
               <ion-option *ngFor="let g of Gender" value="{{g}}">{{g}}</ion-option>
             </ion-select>
           </ion-item>
-        
       
+      <pre>
         
-        
-        
-          <button ion-button (click)="createStyle(addhairStyleForm)"  type="submit" [disabled]="!addhairStyleForm.valid" ion-button full  round>ADD HAIR STYLE</button>
+      </pre>
+          <button ion-button id="hair" (click)="createStyle(addhairStyleForm)"  type="submit" [disabled]="!addhairStyleForm.valid" ion-button full>ADD HAIR STYLE</button>
         
    
       </form>

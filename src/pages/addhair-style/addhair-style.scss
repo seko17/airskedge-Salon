@@ -1,14 +1,50 @@
 page-addhair-style {
+  .header {
+    border: none !important;
+    box-shadow: none !important;
+
+    .toolbar-background {
+      background: transparent;
+      border: none;
+    }
+  }
+
   .content {
     height: 100%;
     background: #ebeef8;;
   
   }
   .container{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
     margin: 0;
     padding:0;
     height: 100%;
+    height: 100vh;
+    background-image: linear-gradient(30deg, #422D39 60%, rgba(52, 58, 63, 0) 40%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
+
+  .title {
+    text-align: center;
+    font-family: 'Poiret One';
+    letter-spacing: 5px;
+
+    h1 {
+      font-weight: bold;
+      span {
+        color: #C0958D;
+      }
+    }
+  }
+
+  .scroll-content {
+    padding-bottom: 0 !important;
+ }
 
   .btn {
     position: absolute;
@@ -21,21 +57,23 @@ page-addhair-style {
 
   .item {
     position: relative;
-    // left: 9%;
-    width: 300px;
-    text-align: center;
-    // border-radius: 50px;
+    width: 80vw;
     background: transparent;
-    color: rgb(14, 13, 13);
+    color: rgb(255, 255, 255);
 
+  }
+
+  #hair{
+    position: relative;
+    width: 50vw;
+    left: 15vw;
   }
 
 
  .card {
   
   height: 100%;
-/* background: linear-gradient(rgb(247, 148, 0),rgb(241, 164, 112),rgba(243, 217, 160, 0.952));
-  */   display: flex;
+  display: flex;
   flex-direction: column;
     flex-direction: column;
     align-items: center;
@@ -51,11 +89,11 @@ page-addhair-style {
 
 
   .backimage {
-    width: 180px;
-    height: 180px;
+    width: 20vh;
+    height: 20vh;
     margin-top: 15px;
-    background: linear-gradient(rgba(128, 128, 128, 0.521)), url('../../assets/imgs/image.png');
-    // border: 4px solid rgba(255, 255, 255, 0.897);
+    background: linear-gradient(rgba(128, 128, 128, 0.521)), url('../../assets/imgs/_ionicons_svg_ios-person.svg');
+
     display: flex;
     background-position: center;
     background-repeat: no-repeat;
