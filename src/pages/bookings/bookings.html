@@ -49,16 +49,17 @@
             </div>
             <div class="data">
               <p>Customer Name: {{n.name}}</p>
-              <p>{{n.hairstyletype}} at {{n.sessiontime}}</p>
+              <p>{{n.hairstyletype}} from {{n.sessiontime}} until {{n.sessionendtime}}  </p>
               <p> For about {{n.estimatedtime}} minutes</p>
               <p>Client {{n.status}} &nbsp;{{n.late}}</p>
               <p>Contact {{n.cell}}</p>
+              <p>Payment:{{n.payment}}</p>
               <div class="buttz">
-                <button ion-button  *ngIf="n.status2!='cancelled' && n.status!='cancelled' && n.userdate >= currentday "
+                <button ion-button  *ngIf="n.payment!='Paid' && n.userdate >= currentday "
                   (click)="cancels(n)" style="background:red">
                   <ion-icon name="close"></ion-icon>
                 </button>
-                <button ion-button  *ngIf="n.userdate == currentday "
+                <button ion-button  *ngIf="n.userdate == currentday && n.payment!='Paid' "
                   (click)="paid(n)" style="background:rgb(14, 70, 24)">
                   <ion-icon name="md-cash"></ion-icon>
                 </button>

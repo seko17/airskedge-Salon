@@ -11,5 +11,6 @@ hairdresser:string;
 userdate:string,
 salonuid:string,
 hairstyleimage:string,
-UserTokenID : string
+UserTokenID : string,
+payment:string
 }

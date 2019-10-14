@@ -114,7 +114,12 @@ currentdate:Date;
 
   getHairSalon(){
     let load = this.loadingCtrl.create({
-     content: 'Please wait...',
+      content: `
+      <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content 
+    refreshingSpinner="customcircles">
+    </ion-refresher-content>
+  </ion-refresher>`,
      spinner: 'dots'
    });
    load.present();
@@ -463,20 +468,34 @@ console.log(n)
         text: 'Yes',
         handler: () => {
 
+          firebase.firestore().collection('Bookings').doc(n.id).update({
+            payment: 'Paid'
+            }).then(res => {
+             console.log(res)
+          });
+
+
+
+
           if(n.useruid ==undefined)
           {
 
             console.log(n.useruid)
-            
+
             let toast = this.toastCtrl.create({
               message: 'Local bookings cannot be permitted to review your salon.',
               duration: 6000,
-              position: 'middle'
+              position: 'bottom'
             });
+
+            toast.present(); 
           }
           else
           {
           this.db.collection('Payments').doc(this.userservice.userdata[0].uid).collection('users').add({date:n.userdate,useruid:n.useruid,salonuid:n.salonuid});
+        
+        this.presentConfirm();
+        
         }
         }
       }
@@ -500,7 +519,13 @@ console.log(n)
 
 
 presentConfirm() {
- 
+  let toast = this.toastCtrl.create({
+    message: 'Client payment recorded successfully.',
+    duration: 6000,
+    position: 'bottom'
+  });
+
+  toast.present(); 
 }
 
 }
