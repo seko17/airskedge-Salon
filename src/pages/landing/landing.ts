@@ -39,12 +39,15 @@ export class LandingPage {
     uid: ''
 
   }
+  loaderAnimate = true
   constructor(public navCtrl: NavController, public navParams: NavParams,public userservice:UserProvider,
     private authservice : AuthServiceProvider,
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController, 
     public alertCtrl: AlertController,) {
-
+setTimeout(()=>{
+this.loaderAnimate = false
+},2000)
       this.uid = firebase.auth().currentUser.uid;
       this.authservice.setUser(this.uid);
   }
