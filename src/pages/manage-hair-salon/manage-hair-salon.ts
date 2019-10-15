@@ -22,10 +22,10 @@ export class ManageHairSalonPage {
   select = true;
   isSalon = false;
   isnotSalon = false;
-  hair =[];
+  hair = [];
   isHairstyle = false;
   isNotHairstyle = false
-  loadHair='female'
+  loadHair = 'female'
   db = firebase.firestore();
   uid
   displayProfile = {}
@@ -55,13 +55,14 @@ export class ManageHairSalonPage {
     uid: ''
 
   }
-
+salonLikes = []
   analitics = [];
   userRating = [];
   total = 0;
   dummy = []
   aveg: number;
 num1;
+  likes : number;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public toastCtrl: ToastController,
@@ -79,6 +80,15 @@ num1;
     //Function for getting functionality
     this.analitics =[];
   
+    console.log('check', this.aveg)
+    //Fubction for getting functionality
+    this.analitics;
+    firebase.firestore().collection('salonAnalytics').doc(firebase.auth().currentUser.uid).collection('numbers').get().then(val => {
+      val.forEach(data => {
+        console.log(data.data())
+        this.analitics.push(data.data());
+      })
+    })
 
     console.log('salon name', this.SalonNode.salonName);
 
@@ -113,11 +123,11 @@ this.num1 =parseFloat(val.data().saloncancel)+parseFloat(val.data().usercancel);
 
     let query = user.where("genderOptions", "==", 'female').limit(30).get().then(val => {
       val.forEach(doc => {
- 
+
         this.hair.push(doc.data());
         console.log('jkl', this.hair)
       })
-    }) 
+    })
 
   }
   c() {
@@ -159,25 +169,17 @@ this.num1 =parseFloat(val.data().saloncancel)+parseFloat(val.data().usercancel);
               spinner: 'bubbles'
             })
             worker.present();
-
             let query = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').where("hairstyleName", "==", value.hairstyleName)
             query.get().then(snap => {
-
               snap.forEach(doc => {
                 console.log('Delete Document: ', doc.data())
                 this.displayProfile = doc.data();
-
                 this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').doc(doc.id).delete().then(res => {
                   worker.dismiss();
-
-
                   this.localNotifications.schedule({
                     id: 1,
                     title: 'style deleted',
                     text: 'User has delted a style',
-
-
-
                   });
                   const alerter = this.alertCtrl.create({
                     message: 'Style deleted'
@@ -186,11 +188,7 @@ this.num1 =parseFloat(val.data().saloncancel)+parseFloat(val.data().usercancel);
                   this.styles = [];
                   this.getHairSalon();
                 });
-
               })
-
-
-
             })
           }
         }
@@ -220,21 +218,28 @@ this.num1 =parseFloat(val.data().saloncancel)+parseFloat(val.data().usercancel);
 
           this.SalonNode.salonImage = doc.data().salonImage;
           this.SalonNode.salonImage = doc.data().salonName;
+
           this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').onSnapshot(res => {
             res.forEach(doc => {
               this.isHairstyle = true;
             })
           });
+          this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('likes').get().then(res => {
+            res.forEach(doc => {
+            this.salonLikes.push(doc.data().length)
+        //  console.log('likes of slaon', doc.data().length);
+            })
+            this.likes =  this.salonLikes.length
+            console.log('likes', this.likes);
+          });
+      
           this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('ratings').onSnapshot(rates => {
             rates.forEach(doc => {
               this.userRating.push(doc.data().rating)
               console.log('users', doc.data().rating);
-
               this.total += doc.data().rating;
               console.log(this.total);
               this.dummy.push(doc.data().rating)
-
-
             })
             this.aveg = this.total / this.dummy.length;
             console.log('averge', this.aveg);
@@ -347,33 +352,30 @@ this.num1 =parseFloat(val.data().saloncancel)+parseFloat(val.data().usercancel);
   }
 
 
-  loadgender(x)
-  {
-this.loadHair=x
-   console.log('click = ' ,x) 
-   this.hair = [];
-  let limit;
- if(x =='male')
-{
-  limit =10;
-}
-else
-{
-  limit = 30;
-}
+  loadgender(x) {
+    this.loadHair = x
+    console.log('click = ', x)
+    this.hair = [];
+    let limit;
+    if (x == 'male') {
+      limit = 10;
+    }
+    else {
+      limit = 30;
+    }
 
-console.log('limit = ',limit)
+    console.log('limit = ', limit)
 
-   let user = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles')
+    let user = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles')
 
 
-   let query = user.where("genderOptions", "==", x).limit(limit).get().then(val => {
-     val.forEach(doc => {
+    let query = user.where("genderOptions", "==", x).limit(limit).get().then(val => {
+      val.forEach(doc => {
 
-       this.hair.push(doc.data());
-       console.log('jkl', this.hair)
-     })
-   })
+        this.hair.push(doc.data());
+        console.log('jkl', this.hair)
+      })
+    })
   }
 
 }
