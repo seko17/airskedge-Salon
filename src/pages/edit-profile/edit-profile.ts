@@ -51,6 +51,8 @@ export class EditProfilePage {
         
             this.SalonOwnerProfile.About = doc.data().About;
             this.SalonOwnerProfile.image = doc.data().image;
+            this.profileImage = doc.data().image;
+            console.log( this.profileImage);
             this.SalonOwnerProfile.name = doc.data().surname;
             this.SalonOwnerProfile.surname = doc.data().name;
             this.SalonOwnerProfile.personalNumber = doc.data().personalNumber;

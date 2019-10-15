@@ -63,6 +63,18 @@
         {{validate.message}}
       </div>
     </div>
+
+
+    <ion-item>
+      <ion-label>Salon Opening Time</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Salon Closing Time</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
+    </ion-item>
+
     <!-- input for salon number of hair dressers-->
     <ion-item>
       <ion-label stacked> Number of hair dressers </ion-label>
