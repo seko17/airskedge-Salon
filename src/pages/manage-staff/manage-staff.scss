@@ -5,6 +5,7 @@ page-manage-staff {
   .header {
     border: none !important;
     box-shadow: none !important;
+    color: black;
 
     .toolbar-background {
       background: transparent;
@@ -12,16 +13,13 @@ page-manage-staff {
     }
   }
 
-  ion-navbar{
-    ion-icon{
-      font-size: 200%;
-    }
-  }
 
   .container {
     display: flex;
     flex-flow: column;
     align-items: center;
+    position: absolute;
+    top: 0;
   }
 
   .title {
@@ -86,7 +84,7 @@ page-manage-staff {
           font-size: 6vw;
         }
 
-        .p2{
+        .p2 {
           color: white;
           margin: 0px 15px;
           font-family: 'Raleway';

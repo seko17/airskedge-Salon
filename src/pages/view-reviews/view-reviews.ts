@@ -19,6 +19,7 @@ export class ViewReviewsPage {
   db = firebase.firestore();
   reviews = []
   name: any;
+  isRated = false
   constructor(public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController, 
     public alertCtrl: AlertController,
     private authService: AuthServiceProvider,) {
@@ -71,6 +72,7 @@ export class ViewReviewsPage {
          this.db.collection('Salons').doc(doc.id).collection('ratings').get().then( res =>{
        res.forEach(doc =>{
  this.reviews.push(doc.data());
+ this.isRated = true ;
          console.log('review' , doc.data());
     
        })

@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header no-border>
   <ion-navbar color="dark">
     <ion-title>Add Salon Profile</ion-title>
   </ion-navbar>
@@ -13,7 +13,7 @@
     <div class="card-wrapper">
       <div class="card">
         <div class="backimage">
-    
+
           <img src="{{SalonCoverImage}}" alt="" class="bimage">
           <div class="btn">
             <button *ngIf="!SalonCoverImage" ion-button color="dark" (click)="selectImage()">
@@ -21,79 +21,98 @@
             </button>
           </div>
         </div>
-<br><br>
-  <form [formGroup]="addSalonForm">
-      <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" id="location"
-      style="font-size: 17px"/>
+        <br><br>
+        <form [formGroup]="addSalonForm">
+          <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places"
+            (onAddressChange)="handleAddressChange($event)" id="location" style="font-size: 17px" />
 
-    <!-- input for salon name-->
-    <ion-item>
-      <ion-label stacked>Salon name</ion-label>
-      <ion-input type="text" formControlName="salonName" [(ngModel)]="SalonNode.salonName" ngDefaultControl placeholder="Salon Name"></ion-input>
-    </ion-item>
-    <div class="error" *ngFor="let validate of validation_messages.salonName">
-      <div class="messages" style="color:red"
-        *ngIf="addSalonForm.get('salonName').hasError(validate.type) && (addSalonForm.get('salonName').dirty || addSalonForm.get('salonName').touched)">
-        {{validate.message}}
+          <!-- input for salon name-->
+          <ion-item>
+            <ion-label stacked>Salon name</ion-label>
+            <ion-input type="text" formControlName="salonName" [(ngModel)]="SalonNode.salonName" ngDefaultControl
+              placeholder="Salon Name"></ion-input>
+          </ion-item>
+          <div class="error" *ngFor="let validate of validation_messages.salonName">
+            <div class="messages" style="color:red"
+              *ngIf="addSalonForm.get('salonName').hasError(validate.type) && (addSalonForm.get('salonName').dirty || addSalonForm.get('salonName').touched)">
+              {{validate.message}}
+            </div>
+
+          </div>
+          <!-- input for salon location/Address-->
+
+
+          <ion-item>
+            <ion-label stacked> Salon contact number</ion-label>
+            <ion-input type="tel" maxLength="10" formControlName="SalonContactNo" [(ngModel)]="SalonNode.SalonContactNo"
+              ngDefaultControl placeholder="Contact Number"></ion-input>
+          </ion-item>
+          <div class="error" *ngFor="let validate of validation_messages.SalonContactNo">
+            <div class="messages" style="color:red"
+              *ngIf="addSalonForm.get('SalonContactNo').hasError(validate.type) && (addSalonForm.get('SalonContactNo').dirty || addSalonForm.get('SalonContactNo').touched)">
+              {{validate.message}}
+            </div>
+          </div>
+          <!-- input for salon opening time-->
+
+          <ion-item>
+            <ion-label>Opening Time</ion-label>
+            <ion-datetime formControlName="openTime" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="SalonNode.openTime" ngDefaultControl></ion-datetime>
+          </ion-item>
+          <div class="error" *ngFor="let validate of validation_messages.openTime">
+            <div class="messages" style="color:red"
+              *ngIf="addSalonForm.get('openTime').hasError(validate.type) && (addSalonForm.get('openTime').dirty || addSalonForm.get('openTime').touched)">
+              {{validate.message}}
+            </div>
+          </div>
+
+          <!-- input for salon closing time-->
+
+          <ion-item>
+            <ion-label>Closing Time</ion-label>
+            <ion-datetime formControlName="closingTime" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="SalonNode.closingTime" ngDefaultControl></ion-datetime>
+          </ion-item>
+          <div class="error" *ngFor="let validate of validation_messages.closingTime">
+            <div class="messages" style="color:red"
+              *ngIf="addSalonForm.get('closingTime').hasError(validate.type) && (addSalonForm.get('closingTime').dirty || addSalonForm.get('closingTime').touched)">
+              {{validate.message}}
+            </div>
+          </div>
+
+          <!-- input for salon descriptions-->
+
+          <ion-item>
+            <ion-label stacked> Salon Description </ion-label>
+            <ion-input type="text" formControlName="SalonDesc" [(ngModel)]="SalonNode.SalonDesc" ngDefaultControl
+              placeholder="Description"></ion-input>
+          </ion-item>
+          <div class="error" *ngFor="let validate of validation_messages.SalonDesc">
+            <div class="messages" style="color:red"
+              *ngIf="addSalonForm.get('SalonDesc').hasError(validate.type) && (addSalonForm.get('SalonDesc').dirty || addSalonForm.get('SalonDesc').touched)">
+              {{validate.message}}
+            </div>
+          </div>
+
+          <!-- input for salon number of hair dressers-->
+
+          <ion-item>
+            <ion-label stacked> Number of hair dressers </ion-label>
+            <ion-input type="tel" maxLength="2" formControlName="numHairDressers"
+              [(ngModel)]="SalonNode.numHairDressers" ngDefaultControl></ion-input>
+          </ion-item>
+          <div class="error" *ngFor="let validate of validation_messages.numHairDressers">
+            <div class="messages" style="color:red"
+              *ngIf="addSalonForm.get('numHairDressers').hasError(validate.type) && (addSalonForm.get('numHairDressers').dirty || addSalonForm.get('numHairDressers').touched)">
+              {{validate.message}}
+            </div>
+          </div>
+          <br>
+          <button id="skip" (click)="createSalon(addSalonForm)" type="submit" [disabled]="!addSalonForm.valid"
+            ion-button color="dark" round>
+            Save Salon </button>
+        </form>
       </div>
-     
     </div>
-    <!-- input for salon location/Address-->
-    
-  
-    <ion-item>
-      <ion-label stacked> Salon contact number</ion-label>
-      <ion-input type="tel"  maxLength="10" formControlName="SalonContactNo" [(ngModel)]="SalonNode.SalonContactNo"
-        ngDefaultControl placeholder="Contact Number"></ion-input>
-    </ion-item>
-    <div class="error" *ngFor="let validate of validation_messages.SalonContactNo">
-      <div class="messages" style="color:red"
-        *ngIf="addSalonForm.get('SalonContactNo').hasError(validate.type) && (addSalonForm.get('SalonContactNo').dirty || addSalonForm.get('SalonContactNo').touched)">
-        {{validate.message}}
-      </div>
-    </div>
-    <!-- input for salon descriptions-->
-    <ion-item>
-      <ion-label stacked> Salon Description </ion-label>
-      <ion-input type="text" formControlName="SalonDesc" [(ngModel)]="SalonNode.SalonDesc" ngDefaultControl placeholder="Description"></ion-input>
-    </ion-item>
-    <div class="error" *ngFor="let validate of validation_messages.SalonDesc">
-      <div class="messages" style="color:red"
-        *ngIf="addSalonForm.get('SalonDesc').hasError(validate.type) && (addSalonForm.get('SalonDesc').dirty || addSalonForm.get('SalonDesc').touched)">
-        {{validate.message}}
-      </div>
-    </div>
+  </div>
 
-
-    <ion-item>
-      <ion-label>Salon Opening Time</ion-label>
-      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Salon Closing Time</ion-label>
-      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
-    </ion-item>
-
-    <!-- input for salon number of hair dressers-->
-    <ion-item>
-      <ion-label stacked> Number of hair dressers </ion-label>
-      <ion-input type="tel" maxLength="2" formControlName="numHairDressers" [(ngModel)]="SalonNode.numHairDressers"
-        ngDefaultControl ></ion-input>
-    </ion-item>
-    <div class="error" *ngFor="let validate of validation_messages.numHairDressers">
-      <div class="messages" style="color:red"
-        *ngIf="addSalonForm.get('numHairDressers').hasError(validate.type) && (addSalonForm.get('numHairDressers').dirty || addSalonForm.get('numHairDressers').touched)">
-        {{validate.message}}
-      </div>
-    </div>
-    <br>
-      <button id="skip" (click)="createSalon(addSalonForm)" type="submit" [disabled]="!addSalonForm.valid" ion-button
-        color="dark" round>
-        Save Salon </button>
-  </form>
-</div>
-</div>
-</div>
- 
 </ion-content>

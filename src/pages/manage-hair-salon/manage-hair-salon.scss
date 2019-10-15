@@ -2,32 +2,29 @@
 
 page-manage-hair-salon {
 
-  .header {
-    border: none;
-    // box-shadow: none;
-
+  .toolbar {
     .toolbar-background {
       background: transparent;
-      border: none;
     }
   }
 
   .container {
     width: 100%;
-    height: 100vh;
+    // height: 100vh;
     display: flex;
     flex-flow: column;
   }
 
   #top {
-    width: 100%;
-    height: 100vh;
+    width: 100vw;
+    // height: 100vh;
   }
 
   .line{
-    position: relative;
+    position: absolute;
+    top: 0;
     width: 100vw;
-    height: 58vh;
+    height: 56vh;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     border: 1px solid black;
@@ -40,13 +37,13 @@ page-manage-hair-salon {
       font-family: 'Raleway';
       text-align: center;
       margin: 10px;
-      font-size: 4vw;
+      font-size: 3vw;
     }
   }
 
   .Profimage {
     width: 100vw;
-    height: 42vh;
+    height: 45vh;
     position: relative;
     top: 0;
     overflow: hidden;
@@ -61,7 +58,7 @@ page-manage-hair-salon {
       flex-flow: row;
       justify-content: space-evenly;
       position: absolute;
-      top: 80%;
+      top: 38vh;
       left: 30%;
       width: 40vw;
 
@@ -104,11 +101,15 @@ page-manage-hair-salon {
     .displayName {
       color: white;
       position: absolute;
-      bottom: 25%;
+      bottom: 15%;
 
       // left: 30%;
       padding: 5px;
       width: 100vw;
+      span{
+        font-size: 4vw;
+        font-weight: lighter;
+      }
 
 
       h4 {
@@ -124,7 +125,7 @@ page-manage-hair-salon {
 
     .displayName1 {
       position: absolute;
-      top: 65%;
+      top: 75%;
       right: 5%;
     }
   }
@@ -195,8 +196,6 @@ page-manage-hair-salon {
 
     }
 
-
-
     .female-inactive {
         width: 50%;
         height: 100%;
@@ -240,10 +239,10 @@ page-manage-hair-salon {
 }
 
 .stylez{
-  position: relative;
-  top: 35px;
+  position: absolute;
+  top: 60vh;
   width: 100%;
-  height: 90%;
+  // height: 90%;
   // padding: 5px;
   display: flex;
   overflow-x: auto;
@@ -254,7 +253,7 @@ page-manage-hair-salon {
     padding: 10px;
     .picz{
       width: 55vw;
-      height: 31vh;
+      height: 35vh;
       border-radius: 10px;
       img{
         width: 100%;
@@ -266,7 +265,6 @@ page-manage-hair-salon {
 
     .hairstylez{
       position: absolute;
-      // z-index: 5;
       margin: 5px 10px;
       top: 50%;
       p{
@@ -281,7 +279,7 @@ page-manage-hair-salon {
     .pick{
       border: 2px dashed black;
       width: 55vw;
-      height: 31vh;
+      height: 35vh;
       border-radius: 10px;
       text-align: center;
       display: grid;

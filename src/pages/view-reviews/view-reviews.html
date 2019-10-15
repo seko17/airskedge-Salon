@@ -1,6 +1,6 @@
 <ion-content padding>
-  <ion-header>
-    <ion-navbar>
+  <ion-header no-border>
+    <ion-navbar color="primary">
     </ion-navbar>
   </ion-header>
 
@@ -14,6 +14,9 @@
 
     </div>
     <br>
+    <div  style="text-align: center; width: 100vw" *ngIf="!isRated">
+      <p> :( No ratings yet for your salon</p>
+    </div>
     <div class="card" *ngFor="let n of reviews">
       <div class="image">
         <img *ngIf="!n.image " src="../../assets/imgs/dummyAvatr.png" alt="">

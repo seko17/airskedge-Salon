@@ -72,6 +72,7 @@ export class MyApp {
         splashScreen.hide();
       }, 1000);
       if (platform.is('cordova')) {
+      //
         this.setupPush();
       }
     });

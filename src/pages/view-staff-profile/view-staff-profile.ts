@@ -19,6 +19,7 @@ export class ViewStaffProfilePage {
   staff = {} as Staff
 data
 isImage = ''
+isStaff = false
 db = firebase.firestore();
   constructor(public navCtrl: NavController, public navParams: NavParams
     ,  private authUser: AuthServiceProvider,
@@ -36,6 +37,7 @@ db = firebase.firestore();
     console.log(this.staff);
   }
   updateAvailiable(){
+    this.presentLoading()
     let users = this.db.collection('Salons');
     users.doc(firebase.auth().currentUser.uid).collection('staff').where("uid","==",this.staff.name+''+this.staff.staffSurname).get().then(res =>{
       res.forEach(doc =>{
@@ -48,6 +50,7 @@ db = firebase.firestore();
   }
 
   updateNotAvailiable(){
+    this.presentLoading()
     let users = this.db.collection('Salons');
     users.doc(firebase.auth().currentUser.uid).collection('staff').where("uid","==",this.staff.name+''+this.staff.staffSurname).get().then(res =>{
       res.forEach(doc =>{
@@ -57,6 +60,14 @@ db = firebase.firestore();
    
       })
     })
+  }
+
+  presentLoading() {
+    const loader = this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 1000
+    });
+    loader.present();
   }
 
 }

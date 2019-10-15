@@ -5,11 +5,9 @@
     <div class="title">
         <h1><span>AIR</span>SKEDGE</h1>
     </div>
-<pre>
-
-</pre>
-    <div>
-      <h1 style="font-family:raleway;">SIGN UP</h1>
+<pre></pre>
+    <div class="log">
+      <h1>SIGN UP</h1>
     </div>
     <br><br>
     <div class="form">
@@ -38,45 +36,12 @@
           </ion-item>
       <br>
       <br>
-          <button  *ngIf="!hide" ion-button block style ="background:#F3E1D5;color:black;" (click)="signupUser(signupForm)" [disabled]="!signupForm.valid">
-            Continue
+          <button  *ngIf="!hide" ion-button block style ="background:#F3E1D5;color:black; width: 50vw" (click)="signupUser(signupForm)" [disabled]="!signupForm.valid">
+            CONTINUE
           </button>
         </form>
   </div>
 
-  <!-- <div class="btns"  *ngIf="!hide">
-      <p>Already have an account? <span (click)=" signin()" style ="color:white"><u>Sign-In</u></span></p>
-        <ion-item>
-          <ion-label position="stacked">Email</ion-label> 
-          <ion-input formControlName="email" type="email" placeholder="Your email address"
-            [class.invalid]="!signupForm.controls['email'].valid && signupForm.controls['email'].touched">
-          </ion-input>
-        </ion-item>
-
-        <ion-label class="error-message" *ngIf="!signupForm.controls['email'].valid
-            && signupForm.controls['email'].touched" style="color:red; font-size: 14px; text-align: left">Please enter a valid email.
-        </ion-label>
-
-        <br>
-        <ion-item>
-        <ion-label position="stacked">Password</ion-label> 
-          <ion-input formControlName="password" type="password" placeholder="Your password"
-            [class.invalid]="!signupForm.controls['password'].valid && signupForm.controls['password'].touched">
-          </ion-input>
-        </ion-item>
-
-        <ion-label class="error-message" *ngIf="!signupForm.controls['password'].valid  &&
-            signupForm.controls['password'].touched" style="color:red; font-size: 14px; text-align: left"> Password requires more than 6
-          characters</ion-label>
-        <br>
-
-        <br>
-        <button ion-button block id="sign" (click)="signupUser(signupForm)"
-          [disabled]="!signupForm.valid">
-          Continue
-        </button>
-      </form>
-    </div> -->
 
     <div class="btns"  *ngIf="!hide"  >
       <p>Already have an account? <span (click)=" signin()"

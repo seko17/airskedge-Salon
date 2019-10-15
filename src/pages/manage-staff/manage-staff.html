@@ -1,35 +1,38 @@
-  <ion-content padding >
 
-  <ion-header>
-    <ion-navbar>
-      <ion-icon name="arrow-back" (click)="goback()"></ion-icon>
-    </ion-navbar>
-  </ion-header>
+  <ion-content padding>
+    <ion-header no-border>
+      <ion-navbar>
 
-  <div class="container">
-    <div class="title">
-      <h1><span>STYLIST</span> <br> DETAILS</h1>
-    </div>
+      </ion-navbar>
+    </ion-header>
 
-    <div class="line"></div>
-    <br><br>
-    <div class="crds">
-      <div class="crd" *ngFor=" let n of staff " (click)="view(n)">
-        <div class="image">
-          <img *ngIf="!n.staffImage" src="../../assets/imgs/dummyAvatr.png" alt="">
-          <img *ngIf="n.staffImage" src="{{n.staffImage}}">
+    <div class="container">
+      <div class="title">
+        <h1><span>STYLIST</span> <br> DETAILS</h1>
+      </div>
+
+      <div class="line"></div>
+      <br><br>
+      <div class="crds">
+        <div *ngIf="!isStaff">
+          <p> :( no stylist information found, please add your stylist information  </p>
         </div>
-        <div class="details">
-          <p class="p1">{{n.name}} {{n.staffSurname}}</p>
-          <p class="p2">Staff ID: {{n.uid}}</p>
+        <div class="crd" *ngFor=" let n of staff " (click)="view(n)">
+          <div class="image">
+            <img *ngIf="!n.staffImage" src="../../assets/imgs/dummyAvatr.png" alt="">
+            <img *ngIf="n.staffImage" src="{{n.staffImage}}">
+          </div>
+          <div class="details">
+            <p class="p1">{{n.name}} {{n.staffSurname}}</p>
+            <p class="p2">Staff ID: {{n.uid}}</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <ion-fab right bottom>
-    <button ion-fab color="dark" (click)="addperson()">
-      <ion-icon name="person-add"></ion-icon>
-    </button>
+    <ion-fab right bottom>
+      <button ion-fab color="dark" (click)="addperson()">
+        <ion-icon name="person-add"></ion-icon>
+      </button>
 
-  </ion-fab>
-</ion-content>
+    </ion-fab>
+  </ion-content>

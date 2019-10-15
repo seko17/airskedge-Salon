@@ -1,13 +1,13 @@
 <ion-content>
-  <ion-header>
-    <ion-navbar>
-      <ion-title></ion-title>
-      <ion-icon name="exit" style="float: right; font-size: 5vw; margin: 5px; color: rgba(80, 78, 78, 0.781);"
-        (click)="logout()"></ion-icon>
-    </ion-navbar>
-
-  </ion-header>
+    <ion-header  no-border>
+        <ion-toolbar >
+          <ion-navbar >
+          </ion-navbar>
+        </ion-toolbar>
+      </ion-header>
+   
   <div class="container">
+
     <div class="fade">
       <div class="edit">
         <button (click)="update()" ion-fab>
@@ -20,6 +20,7 @@
       </div>
 
       <div class="nmz">
+          <button (click)="logout()">Phuma</button>
         <p><span>{{SalonOwnerProfile.ownerSurname}}</span> <br>{{SalonOwnerProfile.ownername}}</p>
       </div>
 
@@ -39,34 +40,6 @@
        <img *ngIf="SalonOwnerProfile.ownerImage" src="{{SalonOwnerProfile.ownerImage}}">
      </div>
 
-
   </div>
-
-
-  <!--    
-     <div class="parent">
-         <ion-icon  class="arowback" name="ios-power" (click)="logout()"></ion-icon> 
-        <img src="{{SalonOwnerProfile.ownerImage}}" style="border-radius: 20px" height="100%;" width="100%">
-        
-        <div class="wrapper1">
-          <div class="info1">
-              <h4 >{{SalonOwnerProfile.ownername}} {{SalonOwnerProfile.ownerSurname}}</h4>
-              <p class="job"> <strong>{{SalonOwnerProfile.personalNumber}}</strong> </p>
-              <p class="job"><strong>{{SalonOwnerProfile.email}}</strong></p>
-          </div>
-          <div class="flex-container">
-              <div><button class="btn1" ion-button round clear >Update</button></div>
-              <div><button  class="btn2"  ion-button round clear>Follow</button></div>
-            
-            </div>
-            
-            <div class="flex">
-                <div><strong>42<br></strong>Points</div>
-                <div><strong>20K<br></strong>Follower</div>
-                <div><strong>50 <br></strong>Ratings</div>  
-              </div>
-     </div>
-     
-   </div> -->
 
 </ion-content>

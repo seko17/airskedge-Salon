@@ -69,7 +69,8 @@ page-create-account {
     }
 
     button {
-      width: 300px;
+     position: relative;
+     left: 15vw;
      
     }
   }
@@ -77,9 +78,11 @@ page-create-account {
   .btns {
     position: absolute;
     bottom: 0;
+    // left: 60vw;
     display: flex;
     flex-flow: row;
     justify-content: space-evenly;
+    width: 100vw;
 
     p {
       span {
@@ -94,11 +97,18 @@ page-create-account {
       font-family: 'Poiret One';
       font-size: 8vw;
       letter-spacing: 4px;
+      font-weight: bolder;
       span{
         color: #C0958D;
       }
     }
   }
+
+  .log{
+    font-family: 'Poiret One';
+    font-weight: bolder;
+  }
+ 
 
   #sign{
     background: #F3E1D5;
@@ -107,7 +117,10 @@ page-create-account {
     letter-spacing: 3px;
     width: 50vw;
     position: relative;
-    left: 16vw;
+    left: 20vw;
   }
+
+  
+ 
 
 }
