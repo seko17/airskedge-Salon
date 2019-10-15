@@ -61,6 +61,7 @@ export class ManageHairSalonPage {
   total = 0;
   dummy = []
   aveg: number;
+num1;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public toastCtrl: ToastController,
@@ -75,14 +76,9 @@ export class ManageHairSalonPage {
     console.log('check salon profile', this.displayProfile);
 
     console.log('check', this.styles)
-    //Fubction for getting functionality
-    this.analitics;
-    firebase.firestore().collection('salonAnalytics').doc(firebase.auth().currentUser.uid).collection('numbers').get().then(val => {
-      val.forEach(data => {
-        console.log(data.data())
-        this.analitics.push(data.data());
-      })
-    })
+    //Function for getting functionality
+    this.analitics =[];
+  
 
     console.log('salon name', this.SalonNode.salonName);
 
@@ -101,8 +97,17 @@ export class ManageHairSalonPage {
     this.getProfile();
     this.getFemaleStyle();
     this.getMaleStyle();
+    firebase.firestore().collection('Analytics').doc(firebase.auth().currentUser.uid).get().then(val=>{
+      val.data();
+      this.analitics.push( val.data())
 
+this.num1 =parseFloat(val.data().saloncancel)+parseFloat(val.data().usercancel);
+      console.log(this.analitics);
+    })
    
+
+
+
     let user = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles')
 
 

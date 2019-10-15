@@ -36,19 +36,26 @@
       {{x.numberofclicks}}
     {{x.numberofbookings}}-->
           <div class="contact">
-            <div class="likes">
+            <div class="likes" >
               <p>4<br>Likes</p>
             </div>
 
-            <div class="views">
-              <p>10<br>Views</p>
+            <div class="views" *ngFor = "let x of analitics">
+              <p>{{x.numberofviews}}<br>Views</p>
+            </div>
+
+            <div class="bookings" *ngFor = "let x of analitics">
+              <p>{{x.allbookings}}<br>Bookings</p>
             </div>
 
             <div class="bookings">
-              <p>45<br>Bookings</p>
+              <p>{{num1}}<br>Cancelled</p>
+            </div>
+
+           
             </div>
           </div>
-        </div>
+       
 
         <div class="desc">
           <p>{{disp.SalonDesc}}</p>
