@@ -56,6 +56,7 @@ this.navCtrl.push(CreateAccountPage)
       .then( authservice => {
         this.navCtrl.setRoot(LandingPage);
       }, error => {
+        console.log(error.message)
         this.loading.dismiss().then( () => {
           let alert = this.alertCtrl.create({
             message: error.message,

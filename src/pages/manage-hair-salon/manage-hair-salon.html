@@ -19,7 +19,8 @@
       <div class="line">
 
         <div class="Profimage">
-          <img src="{{disp.salonImage}}">
+          <img *ngIf="!disp.salonImage" src="../../assets/imgs/defaultSalon.jpg" alt="">
+          <img *ngIf="disp.salonImage" src="{{disp.salonImage}}">
 
           <div class="displayName">
             <h4>{{disp.salonName}} <br><span>{{disp.Address.streetName}}</span> </h4>
@@ -36,18 +37,25 @@
     {{x.numberofbookings}}-->
           <div class="contact">
             <div class="likes">
-              <p>4<br>Likes</p>
+              <p>{{likes}}<br>Likes</p>
             </div>
 
-            <div class="views">
-              <p>10<br>Views</p>
+            <div class="views" *ngFor = "let x of analitics">
+              <p>{{x.numberofviews}}<br>Views</p>
+            </div>
+
+            <div class="bookings" *ngFor = "let x of analitics">
+              <p>{{x.allbookings}}<br>Bookings</p>
             </div>
 
             <div class="bookings">
-              <p>45<br>Bookings</p>
+              <p>{{num1}}<br>Cancelled</p>
+            </div>
+
+           
             </div>
           </div>
-        </div>
+       
 
         <div class="desc">
           <p>{{disp.SalonDesc}}</p>

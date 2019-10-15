@@ -16,6 +16,9 @@
       <div class="line"></div>
       <br><br>
       <div class="crds">
+        <div *ngIf="!isStaff">
+          <p> :( no stylist information found, please add your stylist information  </p>
+        </div>
         <div class="crd" *ngFor=" let n of staff " (click)="view(n)">
           <div class="image">
             <img *ngIf="!n.staffImage" src="../../assets/imgs/dummyAvatr.png" alt="">

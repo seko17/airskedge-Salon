@@ -14,11 +14,13 @@
       <div class="card-wrapper">
 
         <div class="card">
-          <div class="backimage">
-            <div class="image" (click)="selectImage()">
-              <img src="{{SalonOwnerProfile.ownerImage}}">
-            </div>
+          <div class="backimage"  [ngStyle]="{'background-image': 'url(' + profileImage + ')' }" (click)="selectImage()">
          
+            <!-- <div class="btn">
+              <button *ngIf="!profileImage" ion-button color="dark" >
+                <ion-icon name="camera"></ion-icon>
+              </button>
+            </div> -->
           </div>
           
           <br>

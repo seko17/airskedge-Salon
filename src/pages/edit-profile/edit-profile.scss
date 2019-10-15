@@ -73,30 +73,18 @@ page-edit-profile {
   }
 
   .backimage {
-    width: 20vh;
-    height: 20vh;
-    background: linear-gradient(rgba(255, 255, 255, 0.521)), url('../../assets/imgs/_ionicons_svg_ios-person.svg');
+    width: 25vh;
+    height: 25vh;
+    background: linear-gradient(rgba(128, 128, 128, 0.521));
     border: 6px solid rgba(128, 128, 128, 0.897);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 50%;
     position: relative;
-    top: 3vh;
-    overflow: hidden;
-
-    .image {
-      width: 20vh;
-      height: 20vh;
-      border-radius: 50%;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-    }
+    top: -3%;
+    background-size:cover;
+    
   }
 
   #location {
