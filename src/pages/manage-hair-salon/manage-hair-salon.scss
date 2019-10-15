@@ -8,11 +8,18 @@ page-manage-hair-salon {
     }
   }
 
+  .back-button-md,
+  .back-button-ios {
+    color: black;
+  }
+
   .container {
     width: 100%;
-    // height: 100vh;
+    height: 100vh;
     display: flex;
     flex-flow: column;
+    align-items: center;
+    // justify-content: center;
   }
 
   #top {
@@ -20,7 +27,7 @@ page-manage-hair-salon {
     // height: 100vh;
   }
 
-  .line{
+  .line {
     position: absolute;
     top: 0;
     width: 100vw;
@@ -30,13 +37,13 @@ page-manage-hair-salon {
     border: 1px solid black;
   }
 
-  .desc{
+  .desc {
     position: relative;
-    top: 15px;
-    p{
+    top: 1px;
+    p {
       font-family: 'Raleway';
       text-align: center;
-      margin: 10px;
+      margin: 5px;
       font-size: 3vw;
     }
   }
@@ -58,7 +65,7 @@ page-manage-hair-salon {
       flex-flow: row;
       justify-content: space-evenly;
       position: absolute;
-      top: 38vh;
+      top: 37vh;
       left: 30%;
       width: 40vw;
 
@@ -69,18 +76,21 @@ page-manage-hair-salon {
       .likes {
         font-size: 3.5vw;
         text-align: center;
+        margin: 5px;
       }
 
       .views {
 
         font-size: 3.5vw;
         text-align: center;
+        margin: 5px;
       }
 
       .bookings {
 
         font-size: 3.5vw;
         text-align: center;
+        margin: 5px;
       }
     }
 
@@ -106,7 +116,8 @@ page-manage-hair-salon {
       // left: 30%;
       padding: 5px;
       width: 100vw;
-      span{
+
+      span {
         font-size: 4vw;
         font-weight: lighter;
       }
@@ -139,6 +150,18 @@ page-manage-hair-salon {
     .icon {
       font-size: 150px;
     }
+
+    p{
+      font-family: 'Poiret One';
+     
+    }
+
+    button{
+      background: #422D39;
+      width: 90vw;
+      font-family: 'Poiret One';
+      letter-spacing: 4px;
+    }
   }
 
   .gender {
@@ -156,142 +179,146 @@ page-manage-hair-salon {
     border-radius: 30px;
 
     .female {
-        width: 50%;
+      width: 50%;
+      height: 100%;
+      border-radius: 30px;
+      align-items: center;
+      overflow: hidden;
+
+      button {
+        width: 100%;
         height: 100%;
         border-radius: 30px;
-        align-items: center;
-        overflow: hidden;
-
-        button {
-            width: 100%;
-            height: 100%;
-            border-radius: 30px;
-            font-family: 'Poiret One';
-            font-weight: bold;
-            letter-spacing: 3px;
-            background: #422D39;
-            color: white;
-            border: none;
-        }
+        font-family: 'Poiret One';
+        font-weight: bold;
+        letter-spacing: 3px;
+        background: #422D39;
+        color: white;
+        border: none;
+      }
 
     }
 
     .male {
-        width: 50%;
+      width: 50%;
+      height: 100%;
+      border-radius: 30px;
+      overflow: hidden;
+
+      button {
+        width: 100%;
         height: 100%;
         border-radius: 30px;
-        overflow: hidden;
-
-        button {
-            width: 100%;
-            height: 100%;
-            border-radius: 30px;
-            font-family: 'Poiret One';
-            font-weight: bold;
-            letter-spacing: 3px;
-            background: #422D39;
-            color: white;
-            border: none;
-        }
+        font-family: 'Poiret One';
+        font-weight: bold;
+        letter-spacing: 3px;
+        background: #422D39;
+        color: white;
+        border: none;
+      }
 
     }
 
     .female-inactive {
-        width: 50%;
+      width: 50%;
+      height: 100%;
+      border-radius: 30px;
+      align-items: center;
+      overflow: hidden;
+
+      button {
+        width: 100%;
         height: 100%;
         border-radius: 30px;
-        align-items: center;
-        overflow: hidden;
-
-        button {
-            width: 100%;
-            height: 100%;
-            border-radius: 30px;
-            font-family: 'Poiret One';
-            font-weight: bold;
-            letter-spacing: 3px;
-            background: #F3E1D5;
-            color: rgb(24, 24, 24);
-            border: none;
-        }
+        font-family: 'Poiret One';
+        font-weight: bold;
+        letter-spacing: 3px;
+        background: #F3E1D5;
+        color: rgb(24, 24, 24);
+        border: none;
+      }
 
     }
 
     .male-inactive {
-        width: 50%;
-        height: 100%;
-        border-radius: 30px;
-        overflow: hidden;
+      width: 50%;
+      height: 100%;
+      border-radius: 30px;
+      overflow: hidden;
 
-        button {
-            width: 100%;
-            height: 100%;
-            border-radius: 30px;
-            font-family: 'Poiret One';
-            font-weight: bold;
-            letter-spacing: 3px;
-            background: #F3E1D5;
-            color: rgb(24, 24, 24);
-            border: none;
-        }
-
-    }
-}
-
-.stylez{
-  position: absolute;
-  top: 60vh;
-  width: 100%;
-  // height: 90%;
-  // padding: 5px;
-  display: flex;
-  overflow-x: auto;
-
-  .scroll{
-    width: 70vw;
-    // height: 40vh;
-    padding: 10px;
-    .picz{
-      width: 55vw;
-      height: 35vh;
-      border-radius: 10px;
-      img{
+      button {
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        border-radius: 10px;
-      }
-    }
-
-    .hairstylez{
-      position: absolute;
-      margin: 5px 10px;
-      top: 50%;
-      p{
-        font-size: 6vw;
+        border-radius: 30px;
         font-family: 'Poiret One';
-        letter-spacing: 5px;
-        color: white;
         font-weight: bold;
+        letter-spacing: 3px;
+        background: #F3E1D5;
+        color: rgb(24, 24, 24);
+        border: none;
       }
-    }
 
-    .pick{
-      border: 2px dashed black;
-      width: 55vw;
-      height: 35vh;
-      border-radius: 10px;
-      text-align: center;
-      display: grid;
-      align-items: center;
-      justify-content: center;
-      ion-icon{
-        font-size: 20vw;
-      }
     }
   }
 
-}
+  .stylez {
+    position: absolute;
+    top: 60vh;
+    width: 100%;
+    // height: 90%;
+    // padding: 5px;
+    display: flex;
+    overflow-x: auto;
+
+    .scroll {
+      width: 70vw;
+      // height: 40vh;
+      padding: 10px;
+
+      .picz {
+        width: 55vw;
+        height: 35vh;
+        border-radius: 10px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+      }
+
+      .hairstylez {
+        position: absolute;
+        margin: 5px 10px;
+        top: 50%;
+
+        p {
+          font-size: 6vw;
+          font-family: 'Poiret One';
+          letter-spacing: 5px;
+          color: white;
+          font-weight: bold;
+        }
+      }
+
+      .pick {
+        border: 2px dashed black;
+        width: 55vw;
+        height: 35vh;
+        border-radius: 10px;
+        text-align: center;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+
+        ion-icon {
+          font-size: 20vw;
+        }
+      }
+    }
+
+  }
 
   #fab {
     position: fixed;

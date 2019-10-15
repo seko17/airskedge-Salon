@@ -1,6 +1,6 @@
-<ion-header no-border>
-    <ion-navbar >
-    </ion-navbar>
+<ion-header  no-border>
+      <ion-navbar>
+      </ion-navbar>
   </ion-header>
   
   <ion-content padding fullscreen>
@@ -16,7 +16,7 @@
       <div class="line"></div>
       <br><br>
       <div class="crds">
-        <div *ngIf="!isStaff">
+        <div class="msg" *ngIf="!isStaff">
           <p> :( no stylist information found, please add your stylist information  </p>
         </div>
         <div class="crd" *ngFor=" let n of staff " (click)="view(n)">

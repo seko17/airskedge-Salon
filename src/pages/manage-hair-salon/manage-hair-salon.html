@@ -1,5 +1,5 @@
 <ion-header transparent no-border>
-  <ion-toolbar >
+  <ion-toolbar>
     <ion-navbar>
     </ion-navbar>
   </ion-toolbar>
@@ -10,9 +10,9 @@
   <div class="container">
     <div class="msg" *ngIf="isnotSalon">
       <ion-icon name="warning"></ion-icon>
-      <!-- <button (click)="c()" ion-button> add hairstyle</button> -->
-      <p>You currently don't <br> have a salon,<br> please create a salon</p>
-      <button (click)="addSalon()" color="dark" full ion-button> add</button>
+      
+      <p>You currently don't <br> have a salon,<br> Please create a salon</p>
+      <button (click)="addSalon()" full ion-button> ADD</button>
     </div>
     <div *ngIf="isSalon" id="top">
       <div class="line">
@@ -22,7 +22,7 @@
           <img *ngIf="disp.salonImage" src="{{disp.salonImage}}">
 
           <div class="displayName">
-            <h4>{{disp.salonName}} <br><span>{{disp.Address.streetName}}</span> </h4>
+            <h4>{{disp.salonName}} <br><span> <ion-icon name="pin"></ion-icon> {{disp.Address.streetName}}</span> </h4>
           </div>
 
           <div class="displayName1">
@@ -30,31 +30,26 @@
               defaultColor="#A9A9A9" readonly="true" rating={{aveg}} fontSize="4vw" halfStar="true">
             </ionic3-star-rating>
           </div>
-          <!-- *ngFor="let x of analitics" 
-        {{x.likes}}
-      {{x.numberofclicks}}
-    {{x.numberofbookings}}-->
+   
           <div class="contact">
             <div class="likes">
               <p>{{likes}}<br>Likes</p>
             </div>
 
-            <div class="views" *ngFor = "let x of analitics">
+            <div class="views" *ngFor="let x of analitics">
               <p>{{x.numberofviews}}<br>Views</p>
             </div>
 
-            <div class="bookings" *ngFor = "let x of analitics">
+            <div class="bookings" *ngFor="let x of analitics">
               <p>{{x.allbookings}}<br>Bookings</p>
             </div>
 
             <div class="bookings">
               <p>{{num1}}<br>Cancelled</p>
             </div>
-
-           
-            </div>
           </div>
-       
+        </div>
+
 
         <div class="desc">
           <p>{{disp.SalonDesc}}</p>
