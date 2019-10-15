@@ -48,7 +48,19 @@ hairdresser
   obj ={};
   ionViewDidLoad() {
  
-     
+ 
+      let toast = this.toastCtrl.create({
+        message: 'Select a haidresser, then pick the date to view their bookings for that day.',
+        duration: 7000,
+        position: 'bottom'
+      });
+    
+      toast.onDidDismiss(() => {
+        console.log('Dismissed toast');
+      });
+    
+      toast.present();
+    
 
    this.currentEvents =this.userservice.currentEvents;
       }
@@ -168,6 +180,7 @@ this.validated =false;
 
        const alert = this.alertCtrl.create({
         message: 'There are no bookings for '+this.hairdresser+' for '+this.userdate,
+        cssClass: 'alertDanger',
         buttons: ['OK']
       });
      alert.present();
@@ -236,50 +249,9 @@ console.log(this.hairdresser,this.userdate)
     const prompt = this.alertCtrl.create({
       title: 'Cancel!',
       message: "Are you sure you want to cancel session with "+x.name+'?',
+      cssClass: 'alertDanger',
       buttons: [
-        {
-          text: 'Yes',
-          handler: data => {
-            console.log('Cancel clicked');
-           this.cancelbooking =true;
-
-        
-           console.log("USER Clicked", x);
        
-           x.status = "cancelled";
-
-           firebase.firestore().collection('Bookings').doc(x.id).delete();
-          //  firebase.firestore().collection('Bookings').doc(x.id).update({
-          //    status2: 'cancelled'
-          //  }).then(res => {
-          //    console.log(res)
-          //  });
-
-
-
-
-
-           if( x.UserTokenID){
-            var notificationObj = {
-              headings: {en: "CANCELLATION ALERT!" },
-              contents: { en: " Hey "+ x.name + ", "+ x.salonname + " has canceled their booking with you "  },
-              include_player_ids: [x.UserTokenID],
-            }
-            this.oneSignal.postNotification(notificationObj).then(res => {
-             // console.log('After push notifcation sent: ' +res);
-            })
-          }
-           
-           firebase.firestore().collection('Analytics').doc(x.salonuid).get().then(val=>{
-         
-             console.log("numbers = ",val.data())
-          
-             firebase.firestore().collection('Analytics').doc(x.salonuid).set({numberofviews:val.data().numberofviews,numberoflikes:val.data().numberoflikes,usercancel:val.data().usercancel,saloncancel:val.data().saloncancel+1,allbookings:val.data().allbookings,users:val.data().users});
-           });
-            
-
-          }
-        },
         {
           text: 'No',
           handler: data => {
@@ -289,6 +261,8 @@ console.log(this.hairdresser,this.userdate)
 
          
           }
+          ,
+          
         }
       ]
     });
@@ -346,6 +320,7 @@ console.log("Currentdate =",this.userdate)
   presentAlert() {
     let alert = this.alertCtrl.create({
       title: 'Caution!',
+      cssClass: 'alertDanger',
       subTitle: 'Select the name of the hairdresser first.',
       buttons: ['Dismiss']
     });
