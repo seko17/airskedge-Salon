@@ -78,16 +78,20 @@ page-user-create-profile {
     // border: 1px solid black;
     margin: 10px;
     background: #422D39;
+    height: 50px;
+    display: grid;
+    align-items: center;
     justify-content: center;
     border-radius: 10px;
     cursor: pointer;
 
     h2 {
-      padding: 8px;
-      margin: 5px;
+     font-size: 5vw;
+      padding: 5px;
       color: white;
-      font-weight: normal;
-      font-family: 'Manjari';
+      letter-spacing: 3px;
+      font-family: 'Poiret One';
+     
     }
   }
 
@@ -106,5 +110,10 @@ page-user-create-profile {
   .list{
     height: 80vh;
     overflow-y: auto;
+  }
+  h1{
+    font-family: 'Poiret One';
+    letter-spacing: 4px;
+    font-weight: bold;
   }
 }

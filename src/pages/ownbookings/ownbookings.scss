@@ -1,4 +1,17 @@
 page-ownbookings {
+
+  .toolbar {
+    .toolbar-background {
+      background: transparent;
+      
+    }
+  }
+
+  .back-button-md,
+.back-button-ios {
+  color: black;
+}
+
   .container {
     display: flex;
     flex-flow: column;

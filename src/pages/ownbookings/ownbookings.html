@@ -1,24 +1,10 @@
-
 <ion-header no-border>
-  <ion-navbar>
-    <button ion-button icon-only menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+    <ion-navbar  color="dark">
+    </ion-navbar>
+  </ion-header>
+  
 
-    <ion-title>
-      Add your own bookings
-    </ion-title>
-
-    <ion-buttons start>
-      <button ion-button icon-only (click)="closemodal()">
-        <ion-icon name="md-arrow-back"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
-
-<ion-content>
-
+<ion-content fullscreen>
 
   <div class="container">
     <div class="h2">
@@ -27,11 +13,11 @@
       <br>
     </div>
 
-
     <div class="time">
   
       <div class="appmnts">
-
+<pre>
+</pre>
         <ion-item color="transparent">
           <!-- <ion-label position ="stacked">Client name</ion-label> -->
           <ion-input placeholder ="Name of client" type="text" [disabled]="preventinputs"
