@@ -2,22 +2,24 @@
 
 page-manage-staff {
 
-  .header {
-    border: none !important;
-    box-shadow: none !important;
-    color: black;
-
+  .toolbar {
     .toolbar-background {
       background: transparent;
-      border: none;
     }
   }
+
+  .back-button-md,
+  .back-button-ios {
+    color: black;
+  }
+
 
 
   .container {
     display: flex;
     flex-flow: column;
     align-items: center;
+    justify-content: center;
     position: absolute;
     top: 0;
   }

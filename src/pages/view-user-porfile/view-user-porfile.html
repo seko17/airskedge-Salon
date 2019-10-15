@@ -1,11 +1,19 @@
-<ion-content>
-    <ion-header  no-border>
-        <ion-toolbar >
-          <ion-navbar >
-          </ion-navbar>
-        </ion-toolbar>
-      </ion-header>
-   
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-navbar>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="logout()">
+          <ion-icon name="exit" style="color: white"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+
+
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+
+
   <div class="container">
 
     <div class="fade">
@@ -35,10 +43,10 @@
       </div>
 
     </div>
-     <div class="imgz">
-       <img *ngIf="!SalonOwnerProfile.ownerImage" src="../../assets/imgs/dummyAvatr.png" alt="">
-       <img *ngIf="SalonOwnerProfile.ownerImage" src="{{SalonOwnerProfile.ownerImage}}">
-     </div>
+    <div class="imgz">
+      <img *ngIf="!SalonOwnerProfile.ownerImage" src="../../assets/imgs/dummyAvatr.png" alt="">
+      <img *ngIf="SalonOwnerProfile.ownerImage" src="{{SalonOwnerProfile.ownerImage}}">
+    </div>
 
   </div>
 
