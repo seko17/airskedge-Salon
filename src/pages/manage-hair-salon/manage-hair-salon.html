@@ -19,7 +19,8 @@
       <div class="line">
 
         <div class="Profimage">
-          <img src="{{disp.salonImage}}">
+          <img *ngIf="!disp.salonImage" src="../../assets/imgs/defaultSalon.jpg" alt="">
+          <img *ngIf="disp.salonImage" src="{{disp.salonImage}}">
 
           <div class="displayName">
             <h4>{{disp.salonName}} <br><span>{{disp.Address.streetName}}</span> </h4>

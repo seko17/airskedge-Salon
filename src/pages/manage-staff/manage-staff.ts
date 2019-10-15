@@ -25,6 +25,7 @@ export class ManageStaffPage {
   displayProfile: firebase.firestore.DocumentData;
   staff = [];
   isStaff = false;
+  isnotStaff =false
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private authUser: AuthServiceProvider,
     public camera: Camera,
@@ -66,6 +67,7 @@ export class ManageStaffPage {
  this.staff.push(doc.data());
          console.log('styles' , doc.data());
          this.isStaff = true;
+         this.isnotStaff = false
        })
        });
        })   
