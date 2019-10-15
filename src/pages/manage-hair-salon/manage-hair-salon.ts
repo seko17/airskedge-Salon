@@ -61,6 +61,7 @@ salonLikes = []
   total = 0;
   dummy = []
   aveg: number;
+num1;
   likes : number;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -75,6 +76,10 @@ salonLikes = []
     this.authService.setUser(this.uid);
     console.log('check salon profile', this.displayProfile);
 
+    console.log('check', this.styles)
+    //Function for getting functionality
+    this.analitics =[];
+  
     console.log('check', this.aveg)
     //Fubction for getting functionality
     this.analitics;
@@ -102,6 +107,15 @@ salonLikes = []
     this.getProfile();
     this.getFemaleStyle();
     this.getMaleStyle();
+    firebase.firestore().collection('Analytics').doc(firebase.auth().currentUser.uid).get().then(val=>{
+      val.data();
+      this.analitics.push( val.data())
+
+this.num1 =parseFloat(val.data().saloncancel)+parseFloat(val.data().usercancel);
+      console.log(this.analitics);
+    })
+   
+
 
 
     let user = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles')
