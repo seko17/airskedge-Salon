@@ -39,12 +39,15 @@ export class LandingPage {
     uid: ''
 
   }
+  loaderAnimate = true
   constructor(public navCtrl: NavController, public navParams: NavParams,public userservice:UserProvider,
     private authservice : AuthServiceProvider,
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController, 
     public alertCtrl: AlertController,) {
-
+setTimeout(()=>{
+this.loaderAnimate = false
+},2000)
       this.uid = firebase.auth().currentUser.uid;
       this.authservice.setUser(this.uid);
   }
@@ -79,11 +82,8 @@ obj ={};
   }
   getProfile(){
     // load the process
-    let load = this.loadingCtrl.create({
-      content: 'Please wait...',
-      spinner: 'bubbles'
-    });
-    load.present();
+
+
     // create a reference to the collection of users...
     let users = this.db.collection('Users');
     // ...query the profile that contains the uid of the currently logged in user...
@@ -111,13 +111,12 @@ this.userservice.userdata.push({...this.obj , ...doc.data()});
       this.profile = false;
 	  // this.navCtrl.setRoot(SalonRegistrationpagePage)
       }
-      // dismiss the loading
-      load.dismiss();
+
     }).catch(err => {
       // catch any errors that occur with the query.
       console.log("Query Results: ", err);
       // dismiss the loading
-      load.dismiss();
+     
     })
   }
   createAccount(){

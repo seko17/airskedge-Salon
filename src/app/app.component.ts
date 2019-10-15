@@ -20,6 +20,7 @@ export class MyApp {
   
   firebase_id:string = '282915271246';
 
+  token
   
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private oneSignal: OneSignal) {
 
@@ -51,7 +52,9 @@ export class MyApp {
           }else {
             console.log('no profile');
             this.rootPage = LandingPage;
-          
+          firebase.firestore().collection('Salons').doc(user.uid).update({
+            TokenID: this.token
+          })
           }
         })
       
@@ -82,6 +85,7 @@ export class MyApp {
     this.oneSignal.startInit(this.signal_app_id, this.firebase_id);
      this.oneSignal.getIds().then((userID) => {
         console.log("user ID ", userID);
+        this.token = userID.userId
       })
       this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
       this.oneSignal.handleNotificationReceived().subscribe((res) => {

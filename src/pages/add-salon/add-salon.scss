@@ -1,19 +1,52 @@
 page-add-salon {
+  .toolbar {
+    .toolbar-background {
+      background: transparent;
+
+    }
+  }
+
+  .back-button-md,
+  .back-button-ios {
+    color: black;
+  }
+
   .content {
     height: 100%;
-    background: #ebeef8;
-  
+    background-image: linear-gradient(30deg, #422D39 60%, rgba(52, 58, 63, 0) 40%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
-  .container{
+
+  .container {
     margin: 0;
-    padding:0;
+    padding: 0;
     height: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .title {
+    text-align: center;
+    font-family: 'Poiret One';
+    letter-spacing: 5px;
+
+    h1 {
+      font-weight: bold;
+
+      span {
+        color: #C0958D;
+      }
+    }
   }
 
   .btn {
     position: absolute;
     left: 75%;
     top: 70%;
+
     button {
       border-radius: 50%;
     }
@@ -26,21 +59,22 @@ page-add-salon {
     text-align: center;
     // border-radius: 50px;
     background: transparent;
-    color: rgb(14, 13, 13);
+    color: rgb(156, 155, 155);
 
   }
 
 
- .card {
-  
-  height: 100%;
-/* background: linear-gradient(rgb(247, 148, 0),rgb(241, 164, 112),rgba(243, 217, 160, 0.952));
-  */   display: flex;
-  flex-direction: column;
+  .card {
+
+    height: 100%;
+    /* background: linear-gradient(rgb(247, 148, 0),rgb(241, 164, 112),rgba(243, 217, 160, 0.952));
+  */
+    display: flex;
+    flex-direction: column;
     flex-direction: column;
     align-items: center;
-  
- 
+
+
   }
 
   * {
@@ -51,11 +85,11 @@ page-add-salon {
 
 
   .backimage {
-    width: 180px;
-    height: 180px;
+    width: 20vh;
+    height: 20vh;
     margin-top: 15px;
-    background: linear-gradient(rgba(128, 128, 128, 0.521)), url('../../assets/imgs/image.png');
-    // border: 4px solid rgba(255, 255, 255, 0.897);
+    background: linear-gradient(rgba(255, 255, 255, 0.486)), url('../../assets/imgs/_ionicons_svg_ios-person.svg');
+    box-shadow: 5px 5px 5px lightgrey;
     display: flex;
     background-position: center;
     background-repeat: no-repeat;
@@ -63,93 +97,133 @@ page-add-salon {
     position: relative;
     object-fit: cover;
 
-    img{
-   
+
+
+    img {
+
       height: 100%;
       object-fit: cover;
       border-radius: 50%;
     }
-    .bimage{
+
+    .bimage {
       width: 180px;
       height: 180px;
-   object-fit: cover;
-     
+      object-fit: cover;
+
     }
 
-    .image{  width: 100%;
-   
-    object-fit: cover;
-    border-radius: 50%;
-
-    img{
+    .image {
       width: 100%;
-    
+
       object-fit: cover;
       border-radius: 50%;
+
+      img {
+        width: 100%;
+
+        object-fit: cover;
+        border-radius: 50%;
+      }
     }
-    }
+
     .back {
       position: absolute;
       left: 10px;
       top: 10px;
     }
-  
+
     .signin {
       position: absolute;
       top: 25%;
       text-align: center;
       // opacity: 0.6;
       padding: 10px;
+
       h1 {
         font-size: 3vw;
-  
+
         span {
-          font-size:2vw;
+          font-size: 2vw;
         }
       }
     }
+
+
+  }
+
   
+  .form {
+    // position: absolute;
+    font-family: 'Poiret One';
+    align-items: center;
+    
   
-    .form {
-      position: absolute;
-      top: 40%;
-      // left: 10%;
-      align-items: center;
-      text-align: center;
-      width: 40vh;
-  
-      .item {
-        position: relative;
-        // left: 9%;
-        width: 40vh;
-        text-align: center;
-        // border-radius: 50px;
-        background: transparent;
+
+    .item {
+      position: relative;
+    
+      height: 2vh;
+      background: transparent;
+      color: white;
+
+      ion-input {
+      
         color: white;
-  
       }
-    }  
+
+    }
   }
 
   #location {
-    width: 300px;
+    width: 70vw;
     height: 5.5vh;
-    border-radius: 20px;
     border: none;
-
+    border-bottom: 2px solid rgb(214, 214, 214);
     position: relative;
-    left: 6%;
+    color: white;
+    left: 5%;
     padding: 10px;
     font-size: 4vw;
-   
+    background: transparent;
+
   }
-  #skip{
-    width: 100%;
-  }
-  .messages{
+
+  .messages {
     color: red;
   }
+
   .scroll-content {
     padding-bottom: 0 !important;
- }
+  }
+
+  .buttonz {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 50px 0px;
+
+
+
+    #cancel {
+      width: 50vw;
+      border-radius: 10px;
+      font-family: 'Poiret One';
+      letter-spacing: 4px;
+      color: white;
+      font-weight: bold;
+    }
+
+  }
+
+  // .times {
+  //   display: flex;
+  //   flex-flow: row;
+  //   width: 80vw;
+
+  //   ion-item {
+  //     width: 45%;
+  //     font-size: 3.5vw;
+  //   }
+  // }
 }
