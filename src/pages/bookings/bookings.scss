@@ -7,8 +7,14 @@ page-bookings {
   .toolbar {
     .toolbar-background {
       background: transparent;
+      
     }
   }
+
+  .back-button-md,
+.back-button-ios {
+  color: black;
+}
 
   .h1 {
     h1 {

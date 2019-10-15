@@ -10,6 +10,11 @@ page-view-reviews {
     }
   }
 
+  .back-button-md,
+  .back-button-ios {
+    color: black;
+  }
+
   .container {
     display: flex;
     flex-flow: column;
