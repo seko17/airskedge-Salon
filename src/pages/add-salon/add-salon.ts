@@ -90,7 +90,7 @@ export class AddSalonPage {
       SalonDesc: [''],
       numHairDressers: [''],
       openTime: new FormControl('', Validators.compose([Validators.required])),
-      closingTime: new FormControl('', Validators.compose([Validators.required])),
+      closeTime: new FormControl('', Validators.compose([Validators.required])),
     });
 
   }
@@ -226,7 +226,7 @@ export class AddSalonPage {
     'openTime': [
       { type: 'required', message: 'Salon opening time is required.' }
     ],
-    'closingTime': [
+    'closeTime': [
       { type: 'required', message: 'Salon closing time is required.' }
     ],
   };
