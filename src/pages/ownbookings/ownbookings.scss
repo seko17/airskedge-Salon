@@ -1,40 +1,61 @@
 page-ownbookings {
-    .container {
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-        // justify-content: center;
-        background: url('../../assets/whiteback.svg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        width: 100%;
-        height: 100%;
-      
+  .container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    // justify-content: center;
+    background: url('../../assets/whiteback.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100%;
+
+  }
+
+  .time {
+    position: absolute;
+    top: 15%;
+    width: 90vw;
+  }
+
+  .btnz {
+    position: absolute;
+    left: 20%;
+
+    button {
+      width: 50vw;
+      height: 40px;
+      border-radius: 10px;
+      background: #BF6B7A;
+      color: white;
+      font-family: 'Poiret One';
+      letter-spacing: 3px;
     }
-    
-    .time{
-        position: relative;
-        left: 8%;
+  }
+
+  .appmnts {
+    ion-item {
+      font-family: 'poiret One';
     }
-    
-    .btn{
-        position: relative;
-        left: -20px;
+  }
+
+  .h2 {
+    text-align: center;
+
+    h4 {
+      font-family: 'Poiret One';
+      font-weight: bold;
     }
-    
-    .btnz{
-        position: relative;
-        left: -20px;
+
+    h3 {
+      font-family: 'Poiret One';
     }
-    
-    .appmnts{
-        position: relative;
-        left: 5px;
-    }
-    
-    [ng-reflect-name="customcircles"]{
-        background-image: url('https://loading.io/spinners/cutiefox/lg.cutie-fox-spinner.gif');
-        background-size: cover;
-      } 
+  }
+
+
+  [ng-reflect-name="customcircles"] {
+    background-image: url('https://loading.io/spinners/cutiefox/lg.cutie-fox-spinner.gif');
+    background-size: cover;
+  }
 }

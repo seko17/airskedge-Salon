@@ -1,14 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Teko|Abel|Anton|Dosis|Oxygen|Jura|Pacifico|Righteous|Roboto+Condensed|Ubuntu|Manjari');
+
 page-view-user-porfile {
 
-  .header {
-    border: none;
-    position: absolute;
-    // top: 5%;
+  .toolbar {
     .toolbar-background {
       background: transparent;
-      border: none;
     }
   }
+
 
   .content {
     background: #1E1E1E;
@@ -20,6 +19,7 @@ page-view-user-porfile {
     width: 100%;
     height: 100vh;
     align-items: center;
+   
   }
 
   .fade {
@@ -39,14 +39,12 @@ page-view-user-porfile {
 
     button {
       border-radius: 50%;
-
+background : #BF967E ;
       .icon {
         color: white;
         font-size: 6vw;
       }
     }
-
-
   }
 
   .imgz {
@@ -65,46 +63,51 @@ page-view-user-porfile {
     position: absolute;
     top: 60%;
     left: 5%;
+    width: 100vw;
 
     p {
       font-size: 15vw;
-      font-weight: bold;
+      font-family: 'Poiret One';
+      font-weight: bolder;
       color: white;
 
       span {
-        color: orangered;
+        color: #BF6B7A;
       }
     }
   }
 
   .contact {
-    position: absolute;
+    position: relative;
     top: 90%;
     color: white;
     display: flex;
     flex-flow: row;
     // justify-content: space-between;
     z-index: 5;
+    width: 100vw;
 
     .number {
       float: left;
-      position: relative;
-      left: 10vw;
+      position: absolute;
+      left: 5vw;
       color: grey;
 
       p {
         font-size: 5vw;
+        font-family: 'Poiret One';
       }
     }
 
     .email {
       float: right;
-      position: relative;
-      left: 15vh;
+      position: absolute;
+      right: 5vw;
       color: grey;
 
       p {
         font-size: 5vw;
+        font-family: 'Poiret One';
       }
     }
   }

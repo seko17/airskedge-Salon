@@ -60,7 +60,9 @@ page-login {
     }
 
     button {
-      width: 300px;
+      width: 50vw;
+      position: relative;
+      left: 15vw;
     }
   }
 
@@ -72,6 +74,7 @@ page-login {
     justify-content: space-evenly;
 
     p {
+      font-family: 'Poiret One';
       span {
         color: black;
       }
@@ -85,6 +88,7 @@ page-login {
   .title{
     h1{
       font-family: 'Poiret One';
+      font-weight: bolder;
       font-size: 8vw;
       letter-spacing: 4px;
       span{

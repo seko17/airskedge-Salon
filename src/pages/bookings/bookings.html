@@ -1,13 +1,16 @@
 <ion-header>
-  <ion-navbar id="navbar" color="dark">
+  <ion-navbar no-border>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content>
+<ion-content fullscreen>
   <br>
-  <h1 style="text-align: center">Salon <br> Bookings</h1>
-  <!-- <p style="text-align: center">To see bookings, <br>select a stylist and then a date</p> -->
+  <div class="h1">
+      <h1 style="text-align: center"><span>Salon</span> <br> Bookings</h1>
+  </div>
+  
+  
 
   <ion-grid fixed>
     <ion-row>
@@ -15,7 +18,7 @@
         <br>
         <div class="stylist">
           <ion-item>
-            <ion-label>Hairdresser</ion-label>
+            <ion-label style="font-family: Poiret One">Hairdresser</ion-label>
             <ion-select okText="Okay" [(ngModel)]="hairdresser">
               <ion-option *ngFor="let x of staff">{{x.name}}</ion-option>
             </ion-select>
@@ -24,7 +27,7 @@
 
         <br><br>
         <div class="datez">
-          <ion-calendar #calendar style="font-size: 21px;" (onDaySelect)="onDaySelect($event)" (click)="view()"
+          <ion-calendar #calendar style="font-size: 21px; font-family: Raleway" (onDaySelect)="onDaySelect($event)" (click)="view()"
           [events]="currentEvents"
           (dateSelected)="onDateSelected($event)"
           (onCurrentDateChanged)="onCurrentDatechanged($event)"
@@ -36,9 +39,9 @@
           </ion-calendar>
           <br>
           <ion-item>
-            <ion-label position="stacked">Selected Date</ion-label>
+            <ion-label position="stacked" style="font-family: Poiret One">Selected Date</ion-label>
             <ion-input clear placeholder="session time" type="date" displayFormat="DD/MM/YYYY" min='2019-01-01'
-              [(ngModel)]="userdate" readonly></ion-input>
+              [(ngModel)]="userdate" readonly style="font-family: Poiret One; font-weight: bold"></ion-input>
           </ion-item>
        
 

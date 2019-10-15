@@ -1,10 +1,11 @@
-<ion-content>
-
-  <ion-header>
-    <ion-navbar id="navbar">
+<ion-header transparent no-border>
+  <ion-toolbar >
+    <ion-navbar>
     </ion-navbar>
-  </ion-header>
+  </ion-toolbar>
+</ion-header>
 
+<ion-content fullscreen>
 
   <div class="container">
     <div class="msg" *ngIf="isnotSalon">
@@ -21,7 +22,7 @@
           <img src="{{disp.salonImage}}">
 
           <div class="displayName">
-            <h4>{{disp.salonName}} <br>{{disp.streetName}} </h4>
+            <h4>{{disp.salonName}} <br><span>{{disp.Address.streetName}}</span> </h4>
           </div>
 
           <div class="displayName1">
@@ -56,12 +57,12 @@
           <!-- [ngClass]="{'female': loadgender=='female', 'female-inactive': loadgender=='male'}"
            [ngClass]="{'male': loadgender=='male', 'male-inactive': loadgender=='female'}"
           -->
-          <div class='female' [ngClass]="{'female': loadHair=='female', 'female-inactive': loadHair=='male'}" >
-            <button (click) ="loadgender('female')">LADIES</button>
+          <div class='female' [ngClass]="{'female': loadHair=='female', 'female-inactive': loadHair=='male'}">
+            <button (click)="loadgender('female')">LADIES</button>
           </div>
           <br>
-          <div class='male'  [ngClass]="{'male': loadHair=='male', 'male-inactive': loadHair=='female'}">
-            <button (click) ="loadgender('male')">GENTS</button>
+          <div class='male' [ngClass]="{'male': loadHair=='male', 'male-inactive': loadHair=='female'}">
+            <button (click)="loadgender('male')">GENTS</button>
           </div>
         </div>
       </div>
@@ -76,7 +77,7 @@
       </div>
       <div class="scroll" *ngFor="let n of hair">
         <div class="picz">
-            <img src="{{n.hairStyleImage}}">
+          <img src="{{n.hairStyleImage}}">
         </div>
 
         <div class="hairstylez">

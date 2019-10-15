@@ -1,10 +1,5 @@
-<!--
-  Generated template for the OwnbookingsPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
+<ion-header no-border>
   <ion-navbar>
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -27,67 +22,58 @@
 
   <div class="container">
     <div class="h2">
-      <h2 style="color: orangered; text-align: center; font-size: 6vw">Date {{userdate}}</h2>
-      <h3 style="color: Black; text-align: center; font-size: 6vw">You are booking for {{hairdresser}}</h3>
+      <h4>Date {{userdate}}</h4>
+      <h3 >You are booking for {{hairdresser}}</h3>
       <br>
     </div>
 
 
     <div class="time">
   
-
-
       <div class="appmnts">
 
-      
-        <ion-item style ="width: 40vh;" color="transparent">
-          <ion-label position ="stacked">Client name</ion-label>
+        <ion-item color="transparent">
+          <!-- <ion-label position ="stacked">Client name</ion-label> -->
           <ion-input placeholder ="Name of client" type="text" [disabled]="preventinputs"
             [(ngModel)]="booking.name"></ion-input>
         </ion-item>
-        <ion-item style ="width: 40vh;" color="transparent">
-          <ion-label position ="stacked">Client surname</ion-label>
+        <ion-item color="transparent">
+          <!-- <ion-label position ="stacked">Client surname</ion-label> -->
           <ion-input placeholder ="Surname of client" type="text" [disabled]="preventinputs"
             [(ngModel)]="booking.surname"></ion-input>
         </ion-item>
 
-        <ion-item style ="width: 40vh;" color="transparent">
-          <ion-label position ="stacked">Name of hairstyle</ion-label>
+        <ion-item color="transparent">
+          <!-- <ion-label position ="stacked">Name of hairstyle</ion-label> -->
           <ion-input placeholder ="Name of hairstyle" type="text" [disabled]="preventinputs"
             [(ngModel)]="booking.hairstyletype"></ion-input>
         </ion-item>
-        <ion-item style ="width: 40vh;" color="transparent">
-          <ion-label position ="stacked">Enter price</ion-label>
+        <ion-item color="transparent">
+          <!-- <ion-label position ="stacked">Enter price</ion-label> -->
           <ion-input placeholder ="Price of hairstyle" type="number" [disabled]="preventinputs"
             [(ngModel)]="booking.hairstyleprice"></ion-input>
         </ion-item>
 
 
 
-        <ion-item style ="width: 40vh;" color="transparent">
+        <ion-item color="transparent">
           <ion-label position ="stacked">Start Time</ion-label>
           <ion-input placeholder ="session time" type="time" [disabled]="preventinputs"
             [(ngModel)]="booking.sessiontime"></ion-input>
         </ion-item>
-        <ion-item style ="width: 40vh;" color="transparent">
+        <ion-item color="transparent">
           <ion-label position ="stacked">End Time</ion-label>
           <ion-input placeholder ="session end-time" type="time"
             [(ngModel)]="booking.sessionendtime"></ion-input>
         </ion-item>
 
-
-
-   
-
-
       </div>
       <br><br>
 
       <div class="btnz">
-        
-        <button color="dark"  large style="width: 40vh;  margin-left: 30px" (click)="submit(booking)" round >Save Booking</button>
+        <button color="dark"  large  (click)="submit(booking)" round >SAVE BOOKING</button>
       </div>
     </div>
-
   </div>
+
 </ion-content>

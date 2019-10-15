@@ -4,9 +4,28 @@ page-bookings {
     padding: 0;
   }
 
+  .toolbar {
+    .toolbar-background {
+      background: transparent;
+    }
+  }
+
+  .h1 {
+    h1 {
+      font-family: 'Poiret One';
+      letter-spacing: 4px;
+
+      font-weight: bold;
+       span {
+        color: #BF967E;
+      }
+    }
+  }
+
+
 
   .body {
-    // font-family: 'Manjari';
+    font-family: 'Raleway';
 
     .time {
       display: flex;
@@ -46,7 +65,7 @@ page-bookings {
 
 
       .date {
-        background: rgb(14, 13, 13);
+        background: #422D39;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
         text-align: center;

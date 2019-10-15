@@ -1,28 +1,24 @@
-<ion-header>
+<ion-header no-border>
     <ion-navbar color="dark">
-      <ion-title>Edit Profile</ion-title>
     </ion-navbar>
   </ion-header>
  
-  <ion-content>
+  <ion-content fullscreen>
   
  
  <section>
     <div class="container">
-      <!-- <div class="heading">
-             <h1>Create Profile</h1> 
-            </div> -->
+        <div class="heading">
+            <h1><span>Create</span><br> Profile</h1> 
+           </div>
       <div class="card-wrapper">
+
         <div class="card">
           <div class="backimage">
-            <div class="image">
+            <div class="image" (click)="selectImage()">
               <img src="{{SalonOwnerProfile.ownerImage}}">
             </div>
-            <div class="btn">
-              <button *ngIf="!profileImage" ion-button color="dark" (click)="selectImage()">
-                <ion-icon name="camera"></ion-icon>
-              </button>
-            </div>
+         
           </div>
           
           <br>
@@ -30,7 +26,7 @@
             <form [formGroup]="profileForm">
 
  
-              <ion-item >
+              <ion-item color="transparent">
                 <ion-input type="text" placeholder="Name" formControlName="name"
                   [(ngModel)]="SalonOwnerProfile.name" ngDefaultControl> {{SalonOwnerProfile.name}}</ion-input>
               </ion-item>
@@ -42,7 +38,7 @@
                 </div>
               </div>
  
-              <ion-item>
+              <ion-item color="transparent">
                 <ion-input type="text" placeholder="Surname" formControlName="surname"
                   [(ngModel)]="SalonOwnerProfile.surname" ngDefaultControl></ion-input>
               </ion-item>
@@ -53,7 +49,7 @@
                 </div>
               </div>
  
-              <ion-item>
+              <ion-item color="transparent">
                 <ion-input type="tel" placeholder="Number" maxLength="10" formControlName="personalNumber"
                   [(ngModel)]="SalonOwnerProfile.personalNumber" ngDefaultControl></ion-input>
               </ion-item>
@@ -64,7 +60,7 @@
                 </div>
               </div>
  
-              <ion-item>
+              <ion-item color="transparent">
                 <ion-input type="text" placeholder="Tell Us About Yourself" formControlName="About"
                   [(ngModel)]="SalonOwnerProfile.About" ngDefaultControl>
                 </ion-input>
@@ -76,13 +72,14 @@
                 </div>
               </div>
               <br>
-         
-              <button id="skip" (click)="createprofile(profileForm)" type="submit" [disabled]="!profileForm.valid"
-                ion-button color="dark" full round>Update
-                Profile </button>
- 
-              <button id="skip" (click)="signout()" type="submit" ion-button clear full style="color:black">Cancel
-              </button>
+         <div class="btn1">
+            <button id="skip" (click)="createprofile(profileForm)" type="submit" [disabled]="!profileForm.valid"
+            ion-button style="border-radius: 10px; width: 50vw; background: #F3E1D5; color: black" full>UPDATE PROFILE </button>
+
+          <button id="skip" (click)="signout()" type="submit" style="color: white" ion-button clear full style="color:white">CANCEL
+          </button>
+         </div>
+            
             </form>
           </div>
         </div>

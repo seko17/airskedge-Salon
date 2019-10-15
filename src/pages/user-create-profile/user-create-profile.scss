@@ -1,11 +1,9 @@
-page-user-create-profile {
-  .header {
-    border: none !important;
-    box-shadow: none !important;
+@import url('https://fonts.googleapis.com/css?family=Lato|Teko|Abel|Anton|Dosis|Oxygen|Jura|Pacifico|Righteous|Roboto+Condensed|Ubuntu|Manjari');
 
+page-user-create-profile {
+  .toolbar {
     .toolbar-background {
       background: transparent;
-      border: none;
     }
   }
 
@@ -77,6 +75,7 @@ page-user-create-profile {
     background: #422D39;
     justify-content: center;
     border-radius: 10px;
+    cursor: pointer;
 
     h2 {
       padding: 8px;
