@@ -5,22 +5,16 @@
  
   <ion-content fullscreen>
   
- 
- <section>
+
     <div class="container">
         <div class="heading">
             <h1><span>UPDATE</span><br> PROFILE</h1> 
            </div>
       <div class="card-wrapper">
 
-        <div class="card">
+     
           <div class="backimage"  [ngStyle]="{'background-image': 'url(' + profileImage + ')' }" (click)="selectImage()">
          
-            <!-- <div class="btn">
-              <button *ngIf="!profileImage" ion-button color="dark" >
-                <ion-icon name="camera"></ion-icon>
-              </button>
-            </div> -->
           </div>
           
           <br>
@@ -76,16 +70,15 @@
               <br>
          <div class="btn1">
             <button id="skip" (click)="createprofile(profileForm)" type="submit" [disabled]="!profileForm.valid"
-            ion-button style="border-radius: 10px; width: 50vw; background: #F3E1D5; color: black" full>UPDATE PROFILE </button>
+            ion-button style="border-radius: 10px; width: 50vw; background: #F3E1D5; color: black; font-size: 3vw" full>UPDATE PROFILE </button>
 
-          <button id="skip" (click)="signout()" type="submit" style="color: white" ion-button clear full style="color:white">CANCEL
+          <button id="skip" (click)="signout()" type="submit" style="color: white; font-size: 3vw" ion-button clear full style="color:white">CANCEL
           </button>
          </div>
             
             </form>
           </div>
-        </div>
+     
       </div>
     </div>
-   </section>
   </ion-content>
