@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
+import { ManageStaffPage } from '../manage-staff/manage-staff';
 ​
 /**
  * Generated class for the AddStaffPage page.
@@ -44,6 +45,7 @@ specialisation:''
 ​
 ​
   }
+  loaderAnimate = true
   specialisation =  [{value:'male', label:'Male Hairstyles'},{value:'female', label: 'Female Hairstyles'},{value:'both', label: 'Both Male & Female Hairstyles'}]
   staffForm :FormGroup ;
   profileImage: string;
@@ -54,7 +56,7 @@ specialisation:''
     public camera: Camera,
     public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController,
     private formBuilder: FormBuilder) {
-​
+
     this.staffForm = this.formBuilder.group({
       name: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
       staffSurname: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
@@ -75,7 +77,7 @@ specialisation:''
     } else {
        
            const load = this.loadingCtrl.create({
-            content: 'Creating HairSalon..'
+            content: 'Creating staff member..'
           });
           load.present();
 ​
@@ -85,7 +87,7 @@ specialisation:''
       const user = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('staff').doc().set(this.Staff);
       // upon success...
       user.then( () => {
-        this.navCtrl.setRoot(ManageHairSalonPage)
+        this.navCtrl.push(ManageStaffPage)
         this.toastCtrl.create({
           message: 'User hair dresser added.',
           duration: 2000,
@@ -167,14 +169,7 @@ specialisation:''
     
   };
 ​
-  getHairSalon(){
- 
-    let load = this.loadingCtrl.create({
-     content: 'Please wait...',
-     spinner: 'dots'
-   });
-   load.present();
-   
+  getHairSalon(){ 
    let users = this.db.collection('Salons');
    
    let query = users.where("userUID", "==", this.authUser.getUser());
@@ -189,18 +184,18 @@ specialisation:''
 
     
        })
-     
+     this.loaderAnimate =false
      } else {
        console.log('No data');
      
      }
     
-     load.dismiss();
+    
    }).catch(err => {
     
      console.log("Query Results: ", err);
    
-     load.dismiss();
+    
    })
  }
 ​

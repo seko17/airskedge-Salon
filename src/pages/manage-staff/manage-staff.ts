@@ -26,12 +26,15 @@ export class ManageStaffPage {
   staff = [];
   isStaff = false;
   isnotStaff =false
+  loaderAnimate = true
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private authUser: AuthServiceProvider,
     public camera: Camera,
     public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController,
     private formBuilder: FormBuilder) {
-
+      setTimeout(() => {
+        this.loaderAnimate = false
+      }, 1000)
   }
 
   ionViewDidLoad() {
@@ -48,11 +51,6 @@ export class ManageStaffPage {
    this.navCtrl.push(ViewStaffProfilePage,value)
  }
   Staff(){
-    let load = this.loadingCtrl.create({
-     content: 'Please wait...',
-     spinner: 'dots'
-   });
-   load.present();
    let users = this.db.collection('Salons');
    let query = users.where("userUID", "==", this.authUser.getUser());
    query.get().then( snap => {
@@ -74,15 +72,14 @@ export class ManageStaffPage {
      } else {
        console.log('No data'); 
      }
-     load.dismiss();
+   
    }).catch(err => {
      console.log("Query Results: ", err);
-     load.dismiss();
    })
  }
 
  goback(){
-  this.navCtrl.push(ManageHairSalonPage);
+  this.navCtrl.pop();
 }
 
 }

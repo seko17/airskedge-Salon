@@ -34,6 +34,7 @@ isProfile =false;
     email:''
 
   }
+  loaderAnimate = true
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public toastCtrl: ToastController,
      public loadingCtrl: LoadingController, 
@@ -44,6 +45,10 @@ isProfile =false;
       
     this.uid = firebase.auth().currentUser.uid;
     this.authUser.setUser(this.uid);
+
+    setTimeout(()=>{
+      this.loaderAnimate = false
+      },2000)
   }
 
   ionViewDidLoad() {
@@ -81,12 +86,7 @@ isProfile =false;
 
   getProfile(){
    
-    let load = this.loadingCtrl.create({
-      content: 'Please wait...',
-      spinner: 'bubbles'
-    });
-    load.present();
-    
+ 
     let users = this.db.collection('Users');
 
     let query = users.where("uid", "==", this.authUser.getUser());
@@ -111,12 +111,12 @@ isProfile =false;
       
       }
       // dismiss the loading
-      load.dismiss();
+     
     }).catch(err => {
       // catch any errors that occur with the query.
       console.log("Query Results: ", err);
       // dismiss the loading
-      load.dismiss();
+  
     })
   }
   update(){

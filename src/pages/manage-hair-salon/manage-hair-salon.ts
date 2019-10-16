@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides, ToastController, LoadingController, AlertController, Popover, PopoverController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, ToastController, LoadingController, AlertController, Popover, PopoverController, ModalController } from 'ionic-angular';
 import { AddSalonPage } from '../add-salon/add-salon';
 import * as firebase from 'firebase';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
@@ -9,6 +9,7 @@ import { StyleviewpopoverComponent } from '../../components/styleviewpopover/sty
 import { EditstylesPage } from '../editstyles/editstyles';
 import { ManageStaffPage } from '../manage-staff/manage-staff';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { PagesPage } from '../pages/pages';
 
 
 @IonicPage()
@@ -55,14 +56,15 @@ export class ManageHairSalonPage {
     uid: ''
 
   }
-salonLikes = []
+  salonLikes = []
   analitics = [];
   userRating = [];
   total = 0;
   dummy = []
   aveg: number;
-num1;
-  likes : number;
+  num1;
+  likes: number;
+  loaderAnimate = true
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public toastCtrl: ToastController,
@@ -70,16 +72,19 @@ num1;
     public alertCtrl: AlertController,
     private authService: AuthServiceProvider,
     private popoverCtrl: PopoverController,
-    private localNotifications: LocalNotifications) {
-
+    private localNotifications: LocalNotifications,
+    public modalCtrl: ModalController) {
+    setTimeout(() => {
+      this.loaderAnimate = false
+    }, 2000)
     this.uid = firebase.auth().currentUser.uid;
     this.authService.setUser(this.uid);
     console.log('check salon profile', this.displayProfile);
 
     console.log('check', this.styles)
     //Function for getting functionality
-    this.analitics =[];
-  
+    this.analitics = [];
+
     console.log('check', this.aveg)
     //Fubction for getting functionality
     this.analitics;
@@ -97,7 +102,13 @@ num1;
   selectedTab(ind) {
     this.slider.slideTo(ind);
   }
+  press(x){
+    console.log("PRESSED")
+    const modal = this.modalCtrl.create(PagesPage,x);
+    modal.present();
 
+    // this.presentModal()
+  }
   moveButton($event) {
     this.page = $event._snapIndex.toString();
   }
@@ -107,20 +118,14 @@ num1;
     this.getProfile();
     this.getFemaleStyle();
     this.getMaleStyle();
-    firebase.firestore().collection('Analytics').doc(firebase.auth().currentUser.uid).get().then(val=>{
+    firebase.firestore().collection('Analytics').doc(firebase.auth().currentUser.uid).get().then(val => {
       val.data();
-      this.analitics.push( val.data())
+      this.analitics.push(val.data())
 
-this.num1 =parseFloat(val.data().saloncancel)+parseFloat(val.data().usercancel);
+      this.num1 = parseFloat(val.data().saloncancel) + parseFloat(val.data().usercancel);
       console.log(this.analitics);
     })
-   
-
-
-
     let user = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles')
-
-
     let query = user.where("genderOptions", "==", 'female').limit(30).get().then(val => {
       val.forEach(doc => {
 
@@ -201,11 +206,7 @@ this.num1 =parseFloat(val.data().saloncancel)+parseFloat(val.data().usercancel);
 
   //function to get Hair Salon and hair styles
   getHairSalon() {
-    let load = this.loadingCtrl.create({
-      content: 'Please wait...',
-      spinner: 'dots'
-    });
-    load.present();
+
     let users = this.db.collection('Salons');
     let query = users.where("userUID", "==", this.authService.getUser());
     query.get().then(snap => {
@@ -226,13 +227,13 @@ this.num1 =parseFloat(val.data().saloncancel)+parseFloat(val.data().usercancel);
           });
           this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('likes').get().then(res => {
             res.forEach(doc => {
-            this.salonLikes.push(doc.data().length)
-        //  console.log('likes of slaon', doc.data().length);
+              this.salonLikes.push(doc.data().length)
+              //  console.log('likes of slaon', doc.data().length);
             })
-            this.likes =  this.salonLikes.length
+            this.likes = this.salonLikes.length
             console.log('likes', this.likes);
           });
-      
+
           this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('ratings').onSnapshot(rates => {
             rates.forEach(doc => {
               this.userRating.push(doc.data().rating)
@@ -254,12 +255,12 @@ this.num1 =parseFloat(val.data().saloncancel)+parseFloat(val.data().usercancel);
         this.isnotSalon = true;
         this.isHairstyle = false;
       }
-      load.dismiss();
+    
     }).catch(err => {
 
       console.log("Query Results: ", err);
 
-      load.dismiss();
+    
     })
   }
   getMaleStyle() {
@@ -301,16 +302,12 @@ this.num1 =parseFloat(val.data().saloncancel)+parseFloat(val.data().usercancel);
     })
   }
 
-  //Function to push to the user profile page
-  ViewUserPorfilePage() {
-    this.navCtrl.setRoot(ViewUserPorfilePage);
-  }
   //Function to push to adding a new hairstyle
   addStyle() {
     this.navCtrl.push(AddhairStylePage);
   }
   viewstaff() {
-    this.navCtrl.setRoot(ManageStaffPage);
+    this.navCtrl.push(ManageStaffPage);
   }
 
   getProfile() {
@@ -377,5 +374,8 @@ this.num1 =parseFloat(val.data().saloncancel)+parseFloat(val.data().usercancel);
       })
     })
   }
-
+  presentModal() {
+    const modal = this.modalCtrl.create(PagesPage);
+    modal.present();
+  }
 }

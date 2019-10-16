@@ -1,0 +1,23 @@
+<!--
+  Generated template for the PagesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>pages/</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div  [ngStyle]="{'background-image': 'url(' + pic + ')' }" style = "width:100%;height:100vh;  background-repeat: no-repeat;background-attachment: fixed;background-position: center;"></div>
+    <ion-fab vertical="top" horizontal="end" slot="fixed">
+        <button ion-fab (click) ="close()"><ion-icon name ="close"></ion-icon></button>
+      </ion-fab>
+    <!-- <ion-fab vertical="top" horizontal="end" slot="fixed">
+        <ion-fab-button (click) ="close()" color ='light'>
+          <ion-icon name="close"></ion-icon>
+        </ion-fab-button>
+      </ion-fab> -->
+</ion-content>

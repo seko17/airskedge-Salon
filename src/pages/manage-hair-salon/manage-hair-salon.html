@@ -6,7 +6,13 @@
 </ion-header>
 
 <ion-content fullscreen>
+  <div [ngClass]="{'loader': loaderAnimate, 'loader-hide': !loaderAnimate}">
 
+    <div class="maploader">
+        <div class="lds-ripple"><div></div><div></div></div>
+    </div>
+  
+  </div>
   <div class="container">
     <div class="msg" *ngIf="isnotSalon">
       <ion-icon name="warning"></ion-icon>
@@ -77,7 +83,7 @@
 
         </div>
       </div>
-      <div class="scroll" *ngFor="let n of hair">
+      <div class="scroll" *ngFor="let n of hair" (press) ="press(n)">
         <div class="picz">
           <img src="{{n.hairStyleImage}}">
         </div>
