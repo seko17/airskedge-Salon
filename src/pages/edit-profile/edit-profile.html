@@ -5,7 +5,13 @@
  
   <ion-content fullscreen>
   
+    <div [ngClass]="{'loader': loaderAnimate, 'loader-hide': !loaderAnimate}">
 
+      <div class="maploader">
+          <div class="lds-ripple"><div></div><div></div></div>
+      </div>
+    
+    </div>
     <div class="container">
         <div class="heading">
             <h1><span>UPDATE</span><br> PROFILE</h1> 

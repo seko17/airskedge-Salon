@@ -12,7 +12,13 @@
   </ion-toolbar>
 </ion-header>
 <ion-content fullscreen>
+  <div [ngClass]="{'loader': loaderAnimate, 'loader-hide': !loaderAnimate}">
 
+    <div class="maploader">
+        <div class="lds-ripple"><div></div><div></div></div>
+    </div>
+  
+  </div>
 
   <div class="container">
 
