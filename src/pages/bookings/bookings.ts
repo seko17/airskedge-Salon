@@ -8,7 +8,9 @@ import { UserProvider } from '../../providers/user/user';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { OneSignal } from '@ionic-native/onesignal';
 import { OwnbookingsPage } from '../ownbookings/ownbookings';
-
+import { Storage } from '@ionic/storage';
+import { Platform } from 'ionic-angular';
+import { AnalysisPage } from '../analysis/analysis';
 /**
  * Generated class for the BookingsPage page.
  *
@@ -31,19 +33,46 @@ selecteddate;
 validated =true;
 currentday;
 currentEvents = [];
-hairdresser
+hairdresser;
+
   constructor(public modalCtrl: ModalController,public navCtrl: NavController, public navParams: NavParams,public userservice:UserProvider,
     public toastCtrl: ToastController, 
     public loadingCtrl: LoadingController, 
     public alertCtrl: AlertController,
     private authService: AuthServiceProvider,
     private localNotifications: LocalNotifications,
-    private oneSignal: OneSignal) {
+    private oneSignal: OneSignal,public platform: Platform,
+    public storage: Storage) {
       console.log(this.userservice.userdata[0].uid)
 
      this.getsalonname();
      this.gethairdresser();
      this.currentday =this.cdate()
+
+     this.platform.ready().then(() => {
+
+      this.storage.get('introShown').then((result) => {
+console.log(result)
+        if(result){
+          console.log("got it")
+        } else {
+         this.navCtrl.push(AnalysisPage);
+          this.storage.set('introShown', true);
+          console.log(this.storage)
+        }
+
+    
+
+      });
+
+    });
+
+
+
+
+
+
+
   }
   obj ={};
   ionViewDidLoad() {

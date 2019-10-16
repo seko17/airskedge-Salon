@@ -9,6 +9,8 @@ import { LoginPage } from '../pages/login/login';
 import { LandingPage } from '../pages/landing/landing';
 import { SalonRegistrationpagePage } from '../pages/salon-registrationpage/salon-registrationpage';
 import { OneSignal } from '@ionic-native/onesignal';
+import { Storage } from '@ionic/storage';
+import { LoadingController } from 'ionic-angular';
 // import { ScreenOrientation } from '@ionic-native/screen-orientation';
 @Component({
   templateUrl: 'app.html'
@@ -22,9 +24,13 @@ export class MyApp {
 
   token
   
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private oneSignal: OneSignal) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private oneSignal: OneSignal,public loadingCtrl: LoadingController, public storage: Storage) {
 
     firebase.initializeApp(firebaseConfig);
+
+
+
+    
     
   //  this.oneSignal.startInit(this.signal_app_id, this.firebase_id);
   //  this.oneSignal.getIds().then((userID) => {

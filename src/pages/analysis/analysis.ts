@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewReviewsPage } from '../view-reviews/view-reviews';
-
+import { BookingsPage } from '../bookings/bookings';
 /**
  * Generated class for the AnalysisPage page.
  *
@@ -24,6 +24,10 @@ export class AnalysisPage {
   }
   reviews(){
     this.navCtrl.push(ViewReviewsPage);
+  }
+
+  goToHome(){
+    this.navCtrl.push(BookingsPage);
   }
 
 }
