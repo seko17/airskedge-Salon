@@ -1,3 +1,22 @@
 page-pages {
 
+    .content{
+        background: rgba(56, 56, 56, 0.658);
+    }
+.image{
+    position: absolute;
+    top: 5%;
+    width: 91vw;
+    height: 90vh;
+
+   .fabz{
+       position: absolute;
+       right: 5px;
+      
+       ion-fab{
+        padding: 10px;
+           background: red;
+       }
+   }
+}
 }

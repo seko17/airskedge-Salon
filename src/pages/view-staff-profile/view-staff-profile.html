@@ -1,62 +1,45 @@
-<ion-content >
-    <ion-header no-border>
-        <ion-navbar >
-        </ion-navbar>
-      </ion-header>
+<ion-content>
+  <ion-header no-border>
+    <ion-navbar>
+    </ion-navbar>
+  </ion-header>
   <div class="container">
     <div class="image">
-        <img *ngIf="staff.staffImage" src="{{staff.staffImage}}" alt="">
-        <img *ngIf="!staff.staffImage" src="../../assets/imgs/dummyAvatr.png" class="img">
+      <img *ngIf="staff.staffImage" src="{{staff.staffImage}}" alt="">
+      <img *ngIf="!staff.staffImage" src="../../assets/imgs/dummyAvatr.png" class="img">
     </div>
 
     <div class="namez">
-        <p>{{staff.name}} {{staff.staffSurname}}</p>
-        <p style="font-size: 4vw">{{staff.personalNumber}}</p> 
+      <p>{{staff.name}} {{staff.staffSurname}}</p>
+      <p style="font-size: 4vw">{{staff.personalNumber}}</p>
     </div>
 
     <div class="availability">
-        <p class="word" *ngIf="!staff.isAvialiabe" style="color: red"> Not available</p>
-        <p class="word" *ngIf="staff.isAvialiabe" style="color: green">Available</p>
-    </div>  
+      <p class="word" *ngIf="!staff.isAvialiabe" style="color: red"> Not available</p>
+      <p class="word" *ngIf="staff.isAvialiabe" style="color: green">Available</p>
+    </div>
 
     <div class="buttonz">
-        <div>  <button (click)="updateAvailiable()" ion-button color="secondary" round >Available</button></div>
-            <div> <button  class="available" (click)="updateNotAvailiable()" ion-button color="danger" clear round>Not Available</button></div>
-            <div> <button  class="available" (click)="Delete()" ion-button color="danger" clear round>Delete</button></div>
+      <div>
+        <button class="avail" (click)="updateAvailiable()" ion-button round>Available</button></div>
+
+
+      <div>
+        <button class="available" (click)="updateNotAvailiable()" ion-button color="danger" clear round>Not
+          Available</button>
+      </div>
+
     </div>
+
+    <div class="delete">
+        <button class="del" (click)="Delete()" ion-button color="danger" >Delete Stylist</button>
+      </div>
+
 
     <footer>
       <p>AIRSKEDGE</p>
     </footer>
 
+
   </div>
 </ion-content>
-
-  <!-- <ion-card class="back">
-    <p class="word" *ngIf="!staff.isAvialiabe" style="color: red"> Not available</p>
-    <p class="word" *ngIf="staff.isAvialiabe" style="color: green">Available</p>
-    <img *ngIf="staff.staffImage" src="{{staff.staffImage}}" alt="">
-    <img *ngIf="!staff.staffImage" src="../../assets/imgs/dummyAvatr.png" class="img">
-    <ion-card-content>
-
-        <div class="flex-container">
-            <div>Name:<br><strong>{{staff.name}}</strong> </div>
-            <div>Surname<br><strong>{{staff.staffSurname}}</strong></div>
-            <div>Phone<br><strong>{{staff.personalNumber}}</strong></div>  
-          </div>
-
-          <div class="flex">
-            <div>  <button (click)="updateAvailiable()" ion-button color="secondary" round >Availiable</button></div>
-            <div> <button  class="available" (click)="updateNotAvailiable()" ion-button color="danger" clear round>Not availiable</button></div>
-            
-          </div>
-      <ion-card-title>
-      &nbsp;  &nbsp; 
-        </ion-card-title>
-
-    
-  
- 
-    </ion-card-content>
-  </ion-card> -->
-
