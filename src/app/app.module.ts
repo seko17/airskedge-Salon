@@ -39,6 +39,7 @@ import { ViewStaffProfilePage } from '../pages/view-staff-profile/view-staff-pro
 import { OneSignal } from '@ionic-native/onesignal';
 import { SMS } from '@ionic-native/sms';
 import { OwnbookingsPage } from '../pages/ownbookings/ownbookings';
+import { IonicStorageModule } from '@ionic/storage';
 @NgModule({
   declarations: [
     MyApp,
@@ -67,10 +68,12 @@ import { OwnbookingsPage } from '../pages/ownbookings/ownbookings';
   imports: [
     BrowserModule,
     CalendarModule,
+    IonicStorageModule.forRoot(),
     StarRatingModule,
     IonicModule.forRoot(MyApp,{
       scrollPadding: true,
       scrollAssist: false,
+     
       
     }),
     ReactiveFormsModule,
