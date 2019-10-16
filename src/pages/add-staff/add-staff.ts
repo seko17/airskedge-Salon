@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
+import { ManageStaffPage } from '../manage-staff/manage-staff';
 ​
 /**
  * Generated class for the AddStaffPage page.
@@ -76,7 +77,7 @@ specialisation:''
     } else {
        
            const load = this.loadingCtrl.create({
-            content: 'Creating HairSalon..'
+            content: 'Creating staff member..'
           });
           load.present();
 ​
@@ -86,7 +87,7 @@ specialisation:''
       const user = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('staff').doc().set(this.Staff);
       // upon success...
       user.then( () => {
-        this.navCtrl.setRoot(ManageHairSalonPage)
+        this.navCtrl.push(ManageStaffPage)
         this.toastCtrl.create({
           message: 'User hair dresser added.',
           duration: 2000,

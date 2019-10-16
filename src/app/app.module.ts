@@ -40,6 +40,7 @@ import { OneSignal } from '@ionic-native/onesignal';
 import { SMS } from '@ionic-native/sms';
 import { OwnbookingsPage } from '../pages/ownbookings/ownbookings';
 import { IonicStorageModule } from '@ionic/storage';
+import { PagesPage } from '../pages/pages/pages';
 @NgModule({
   declarations: [
     MyApp,
@@ -63,7 +64,8 @@ import { IonicStorageModule } from '@ionic/storage';
     AnalysisPage,
     EditProfilePage,
     ViewStaffProfilePage,
-    OwnbookingsPage
+    OwnbookingsPage,
+    PagesPage
   ],
   imports: [
     BrowserModule,
@@ -107,7 +109,8 @@ import { IonicStorageModule } from '@ionic/storage';
     AnalysisPage,
     EditProfilePage,
     ViewStaffProfilePage,
-    OwnbookingsPage
+    OwnbookingsPage,
+    PagesPage
   ],
   providers: [
     StatusBar,

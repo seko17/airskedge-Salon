@@ -141,7 +141,7 @@ this.SalonOwnerProfile.uid = this.uid
       const user = this.db.collection('Users').doc(this.authUser.getUser()).set(this.SalonOwnerProfile);
       // upon success...
       user.then( () => {
-        this.navCtrl.setRoot(ViewUserPorfilePage)
+        this.navCtrl.pop()
         this.toastCtrl.create({
           message: 'Welcome' ,
           duration: 2000,
@@ -182,7 +182,7 @@ this.SalonOwnerProfile.uid = this.uid
     
   };
   signout(){
-    this.navCtrl.setRoot(ViewUserPorfilePage)
+    this.navCtrl.pop()
   }
 }
 export interface user {

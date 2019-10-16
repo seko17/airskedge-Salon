@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides, ToastController, LoadingController, AlertController, Popover, PopoverController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, ToastController, LoadingController, AlertController, Popover, PopoverController, ModalController } from 'ionic-angular';
 import { AddSalonPage } from '../add-salon/add-salon';
 import * as firebase from 'firebase';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
@@ -9,6 +9,7 @@ import { StyleviewpopoverComponent } from '../../components/styleviewpopover/sty
 import { EditstylesPage } from '../editstyles/editstyles';
 import { ManageStaffPage } from '../manage-staff/manage-staff';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { PagesPage } from '../pages/pages';
 
 
 @IonicPage()
@@ -71,7 +72,8 @@ export class ManageHairSalonPage {
     public alertCtrl: AlertController,
     private authService: AuthServiceProvider,
     private popoverCtrl: PopoverController,
-    private localNotifications: LocalNotifications) {
+    private localNotifications: LocalNotifications,
+    public modalCtrl: ModalController) {
     setTimeout(() => {
       this.loaderAnimate = false
     }, 2000)
@@ -100,7 +102,13 @@ export class ManageHairSalonPage {
   selectedTab(ind) {
     this.slider.slideTo(ind);
   }
+  press(x){
+    console.log("PRESSED")
+    const modal = this.modalCtrl.create(PagesPage,x);
+    modal.present();
 
+    // this.presentModal()
+  }
   moveButton($event) {
     this.page = $event._snapIndex.toString();
   }
@@ -366,5 +374,8 @@ export class ManageHairSalonPage {
       })
     })
   }
-
+  presentModal() {
+    const modal = this.modalCtrl.create(PagesPage);
+    modal.present();
+  }
 }

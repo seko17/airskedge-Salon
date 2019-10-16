@@ -83,7 +83,7 @@
 
         </div>
       </div>
-      <div class="scroll" *ngFor="let n of hair">
+      <div class="scroll" *ngFor="let n of hair" (press) ="press(n)">
         <div class="picz">
           <img src="{{n.hairStyleImage}}">
         </div>
