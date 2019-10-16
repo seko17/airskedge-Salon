@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, LoadingController, AlertController, ActionSheetController } from 'ionic-angular';
 import firebase from 'firebase';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera';
 import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
 import { ManageStaffPage } from '../manage-staff/manage-staff';
 ​
@@ -45,6 +45,7 @@ specialisation:''
 ​
 ​
   }
+  win
   loaderAnimate = true
   specialisation =  [{value:'male', label:'Male Hairstyles'},{value:'female', label: 'Female Hairstyles'},{value:'both', label: 'Both Male & Female Hairstyles'}]
   staffForm :FormGroup ;
@@ -55,7 +56,7 @@ specialisation:''
     private authUser: AuthServiceProvider,
     public camera: Camera,
     public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,public actionSheetCtrl: ActionSheetController) {
 
     this.staffForm = this.formBuilder.group({
       name: new  FormControl('', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)])),
@@ -87,7 +88,7 @@ specialisation:''
       const user = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('staff').doc().set(this.Staff);
       // upon success...
       user.then( () => {
-        this.navCtrl.push(ManageStaffPage)
+        this.navCtrl.pop()
         this.toastCtrl.create({
           message: 'User hair dresser added.',
           duration: 2000,
@@ -107,17 +108,52 @@ specialisation:''
       })
     }
   }
-​
-  async selectImage() {
-    let option: CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
+​async selectImage() {
+
+  const actionSheet = await this.actionSheetCtrl.create({
+      title: "Select Image source",
+      buttons: [{
+              text: 'Load from Library',
+              handler: () => {
+                this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
+              }
+          },
+          {
+              text: 'Use Camera',
+              handler: () => {
+                  this.takePicture(this.camera.PictureSourceType.CAMERA);
+              }
+          },
+          {
+              text: 'Cancel',
+              role: 'cancel'
+          }
+      ]
+  });
+  await actionSheet.present(); 
+  }
+  async takePicture(sourceType: PictureSourceType) {
+    let options: CameraOptions = {
+      quality: 80,
+      sourceType: sourceType,
+      saveToPhotoAlbum: false,
       correctOrientation: true,
-      sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM
-    }
-    await this.camera.getPicture(option).then(res => {
+      destinationType: 1,
+      targetWidth: 1240,
+      targetHeight: 768,
+  };
+  this.camera.getPicture(options)
+  .then((imageData) => {
+    // do something with the imageData, should be able to bind it to a variable and 
+    // show it in your html file. You might need to fix file path, 
+    // remember to import private win: any = window, and use it like this.
+
+    this.profileImage = this.win.Ionic.WebView.convertFileSrc(imageData);
+
+  }).catch((err) => {
+    console.warn("takePicture Error: " + err);
+  });
+    await this.camera.getPicture(options).then(res => {
       console.log(res);
       const image = `data:image/jpeg;base64,${res}`;
 ​

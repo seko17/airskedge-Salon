@@ -73,7 +73,7 @@ db = firebase.firestore();
                 console.log('Delete Document: ', doc.data())
                 // this.displayProfile = doc.data();
                 this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('staff').doc(doc.id).delete().then(res => {
-                  this.navCtrl.push(ManageStaffPage)
+                  this.navCtrl.pop()
                   worker.dismiss();
                 });
               })

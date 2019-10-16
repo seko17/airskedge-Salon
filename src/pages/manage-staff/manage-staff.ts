@@ -32,9 +32,7 @@ export class ManageStaffPage {
     public camera: Camera,
     public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController,
     private formBuilder: FormBuilder) {
-      setTimeout(() => {
-        this.loaderAnimate = false
-      }, 1000)
+
   }
 
   ionViewDidLoad() {
@@ -51,6 +49,7 @@ export class ManageStaffPage {
    this.navCtrl.push(ViewStaffProfilePage,value)
  }
   Staff(){
+    this.loaderAnimate = true
    let users = this.db.collection('Salons');
    let query = users.where("userUID", "==", this.authUser.getUser());
    query.get().then( snap => {
@@ -60,13 +59,14 @@ export class ManageStaffPage {
          console.log('Profile Document: ', doc.data())
          this.displayProfile = doc.data();
  //query to get all staff
-         this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('staff').get().then( res =>{
+         this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('staff').onSnapshot( res =>{
        res.forEach(doc =>{
  this.staff.push(doc.data());
          console.log('styles' , doc.data());
          this.isStaff = true;
          this.isnotStaff = false
        })
+       this.loaderAnimate = false
        });
        })   
      } else {
