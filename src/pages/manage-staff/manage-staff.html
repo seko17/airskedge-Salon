@@ -4,7 +4,13 @@
   </ion-header>
   
   <ion-content padding fullscreen>
-  
+    <div [ngClass]="{'loader': loaderAnimate, 'loader-hide': !loaderAnimate}">
+
+      <div class="maploader">
+          <div class="lds-ripple"><div></div><div></div></div>
+      </div>
+    
+    </div>
 
     <div class="container">
       <pre>

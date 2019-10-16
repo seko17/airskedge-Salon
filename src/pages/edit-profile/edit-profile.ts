@@ -27,17 +27,17 @@ export class EditProfilePage {
   profileImage
   uid
   email
+  loaderAnimate = true
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private authUser: AuthServiceProvider,
     public camera: Camera,
     public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController,
     private formBuilder: FormBuilder) {
-      let load = this.loadingCtrl.create({
-        content: 'Please wait...',
-        spinner: 'bubbles'
-      });
-      load.present();
+      setTimeout(()=>{
+        this.loaderAnimate = false
+        },2000)
+    
       
       let users = this.db.collection('Users');
   
@@ -65,13 +65,10 @@ export class EditProfilePage {
           console.log('No data');
         
         }
-        // dismiss the loading
-        load.dismiss();
+    
       }).catch(err => {
         // catch any errors that occur with the query.
         console.log("Query Results: ", err);
-        // dismiss the loading
-        load.dismiss();
       })
     this.uid = firebase.auth().currentUser.uid;
     this.authUser.setUser(this.uid);
@@ -137,7 +134,7 @@ this.SalonOwnerProfile.uid = this.uid
     } else {
            // load the profile creation process
            const load = this.loadingCtrl.create({
-            content: 'Creating Profile..'
+            content: 'Updating Profile..'
           });
           load.present();
       

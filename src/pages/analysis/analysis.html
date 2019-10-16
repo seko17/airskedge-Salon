@@ -1,9 +1,32 @@
-<ion-header>
-  <ion-navbar color="primary">
-    <ion-title>analysis</ion-title>
-  </ion-navbar>
-</ion-header>
+
 
 <ion-content >
-<button (click)="reviews()" ion-button>Reviews and Ratings</button>
+  <ion-slides pager="true">
+
+    <ion-slide>
+      <img src="https://images.pexels.com/photos/3035371/pexels-photo-3035371.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" />
+    </ion-slide>
+  
+    <ion-slide>
+      <img src="https://images.pexels.com/photos/2590642/pexels-photo-2590642.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" />
+    </ion-slide>
+  
+    <ion-slide>
+      <img src="https://images.pexels.com/photos/2924179/pexels-photo-2924179.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" />
+    </ion-slide>
+  
+    <ion-slide>
+      <ion-row>
+        <ion-col>
+          <img src="https://images.pexels.com/photos/2929577/pexels-photo-2929577.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" />
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button ion-button color="light" (click)="goToHome()">Got It!</button>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+  
+  </ion-slides>
 </ion-content>
