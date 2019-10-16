@@ -25,7 +25,7 @@ import { AnalysisPage } from '../analysis/analysis';
 })
 export class BookingsPage {
 db = firebase.firestore();
-testArray = [];
+testArray = this.userservice.prebookings;
 saloninfo =[];
 salonname;
 userdata =this.userservice.userdata;
@@ -276,13 +276,13 @@ console.log(this.hairdresser,this.userdate)
 
 
     const prompt = this.alertCtrl.create({
-      title: 'Cancel!',
+      title: 'Alert!',
       message: "Are you sure you want to cancel session with "+x.name+'?',
       cssClass: 'alertDanger',
       buttons: [
        
         {
-          text: 'No',
+          text: 'Cancel',
           handler: data => {
             console.log(data);
          this.cancelbooking =false;
@@ -292,6 +292,35 @@ console.log(this.hairdresser,this.userdate)
           }
           ,
           
+        },
+        {
+          text: 'Okay',
+          handler: () => {
+           
+
+            //this.cancelbookingToast();
+            console.log('Confirm Okay');
+            firebase.firestore().collection('Bookings').doc(x.id).delete();
+
+            if (x.TokenID) {
+              var notificationObj = {
+                headings: { en: "APPOINTMENT CANCELLATION! " },
+                contents: { en: "Hey customer " + x.name + " Has cancelled their booking with " + x.hairdresser + " on " + x.userdate + " at " + x.sessiontime },
+                include_player_ids: [x.TokenID],
+              }
+              this.oneSignal.postNotification(notificationObj).then(res => {
+                // console.log('After push notifcation sent: ' +res);
+              })
+            }
+
+            firebase.firestore().collection('Analytics').doc(x.salonuid).get().then(val => {
+
+              console.log("numbers = ", val.data())
+
+              firebase.firestore().collection('Analytics').doc(x.salonuid).set({ numberofviews: val.data().numberofviews, numberoflikes: val.data().numberoflikes, usercancel: val.data().usercancel , saloncancel: val.data().saloncancel+ 1, allbookings: val.data().allbookings, users: val.data().users });
+            });
+
+          }
         }
       ]
     });

@@ -8,6 +8,7 @@ page-view-staff-profile {
       border: none;
     }
   }
+
   .available {
     border: 1px solid red;
   }
@@ -73,7 +74,7 @@ page-view-staff-profile {
   .availability {
     position: relative;
     z-index: 5;
-   top: 59vh;
+    top: 59vh;
     margin: 10px;
     text-align: center;
     width: 90vw;
@@ -102,18 +103,51 @@ page-view-staff-profile {
     }
 
     .available {
-      background: white;
-      font-size: 3.5vw
+      background: rgb(143, 2, 2);
+      font-size: 3vw;
+      border: none;
+      color: white;
+      font-family: 'Poiret One';
+      letter-spacing:1px;
+      text-transform: uppercase;
+      padding:5px;
+    }
+
+    .avail {
+      font-size: 3vw;
+      background: green;
+      color: white;
+      font-family: 'Poiret One';
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
   }
 
-  footer{
+  .delete {
+    position: absolute;
+    bottom: 8vh;
+    width: 100vw;
+    align-items: center;
+
+    .del {
+      position: relative;
+      left: 15vw;
+      border-radius: 30px;
+      width: 70vw;
+      font-family: 'Poiret One';
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+  }
+
+  footer {
     position: absolute;
     bottom: 5px;
     align-items: center;
     width: 100vw;
-    p{
+
+    p {
       text-align: center;
       font-family: 'Poiret One';
       letter-spacing: 5px;

@@ -24,7 +24,7 @@ item = true;
 
   isvalidated = true;
 
-
+  prebookings=[];
 
 
 
@@ -37,9 +37,10 @@ item = true;
        
          
           snap.forEach(doc => {
-           console.log('data',doc.id, doc.data())
+          
            
-            
+           this.prebookings.push({id:doc.id,... doc.data()});
+           console.log('prebookings',this.prebookings)
             let x1=new Date(doc.data().userdate) ;
          
           
@@ -48,7 +49,7 @@ item = true;
             console.log("Manipulate this date",x1)
             this.currentEvents.push({year:x1.getFullYear(),month:x1.getMonth(),date:x1.getDate()})
             console.log(this.currentEvents)
-            this.currentEvents =this.currentEvents;
+          
           })})
 
 
