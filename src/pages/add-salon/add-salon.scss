@@ -100,28 +100,21 @@ page-add-salon {
 
 
     img {
-
+      width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 50%;
     }
 
-    .bimage {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
-
-    }
-
     .image {
       width: 100%;
-
+      height: 100%;
       object-fit: cover;
       border-radius: 50%;
 
       img {
         width: 100%;
-
+        height: 100%;
         object-fit: cover;
         border-radius: 50%;
       }
@@ -152,23 +145,23 @@ page-add-salon {
 
   }
 
-  
+
   .form {
     // position: absolute;
     font-family: 'Poiret One';
     align-items: center;
-    
-  
+
+
 
     .item {
       position: relative;
-    
+
       height: 2vh;
       background: transparent;
       color: white;
 
       ion-input {
-      
+
         color: white;
       }
 

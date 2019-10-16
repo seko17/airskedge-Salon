@@ -24,7 +24,7 @@
 
 
         <form [formGroup]="staffForm">
-          <ion-item>
+          <ion-item style="font-family: Poiret One; color: white;">
             <ion-input type="text" formControlName="name" [(ngModel)]="Staff.name" ngDefaultControl placeholder="Stylist Name">
             </ion-input>
           </ion-item>
@@ -34,7 +34,7 @@
               {{validate.message}}
             </div>
           </div>
-          <ion-item>
+          <ion-item style="font-family: Poiret One; color: white;">
             <ion-input type="text" formControlName="staffSurname" [(ngModel)]="Staff.staffSurname" ngDefaultControl placeholder="Stylist Surname">
             </ion-input>
           </ion-item>
@@ -44,7 +44,7 @@
               {{validate.message}}
             </div>
           </div>
-          <ion-item>
+          <ion-item style="font-family: Poiret One; color: white;">
             <ion-input type="tel" maxLength="10" formControlName="personalNumber" [(ngModel)]="Staff.personalNumber"
               ngDefaultControl placeholder="Stylist Phone Number"></ion-input>
           </ion-item>
@@ -55,7 +55,7 @@
             </div>
           </div>
           <br>
-          <ion-item>
+          <ion-item style="font-family: Poiret One; color: white;">
            
             <ion-select formControlName="special" [(ngModel)]="Staff.specialisation" placeholder="Speciality">
               <ion-option *ngFor="let g of specialisation" [value]="g.value">{{g.label}} </ion-option>

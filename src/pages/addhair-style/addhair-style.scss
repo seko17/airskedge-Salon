@@ -9,6 +9,11 @@ page-addhair-style {
     }
   }
 
+  .back-button-md,
+  .back-button-ios {
+    color: black;
+  }
+
   .content {
     height: 100%;
     background: #ebeef8;;
@@ -60,13 +65,18 @@ page-addhair-style {
     width: 80vw;
     background: transparent;
     color: rgb(255, 255, 255);
-
+    font-family: 'Poiret One';
   }
 
   #hair{
     position: relative;
     width: 50vw;
     left: 15vw;
+    background: #F3E1D5;
+    color: black;
+    font-family: 'Poiret One';
+    letter-spacing: 3px;
+    border-radius: 10px;
   }
 
 

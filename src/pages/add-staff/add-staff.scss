@@ -9,6 +9,10 @@ page-add-staff {
       border: none;
     }
   }
+  .back-button-md,
+  .back-button-ios {
+    color: black;
+  }
 
   .content {
     height: 100%;
@@ -161,9 +165,9 @@ page-add-staff {
         height: 2vh;
         background: transparent;
         color: white;
-      
+        
         ion-input{
-       
+          font-family: 'Poiret One';
           color: white;
         }
 

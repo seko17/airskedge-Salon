@@ -171,11 +171,11 @@
 
           <ion-item>
             <ion-label>Closing Time</ion-label>
-            <ion-datetime formControlName="closingTime" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="SalonNode.closingTime" ngDefaultControl></ion-datetime>
+            <ion-datetime formControlName="closeTime" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="SalonNode.closeTime" ngDefaultControl></ion-datetime>
           </ion-item>
-          <div class="error" *ngFor="let validate of validation_messages.closingTime">
+          <div class="error" *ngFor="let validate of validation_messages.closeTime">
             <div class="messages" style="color:red"
-              *ngIf="addSalonForm.get('closingTime').hasError(validate.type) && (addSalonForm.get('closingTime').dirty || addSalonForm.get('closingTime').touched)">
+              *ngIf="addSalonForm.get('closeTime').hasError(validate.type) && (addSalonForm.get('closeTime').dirty || addSalonForm.get('closeTime').touched)">
               {{validate.message}}
             </div>
           </div>
