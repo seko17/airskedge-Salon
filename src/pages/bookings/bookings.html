@@ -1,6 +1,11 @@
 <ion-header no-border>
   <ion-navbar >
+
+      <ion-buttons end (click)="gotoanalysis()">
+          <ion-icon name="information-circle" style="font-size: 250%"></ion-icon>
+      </ion-buttons>
   </ion-navbar>
+
 </ion-header>
 
 
@@ -10,8 +15,6 @@
       <h1 style="text-align: center"><span>Salon</span> <br> Bookings</h1>
   </div>
   
-  
-
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12">
@@ -64,7 +67,7 @@
                 </button>
                 <button ion-button  *ngIf="n.userdate == currentday && n.payment!='Paid' "
                   (click)="paid(n)" style="background:rgb(14, 70, 24)">
-                  <ion-icon name="add"></ion-icon>
+                  <ion-icon name="logo-usd"></ion-icon>
                 </button>
               </div>
             </div>

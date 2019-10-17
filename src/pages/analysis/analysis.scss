@@ -1,23 +1,37 @@
 page-analysis {
-    .ios, .md {
+  .toolbar {
+    padding: 10px;
 
-        page-intro {
-      
-          ion-slide {
-            background-color: #32db64;
-          }
-      
-          ion-slide img {
-            height: 70vh !important;
-            width: auto !important;
-          }
-      
-        }
-      
+    .toolbar-background {
+      background: transparent;
+
+
+    }
+  }
+
+  .ios,
+  .md {
+
+    page-intro {
+
+      ion-slide {
+        background-color: #32db64;
+
       }
 
-      // #gotit{
-      //   position: absolute;
-      //   bottom: 20px;
-      // }
+      ion-slide img {
+        height: 70vh !important;
+        width: auto !important;
+      }
+    }
+  }
+
+  #gotit{
+    position: absolute !important;
+    top: 70vh;
+    left: 20vw;
+    width: 60vw;
+    font-family: 'Poiret One';
+  }
+
 }
