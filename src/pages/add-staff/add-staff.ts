@@ -112,21 +112,25 @@ specialisation:''
 
   const actionSheet = await this.actionSheetCtrl.create({
       title: "Select Image source",
+      cssClass: 'myPage',
       buttons: [{
-              text: 'Load from Library',
+        icon: 'image',
+        text: 'Photo Gallery',
               handler: () => {
                 this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
               }
           },
           {
-              text: 'Use Camera',
+            icon: 'camera',
+            text: 'Take Picture',
               handler: () => {
                   this.takePicture(this.camera.PictureSourceType.CAMERA);
               }
           },
           {
-              text: 'Cancel',
-              role: 'cancel'
+            icon: 'close',
+            text: 'Cancel',
+            role: 'cancel',
           }
       ]
   });

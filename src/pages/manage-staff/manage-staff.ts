@@ -59,7 +59,7 @@ export class ManageStaffPage {
          console.log('Profile Document: ', doc.data())
          this.displayProfile = doc.data();
  //query to get all staff
-         this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('staff').onSnapshot( res =>{
+         this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('staff').get().then( res =>{
        res.forEach(doc =>{
  this.staff.push(doc.data());
          console.log('styles' , doc.data());
