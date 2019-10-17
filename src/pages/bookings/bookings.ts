@@ -17,7 +17,6 @@ import { AnalysisPage } from '../analysis/analysis';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
 @IonicPage()
 @Component({
   selector: 'page-bookings',
@@ -34,7 +33,6 @@ validated =true;
 currentday;
 currentEvents = [];
 hairdresser;
-
   constructor(public modalCtrl: ModalController,public navCtrl: NavController, public navParams: NavParams,public userservice:UserProvider,
     public toastCtrl: ToastController, 
     public loadingCtrl: LoadingController, 
@@ -44,13 +42,10 @@ hairdresser;
     private oneSignal: OneSignal,public platform: Platform,
     public storage: Storage) {
       console.log(this.userservice.userdata[0].uid)
-
      this.getsalonname();
      this.gethairdresser();
      this.currentday =this.cdate()
-
      this.platform.ready().then(() => {
-
       this.storage.get('introShown').then((result) => {
 console.log(result)
         if(result){
@@ -60,19 +55,9 @@ console.log(result)
           this.storage.set('introShown', true);
           console.log(this.storage)
         }
-
     
-
       });
-
     });
-
-
-
-
-
-
-
   }
   obj ={};
   ionViewDidLoad() {
@@ -90,12 +75,9 @@ console.log(result)
     
       toast.present();
     
-
    this.currentEvents =this.userservice.currentEvents;
       }
   
-
-
   // getLocalNotification(){
   //   this.db.collection('Bookings').where("salonuid", "==", this.authService.getUser()).onSnapshot(doc =>{
   //     doc.forEach(res =>{
@@ -108,13 +90,11 @@ console.log(result)
         
        
   //         });
-
   //     })
     
       
   //   })
   // }
-
 getsalonname()
 {
   console.log("YES")
@@ -125,40 +105,13 @@ getsalonname()
       this.saloninfo.push(uz.data())
     });
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
   
 }
-
-
 currentdate:Date;
-
-
-
-
-
   getHairSalon(){
    
-
-
    this.testArray =[];
-
     this.db.collection('Bookings').where("salonuid","==",this.userservice.userdata[0].uid).where("userdate","==",this.userdate).where("hairdresser","==",this.hairdresser).get().then( snap => {
      if (snap.empty !== true){
        console.log('Got data', snap);
@@ -171,7 +124,6 @@ currentdate:Date;
        
        this.obj ={id:doc.id}
          this.testArray.push({...this.obj, ...doc.data()});
-
          console.log("Manipulate this date",x1)
         
         // this.onDaySelect(doc.data());
@@ -197,7 +149,6 @@ this.validated =false;
    
      } else {
        console.log('No data');
-
        const alert = this.alertCtrl.create({
         message: 'There are no bookings for '+this.hairdresser+' for '+this.userdate,
         cssClass: 'alertDanger',
@@ -220,15 +171,12 @@ this.validated =false;
  }
  
  
-
  
  testarray;
 events;
 d1;
 d2;
 d3;
-
-
   staff =[];
   gethairdresser()
   {
@@ -239,15 +187,11 @@ this.staff.push({...this.obj, ...stav.data()});
 console.log(this.staff)
     })
   });
-
  
   }
-
-
 userdate;
   view()
   {
-
     console.log(this.hairdresser,this.userdate)
     if(this.hairdresser ==undefined)
     {
@@ -262,15 +206,9 @@ userdate;
   cancels(x)
   {
     console.log("This is user input =",x);
-
     
-
 console.log(this.hairdresser,this.userdate)
   
-
-
-
-
     const prompt = this.alertCtrl.create({
       title: 'Alert!',
       message: "Are you sure you want to cancel session with "+x.name+'?',
@@ -278,35 +216,26 @@ console.log(this.hairdresser,this.userdate)
       buttons: [
        
         {
-          text: 'Cancel',
+          text: 'No',
           handler: data => {
             console.log(data);
          this.cancelbooking =false;
          console.log(this.cancelbooking)
-
          
           }
           ,
           
         },
         {
-          text: 'Okay',
+          text: 'Yes',
           handler: () => {
            
-
-
             this.getHairSalon();
-
             firebase.firestore().collection('Bookings').doc(x.id).update("status2","==","cancelled");
             firebase.firestore().collection('Bookings').doc(x.id).delete();
             firebase.firestore().collection('Cancellations').add(x);
-
-
-
             //this.cancelbookingToast();
             console.log('Confirm Okay');
-
-
             
               var notificationObj = {
                 headings: { en: "APPOINTMENT CANCELLATION! " },
@@ -317,27 +246,18 @@ console.log(this.hairdresser,this.userdate)
                 // console.log('After push notifcation sent: ' +res);
               })
             
-
             firebase.firestore().collection('Analytics').doc(x.salonuid).get().then(val => {
-
               console.log("numbers = ", val.data())
-
               firebase.firestore().collection('Analytics').doc(x.salonuid).set({ numberofviews: val.data().numberofviews, numberoflikes: val.data().numberoflikes, usercancel: val.data().usercancel , saloncancel: val.data().saloncancel+ 1, allbookings: val.data().allbookings, users: val.data().users });
             });
-
           }
         }
       ]
     });
     prompt.present();
-
    
-
 /////////////////////////////////////////////////////////////
-
   }
-
-
   todate;
   
   onDaySelect(event)
@@ -346,40 +266,29 @@ console.log(event);
 event.year;
 event.month;
 event.date;
-
 console.log(event.year,
   event.month,
   event.date)
-
   this.todate = (event.year)+'-'+(event.month)+'-'+(event.date);
   if((event.month+1)<10)
   {
-
     this.todate = (event.year)+'-0'+(event.month+1)+'-'+(event.date);
   if((event.date)<10)
   {
     this.todate = (event.year)+'-0'+(event.month+1)+'-0'+(event.date);
   }
-
 }
-
 if((event.month+1)>9)
   {
-
     this.todate = (event.year)+'-'+(event.month+1)+'-'+(event.date);
   if((event.date)<10)
   {
     this.todate = (event.year)+'-'+(event.month+1)+'-0'+(event.date);
   }
-
 }
 this.userdate =this.todate;
 console.log("Currentdate =",this.userdate)
-
   }
-
-
-
   presentAlert() {
     let alert = this.alertCtrl.create({
       title: 'Caution!',
@@ -389,43 +298,25 @@ console.log("Currentdate =",this.userdate)
     });
     alert.present();
   }
-
   calendar = {
     mode: 'month',
     currentDate: new Date()
   }; 
-
-
-
-
-
-
-
-
-
-
 onDateSelected() {
 alert('asd');
 }
-
 onCurrentDatechanged($event){
 alert('onCurrentDatechanged');
 }
-
 onEventSelected($event){
 alert('onEventSelected');
 }
-
 onTitleChanged($event){
 alert('onTitleChanged');
 }
-
 onTimeSelected($event){
 alert('onTimeSelected');
 }
-
-
-
 cdate() {
   let todate;
   todate = (new Date().getFullYear().toString()) + '-' + (new Date().getMonth()) + '-' + (new Date().getDate());
@@ -448,10 +339,6 @@ cdate() {
   console.log("Currentdate =", todate)
   return todate;
  }
-
-
-
-
  bookingModal() {
    if(this.userdate ==undefined||this.hairdresser==undefined)
    {
@@ -464,15 +351,8 @@ else
   bookingModal.onDidDismiss(data => {
     console.log(data);
   });
-
 }
-
-
-
 }
-
-
-
 present() {
   let alert = this.alertCtrl.create({
     title: 'Missing information!',
@@ -481,16 +361,9 @@ present() {
   });
   alert.present();
 }
-
-
 paid(n)
 {
-
 console.log(n)
-
-
-
-
   let alert = this.alertCtrl.create({
     title: 'Has the client payed for the service?',
     message: 'If you click yes, your client will be able to review your salon.',
@@ -505,27 +378,19 @@ console.log(n)
       {
         text: 'Yes',
         handler: () => {
-
           firebase.firestore().collection('Bookings').doc(n.id).update({
             payment: 'Paid'
             }).then(res => {
              console.log(res)
           });
-
-
-
-
           if(n.useruid ==undefined)
           {
-
             console.log(n.useruid)
-
             let toast = this.toastCtrl.create({
               message: 'Local bookings cannot be permitted to review your salon.',
               duration: 6000,
               position: 'bottom'
             });
-
             toast.present(); 
           }
           else
@@ -540,34 +405,13 @@ console.log(n)
     ]
   });
   alert.present();
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
 presentConfirm() {
   let toast = this.toastCtrl.create({
     message: 'Client payment recorded successfully.',
     duration: 6000,
     position: 'bottom'
   });
-
   toast.present(); 
 }
-
 }
-
-
-
-

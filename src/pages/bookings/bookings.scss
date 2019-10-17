@@ -7,22 +7,21 @@ page-bookings {
   .toolbar {
     .toolbar-background {
       background: transparent;
-      
+
     }
   }
 
   .back-button-md,
-.back-button-ios {
-  color: black;
-}
+  .back-button-ios {
+    color: black;
+  }
 
   .h1 {
     h1 {
       font-family: 'Poiret One';
       letter-spacing: 4px;
 
-      font-weight: bold;
-       span {
+      span {
         color: #BF967E;
       }
     }
@@ -32,7 +31,7 @@ page-bookings {
 
   .body {
     font-family: 'Raleway';
-    height: 50vh;
+    height: 60vh;
     overflow-y: auto;
 
     .time {
@@ -100,19 +99,19 @@ page-bookings {
 
   .datez {
     width: 100%;
-    height: 500px;
-    overflow-y: auto;
+
   }
 
 
-  .alertDanger{
+  .alertDanger {
     background-color: white;
     color: red;
-    button{
-    color: red;
+
+    button {
+      color: red;
     }
-    }
-    
+  }
+
 
 
 

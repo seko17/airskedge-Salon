@@ -65,8 +65,8 @@
 
             <ion-item>
             
-              <ion-datetime formControlName="closingTime" displayFormat="h:mm A" pickerFormat="h mm A"
-                [(ngModel)]="SalonNode.closingTime" ngDefaultControl placeholder="Closing Time"></ion-datetime>
+              <ion-datetime formControlName="closeTime" displayFormat="h:mm A" pickerFormat="h mm A"
+                [(ngModel)]="SalonNode.closeTime" ngDefaultControl placeholder="Closing Time"></ion-datetime>
             </ion-item>
             <div class="error" *ngFor="let validate of validation_messages.closingTime">
               <div class="messages" style="color:red"
