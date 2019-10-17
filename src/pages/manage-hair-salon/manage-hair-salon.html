@@ -48,8 +48,8 @@
 
             <div class="bookings" *ngFor="let x of analitics">
               <p>{{x.allbookings}}<br>Bookings</p>
-            </div>
 
+            </div>
             <div class="bookings">
               <p>{{num1}}<br>Cancelled</p>
             </div>
@@ -62,9 +62,7 @@
         </div>
 
         <div class="gender">
-          <!-- [ngClass]="{'female': loadgender=='female', 'female-inactive': loadgender=='male'}"
-           [ngClass]="{'male': loadgender=='male', 'male-inactive': loadgender=='female'}"
-          -->
+    
           <div class='female' [ngClass]="{'female': loadHair=='female', 'female-inactive': loadHair=='male'}">
             <button (click)="loadgender('female')">LADIES</button>
           </div>
@@ -83,7 +81,11 @@
         </div>
       </div>
       <div class="scroll" *ngFor="let n of hair" >
+
+          <ion-icon id="close" name="trash" (click)="Delete(n)"></ion-icon>
+          
         <div class="picz" (press) ="press(n)">
+          
           <img src="{{n.hairStyleImage}}" >
         </div>
 
@@ -103,4 +105,6 @@
     </ion-fab>
 
   </div>
+
+
 </ion-content>
