@@ -164,10 +164,6 @@ this.validated =false;
    
    })
 
-
-   
-
-
  }
  
  
@@ -201,6 +197,7 @@ userdate;
     else{
       this.getHairSalon();
     }
+    
   }
   cancelbooking:boolean;
   cancels(x)
@@ -414,4 +411,17 @@ presentConfirm() {
   });
   toast.present(); 
 }
+
+
+// let load = this.loadingCtrl.create({
+//   content: `
+//   <ion-refresher (ionRefresh)="doRefresh($event)">
+// <ion-refresher-content 
+// refreshingSpinner="customcircles">
+// </ion-refresher-content>
+// </ion-refresher>`,
+//  spinner: 'dots',
+// duration:5000
+// });
+// load.present();
 }
