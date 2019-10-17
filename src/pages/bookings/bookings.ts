@@ -154,16 +154,7 @@ currentdate:Date;
 
 
   getHairSalon(){
-    let load = this.loadingCtrl.create({
-      content: `
-      <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content 
-    refreshingSpinner="customcircles">
-    </ion-refresher-content>
-  </ion-refresher>`,
-     spinner: 'dots'
-   });
-   load.present();
+   
 
 
    this.testArray =[];
@@ -214,13 +205,28 @@ this.validated =false;
       });
      alert.present();
      }
-     load.dismiss();
+    
    }).catch(err => {
     
      console.log("Query Results: ", err);
    
-     load.dismiss();
+   
    })
+
+
+   let load = this.loadingCtrl.create({
+    content: `
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content 
+  refreshingSpinner="customcircles">
+  </ion-refresher-content>
+</ion-refresher>`,
+   spinner: 'dots',
+  duration:5000
+ });
+ load.present();
+
+
  }
  
  
@@ -298,11 +304,20 @@ console.log(this.hairdresser,this.userdate)
           handler: () => {
            
 
+
+            this.getHairSalon();
+
+            firebase.firestore().collection('Bookings').doc(x.id).update("status2","==","cancelled");
+            firebase.firestore().collection('Bookings').doc(x.id).delete();
+            firebase.firestore().collection('Cancellations').add(x);
+
+
+
             //this.cancelbookingToast();
             console.log('Confirm Okay');
-            firebase.firestore().collection('Bookings').doc(x.id).delete();
 
-            if (x.TokenID) {
+
+            
               var notificationObj = {
                 headings: { en: "APPOINTMENT CANCELLATION! " },
                 contents: { en: "Hey customer " + x.name + " Has cancelled their booking with " + x.hairdresser + " on " + x.userdate + " at " + x.sessiontime },
@@ -311,7 +326,7 @@ console.log(this.hairdresser,this.userdate)
               this.oneSignal.postNotification(notificationObj).then(res => {
                 // console.log('After push notifcation sent: ' +res);
               })
-            }
+            
 
             firebase.firestore().collection('Analytics').doc(x.salonuid).get().then(val => {
 
