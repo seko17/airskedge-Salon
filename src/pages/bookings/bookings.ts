@@ -214,17 +214,7 @@ this.validated =false;
    })
 
 
-   let load = this.loadingCtrl.create({
-    content: `
-    <ion-refresher (ionRefresh)="doRefresh($event)">
-  <ion-refresher-content 
-  refreshingSpinner="customcircles">
-  </ion-refresher-content>
-</ion-refresher>`,
-   spinner: 'dots',
-  duration:5000
- });
- load.present();
+   
 
 
  }
