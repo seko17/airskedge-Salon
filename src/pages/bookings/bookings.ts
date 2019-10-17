@@ -147,72 +147,100 @@ export class BookingsPage {
 
 
 
-
-  getHairSalon() {
-    let load = this.loadingCtrl.create({
-      content: `
-      <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content 
-    refreshingSpinner="customcircles">
-    </ion-refresher-content>
-  </ion-refresher>`,
-      spinner: 'dots'
-    });
-    load.present();
+  getHairSalon(){
+   
 
 
-    this.testArray = [];
+   this.testArray =[];
 
-    this.db.collection('Bookings').where("salonuid", "==", this.userservice.userdata[0].uid).where("userdate", "==", this.userdate).where("hairdresser", "==", this.hairdresser).get().then(snap => {
-      if (snap.empty !== true) {
-        console.log('Got data', snap);
-        snap.forEach(doc => {
-          console.log('data', doc.id, doc.data())
+    this.db.collection('Bookings').where("salonuid","==",this.userservice.userdata[0].uid).where("userdate","==",this.userdate).where("hairdresser","==",this.hairdresser).get().then( snap => {
+     if (snap.empty !== true){
+       console.log('Got data', snap);
+       snap.forEach(doc => {
+        console.log('data',doc.id, doc.data())
+        
+         
+         let x1=new Date(doc.data().userdate) ;
+         let x2=((new Date()).getFullYear()+'-'+(new Date().getMonth())+'-'+new Date().getDate());
+       
+       this.obj ={id:doc.id}
+         this.testArray.push({...this.obj, ...doc.data()});
+
+         console.log("Manipulate this date",x1)
+        
+        // this.onDaySelect(doc.data());
+         console.log(this.testArray)
+         //console.log("date1",x1)
+         //console.log("date2",x2)
+         if(x1.getMonth() ==(new Date().getMonth()) && (new Date().getDate()) ==x1.getDate() )
+         {
+this.validated =false;
+//console.log("it worked = true")
+         }
+         else
+         {
+          this.validated =true;
+          console.log("it worked =false")
+         }
+         
+         console.log(this.obj)
+        // this.staff.push(doc.data());
+      
+    console.log(this.staff)
+       })
+   
+     } else {
+       console.log('No data');
+
+       const alert = this.alertCtrl.create({
+        message: 'There are no bookings for '+this.hairdresser+' for '+this.userdate,
+        cssClass: 'alertDanger',
+        buttons: ['OK']
+      });
+     alert.present();
+     }
+    
+   }).catch(err => {
+    
+     console.log("Query Results: ", err);
+   
+   
+   })
 
 
-          let x1 = new Date(doc.data().userdate);
-          let x2 = ((new Date()).getFullYear() + '-' + (new Date().getMonth()) + '-' + new Date().getDate());
+   let load = this.loadingCtrl.create({
+    content: `
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content 
+  refreshingSpinner="customcircles">
+  </ion-refresher-content>
+</ion-refresher>`,
+   spinner: 'dots',
+  duration:5000
+ });
+ load.present();
 
-          this.obj = { id: doc.id }
-          this.testArray.push({ ...this.obj, ...doc.data() });
 
-          console.log("Manipulate this date", x1)
+ }
+ 
+ 
 
-          // this.onDaySelect(doc.data());
-          console.log(this.testArray)
-          //console.log("date1",x1)
-          //console.log("date2",x2)
-          if (x1.getMonth() == (new Date().getMonth()) && (new Date().getDate()) == x1.getDate()) {
-            this.validated = false;
-            //console.log("it worked = true")
-          }
-          else {
-            this.validated = true;
-            console.log("it worked =false")
-          }
+ 
+ testarray;
+events;
+d1;
+d2;
+d3;
 
-          console.log(this.obj)
-          // this.staff.push(doc.data());
 
-          console.log(this.staff)
-        })
-
-      } else {
-        console.log('No data');
-
-        const alert = this.alertCtrl.create({
-          message: 'There are no bookings for ' + this.hairdresser + ' for ' + this.userdate,
-          cssClass: 'alertDanger',
-          buttons: ['OK']
-        });
-        alert.present();
-      }
-      load.dismiss();
-    }).catch(err => {
-
-      console.log("Query Results: ", err);
-
-      load.dismiss();
+  staff =[];
+  gethairdresser()
+  {
+   return this.db.collection('Salons').doc(this.userservice.userdata[0].uid).collection('staff').where("isAvialiabe","==",true).get().then(val=>{
+    val.forEach(stav=>{
+      this.obj ={id:stav.id}
+this.staff.push({...this.obj, ...stav.data()});
+console.log(this.staff)
     })
   }
 
@@ -287,11 +315,20 @@ export class BookingsPage {
           handler: () => {
 
 
+
+            this.getHairSalon();
+
+            firebase.firestore().collection('Bookings').doc(x.id).update("status2","==","cancelled");
+            firebase.firestore().collection('Bookings').doc(x.id).delete();
+            firebase.firestore().collection('Cancellations').add(x);
+
+
+
             //this.cancelbookingToast();
             console.log('Confirm Okay');
-            firebase.firestore().collection('Bookings').doc(x.id).delete();
 
-            if (x.TokenID) {
+
+            
               var notificationObj = {
                 headings: { en: "APPOINTMENT CANCELLATION! " },
                 contents: { en: "Hey customer " + x.name + " Has cancelled their booking with " + x.hairdresser + " on " + x.userdate + " at " + x.sessiontime },
@@ -300,7 +337,7 @@ export class BookingsPage {
               this.oneSignal.postNotification(notificationObj).then(res => {
                 // console.log('After push notifcation sent: ' +res);
               })
-            }
+            
 
             firebase.firestore().collection('Analytics').doc(x.salonuid).get().then(val => {
 
