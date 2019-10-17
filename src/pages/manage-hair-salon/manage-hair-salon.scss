@@ -318,7 +318,6 @@ page-manage-hair-salon {
 
     p{
       font-family: 'Poiret One';
-     
     }
 
     button{
@@ -430,14 +429,11 @@ page-manage-hair-salon {
     position: absolute;
     top: 60vh;
     width: 100%;
-    // height: 90%;
-    // padding: 5px;
     display: flex;
     overflow-x: auto;
 
     .scroll {
       width: 70vw;
-      // height: 40vh;
       padding: 10px;
 
       .picz {
