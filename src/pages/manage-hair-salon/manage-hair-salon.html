@@ -80,11 +80,10 @@
       <div class="scroll">
         <div class="pick" (click)=" addStyle()">
           <ion-icon name="add-circle"></ion-icon>
-
         </div>
       </div>
-      <div class="scroll" *ngFor="let n of hair" (press) ="press(n)">
-        <div class="picz">
+      <div class="scroll" *ngFor="let n of hair" >
+        <div class="picz" (press) ="press(n)">
           <img src="{{n.hairStyleImage}}">
         </div>
 
@@ -94,7 +93,6 @@
       </div>
     </div>
   </div>
-
 
   <div id="fab" *ngIf="isSalon">
     <ion-fab right bottom id="fab" size="small" (click)="viewstaff()">

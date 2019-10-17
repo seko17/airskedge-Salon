@@ -32,6 +32,8 @@ page-bookings {
 
   .body {
     font-family: 'Raleway';
+    height: 50vh;
+    overflow-y: auto;
 
     .time {
       display: flex;
