@@ -78,23 +78,7 @@ console.log(result)
    this.currentEvents =this.userservice.currentEvents;
       }
   
-  // getLocalNotification(){
-  //   this.db.collection('Bookings').where("salonuid", "==", this.authService.getUser()).onSnapshot(doc =>{
-  //     doc.forEach(res =>{
-  //       console.log('datas ',res.data())
-   
-  //         this.localNotifications.schedule({
-  //           id: 1,
-  //           title: 'Airskedge',
-  //           text: 'New Booking has been made',
-        
-       
-  //         });
-  //     })
-    
-      
-  //   })
-  // }
+
 getsalonname()
 {
   console.log("YES")
@@ -415,15 +399,5 @@ presentConfirm() {
 }
 
 
-// let load = this.loadingCtrl.create({
-//   content: `
-//   <ion-refresher (ionRefresh)="doRefresh($event)">
-// <ion-refresher-content 
-// refreshingSpinner="customcircles">
-// </ion-refresher-content>
-// </ion-refresher>`,
-//  spinner: 'dots',
-// duration:5000
-// });
-// load.present();
+
 }
