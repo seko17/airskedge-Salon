@@ -188,17 +188,17 @@ export class ManageHairSalonPage {
                   alerter.present();
                   this.styles = [];
                   this.getHairSalon();
-           
+                  worker.dismiss()
                 });
-               
               })
             })
           }
         }
       ]
-    
+
     });
- 
+    alert.present();
+
   }
 
   //function to get Hair Salon and hair styles
