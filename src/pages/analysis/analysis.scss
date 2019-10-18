@@ -16,7 +16,6 @@ page-analysis {
 
       ion-slide {
         background-color: #32db64;
-
       }
 
       ion-slide img {
@@ -32,6 +31,11 @@ page-analysis {
     left: 20vw;
     width: 60vw;
     font-family: 'Poiret One';
-  }
 
+    ion-content{
+      width: 60vw;
+      height: 10vh;
+    }
+
+}
 }
