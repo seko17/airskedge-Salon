@@ -52,6 +52,20 @@ this.navCtrl.push(CreateAccountPage)
     if (!this.loginForm.valid){
       console.log(this.loginForm.value);
     } else {
+      let loading = this.loadingCtrl.create({
+        content: 'Please wait...',
+        spinner: 'bubbles',
+      });
+    
+      loading.present();
+    
+      setTimeout(() => {
+        loading.dismiss();
+      }, 5000);
+
+
+
+
       this.authservice.loginUser(this.loginForm.value.email, this.loginForm.value.password)
       .then( authservice => {
         this.navCtrl.setRoot(LandingPage);
