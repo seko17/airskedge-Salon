@@ -158,6 +158,7 @@ export class ManageHairSalonPage {
   }
   //Function to delete style
   Delete(value) {
+    console.log('name of delte ', value.hairstyleName)
     const alert = this.alertCtrl.create({
       title: 'Delete',
       subTitle: 'Are you sure you want to delete this Style?',
@@ -180,12 +181,7 @@ export class ManageHairSalonPage {
                 console.log('Delete Document: ', doc.data())
                 this.displayProfile = doc.data();
                 this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').doc(doc.id).delete().then(res => {
-                  worker.dismiss();
-                  this.localNotifications.schedule({
-                    id: 1,
-                    title: 'style deleted',
-                    text: 'User has delted a style',
-                  });
+               
                   const alerter = this.alertCtrl.create({
                     message: 'Style deleted'
                   })
