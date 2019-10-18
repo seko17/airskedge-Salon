@@ -228,7 +228,9 @@ console.log(this.hairdresser,this.userdate)
           handler: () => {
            
             this.getHairSalon();
-            firebase.firestore().collection('Bookings').doc(x.id).update("status2","==","cancelled");
+            x.status2="cancelled"
+            x.status="cancelled"
+   
             firebase.firestore().collection('Bookings').doc(x.id).delete();
             firebase.firestore().collection('Cancellations').add(x);
             //this.cancelbookingToast();
