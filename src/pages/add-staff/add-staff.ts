@@ -23,6 +23,7 @@ export class AddStaffPage {
   db = firebase.firestore();
   storage = firebase.storage().ref();
   SalonCoverImage =  false;
+  hide='';
   Staff = {
     name: '',
     personalNumber: '',
@@ -241,6 +242,16 @@ specialisation:''
 ​
  goback(){
   this.navCtrl.pop();
+}
+
+inputEvent(data){
+
+  if(data=='open'){
+     this.hide='value'
+  } else if(data=='close') {
+    this.hide='';
+  }
+  
 }
 ​
 }

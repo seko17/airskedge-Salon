@@ -1,9 +1,10 @@
 page-add-staff {
   .myPage {
     .myActionSheetBtnStyle {
-        color: red;
+      color: red;
     }
-}
+  }
+
   .loader {
     position: absolute;
     top: 0;
@@ -18,7 +19,7 @@ page-add-staff {
     transition: 0.4s;
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     animation: backgroundmover 30s linear infinite;
-  
+
     .maploader {
       // overflow: hidden;
       width: 64px;
@@ -26,18 +27,20 @@ page-add-staff {
       margin: 40vh auto;
       text-align: center;
       // animation: name duration timing-function delay iteration-count direction fill-mode;
-    //  animation: maploader 1.2s linear infinite;
+      //  animation: maploader 1.2s linear infinite;
       border-radius: 200px;
       display: grid;
       align-content: center;
       position: relative;
-   //   border: solid 2px gray;
+
+      //   border: solid 2px gray;
       .lds-ripple {
         display: inline-block;
         position: relative;
         width: 90px;
         height: 64px;
       }
+
       .lds-ripple div {
         position: absolute;
         border: 4px solid #fcf;
@@ -45,9 +48,11 @@ page-add-staff {
         border-radius: 50%;
         animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
       }
+
       .lds-ripple div:nth-child(2) {
         animation-delay: -0.5s;
       }
+
       @keyframes lds-ripple {
         0% {
           top: 28px;
@@ -56,6 +61,7 @@ page-add-staff {
           height: 0;
           opacity: 1;
         }
+
         100% {
           top: -1px;
           left: -1px;
@@ -64,12 +70,12 @@ page-add-staff {
           opacity: 0;
         }
       }
-      
-  
-  
+
+
+
     }
   }
-  
+
   .loading-text {
     // color: yellow;
     position: absolute;
@@ -81,7 +87,7 @@ page-add-staff {
     height: 50vh;
     z-index: 50;
   }
-  
+
   .loader-hide {
     position: absolute;
     top: 0;
@@ -94,7 +100,7 @@ page-add-staff {
     overflow: hidden;
     transition: 0.4s;
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-  
+
     .maploader {
       // overflow: hidden;
       // width: 70px;
@@ -102,19 +108,20 @@ page-add-staff {
       // margin: 40vh auto;
       // text-align: center;
       // animation: name duration timing-function delay iteration-count direction fill-mode;
-  //     animation: maploader 1.2s linear infinite;
-  //     border-radius: 200px;
-  //     display: grid;
-  //     align-content: center;
-  //     position: relative;
-  //  //   border: solid 2px gray;
-  
+      //     animation: maploader 1.2s linear infinite;
+      //     border-radius: 200px;
+      //     display: grid;
+      //     align-content: center;
+      //     position: relative;
+      //  //   border: solid 2px gray;
+
       .lds-facebook {
         display: inline-block;
         position: relative;
         width: 64px;
         height: 64px;
       }
+
       .lds-facebook div {
         display: inline-block;
         position: absolute;
@@ -123,47 +130,53 @@ page-add-staff {
         background: #fff;
         animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
       }
+
       .lds-facebook div:nth-child(1) {
         left: 6px;
         animation-delay: -0.24s;
       }
+
       .lds-facebook div:nth-child(2) {
         left: 26px;
         animation-delay: -0.12s;
       }
+
       .lds-facebook div:nth-child(3) {
         left: 45px;
         animation-delay: 0;
       }
+
       @keyframes lds-facebook {
         0% {
           top: 6px;
           height: 51px;
         }
-        50%, 100% {
+
+        50%,
+        100% {
           top: 19px;
           height: 26px;
         }
       }
-      
-  
-  
+
+
+
     }
   }
-  
+
   @keyframes maploader {
     0% {
       // transform: rotate(0deg);
       border-color: rgb(182, 70, 95);
       // background: rgb(255, 192, 192);
     }
-  
+
     50% {
       // background: rgb(206, 206, 255);
       // transform: rotate(360deg);
       border-color: rgb(42, 50, 75);
     }
-  
+
     100% {
       border-color: rgb(250, 182, 43);
       // background: rgb(255, 167, 167);
@@ -180,6 +193,7 @@ page-add-staff {
       border: none;
     }
   }
+
   .back-button-md,
   .back-button-ios {
     color: black;
@@ -259,8 +273,8 @@ page-add-staff {
 
 
   .backimage {
-    width: 180px;
-    height: 180px;
+    width:20vh;
+    height: 20vh;
     margin-top: 15px;
     background: linear-gradient(rgba(255, 255, 255, 0.486)), url('../../assets/imgs/_ionicons_svg_ios-person.svg');
     box-shadow: 5px 5px 5px lightgrey;
@@ -271,7 +285,18 @@ page-add-staff {
     position: relative;
     object-fit: cover;
 
+  
+    .btn {
+      position: absolute;
+      z-index: 5;
+      left: 40%;
+      top: 30%;
 
+      ion-icon{
+        font-size: 10vw;
+      }
+      color: white;
+    }
 
     img {
 
@@ -336,8 +361,8 @@ page-add-staff {
         height: 2vh;
         background: transparent;
         color: white;
-        
-        ion-input{
+
+        ion-input {
           font-family: 'Poiret One';
           color: white;
         }
@@ -365,30 +390,31 @@ page-add-staff {
   .scroll-content {
     padding-bottom: 0 !important;
   }
-  .buttonz{
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  margin: 50px 0px;
-   
-  #skip {
-    width: 50vw;
-    border-radius: 10px;
-    background: #F3E1D5;
-    color: black;
-    font-family: 'Poiret One';
-    letter-spacing: 4px;
-    font-weight: bold;
-  }
 
-  #cancel {
-    width: 50vw;
-    border-radius: 10px;
-    font-family: 'Poiret One';
-    letter-spacing: 4px;
-    color: white;
-    font-weight: bold;
-  }
+  .buttonz {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 50px 0px;
+
+    #skip {
+      width: 50vw;
+      border-radius: 10px;
+      background: #F3E1D5;
+      color: black;
+      font-family: 'Poiret One';
+      letter-spacing: 4px;
+      font-weight: bold;
+    }
+
+    #cancel {
+      width: 50vw;
+      border-radius: 10px;
+      font-family: 'Poiret One';
+      letter-spacing: 4px;
+      color: white;
+      font-weight: bold;
+    }
 
   }
 }

@@ -10,12 +10,6 @@ import { ManageHairSalonPage } from '../manage-hair-salon/manage-hair-salon';
 import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
 
-/**
- * Generated class for the AddhairStylePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -32,7 +26,8 @@ export class AddhairStylePage {
   addhairStyleForm : FormGroup;
 styleImage
 uploadprogress
-isuploading: false
+isuploading: false;
+hide='';
   Styles = {
     hairstyleName : '',
     hairstyleDesc : '',
@@ -74,6 +69,16 @@ isuploading: false
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddhairStylePage');
     this.getHairSalon();
+  }
+
+  inputEvent(data){
+
+    if(data=='open'){
+       this.hide='value'
+    } else if(data=='close') {
+      this.hide='';
+    }
+    
   }
   
 

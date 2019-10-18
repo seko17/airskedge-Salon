@@ -19,7 +19,7 @@
       <div class="card-wrapper">
 
      
-          <div class="backimage"  [ngStyle]="{'background-image': 'url(' + profileImage + ')' }" (click)="selectImage()">
+          <div class="backimage"  [ngStyle]="{'background-image': 'url(' + profileImage + ')' }" (click)="selectImage()" *ngIf="!hide">
          
           </div>
           
@@ -29,7 +29,7 @@
 
  
               <ion-item color="transparent">
-                <ion-input type="text" placeholder="Name" formControlName="name"
+                <ion-input type="text" placeholder="Name" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" formControlName="name"
                   [(ngModel)]="SalonOwnerProfile.name" ngDefaultControl> {{SalonOwnerProfile.name}}</ion-input>
               </ion-item>
  
@@ -41,7 +41,7 @@
               </div>
  
               <ion-item color="transparent">
-                <ion-input type="text" placeholder="Surname" formControlName="surname"
+                <ion-input type="text" placeholder="Surname" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" formControlName="surname"
                   [(ngModel)]="SalonOwnerProfile.surname" ngDefaultControl></ion-input>
               </ion-item>
               <div class="error" *ngFor="let validate of validation_messages.surname">
@@ -52,7 +52,7 @@
               </div>
  
               <ion-item color="transparent">
-                <ion-input type="tel" placeholder="Number" maxLength="10" formControlName="personalNumber"
+                <ion-input type="tel" placeholder="Number" maxLength="10" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" formControlName="personalNumber"
                   [(ngModel)]="SalonOwnerProfile.personalNumber" ngDefaultControl></ion-input>
               </ion-item>
               <div class="error" *ngFor="let validate of validation_messages.personalNumber">
@@ -63,7 +63,7 @@
               </div>
  
               <ion-item color="transparent">
-                <ion-input type="text" placeholder="Tell Us About Yourself" formControlName="About"
+                <ion-input type="text" placeholder="Tell Us About Yourself" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" formControlName="About"
                   [(ngModel)]="SalonOwnerProfile.About" ngDefaultControl>
                 </ion-input>
               </ion-item>
@@ -74,7 +74,7 @@
                 </div>
               </div>
               <br>
-         <div class="btn1">
+         <div class="btn1" *ngIf="!hide">
             <button id="skip" (click)="createprofile(profileForm)" type="submit" [disabled]="!profileForm.valid"
             ion-button style="border-radius: 10px; width: 50vw; background: #F3E1D5; color: black; font-size: 3vw" full>UPDATE PROFILE </button>
 

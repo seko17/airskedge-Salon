@@ -22,7 +22,8 @@ export class EditProfilePage {
   storage = firebase.storage().ref();
   profileForm : FormGroup;
   uploadprogress = 0;
-  isuploading: false
+  isuploading: false;
+  hide='';
   SalonOwnerProfile = {} as user
   profileImage
   uid
@@ -83,9 +84,19 @@ this.SalonOwnerProfile.uid = this.uid
     
   }
 
-  ionViewDidLoad() {
-
+  ionViewDidLoad(){
   }
+
+  inputEvent(data){
+
+    if(data=='open'){
+       this.hide='value'
+    } else if(data=='close') {
+      this.hide='';
+    }
+    
+  }
+
   async selectImage() {
     let option: CameraOptions = {
       quality: 100,

@@ -6,17 +6,20 @@
         </ion-navbar>
       </ion-header>
 
-
   <div class="container">
+  
     <div class="title">
       <h1><span>ADD</span><br>HAIRSTYLE</h1>
     </div>
 
     <div class="card-wrapper">
       <div class="card">
-        <div class="backimage" (click)="selectImage()">
+        <div class="backimage" (click)="selectImage()" *ngIf="!hide">
     
           <img src="{{styleImage}}" alt="" class="bimage">
+          <div class="btn">
+            <ion-icon name="add"></ion-icon>
+          </div>
    
         </div>
 
@@ -24,7 +27,7 @@
      
         <ion-item >
          
-         <ion-input type="text" placeholder="" formControlName="hairstyleName" [(ngModel)]="Styles.hairstyleName" ngDefaultControl placeholder="Hairstyle Name"></ion-input>
+         <ion-input type="text" placeholder="" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" formControlName="hairstyleName" [(ngModel)]="Styles.hairstyleName" ngDefaultControl placeholder="Hairstyle Name"></ion-input>
         </ion-item>
         <div class="error" *ngFor="let validate of validation_messages.hairstyleName">
         <div class="messages" *ngIf="addhairStyleForm.get('hairstyleName').hasError(validate.type) && (addhairStyleForm.get('hairstyleName').dirty || addhairStyleForm.get('hairstyleName').touched)">
@@ -35,7 +38,7 @@
      
         <ion-item >
          
-         <ion-input type="text"  placeholder="" formControlName="hairstyleDesc"   [(ngModel)]="Styles.hairstyleDesc" ngDefaultControl placeholder="Hairstyle Description"></ion-input>
+         <ion-input type="text"  placeholder="" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" formControlName="hairstyleDesc"   [(ngModel)]="Styles.hairstyleDesc" ngDefaultControl placeholder="Hairstyle Description"></ion-input>
         </ion-item>
         <div class="error" *ngFor="let validate of validation_messages.hairstyleDesc">
         <div class="messages" *ngIf="addhairStyleForm.get('hairstyleDesc').hasError(validate.type) && (addhairStyleForm.get('hairstyleDesc').dirty || addhairStyleForm.get('hairstyleDesc').touched)">
@@ -45,7 +48,7 @@
         </div>
   
         <ion-item >
-         <ion-input  type="tel" placeholder="" maxLength="4" formControlName="hairstylePrice"  [(ngModel)]="Styles.hairstylePrice" ngDefaultControl placeholder="Price"></ion-input>
+         <ion-input  type="tel" placeholder="" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" maxLength="4" formControlName="hairstylePrice"  [(ngModel)]="Styles.hairstylePrice" ngDefaultControl placeholder="Price"></ion-input>
         </ion-item>
         <div class="error" *ngFor="let validate of validation_messages.hairstylePrice">
         <div class="messages" *ngIf="addhairStyleForm.get('hairstylePrice').hasError(validate.type) && (addhairStyleForm.get('hairstylePrice').dirty || addhairStyleForm.get('hairstylePrice').touched)">
@@ -55,23 +58,19 @@
         </div>
   
         <ion-item>
-          
-          <ion-select formControlName="duration" [(ngModel)]="Styles.duration" placeholder="Duration">
+          <ion-select formControlName="duration" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" [(ngModel)]="Styles.duration" placeholder="Duration">
             <ion-option *ngFor="let g of Duration" [value]="g.value">{{g.label}}  </ion-option>
           </ion-select>
         </ion-item>
   
-       
- 
         <ion-item>
            
-            <ion-select formControlName="genderOptions" [(ngModel)]="Styles.genderOptions" placeholder="Style Gender">
+            <ion-select formControlName="genderOptions" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" [(ngModel)]="Styles.genderOptions" placeholder="Style Gender">
               <ion-option *ngFor="let g of Gender" value="{{g}}">{{g}}</ion-option>
             </ion-select>
           </ion-item>
       
       <pre>
-        
       </pre>
           <button ion-button id="hair" (click)="createStyle(addhairStyleForm)"  type="submit" [disabled]="!addhairStyleForm.valid" ion-button full>ADD HAIR STYLE</button>
         

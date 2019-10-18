@@ -97,6 +97,18 @@ page-add-salon {
     position: relative;
     object-fit: cover;
 
+    
+    .btn {
+      position: absolute;
+      z-index: 5;
+      left: 40%;
+      top: 30%;
+
+      ion-icon{
+        font-size: 10vw;
+      }
+      color: white;
+    }
 
 
     img {

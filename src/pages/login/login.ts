@@ -71,8 +71,6 @@ this.navCtrl.push(CreateAccountPage)
         });
       });
 
-  
-    
     }
   }
   goback(){

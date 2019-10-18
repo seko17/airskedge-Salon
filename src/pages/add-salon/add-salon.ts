@@ -41,7 +41,7 @@ export class AddSalonPage {
   addSalonForm: FormGroup;
   SalonCoverImage;
   SalonLogoImage;
-
+  hide='';
   SalonNode = {
     salonName: '',
     salonImage: '',
@@ -111,6 +111,17 @@ export class AddSalonPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddSalonPage');
+  }
+
+
+  inputEvent(data){
+
+    if(data=='open'){
+       this.hide='value'
+    } else if(data=='close') {
+      this.hide='';
+    }
+    
   }
   //function to store the salon on the database
 

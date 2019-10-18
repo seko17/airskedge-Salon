@@ -20,19 +20,17 @@
 
     <div class="card-wrapper">
       <div class="card">
-        <div class="backimage" (click)="selectImage(2)">
+        <div class="backimage" (click)="selectImage(2)" *ngIf="!hide">
           <img src="{{profileImage}}" alt="" class="bimage">
-          <!-- <div class="btn">
-            <button *ngIf="!profileImage" ion-button color="dark" (click)="selectImage()">
-              <ion-icon name="camera"></ion-icon>
-            </button>
-          </div> -->
+          <div class="btn">
+              <ion-icon name="add"></ion-icon>
+          </div>
         </div>
 
 
         <form [formGroup]="staffForm">
           <ion-item style="font-family: Poiret One; color: white;">
-            <ion-input type="text" formControlName="name" [(ngModel)]="Staff.name" ngDefaultControl placeholder="Stylist Name">
+            <ion-input type="text" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" formControlName="name" [(ngModel)]="Staff.name" ngDefaultControl placeholder="Stylist Name">
             </ion-input>
           </ion-item>
           <div class="error" *ngFor="let validate of validation_messages.name">
@@ -42,7 +40,7 @@
             </div>
           </div>
           <ion-item style="font-family: Poiret One; color: white;">
-            <ion-input type="text" formControlName="staffSurname" [(ngModel)]="Staff.staffSurname" ngDefaultControl placeholder="Stylist Surname">
+            <ion-input type="text" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" formControlName="staffSurname" [(ngModel)]="Staff.staffSurname" ngDefaultControl placeholder="Stylist Surname">
             </ion-input>
           </ion-item>
           <div class="error" *ngFor="let validate of validation_messages.staffSurname">
@@ -52,7 +50,7 @@
             </div>
           </div>
           <ion-item style="font-family: Poiret One; color: white;">
-            <ion-input type="tel" maxLength="10" formControlName="personalNumber" [(ngModel)]="Staff.personalNumber"
+            <ion-input type="tel" maxLength="10" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" formControlName="personalNumber" [(ngModel)]="Staff.personalNumber"
               ngDefaultControl placeholder="Stylist Phone Number"></ion-input>
           </ion-item>
           <div class="error" *ngFor="let validate of validation_messages.personalNumber">
@@ -64,14 +62,14 @@
           <br>
           <ion-item style="font-family: Poiret One; color: white;">
            
-            <ion-select formControlName="special" [(ngModel)]="Staff.specialisation" placeholder="Speciality">
+            <ion-select formControlName="special" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" [(ngModel)]="Staff.specialisation" placeholder="Speciality">
               <ion-option *ngFor="let g of specialisation" [value]="g.value">{{g.label}} </ion-option>
             </ion-select>
           </ion-item>     
           <br>
           <div class="buttonz">
-              <button ion-button id="skip" (click)="createStyle(staffForm)" full >DONE</button>
-              <button ion-button id="cancel" (click)=" goback()" full clear>CANCEL</button>
+              <button ion-button id="skip" (click)="createStyle(staffForm)" full *ngIf="!hide" >DONE</button>
+              <button ion-button id="cancel" (click)=" goback()" full clear *ngIf="!hide">CANCEL</button>
           </div>
           
         </form>
