@@ -91,18 +91,7 @@ page-edit-profile {
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
   
     .maploader {
-      // overflow: hidden;
-      // width: 70px;
-      // height: 50px;
-      // margin: 40vh auto;
-      // text-align: center;
-      // animation: name duration timing-function delay iteration-count direction fill-mode;
-  //     animation: maploader 1.2s linear infinite;
-  //     border-radius: 200px;
-  //     display: grid;
-  //     align-content: center;
-  //     position: relative;
-  //  //   border: solid 2px gray;
+   
   
       .lds-facebook {
         display: inline-block;
@@ -260,7 +249,7 @@ page-edit-profile {
     border-radius: 50%;
     position: absolute;
     top: 15vh;
-    left: 27vw;
+    left: 30vw;
     background-size: cover;
 
   }

@@ -72,7 +72,7 @@
       
       <pre>
       </pre>
-          <button ion-button id="hair" (click)="createStyle(addhairStyleForm)"  type="submit" [disabled]="!addhairStyleForm.valid" ion-button full>ADD HAIR STYLE</button>
+          <button ion-button id="hair" (click)="createStyle(addhairStyleForm)"  type="submit" [disabled]="!addhairStyleForm.valid" ion-button full *ngIf="!hide">ADD HAIR STYLE</button>
         
    
       </form>

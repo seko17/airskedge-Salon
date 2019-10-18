@@ -1,4 +1,20 @@
 page-add-staff {
+
+  .header {
+    border: none !important;
+    box-shadow: none !important;
+
+    .toolbar-background {
+      background: transparent;
+      border: none;
+    }
+  }
+
+  .back-button-md,
+  .back-button-ios {
+    color: black;
+  }
+  
   .myPage {
     .myActionSheetBtnStyle {
       color: red;
