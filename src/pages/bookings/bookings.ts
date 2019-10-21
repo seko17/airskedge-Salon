@@ -219,8 +219,8 @@ console.log(this.hairdresser,this.userdate)
             
               var notificationObj = {
                 headings: { en: "APPOINTMENT CANCELLATION! " },
-                contents: { en: "Hey customer " + x.name + " Has cancelled their booking with " + x.hairdresser + " on " + x.userdate + " at " + x.sessiontime },
-                include_player_ids: [x.TokenID],
+                contents: { en: "Hey "+ x.name + ", "+x.haidresser + " from "+ x.salonname + " has cancelled their booking with you"},
+                include_player_ids: [x.UserTokenID],
               }
               this.oneSignal.postNotification(notificationObj).then(res => {
                 // console.log('After push notifcation sent: ' +res);
@@ -365,7 +365,12 @@ console.log(n)
             payment: 'Paid'
             }).then(res => {
              console.log(res)
+             this.testArray=[];
+          this.userservice.prebookingsfunction();
+    this.testArray =this.userservice.prebookings;
           });
+
+
           if(n.useruid ==undefined)
           {
             console.log(n.useruid)
@@ -379,7 +384,7 @@ console.log(n)
           else
           {
           this.db.collection('Payments').doc(n.useruid).set ({date:n.userdate,useruid:n.useruid,salonuid:n.salonuid});
-        
+         
         this.presentConfirm();
         
         }
