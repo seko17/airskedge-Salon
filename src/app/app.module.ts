@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 //import { CalendarModule } from 'ionic3-calendar';
 import { Camera } from "@ionic-native/camera";
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { ImagePicker } from "@ionic-native/image-picker";
 import { AddSalonPage } from '../pages/add-salon/add-salon';
 import { LandingPage } from '../pages/landing/landing';
@@ -119,6 +120,7 @@ import { PagesPage } from '../pages/pages/pages';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
     AuthServiceProvider,
+    ScreenOrientation,
      Camera,
      ImagePicker,
      SMS,
