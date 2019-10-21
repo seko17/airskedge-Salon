@@ -383,7 +383,7 @@ console.log(n)
           }
           else
           {
-          this.db.collection('Payments').doc(n.useruid).set ({date:n.userdate,useruid:n.useruid,salonuid:n.salonuid});
+          this.db.collection('Payments').doc(n.useruid).set ({date:n.userdate,useruid:n.useruid,salonuid:n.salonuid,rated: false});
          
         this.presentConfirm();
         
