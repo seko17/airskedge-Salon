@@ -44,37 +44,34 @@ hairdresser;
       console.log(this.userservice.userdata[0].uid)
      this.getsalonname();
      this.gethairdresser();
-     this.currentday =this.cdate()
+     this.currentday =this.cdate();
+    
+
      this.platform.ready().then(() => {
       this.storage.get('introShown').then((result) => {
-console.log(result)
+  console.log(result)
         if(result){
           console.log("got it")
         } else {
-         this.navCtrl.push(AnalysisPage);
+          let profileModal = this.modalCtrl.create(AnalysisPage);
+          profileModal.onDidDismiss(data => {
+            console.log(data);
+            this.toast();
+          });
+          profileModal.present();
           this.storage.set('introShown', true);
           console.log(this.storage)
+  
+  
+          
         }
     
       });
     });
+
   }
   obj ={};
-  ionViewDidLoad() {
- 
- 
-      let toast = this.toastCtrl.create({
-        message: 'Select a haidresser, then pick the date to view their bookings for that day.',
-        duration: 7000,
-        position: 'bottom'
-      });
-    
-      toast.onDidDismiss(() => {
-        console.log('Dismissed toast');
-      });
-    
-      toast.present();
-    
+  ionViewDidLoad() {   
    this.currentEvents =this.userservice.currentEvents;
       }
   
@@ -333,6 +330,9 @@ else
   bookingModal.present();
   bookingModal.onDidDismiss(data => {
     console.log(data);
+    this.testArray=[];
+    this.userservice.prebookingsfunction();
+    this.testArray =this.userservice.prebookings;
   });
 }
 }
@@ -398,6 +398,57 @@ presentConfirm() {
   toast.present(); 
 }
 
+
+
+
+info()
+{
+  console.log("clicked");
+  this.platform.ready().then(() => {
+    this.storage.get('introShown').then((result) => {
+console.log(result)
+      if(result){
+        console.log("got it")
+
+        let profileModal = this.modalCtrl.create(AnalysisPage);
+        profileModal.onDidDismiss(data => {
+          console.log(data);
+          this.toast();
+        });
+        profileModal.present();
+
+      } else {
+       this.navCtrl.push(AnalysisPage);
+        this.storage.set('introShown', true);
+        console.log(this.storage)
+
+
+        
+      }
+  
+    });
+  });
+}
+
+
+toast()
+{
+
+
+  let toast = this.toastCtrl.create({
+    message: 'Select a haidresser, then pick the date to view their bookings for that day.',
+    duration: 3000,
+    position: 'bottom'
+  });
+
+  toast.onDidDismiss(() => {
+    console.log('Dismissed toast');
+  });
+
+  toast.present();
+
+
+}
 
 
 }

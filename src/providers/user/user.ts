@@ -32,29 +32,57 @@ item = true;
  constructor(public toastCtrl:ToastController,public alertCtrl:AlertController) {
  
 
-  
-      this.db.collection('Bookings').where("salonuid","==",firebase.auth().currentUser.uid).where("userdate",">=",this.cdate()).get().then( snap => {
-       
-         
-          snap.forEach(doc => {
-          
-           
-           this.prebookings.push({id:doc.id,... doc.data()});
-           console.log('prebookings',this.prebookings)
-            let x1=new Date(doc.data().userdate) ;
-         
-          
-      
-   
-            console.log("Manipulate this date",x1)
-            this.currentEvents.push({year:x1.getFullYear(),month:x1.getMonth(),date:x1.getDate()})
-            console.log(this.currentEvents)
-          
-          })})
+  this.prebookingsfunction();
+    
 
 
 
  }
+
+
+
+
+prebookingsfunction()
+{
+
+  this.prebookings =[];
+  this.db.collection('Bookings').where("salonuid","==",firebase.auth().currentUser.uid).where("userdate",">=",this.cdate()).get().then( snap => {
+       
+         
+    snap.forEach(doc => {
+    
+     
+     this.prebookings.push({id:doc.id,... doc.data()});
+     console.log('prebookings',this.prebookings)
+      let x1=new Date(doc.data().userdate) ;
+   
+    
+
+
+      console.log("Manipulate this date",x1)
+      this.currentEvents.push({year:x1.getFullYear(),month:x1.getMonth(),date:x1.getDate()})
+      console.log(this.currentEvents)
+    
+    })})
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
