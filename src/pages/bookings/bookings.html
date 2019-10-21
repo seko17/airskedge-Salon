@@ -40,14 +40,14 @@
           step="30"
           (onDaySelected)=onDaySelect($event)>
           </ion-calendar>
-          <br>
+
           <ion-item>
             <ion-label position="stacked" style="font-family: Poiret One">Selected Date</ion-label>
             <ion-input clear placeholder="session time" type="date" displayFormat="DD/MM/YYYY" min='2019-01-01'
               [(ngModel)]="userdate" readonly style="font-family: Poiret One; font-weight: bold"></ion-input>
           </ion-item>
        
-
+        </div>
         <div class="body">
           <div class="time" *ngFor="let n of testArray">
             <div class="date">
@@ -73,7 +73,7 @@
 
           </div>
         </div>
-      </div>
+     
       </ion-col>
     </ion-row>
   </ion-grid>

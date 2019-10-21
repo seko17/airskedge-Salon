@@ -4,8 +4,6 @@ page-analysis {
 
     .toolbar-background {
       background: transparent;
-
-
     }
   }
 
@@ -20,7 +18,7 @@ page-analysis {
 
       ion-slide img {
         height: 70vh !important;
-        width: auto !important;
+        width: 70vw !important;
       }
     }
   }
@@ -32,15 +30,7 @@ page-analysis {
     width: 60vw;
     font-family: 'Poiret One';
 
-    ion-content{
-      width: 60vw;
-      height: 10vh;
-    }
-
 }
 
-img{
-  width: 70vw;
-  height: 70vh;
-}
+
 }
