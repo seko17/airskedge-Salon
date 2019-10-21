@@ -6,7 +6,7 @@ page-bookings {
 
   .toolbar {
     .toolbar-background {
-      background: transparent;
+      background: white;
 
     }
   }
@@ -42,7 +42,7 @@ page-bookings {
       border-radius: 10px;
       border: 1px solid grey;
       font-family: 'Manjari';
-      height: 20vh;
+      height: 40vw;
       position: relative;
 
       // height: 150px;
@@ -50,8 +50,7 @@ page-bookings {
         margin: 3%;
 
         p {
-          margin: 6px;
-
+         font-size: 4.1vw;
         }
 
         .buttz {
@@ -70,7 +69,6 @@ page-bookings {
         background: transparent;
       }
 
-
       .date {
         background: #422D39;
         border-top-left-radius: 10px;
@@ -78,28 +76,23 @@ page-bookings {
         text-align: center;
         color: white;
 
-
-
         #date {
           transform: rotate(-90deg);
           position: relative;
           top: 40%;
+          font-size: 5vw;
         }
       }
-
-
     }
   }
 
   h1 {
     font-size: 8vw;
     color: black;
-    // text-shadow: 5px 5px 6px rgba(128, 128, 128, 0.459);
   }
 
   .datez {
     width: 100%;
-
   }
 
 
@@ -111,8 +104,5 @@ page-bookings {
       color: red;
     }
   }
-
-
-
 
 }
