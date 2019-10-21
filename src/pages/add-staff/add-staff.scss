@@ -14,7 +14,7 @@ page-add-staff {
   .back-button-ios {
     color: black;
   }
-  
+
   .myPage {
     .myActionSheetBtnStyle {
       color: red;
@@ -224,12 +224,10 @@ page-add-staff {
   }
 
   .container {
-    margin: 0;
-    padding: 0;
-    height: 100%;
     display: flex;
     flex-flow: column;
     align-items: center;
+    height: 100vw;
   }
 
   .title {
@@ -239,7 +237,7 @@ page-add-staff {
 
     h1 {
       font-weight: bold;
-
+      font-size: 6vw;
       span {
         color: #C0958D;
       }
@@ -258,10 +256,8 @@ page-add-staff {
 
   .item {
     position: relative;
-    // left: 9%;
-    width: 300px;
+    width: 90vw;
     text-align: center;
-    // border-radius: 50px;
     background: transparent;
     color: rgb(14, 13, 13);
 
@@ -270,26 +266,19 @@ page-add-staff {
 
   .card {
 
-    height: 100%;
     /* background: linear-gradient(rgb(247, 148, 0),rgb(241, 164, 112),rgba(243, 217, 160, 0.952));
   */
     display: flex;
     flex-direction: column;
     flex-direction: column;
     align-items: center;
-
-
   }
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+
 
 
   .backimage {
-    width:20vh;
+    width: 20vh;
     height: 20vh;
     margin-top: 15px;
     background: linear-gradient(rgba(255, 255, 255, 0.486)), url('../../assets/imgs/_ionicons_svg_ios-person.svg');
@@ -301,16 +290,17 @@ page-add-staff {
     position: relative;
     object-fit: cover;
 
-  
+
     .btn {
       position: absolute;
       z-index: 5;
       left: 40%;
       top: 30%;
 
-      ion-icon{
+      ion-icon {
         font-size: 10vw;
       }
+
       color: white;
     }
 
@@ -322,25 +312,19 @@ page-add-staff {
     }
 
     .bimage {
-      width: 180px;
-      height: 180px;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-
     }
 
-    .image {
-      width: 100%;
 
+    img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       border-radius: 50%;
-
-      img {
-        width: 100%;
-
-        object-fit: cover;
-        border-radius: 50%;
-      }
     }
+
 
     .back {
       position: absolute;

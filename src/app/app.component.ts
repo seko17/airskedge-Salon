@@ -11,6 +11,7 @@ import { SalonRegistrationpagePage } from '../pages/salon-registrationpage/salon
 import { OneSignal } from '@ionic-native/onesignal';
 import { Storage } from '@ionic/storage';
 import { LoadingController } from 'ionic-angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 // import { ScreenOrientation } from '@ionic-native/screen-orientation';
 @Component({
   templateUrl: 'app.html'
@@ -24,14 +25,10 @@ export class MyApp {
 
   token
   
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private oneSignal: OneSignal,public loadingCtrl: LoadingController, public storage: Storage) {
+  constructor(private screenOrientation: ScreenOrientation, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private oneSignal: OneSignal,public loadingCtrl: LoadingController, public storage: Storage) {
 
     firebase.initializeApp(firebaseConfig);
 
-
-
-    
-    
   //  this.oneSignal.startInit(this.signal_app_id, this.firebase_id);
   //  this.oneSignal.getIds().then((userID) => {
   //     console.log("user ID ", userID);
@@ -72,7 +69,7 @@ export class MyApp {
     });
     platform.ready().then(() => {
       statusBar.backgroundColorByHexString('#1E1E1E');
-      // screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+      screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       // Okay, so the platform is ready and our plugins are available.
       //private screenOrientation: ScreenOrientation, 
       // Here you can do any higher level native things you might need.

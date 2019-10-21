@@ -1,10 +1,9 @@
-<ion-header no-border>
-    <ion-navbar >
+<ion-content padding>
+  <ion-header no-border>
+    <ion-navbar>
     </ion-navbar>
   </ion-header>
-  
-<ion-content padding>
- 
+
 
   <div class="container">
 
@@ -16,8 +15,9 @@
 
     </div>
     <br>
+    <div class="everything">
     <div class="msg" style="text-align: center; width: 100vw" *ngIf="!isRated">
-      <p>  No ratings yet for your salon</p>
+      <p> No ratings yet for your salon</p>
     </div>
     <div class="card" *ngFor="let n of reviews">
       <div class="image">
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div class="line2"></div>
-
   </div>
+  </div>
+
 </ion-content>
