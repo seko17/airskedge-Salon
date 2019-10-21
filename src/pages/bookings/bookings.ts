@@ -219,7 +219,7 @@ console.log(this.hairdresser,this.userdate)
             
               var notificationObj = {
                 headings: { en: "APPOINTMENT CANCELLATION! " },
-                contents: { en: "Hey customer " + x.name + " Has cancelled their booking with " + x.hairdresser + " on " + x.userdate + " at " + x.sessiontime },
+                contents: { en: "Hey "+ x.name + ", "+x.haidresser + " from "+ x.salonname + " has cancelled their booking with you"},
                 include_player_ids: [x.UserTokenID],
               }
               this.oneSignal.postNotification(notificationObj).then(res => {
