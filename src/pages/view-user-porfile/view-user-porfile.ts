@@ -85,12 +85,10 @@ isProfile =false;
 
 
   getProfile(){
-   
- 
     let users = this.db.collection('Users');
 
     let query = users.where("uid", "==", this.authUser.getUser());
-    query.get().then(querySnapshot => {
+    query.onSnapshot(querySnapshot => {
     
       if (querySnapshot.empty !== true){
         console.log('Got data', querySnapshot);
@@ -112,11 +110,6 @@ isProfile =false;
       }
       // dismiss the loading
      
-    }).catch(err => {
-      // catch any errors that occur with the query.
-      console.log("Query Results: ", err);
-      // dismiss the loading
-  
     })
   }
   update(){

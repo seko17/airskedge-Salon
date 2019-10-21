@@ -52,14 +52,15 @@ export class ManageStaffPage {
     this.loaderAnimate = true
    let users = this.db.collection('Salons');
    let query = users.where("userUID", "==", this.authUser.getUser());
-   query.get().then( snap => {
+   query.onSnapshot( snap => {
      if (snap.empty !== true){
        console.log('Got data', snap);
        snap.forEach(doc => {
          console.log('Profile Document: ', doc.data())
          this.displayProfile = doc.data();
  //query to get all staff
-         this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('staff').get().then( res =>{
+         this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('staff').onSnapshot( res =>{
+           this.staff = []
        res.forEach(doc =>{
  this.staff.push(doc.data());
          console.log('styles' , doc.data());
@@ -72,9 +73,6 @@ export class ManageStaffPage {
      } else {
        console.log('No data'); 
      }
-   
-   }).catch(err => {
-     console.log("Query Results: ", err);
    })
  }
 

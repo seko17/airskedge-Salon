@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Loading, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Loading, LoadingController, AlertController, Platform } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CreateAccountPage } from '../create-account/create-account';
 import { ForgotPasswordPage } from '../forgot-password/forgot-password';
@@ -23,10 +23,12 @@ export class LoginPage {
   public loginForm: FormGroup;
   loading: Loading;
   hide='';
+  public unsubscribeBackEvent: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,   private formBuilder: FormBuilder,
      private authservice: AuthServiceProvider,
      public loadingCtrl: LoadingController,
-     public alertCtrl: AlertController) {
+     public alertCtrl: AlertController,
+     public platform: Platform,) {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: [
@@ -61,7 +63,7 @@ this.navCtrl.push(CreateAccountPage)
     
       setTimeout(() => {
         loading.dismiss();
-      }, 5000);
+      }, 1000);
 
 
 
@@ -71,8 +73,8 @@ this.navCtrl.push(CreateAccountPage)
         this.navCtrl.setRoot(LandingPage);
       }, error => {
         console.log(error.message)
-        this.loading.dismiss().then( () => {
-          let alert = this.alertCtrl.create({
+        this.loading.dismiss().then( async () => {
+          let alert = await this.alertCtrl.create({
             message: error.message,
             buttons: [
               {
@@ -81,7 +83,7 @@ this.navCtrl.push(CreateAccountPage)
               }
             ]
           });
-          alert.present();
+          await  alert.present();
         });
       });
 
@@ -150,6 +152,14 @@ this.navCtrl.push(CreateAccountPage)
       ]
     });
     prompt.present();
+  }
+  initializeBackButtonCustomHandler(): void {
+    this.unsubscribeBackEvent = this.platform.registerBackButtonAction(()  =>{
+       this.inputEvent(this.hide);
+      
+    }, 101);
+    /* here priority 101 will be greater then 100 
+    if we have registerBackButtonAction in app.component.ts */
   }
   presentLoading() {
     const loader = this.loadingCtrl.create({
