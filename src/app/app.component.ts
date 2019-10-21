@@ -68,7 +68,7 @@ export class MyApp {
       }
     });
     platform.ready().then(() => {
-      statusBar.backgroundColorByHexString('#1E1E1E');
+      statusBar.backgroundColorByHexString('#412C39');
       screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       // Okay, so the platform is ready and our plugins are available.
       //private screenOrientation: ScreenOrientation, 
