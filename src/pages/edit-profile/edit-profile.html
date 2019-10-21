@@ -19,7 +19,7 @@
       <div class="card-wrapper">
 
      
-          <div class="backimage"  [ngStyle]="{'background-image': 'url(' + profileImage + ')' }" (click)="selectImage()" *ngIf="!hide">
+          <div class="backimage"  [ngStyle]="{'background-image': 'url(' + SalonOwnerProfile.image + ')' }" (click)="selectImage()" *ngIf="!hide">
          
           </div>
           
@@ -30,7 +30,7 @@
  
               <ion-item color="transparent">
                 <ion-input type="text" placeholder="Name" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" formControlName="name"
-                  [(ngModel)]="SalonOwnerProfile.name" ngDefaultControl> {{SalonOwnerProfile.name}}</ion-input>
+                  [(ngModel)]="SalonOwnerProfile.name" ngDefaultControl> </ion-input>
               </ion-item>
  
               <div class="error" *ngFor="let validate of validation_messages.name">
