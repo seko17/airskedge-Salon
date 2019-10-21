@@ -365,7 +365,12 @@ console.log(n)
             payment: 'Paid'
             }).then(res => {
              console.log(res)
+             this.testArray=[];
+          this.userservice.prebookingsfunction();
+    this.testArray =this.userservice.prebookings;
           });
+
+
           if(n.useruid ==undefined)
           {
             console.log(n.useruid)
@@ -379,7 +384,7 @@ console.log(n)
           else
           {
           this.db.collection('Payments').doc(n.useruid).set ({date:n.userdate,useruid:n.useruid,salonuid:n.salonuid});
-        
+         
         this.presentConfirm();
         
         }
