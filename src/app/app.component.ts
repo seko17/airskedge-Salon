@@ -27,25 +27,6 @@ export class MyApp {
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private oneSignal: OneSignal,public loadingCtrl: LoadingController, public storage: Storage) {
 
     firebase.initializeApp(firebaseConfig);
-
-
-
-    
-    
-  //  this.oneSignal.startInit(this.signal_app_id, this.firebase_id);
-  //  this.oneSignal.getIds().then((userID) => {
-  //     console.log("user ID ", userID);
-  //   })
-  //   this.oneSignal.inFocusDisplaying(oneSignal.OSInFocusDisplayOption.InAppAlert);
-  //   this.oneSignal.handleNotificationReceived().subscribe((res) => {
-  //     // do something when notification is received
-  //     console.log(res);
-  //   });
-  //   this.oneSignal.handleNotificationOpened().subscribe((res) => {
-  //     // do something when a notification is opened
-  //     console.log(res);
-  //   });
-  //   this.oneSignal.endInit();
    firebase.auth().onAuthStateChanged(user => {
       if (user) {
         console.log('logged in');
@@ -58,9 +39,7 @@ export class MyApp {
           }else {
             console.log('no profile');
             this.rootPage = LandingPage;
-          firebase.firestore().collection('Salons').doc(user.uid).update({
-            TokenID: this.token
-          })
+         
           }
         })
       
@@ -79,10 +58,16 @@ export class MyApp {
       statusBar.styleLightContent();
       setTimeout(()=>{
         splashScreen.hide();
-      }, 1000);
+      }, 500);
       if (platform.is('cordova')) {
-      //
+       //
         this.setupPush();
+        firebase.auth().onAuthStateChanged((user)=>{
+          firebase.firestore().collection('Salons').doc(user.uid).update({
+            TokenID: this.token
+          })
+        })
+       
       }
     });
   }

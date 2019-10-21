@@ -139,25 +139,25 @@ specialisation:''
   }
   async takePicture(sourceType: PictureSourceType) {
     let options: CameraOptions = {
-      quality: 80,
-      sourceType: sourceType,
-      saveToPhotoAlbum: false,
-      correctOrientation: true,
-      destinationType: 1,
-      targetWidth: 1240,
-      targetHeight: 768,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      quality: 100,
+    sourceType: sourceType,
+    saveToPhotoAlbum: false,
+    correctOrientation: true
   };
-  this.camera.getPicture(options)
-  .then((imageData) => {
-    // do something with the imageData, should be able to bind it to a variable and 
-    // show it in your html file. You might need to fix file path, 
-    // remember to import private win: any = window, and use it like this.
+  // this.camera.getPicture(options)
+  // .then((imageData) => {
+  //   // do something with the imageData, should be able to bind it to a variable and 
+  //   // show it in your html file. You might need to fix file path, 
+  //   // remember to import private win: any = window, and use it like this.
 
-    this.profileImage = this.win.Ionic.WebView.convertFileSrc(imageData);
+  //   this.profileImage = this.win.Ionic.WebView.convertFileSrc(imageData);
 
-  }).catch((err) => {
-    console.warn("takePicture Error: " + err);
-  });
+  // }).catch((err) => {
+  //   console.warn("takePicture Error: " + err);
+  // });
     await this.camera.getPicture(options).then(res => {
       console.log(res);
       const image = `data:image/jpeg;base64,${res}`;
