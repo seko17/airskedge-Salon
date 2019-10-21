@@ -4,17 +4,17 @@
 
     <ion-header no-border>
         <ion-toolbar >
-            <ion-buttons start (click)="gotoanalysis()" style="color: white">
-             NEXT
+            <ion-buttons  >
+            <button style="color: white;background-color: transparent;" (click)="nextState()" [hidden] ="hidden">NEXT</button>
             </ion-buttons>
     
-            <ion-buttons end (click)="gotoanalysis()" style="color: white">
-               SKIP
+            <ion-buttons end  style="color: white">
+           <button (click)="goToHome()" style="color: white;background-color: transparent;" [hidden] ="hidden" >SKIP</button>
             </ion-buttons>
         </ion-toolbar>
       </ion-header>
 
-  <ion-slides pager="true">
+  <ion-slides pager="true" #slides (ionSlideDidChange)="slideState()" (ionSlideTap) ="nextState()">
 
     <ion-slide>
       <img src="../../assets/icon/step1.png" />
@@ -25,7 +25,7 @@
     </ion-slide>
     
     <ion-slide>
-        <button ion-button color="light" id="gotit" (click)="goToHome()">GOT IT!</button>
+        <button ion-button color="light" id="gotit" (click)="goToHome()"><b>GOT IT <ion-icon name = "md-thumbs-up"></ion-icon></b></button>
             <img src="../../assets/icon/step 3.png" />
            
     </ion-slide>
