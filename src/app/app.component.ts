@@ -11,6 +11,7 @@ import { SalonRegistrationpagePage } from '../pages/salon-registrationpage/salon
 import { OneSignal } from '@ionic-native/onesignal';
 import { Storage } from '@ionic/storage';
 import { LoadingController } from 'ionic-angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 // import { ScreenOrientation } from '@ionic-native/screen-orientation';
 @Component({
   templateUrl: 'app.html'
@@ -24,28 +25,9 @@ export class MyApp {
 
   token
   
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private oneSignal: OneSignal,public loadingCtrl: LoadingController, public storage: Storage) {
+  constructor(private screenOrientation: ScreenOrientation, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private oneSignal: OneSignal,public loadingCtrl: LoadingController, public storage: Storage) {
 
     firebase.initializeApp(firebaseConfig);
-
-
-
-    
-    
-  //  this.oneSignal.startInit(this.signal_app_id, this.firebase_id);
-  //  this.oneSignal.getIds().then((userID) => {
-  //     console.log("user ID ", userID);
-  //   })
-  //   this.oneSignal.inFocusDisplaying(oneSignal.OSInFocusDisplayOption.InAppAlert);
-  //   this.oneSignal.handleNotificationReceived().subscribe((res) => {
-  //     // do something when notification is received
-  //     console.log(res);
-  //   });
-  //   this.oneSignal.handleNotificationOpened().subscribe((res) => {
-  //     // do something when a notification is opened
-  //     console.log(res);
-  //   });
-  //   this.oneSignal.endInit();
    firebase.auth().onAuthStateChanged(user => {
       if (user) {
         console.log('logged in');
@@ -58,9 +40,7 @@ export class MyApp {
           }else {
             console.log('no profile');
             this.rootPage = LandingPage;
-          firebase.firestore().collection('Salons').doc(user.uid).update({
-            TokenID: this.token
-          })
+         
           }
         })
       
@@ -72,17 +52,23 @@ export class MyApp {
     });
     platform.ready().then(() => {
       statusBar.backgroundColorByHexString('#1E1E1E');
-      // screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+      screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       // Okay, so the platform is ready and our plugins are available.
       //private screenOrientation: ScreenOrientation, 
       // Here you can do any higher level native things you might need.
       statusBar.styleLightContent();
       setTimeout(()=>{
         splashScreen.hide();
-      }, 1000);
+      }, 500);
       if (platform.is('cordova')) {
-      //
+       //
         this.setupPush();
+        firebase.auth().onAuthStateChanged((user)=>{
+          firebase.firestore().collection('Salons').doc(user.uid).update({
+            TokenID: this.token
+          })
+        })
+       
       }
     });
   }

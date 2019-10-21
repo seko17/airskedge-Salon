@@ -27,6 +27,7 @@ page-view-staff-profile {
   .container {
     display: flex;
     flex-flow: column;
+    height: 100%;
   }
 
   .image {
@@ -73,6 +74,7 @@ page-view-staff-profile {
 
   .availability {
     position: relative;
+    left: 10px;
     z-index: 5;
     top: 59vh;
     margin: 10px;
@@ -121,12 +123,11 @@ page-view-staff-profile {
       letter-spacing: 1px;
       text-transform: uppercase;
     }
-
   }
 
   .delete {
     position: absolute;
-    bottom: 8vh;
+    bottom: 6vh;
     width: 100vw;
     align-items: center;
 
@@ -143,7 +144,7 @@ page-view-staff-profile {
 
   footer {
     position: absolute;
-    bottom: 5px;
+    bottom: 0;
     align-items: center;
     width: 100vw;
 

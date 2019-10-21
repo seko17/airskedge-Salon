@@ -1,9 +1,13 @@
-<ion-header no-border>
+<!-- <ion-header no-border>
   <ion-navbar >
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
+    <ion-header no-border>
+        <ion-navbar >
+        </ion-navbar>
+      </ion-header>
     <div [ngClass]="{'loader': loaderAnimate, 'loader-hide': !loaderAnimate}">
 
         <div class="maploader">
@@ -11,16 +15,16 @@
         </div>
       
       </div>
+
     <div class="container">
-        <pre>
-          </pre>
+       
       <div class="title">
         <h1><span>STAFF</span> <br> PROFILE</h1>
       </div>
 
     <div class="card-wrapper">
       <div class="card">
-        <div class="backimage" (click)="selectImage(2)" *ngIf="!hide">
+        <div class="backimage" (click)="selectImage()" *ngIf="!hide">
           <img src="{{profileImage}}" alt="" class="bimage">
           <div class="btn">
               <ion-icon name="add"></ion-icon>
@@ -59,14 +63,13 @@
               {{validate.message}}
             </div>
           </div>
-          <br>
           <ion-item style="font-family: Poiret One; color: white;">
            
             <ion-select formControlName="special" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" [(ngModel)]="Staff.specialisation" placeholder="Speciality">
               <ion-option *ngFor="let g of specialisation" [value]="g.value">{{g.label}} </ion-option>
             </ion-select>
           </ion-item>     
-          <br>
+  
           <div class="buttonz">
               <button ion-button id="skip" (click)="createStyle(staffForm)" full *ngIf="!hide" >DONE</button>
               <button ion-button id="cancel" (click)=" goback()" full clear *ngIf="!hide">CANCEL</button>

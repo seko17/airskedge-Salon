@@ -56,6 +56,7 @@ export class ManageHairSalonPage {
     uid: ''
 
   }
+  loadm = "Deleting."
   salonLikes = []
   analitics = [];
   userRating = [];
@@ -170,26 +171,24 @@ export class ManageHairSalonPage {
         }, {
           text: 'Delete',
           handler: () => {
-            const worker = this.loadingCtrl.create({
-              content: 'deleting, please wait',
-              spinner: 'bubbles'
-            })
-            worker.present();
+    this.loaderAnimate = true
+   
+           this.loadm = 'Deleting.'
             let query = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').where("hairstyleName", "==", value.hairstyleName)
             query.get().then(snap => {
               snap.forEach(doc => {
                 console.log('Delete Document: ', doc.data())
                 this.displayProfile = doc.data();
                 this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').doc(doc.id).delete().then(res => {
-               
-                  const alerter = this.alertCtrl.create({
-                    message: 'Style deleted'
-                  })
-                  alerter.present();
                   this.styles = [];
+                  this.maleStyles = []
+                  this.femaleStyles = []
+                  this.getFemaleStyle()
+                  this.getMaleStyle()
                   this.getHairSalon();
-                  worker.dismiss()
+                this.loaderAnimate = false
                 });
+               
               })
             })
           }
