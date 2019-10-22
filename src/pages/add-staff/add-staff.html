@@ -67,7 +67,7 @@
           </div>
           <ion-item style="font-family: Poiret One; color: white;">
            
-            <ion-select formControlName="special" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" [(ngModel)]="Staff.specialisation" placeholder="Speciality">
+            <ion-select formControlName="special" [(ngModel)]="Staff.specialisation" placeholder="Speciality">
               <ion-option *ngFor="let g of specialisation" [value]="g.value">{{g.label}} </ion-option>
             </ion-select>
           </ion-item>     
