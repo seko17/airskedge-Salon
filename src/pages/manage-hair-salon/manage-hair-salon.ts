@@ -183,12 +183,7 @@ export class ManageHairSalonPage {
                 console.log('Delete Document: ', doc.data())
                 this.displayProfile = doc.data();
                 this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').doc(doc.id).delete().then(res => {
-                  this.styles = [];
-                  this.maleStyles = []
-                  this.femaleStyles = []
-                  this.getFemaleStyle()
-                  this.getMaleStyle()
-                  this.getHairSalon();
+                  this.navCtrl.push(ManageHairSalonPage)
                 this.loaderAnimate = false
                 });
                
