@@ -100,7 +100,7 @@ export class ManageHairSalonPage {
     })
 
     console.log('salon name', this.SalonNode.salonName);
-
+    this.getHairSalon();
   }
 
   selectedTab(ind) {
@@ -118,10 +118,11 @@ export class ManageHairSalonPage {
   }
 
   ionViewDidLoad() {
-    this.getHairSalon();
+    
     this.getProfile();
-    this.getFemaleStyle();
-    this.getMaleStyle();
+    // this.getFemaleStyle();
+    // this.getMaleStyle();
+
     firebase.firestore().collection('Analytics').doc(firebase.auth().currentUser.uid).onSnapshot(val => {
       val.data();
       this.analitics.push(val.data())
@@ -178,16 +179,25 @@ export class ManageHairSalonPage {
    
            this.loadm = 'Deleting.'
             let query = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').where("hairstyleName", "==", value.hairstyleName)
+
             query.get().then(snap => {
               snap.forEach(doc => {
                 console.log('Delete Document: ', doc.data())
                 this.displayProfile = doc.data();
                 this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').doc(doc.id).delete().then(res => {
-                  this.navCtrl.push(ManageHairSalonPage)
-                this.loaderAnimate = false
+                  this.femaleStyles = []
+                  this.maleStyles = []
+                  this.salonLikes = []
+            this.getHairSalon()
                 });
-               
+                
               })
+              this.loaderAnimate = false
+              setTimeout(()=> {
+               
+                console.log('time out');
+                
+                }, 3000)
             })
           }
         }
@@ -200,10 +210,9 @@ export class ManageHairSalonPage {
 
   //function to get Hair Salon and hair styles
   getHairSalon() {
-
     let users = this.db.collection('Salons');
     let query = users.where("userUID", "==", this.authService.getUser());
-    query.get().then(snap => {
+    query.onSnapshot(snap => {
       if (snap.empty !== true) {
         console.log('Got data', snap);
         snap.forEach(doc => {
@@ -244,6 +253,8 @@ export class ManageHairSalonPage {
         })
         this.isSalon = true;
         this.isnotSalon = false;
+        this.getFemaleStyle()
+        this.getMaleStyle();
 
       } else {
         console.log('No data');
@@ -252,16 +263,12 @@ export class ManageHairSalonPage {
         this.isHairstyle = false;
       }
     
-    }).catch(err => {
-
-      console.log("Query Results: ", err);
-
-    
     })
   }
   getMaleStyle() {
     let users = this.db.collection('Salons');
     let query = users.where("userUID", "==", this.authService.getUser());
+
     query.onSnapshot(res => {
       if (res.empty !== true) {
         res.forEach(doc => {
@@ -269,9 +276,10 @@ export class ManageHairSalonPage {
             this.maleStyles = []
             snapshot.forEach(doc => {
               this.maleStyles.push(doc.data())
-              console.log('male styles here', doc.data());
+              
 
             })
+            console.log('male styles here',this.maleStyles);
           })
 
         })
@@ -288,9 +296,10 @@ export class ManageHairSalonPage {
             this.femaleStyles = []
             snapshot.forEach(doc => {
               this.femaleStyles.push(doc.data())
-              console.log('female styles here', doc.data());
+              
 
             })
+            console.log('female styles here', this.femaleStyles);
           })
 
         })
