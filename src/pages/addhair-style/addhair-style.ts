@@ -99,7 +99,7 @@ hide='';
       const user = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').doc().set(this.Styles);
       // upon success...
       user.then( () => {
-        this.navCtrl.push(ManageHairSalonPage)
+        this.navCtrl.pop()
         this.toastCtrl.create({
           message: 'User hairStyle added',
           duration: 2000,
