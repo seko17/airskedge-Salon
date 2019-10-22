@@ -136,7 +136,7 @@ hide='';
       this.styleImage = image;
       this.profileImage = true
       const filename = Math.floor(Date.now() / 1000);
-      let file = 'Salon-styles/' + this.authService.getUser() + '.jpg';
+      let file = 'Salon-styles/' + this.authService.getUser() + filename +'.jpg';
       const UserImage = this.storage.child(file);
 
       const upload = UserImage.putString(image, 'data_url');

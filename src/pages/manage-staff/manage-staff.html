@@ -28,7 +28,7 @@
         <div class="crd" *ngFor=" let n of staff " (click)="view(n)">
           <div class="image">
             <img *ngIf="!n.staffImage" src="../../assets/imgs/dummyAvatr.png" alt="">
-            <img *ngIf="n.staffImage" src="{{n.staffImage}}">
+            <img *ngIf="n.staffImage" src="{{n.staffImage}}" width="100%" height="100%">
           </div>
           <div class="details">
             <p class="p1">{{n.name}} {{n.staffSurname}}</p>
