@@ -92,14 +92,14 @@ hide='';
     } else {
        
            const load = this.loadingCtrl.create({
-            content: 'Creating Salon..'
+            content: 'Creating Hairstyle..'
           });
           load.present();
       
       const user = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').doc().set(this.Styles);
       // upon success...
       user.then( () => {
-        this.navCtrl.setRoot(ManageHairSalonPage)
+        this.navCtrl.push(ManageHairSalonPage)
         this.toastCtrl.create({
           message: 'User hairStyle added',
           duration: 2000,

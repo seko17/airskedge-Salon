@@ -91,7 +91,8 @@ export class ManageHairSalonPage {
     console.log('check', this.aveg)
     //Fubction for getting functionality
     this.analitics;
-    firebase.firestore().collection('salonAnalytics').doc(firebase.auth().currentUser.uid).collection('numbers').get().then(val => {
+    firebase.firestore().collection('salonAnalytics').doc(firebase.auth().currentUser.uid).collection('numbers').onSnapshot(val => {
+
       val.forEach(data => {
         console.log(data.data())
         this.analitics.push(data.data());
@@ -121,7 +122,7 @@ export class ManageHairSalonPage {
     this.getProfile();
     this.getFemaleStyle();
     this.getMaleStyle();
-    firebase.firestore().collection('Analytics').doc(firebase.auth().currentUser.uid).get().then(val => {
+    firebase.firestore().collection('Analytics').doc(firebase.auth().currentUser.uid).onSnapshot(val => {
       val.data();
       this.analitics.push(val.data())
 
@@ -219,11 +220,13 @@ export class ManageHairSalonPage {
           this.SalonNode.salonImage = doc.data().salonName;
 
           this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').onSnapshot(res => {
+            
             res.forEach(doc => {
               this.isHairstyle = true;
             })
           });
-          this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('likes').get().then(res => {
+          this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('likes').onSnapshot(res => {
+            this.salonLikes = []
             res.forEach(doc => {
               this.salonLikes.push(doc.data().length)
               //  console.log('likes of slaon', doc.data().length);
