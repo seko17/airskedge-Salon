@@ -12,9 +12,11 @@ import { OneSignal } from '@ionic-native/onesignal';
 import { Storage } from '@ionic/storage';
 import { LoadingController } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
 // import { ScreenOrientation } from '@ionic-native/screen-orientation';
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+
 })
 export class MyApp {
   rootPage: any;
