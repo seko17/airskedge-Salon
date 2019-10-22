@@ -142,7 +142,9 @@ specialisation:''
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      quality: 100,
+      quality: 60,
+      targetHeight : 60,
+      targetWidth : 60,
     sourceType: sourceType,
     saveToPhotoAlbum: false,
     correctOrientation: true
@@ -165,7 +167,7 @@ specialisation:''
       this.profileImage = image;
       
       const filename = Math.floor(Date.now() / 1000);
-      let file = 'Salon-staff/' + this.authUser.getUser() + '.jpg';
+      let file = 'Salon-staff/' + this.authUser.getUser() + filename +  '.jpg';
       const UserImage = this.storage.child(file);
 ​
       const upload = UserImage.putString(image, 'data_url');

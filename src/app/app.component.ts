@@ -65,12 +65,7 @@ export class MyApp {
       if (platform.is('cordova')) {
        //
         this.setupPush();
-        firebase.auth().onAuthStateChanged((user)=>{
-          firebase.firestore().collection('Salons').doc(user.uid).update({
-            TokenID: this.token
-          })
-        })
-       
+        this.initUpdate();
       }
     });
   }
@@ -91,6 +86,13 @@ export class MyApp {
         console.log(res);
       });
       this.oneSignal.endInit();
+  }
+  initUpdate(){
+    firebase.auth().onAuthStateChanged((user)=>{
+      firebase.firestore().collection('Salons').doc(user.uid).update({
+        TokenID: this.token
+      })
+    })
   }
 }
 
