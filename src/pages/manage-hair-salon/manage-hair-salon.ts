@@ -12,10 +12,12 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { PagesPage } from '../pages/pages';
 
 
+
 @IonicPage()
 @Component({
   selector: 'page-manage-hair-salon',
   templateUrl: 'manage-hair-salon.html',
+
 })
 export class ManageHairSalonPage {
   @ViewChild('slider') slider: Slides;

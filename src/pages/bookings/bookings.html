@@ -51,7 +51,7 @@
         <div class="body">
           <div class="time" *ngFor="let n of testArray">
             <div class="date">
-              <p id="date">{{n.userdate}}</p>
+              <p id="date" style="font-size: 4vw;">{{n.userdate}}</p>
             </div>
             <div class="data">
               <p>Customer Name: {{n.name}}</p>
@@ -66,7 +66,7 @@
                 </button>
                 <button ion-button  *ngIf="n.userdate == currentday && n.payment!='Paid' "
                   (click)="paid(n)" style="background:rgb(14, 70, 24)">
-                  <ion-icon name="logo-usd"></ion-icon>
+                  <ion-icon name="cash"></ion-icon>
                 </button>
               </div>
             </div>
