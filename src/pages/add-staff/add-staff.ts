@@ -142,9 +142,9 @@ specialisation:''
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      quality: 60,
-      targetHeight : 60,
-      targetWidth : 60,
+      quality: 90,
+      targetHeight : 600,
+      targetWidth : 600,
     sourceType: sourceType,
     saveToPhotoAlbum: false,
     correctOrientation: true

@@ -58,14 +58,14 @@
         </div>
   
         <ion-item>
-          <ion-select formControlName="duration" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" [(ngModel)]="Styles.duration" placeholder="Duration">
+          <ion-select formControlName="duration"  [(ngModel)]="Styles.duration" placeholder="Duration">
             <ion-option *ngFor="let g of Duration" [value]="g.value">{{g.label}}  </ion-option>
           </ion-select>
         </ion-item>
   
         <ion-item>
            
-            <ion-select formControlName="genderOptions" (ionFocus)="inputEvent('open')" (ionBlur)="inputEvent('close')" [(ngModel)]="Styles.genderOptions" placeholder="Style Gender">
+            <ion-select formControlName="genderOptions" [(ngModel)]="Styles.genderOptions" placeholder="Style Gender">
               <ion-option *ngFor="let g of Gender" value="{{g}}">{{g}}</ion-option>
             </ion-select>
           </ion-item>
