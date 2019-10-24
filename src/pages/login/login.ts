@@ -64,10 +64,6 @@ this.navCtrl.push(CreateAccountPage)
       setTimeout(() => {
         loading.dismiss();
       }, 1000);
-
-
-
-
       this.authservice.loginUser(this.loginForm.value.email, this.loginForm.value.password)
       .then( authservice => {
         this.navCtrl.setRoot(LandingPage);
