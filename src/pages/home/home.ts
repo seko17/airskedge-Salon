@@ -11,6 +11,7 @@ import { CreateAccountPage } from '../create-account/create-account';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  show = true;
 @ViewChild('slides') slides: Slides;
 
   constructor(public navCtrl: NavController,
@@ -40,6 +41,13 @@ register(){
 }
 
 nextslides(){
+  this.slides.lockSwipes(false)
   this.slides.slideNext();
+  if(this.slides._activeIndex == 2){
+    console.log('index',this.slides._activeIndex);
+    
+      this.show = false;
+  }
+  
 }
 }

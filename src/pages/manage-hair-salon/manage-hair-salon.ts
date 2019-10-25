@@ -58,7 +58,7 @@ export class ManageHairSalonPage {
     uid: ''
 
   }
-  loadm = "Deleting."
+
   salonLikes = []
   analitics = [];
   userRating = [];
@@ -176,8 +176,6 @@ export class ManageHairSalonPage {
           text: 'Delete',
           handler: () => {
     this.loaderAnimate = true
-   
-           this.loadm = 'Deleting.'
             let query = this.db.collection('Salons').doc(firebase.auth().currentUser.uid).collection('Styles').where("hairstyleName", "==", value.hairstyleName)
 
             query.get().then(snap => {
